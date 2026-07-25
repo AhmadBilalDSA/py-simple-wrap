@@ -17,3 +17,7 @@ from .easy_converter import (
     fluid_oz_to_ml,
     ml_to_fluid_oz
 )
+from .easy_numbers import (
+    is_even,
+    is_evenly_divides,
+)
