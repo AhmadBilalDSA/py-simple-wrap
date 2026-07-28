@@ -237,3 +237,35 @@ def inches_to_cm(inches: float) -> float:
             (100.0)
         """
     return float(f"{(inches * 2.54):.2f}")
+
+
+def sq_meters_to_sq_feet(sq_meters: float) -> float:
+    """
+        Converts square meters to square feet.
+        Returns square feet as float.
+
+        Arguments:
+            sq_meters (float) -- square meters to be converted to
+            square feet.
+
+        Example:
+            sq_meters_to_sq_feet(10)
+            (107.64)
+        """
+    return float(f"{(sq_meters * 10.7639):.2f}")
+
+
+def sq_feet_to_sq_meters(sq_feet: float) -> float:
+    """
+        Converts square feet to square meters.
+        Returns square meters as float.
+
+        Arguments:
+            sq_feet (float) -- square feet to be converted to
+            square meters.
+
+        Example:
+            sq_feet_to_sq_meters(107.64)
+            (10.0)
+        """
+    return float(f"{(sq_feet * 0.092903):.2f}")
