@@ -118,4 +118,3 @@ def is_prime(number: int) -> bool:
                 return False
     return True
 
-print(is_prime(43))
