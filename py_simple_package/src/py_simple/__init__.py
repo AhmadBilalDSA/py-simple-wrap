@@ -15,9 +15,13 @@ from .easy_converter import (
     miles_to_km,
     km_to_mile,
     fluid_oz_to_ml,
-    ml_to_fluid_oz
+    ml_to_fluid_oz,
+    celsius_to_fahrenheit,
+    fahrenheit_to_celsius,
+    kg_to_lb,
+    lb_to_kg
 )
 from .easy_numbers import (
     is_even,
-    is_evenly_divides,
+    is_evenly_divisible,
 )
