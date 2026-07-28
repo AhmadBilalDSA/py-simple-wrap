@@ -12,9 +12,9 @@ def is_even(number: int) -> bool:
 
         Example:
             is_even(90)
-            (true)
+            (True)
             is_even(67)
-            (false)
+            (False)
         """
     return number % 2 == 0
 
@@ -28,9 +28,9 @@ def is_odd(number: int) -> bool:
 
         Example:
             is_odd(90)
-            (false)
+            (False)
             is_odd(67)
-            (true)
+            (True)
         """
     return number % 2 == 1
 
@@ -46,9 +46,9 @@ def is_evenly_divisible(number: int, divisor: int) -> bool:
 
         Example:
             is_evenly_divisible(90, 9)
-            (true)
+            (True)
             is_evenly_divisible(67, 2)
-            (false)
+            (False)
         """
     return number % divisor == 0
 
@@ -63,9 +63,9 @@ def is_positive(number: int) -> bool:
 
         Example:
             is_positive(90)
-            (true)
+            (True)
             is_positive(-10)
-            (false)
+            (False)
         """
     return number > 0
 
@@ -80,9 +80,9 @@ def is_negative(number: int) -> bool:
 
         Example:
             is_negative(90)
-            (false)
+            (False)
             is_negative(-10)
-            (true)
+            (True)
         """
     return number < 0
 
@@ -104,8 +104,19 @@ def average(nums: list[float]) -> float:
 
 
 def is_prime(number: int) -> bool:
+    """
+        Returns true if the number is prime and false if it is.
+
+        Arguments:
+            number (int) -- number to check if prime.
+
+        Example:
+            is_prime(2)
+            (True)
+            is_prime(15)
+            (False)
+        """
     limit = int((number ** 0.5) + 1)
-    prime = True
     if number < 2:
         return False
     elif number == 2:
@@ -118,3 +129,20 @@ def is_prime(number: int) -> bool:
                 return False
     return True
 
+
+def percentage_of(number: int, percentage: float) -> float:
+    """
+        Returns percentage of number as a float.
+
+        Arguments:
+            number (int) -- number to get percentage of.
+            percentage (float) -- percentage to get.
+            Must be between 0 and 1 (e.g. 0.5, 0.75)
+
+        Example:
+            percentage_of(100, 0.5)
+            (50.0)
+            percentage_of(19, 0.4)
+            (7.6)
+        """
+    return float(f"{(number * percentage):.2f}")
