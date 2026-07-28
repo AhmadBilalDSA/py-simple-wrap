@@ -13,7 +13,9 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
   - Added "Future Date" functionality to `easy_date_formatter`.
   - Implemented `list_files` and `copy_file` tools in `easy_file_manager`.
   - Refactored core logic to use a centralized format registry.
-
+    
+- **Onion0121** ([@Onion0121](https://github.com/Onion0121))
+  - Improve documentation (made README.md more approachable for beginners)
 ---
 
 ## How to get your name here? 🛠️
