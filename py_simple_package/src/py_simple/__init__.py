@@ -20,3 +20,6 @@ from .easy_numbers import (
     is_even, is_odd, is_evenly_divisible, is_negative, is_positive,
     average, is_prime, percentage_of
 )
+from .easy_validator import (
+    is_valid_email,
+)
