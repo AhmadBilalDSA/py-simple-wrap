@@ -67,7 +67,7 @@ def miles_to_km(miles: float) -> float:
     return float(f"{miles * 1.60934:.2f}")
 
 
-def fluid_oz_to_ml(oz: float, standard = 'us'):
+def fluid_oz_to_ml(oz: float, standard = 'us') -> float | None:
     """
     Converts fluid ounces to milliliters. Returns milliliters as a float.
 
@@ -92,9 +92,10 @@ def fluid_oz_to_ml(oz: float, standard = 'us'):
     return None
 
 
-def ml_to_fluid_oz(milliliters: float, standard = 'us'):
+def ml_to_fluid_oz(milliliters: float, standard = 'us') -> float | None:
     """
-        Converts milliliters to fluid ounces. Returns fluid ounces as a float.
+        Converts milliliters to fluid ounces. Returns fluid ounces as a
+        float.
 
         :param:
             milliliters (float) -- milliliters
