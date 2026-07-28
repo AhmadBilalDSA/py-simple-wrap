@@ -19,7 +19,10 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
   - Improve documentation (made README.md more approachable for beginners)
  
 - **jagjitkaur0000** ([@jagjitkaur0000](https://github.com/jagjitkaur0000))
-  - Added unit tests for `easy_numbers.py`
+  - Added unit tests for `easy_numbers.py` module
+ 
+- **averyquinnhq** ([@averyquinnhq](https://github.com/averyquinnhq))
+  - Added unit tests for `easy_converter.py` module
 ---
 
 ## How to get your name here? 🛠️
