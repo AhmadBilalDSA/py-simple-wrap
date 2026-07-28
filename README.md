@@ -8,16 +8,6 @@ The goal of this project is to remove the need for memorizing complex syntax or 
 
 ---
 
-## 📦 Installation
-
-Install Py_simple using pip:
-
-```bash
-pip install py-simple
-```
-
----
-
 ## 🛠️ Module Menu
 
 Py_simple provides simple modules designed to make common Python tasks easier.
@@ -69,16 +59,6 @@ Features include:
 - Less repetitive code
 
 ---
-
-## 🚀 Getting Started
-
-After installing Py_simple, import the modules you need and start using simple Python functions.
-
-Example:
-
-```python
-import py_simple
-```
 
 More examples and documentation will be added as the project grows.
 
