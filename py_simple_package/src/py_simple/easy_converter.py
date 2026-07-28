@@ -95,3 +95,64 @@ def ml_to_fluid_oz(milliliters: float, standard = 'us'):
         case "us":
             return float(f"{milliliters * 0.034:.2f}")
     return None
+
+
+def celsius_to_fahrenheit(temp_celsius: float):
+    """
+        Converts temperature in Celsius to temperature in Fahrenheit.
+        Returns degrees Fahrenheit as float.
+
+        :param:
+            temp_celsius (float) -- temperature in Celsius
+
+        Example:
+            celsius_to_fahrenheit(40)
+            (104.0)
+
+        """
+    return float(f"{((temp_celsius * 9 / 5) + 32):.2f}")
+
+
+def fahrenheit_to_celsius(temp_fahrenheit: float):
+    """
+        Converts temperature in Fahrenheit to temperature in Celsius.
+        Returns degrees Celsius as float.
+
+        :param:
+            temp_fahrenheit (float) -- temperature in Fahrenheit
+
+        Example:
+            fahrenheit_to_celsius(104)
+            (40.0)
+        """
+    return float(f"{((temp_fahrenheit - 32) * 5 / 9):.2f}")
+
+
+def kg_to_lb(kg: float):
+    """
+        Converts kilograms to pounds.
+        Returns pounds as float.
+
+        :param:
+            kg (float) -- kilograms
+
+        Example:
+            kg_to_lb(50)
+            (110.23)
+        """
+    return float(f"{kg * 2.20462:.2f}")
+
+
+def lb_to_kg(lb: float):
+    """
+        Converts pounds to kilograms.
+        Returns kilograms as float.
+
+        :param:
+            lb (float) -- pounds
+
+        Example:
+            lb_to_kg(110.23)
+            (50.0)
+        """
+    return float(f"{(lb * 0.453592):.2f}")

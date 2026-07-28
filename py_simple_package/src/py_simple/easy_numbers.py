@@ -19,7 +19,7 @@ def is_even(number: int) -> bool:
     return number % 2 == 0
 
 
-def is_evenly_divides(number: int, divisor: int) -> bool:
+def is_evenly_divisible(number: int, divisor: int) -> bool:
     """
         Returns true if the number can be evenly divided by divisor.
 
