@@ -19,7 +19,11 @@ from .easy_converter import (
     celsius_to_fahrenheit,
     fahrenheit_to_celsius,
     kg_to_lb,
-    lb_to_kg
+    lb_to_kg,
+    meters_to_feet,
+    feet_to_meters,
+    cm_to_inches,
+    inches_to_cm
 )
 from .easy_numbers import (
     is_even,

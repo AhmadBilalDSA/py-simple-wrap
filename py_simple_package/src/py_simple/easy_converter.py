@@ -5,7 +5,7 @@ easy_converter is built to simplify different types of conversions
 from datetime import timedelta
 
 
-def seconds_to_hh_mm_ss(seconds: int):
+def seconds_to_hh_mm_ss(seconds: int) -> str:
     """
     Returns seconds in HH:MM:SS format.
 
@@ -19,7 +19,27 @@ def seconds_to_hh_mm_ss(seconds: int):
     return str(timedelta(seconds=seconds))
 
 
-def km_to_mile(km: float):
+def hh_mm_ss_to_seconds(hours: int = 0, minutes: int = 0, seconds: int = 0) \
+        -> int:
+    """
+        Returns hours, minutes and seconds converted to seconds.
+
+        Arguments:
+            hours (int) -- number of hours to convert. Defaults to 0.
+            minutes (int) -- number of minutes to convert. Defaults to 0.
+            seconds (int) -- number of seconds to convert. Defaults to 0.
+
+        Example:
+            hh_mm_ss_to_seconds(1, 1, 1)
+            (3661)
+        """
+    total_seconds = seconds
+    total_seconds += hours * 3600
+    total_seconds += minutes * 60
+    return total_seconds
+
+
+def km_to_mile(km: float) -> float:
     """
     Converts kilometers to miles. Returns miles as a float.
 
@@ -33,7 +53,7 @@ def km_to_mile(km: float):
     return float(f"{km * 0.621371:.2f}")
 
 
-def miles_to_km(miles: float):
+def miles_to_km(miles: float) -> float:
     """
         Converts miles to kilometers. Returns kilometers as a float.
 
@@ -97,7 +117,7 @@ def ml_to_fluid_oz(milliliters: float, standard = 'us'):
     return None
 
 
-def celsius_to_fahrenheit(temp_celsius: float):
+def celsius_to_fahrenheit(temp_celsius: float) -> float:
     """
         Converts temperature in Celsius to temperature in Fahrenheit.
         Returns degrees Fahrenheit as float.
@@ -113,7 +133,7 @@ def celsius_to_fahrenheit(temp_celsius: float):
     return float(f"{((temp_celsius * 9 / 5) + 32):.2f}")
 
 
-def fahrenheit_to_celsius(temp_fahrenheit: float):
+def fahrenheit_to_celsius(temp_fahrenheit: float) -> float:
     """
         Converts temperature in Fahrenheit to temperature in Celsius.
         Returns degrees Celsius as float.
@@ -128,7 +148,7 @@ def fahrenheit_to_celsius(temp_fahrenheit: float):
     return float(f"{((temp_fahrenheit - 32) * 5 / 9):.2f}")
 
 
-def kg_to_lb(kg: float):
+def kg_to_lb(kg: float) -> float:
     """
         Converts kilograms to pounds.
         Returns pounds as float.
@@ -143,7 +163,7 @@ def kg_to_lb(kg: float):
     return float(f"{kg * 2.20462:.2f}")
 
 
-def lb_to_kg(lb: float):
+def lb_to_kg(lb: float) -> float:
     """
         Converts pounds to kilograms.
         Returns kilograms as float.
@@ -156,3 +176,63 @@ def lb_to_kg(lb: float):
             (50.0)
         """
     return float(f"{(lb * 0.453592):.2f}")
+
+
+def meters_to_feet(meters: float) -> float:
+    """
+        Converts meters to feet.
+        Returns feet as float.
+
+        Arguments:
+            meters (float) -- meters to be converted to feet.
+
+        Example:
+            meters_to_feet(100)
+            (328.08)
+        """
+    return float(f"{(meters * 3.28084):.2f}")
+
+
+def feet_to_meters(feet: float) -> float:
+    """
+        Converts feet to meters.
+        Returns meters as float.
+
+        Arguments:
+            feet (float) -- feet to be converted to meters.
+
+        Example:
+            feet_to_meters(328.08)
+            (100.0)
+        """
+    return float(f"{(feet * 0.3048):.2f}")
+
+
+def cm_to_inches(cm: float) -> float:
+    """
+        Converts centimeters to inches.
+        Returns inches as float.
+
+        Arguments:
+            cm (float) -- centimeters to be converted to inches.
+
+        Example:
+            cm_to_inches(100)
+            (39.37)
+        """
+    return float(f"{(cm / 2.54):.2f}")
+
+
+def inches_to_cm(inches: float) -> float:
+    """
+        Converts centimeters to inches.
+        Returns inches as float.
+
+        Arguments:
+            inches (float) -- inches to be converted to centimeters.
+
+        Example:
+            inches_to_cm(39.37)
+            (100.0)
+        """
+    return float(f"{(inches * 2.54):.2f}")
