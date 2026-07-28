@@ -45,9 +45,9 @@ def is_evenly_divisible(number: int, divisor: int) -> bool:
              evenly divided by divisor.
 
         Example:
-            is_evenly_divides(90, 9)
+            is_evenly_divisible(90, 9)
             (true)
-            is_even(67, 2)
+            is_evenly_divisible(67, 2)
             (false)
         """
     return number % divisor == 0
@@ -101,3 +101,21 @@ def average(nums: list[float]) -> float:
             (4.13)
         """
     return float(f"{(sum(nums) / len(nums)):.2f}")
+
+
+def is_prime(number: int) -> bool:
+    limit = int((number ** 0.5) + 1)
+    prime = True
+    if number < 2:
+        return False
+    elif number == 2:
+        return True
+    elif is_even(number):
+        return False
+    else:
+        for i in range(3, limit, 2):
+            if is_evenly_divisible(number, i):
+                return False
+    return True
+
+print(is_prime(43))

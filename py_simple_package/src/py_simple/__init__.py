@@ -17,5 +17,5 @@ from .easy_converter import (
 )
 from .easy_numbers import (
     is_even, is_odd, is_evenly_divisible, is_negative, is_positive,
-    average,
+    average, is_prime
 )
