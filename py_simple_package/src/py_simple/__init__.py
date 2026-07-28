@@ -21,5 +21,6 @@ from .easy_numbers import (
     average, is_prime, percentage_of
 )
 from .easy_validator import (
-    is_valid_email, is_valid_username, is_valid_zipcode,
+    is_valid_email, is_valid_username, is_valid_zipcode, is_valid_url,
+    is_password_secure,
 )
