@@ -91,6 +91,7 @@ A huge thank you to the wonderful people who have helped build Py_simple:
 - **Onion0121** (Improved documentation)
 - **jagjitkaur0000** (Added tests for easy_numbers module)
 - **averyquinnhq** (added tests for easy_converter.py)
+- **gaoharimran29-glitch** (added tests for easy_validator.py)
 
 See the full list of contributions in [CONTRIBUTORS.md](CONTRIBUTORS.md).
 
