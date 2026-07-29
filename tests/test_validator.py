@@ -1,3 +1,5 @@
+import pytest
+
 from py_simple_package.src.py_simple.easy_validator import (
     is_valid_email,
     is_valid_username,
@@ -5,83 +7,75 @@ from py_simple_package.src.py_simple.easy_validator import (
     is_valid_url,
     is_password_secure)
 
-def test_valid_email():
-    assert is_valid_email("mymail@gmail.com")
+class TestEasyValidator:
 
-def test_not_valid_email():
-    assert not is_valid_email("email.com")
+    @pytest.mark.parametrize(
+    "email,expected",
+    [
+        ("mymail@gmail.com", True),
+        ("email.com", False),
+        ("", False),
+        ("user@test.co", True),
+        ("@gmail.com", False),
+    ],
+    )
 
-def test_email_empty():
-    assert not is_valid_email("")
+    def test_email_validation(self, email, expected):
+        assert is_valid_email(email) is expected
 
-def test_email_with_subdomain():
-    assert is_valid_email("user@test.co")
+    @pytest.mark.parametrize(
+        "username,expected",
+        [
+            ("user_name", True),
+            ("user.name", False),
+            ("user123", True),
+            ("", False),
+            ("user-name", False),
+        ],
+    )
 
-def test_email_missing_username():
-    assert not is_valid_email("@gmail.com")
+    def test_username_validation(self, username, expected):
+        assert is_valid_username(username) is expected
 
-def test_valid_username():
-    assert is_valid_username("user_name")
+    @pytest.mark.parametrize(
+            "zipcode,expected",
+            [
+                (12345, True),
+                (1248721, False),
+                (1234, False),
+                (99999, True),
+                ("01234", True),
+            ],
+        )
 
-def test_not_valid_username():
-    assert not is_valid_username("user.name")
+    def test_zipcode_validation(self, zipcode, expected):
+        assert is_valid_zipcode(zipcode) is expected
 
-def test_username_numbers():
-    assert is_valid_username("user123")
+    @pytest.mark.parametrize(
+        "url, expected",
+        [
+            ("www.google.com", True),
+            ("something.com", False),
+            ("http://google.com", True),
+            ("https://google.com", True),
+            ("", False),
+        ],
+    )
 
-def test_username_empty():
-    assert not is_valid_username("")
+    def test_url_validation(self, url, expected):
+        assert is_valid_url(url) is expected
 
-def test_username_dash():
-    assert not is_valid_username("user-name")
+    @pytest.mark.parametrize(
+        "password, expected",
+        [
+            ("1andkrf!AG5", True),
+            ("111mskagowd", False),
+            ("Ab1!cd", False),
+            ("abcd12!ef", False),
+            ("Abcdef!g1", False),
+            ("Abcd12!!Ef", False)
+        ],
+    )
 
-def test_valid_zipcode():
-    assert is_valid_zipcode(12345)
-
-def test_not_valid_zipcode():
-    assert not is_valid_zipcode(1248721)
-
-def test_zipcode_too_short():
-    assert not is_valid_zipcode(1234)
-
-def test_zipcode_exact_five_digits():
-    assert is_valid_zipcode(99999)
-
-def test_zipcode_with_leading_zero():
-    assert is_valid_zipcode("01234")
-
-def test_valid_url():
-    assert is_valid_url("www.google.com")
-
-def test_not_valid_url():
-    assert not is_valid_url("something.com")
-
-def test_url_http():
-    assert is_valid_url("http://google.com")
-
-def test_url_https():
-    assert is_valid_url("https://google.com")
-
-def test_url_empty():
-    assert not is_valid_url("")
-
-def test_password_secure():
-    assert is_password_secure("1andkrf!AG5")
-
-def test_not_password_secure():
-    assert not is_password_secure("111mskagowd")
-
-def test_password_too_short():
-    assert not is_password_secure("Ab1!cd")
-
-def test_password_no_uppercase():
-    assert not is_password_secure("abcd12!ef")
-
-def test_password_no_special_character():
-    assert not is_password_secure("Abcd1234ef")
-
-def test_password_not_enough_digits():
-    assert not is_password_secure("Abcdef!g1")
-
-def test_password_repeated_characters():
-    assert not is_password_secure("Abcd12!!Ef")
+    def test_password_validation(self, password, expected):
+        assert is_password_secure(password) is expected
