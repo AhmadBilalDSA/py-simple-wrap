@@ -23,6 +23,10 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
  
 - **averyquinnhq** ([@averyquinnhq](https://github.com/averyquinnhq))
   - Added unit tests for `easy_converter.py` module
+ 
+- **gaoharimran29-glitch** ([@gaoharimran29-glitch](https://github.com/gaoharimran29-glitch))
+  - Added unit tests for `easy_validator.py` module
+  
 ---
 
 ## How to get your name here? 🛠️
