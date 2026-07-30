@@ -17,7 +17,7 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
     </td>
     <td align="center">
       <a href="https://github.com/jagjitkaur0000">
-        <img src="https://avatars.githubusercontent.com/u/226679809?v=4" width="100px;" alt="jagjitkaur0000"/><br />
+        <img src="https://github.com/jagjitkaur0000.png" width="100px;" alt="jagjitkaur0000"/><br />
         <sub><b>jagjitkaur0000</b></sub>
       </a><br />
       💻 🧪 🛡️
