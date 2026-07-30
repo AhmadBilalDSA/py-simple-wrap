@@ -1,6 +1,6 @@
 import pytest
 
-from py_simple.easy_strings import (
+from py_simple_package.src.py_simple.easy_strings import (
     is_palindrome,
     remove_extra_spaces,
     to_kebab_case,

@@ -79,7 +79,7 @@ to_kebab_case("Hello World")
 
 is_palindrome("Never odd or even")
 # True
-
+```
 ### 🔄 Easy Converter
 
 Convert values easily using simple utility functions.
