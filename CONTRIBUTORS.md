@@ -4,9 +4,28 @@ A massive thank you to everyone who has helped build, refine, and grow `Py_simpl
 
 Remember **always** that you are **valid**, **valuable**, **unique** and **irreplacable**! **You matter more than you know!!**
 
-## Core Maintainer
-- **Sara Czasak** ([@sara-czasak](https://github.com/sara-czasak))
-  - Project creator, lead developer, and documentation lead.
+## ✨ Collaborators & Core Team
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/sara-czasak">
+        <img src="https://github.com/sara-czasak.png" width="100px;" alt="Sara Czasak"/><br />
+        <sub><b>Sara Czasak</b></sub>
+      </a><br />
+      👑 💻 📖
+    </td>
+    <td align="center">
+      <a href="https://github.com/jagjitkaur0000">
+        <img src="https://avatars.githubusercontent.com/u/226679809?v=4" width="100px;" alt="jagjitkaur0000"/><br />
+        <sub><b>jagjitkaur0000</b></sub>
+      </a><br />
+      💻 🧪 🛡️
+    </td>
+  </tr>
+</table>
+
+---
 
 ## Community Contributors
 - **ghostfix-pm** ([@ghostfix-pm](https://github.com/ghostfix-pm))
