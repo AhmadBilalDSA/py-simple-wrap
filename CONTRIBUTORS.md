@@ -48,6 +48,9 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
  
 - **mmaxjr** ([@mmaxjr](https://github.com/mmaxjr))
   - Improved documentation to include summary of easy_validator module
+ 
+- **sol4nki** ([Pranjal Solanki](https://github.com/sol4nki))
+  - Expanded easy_converter.py
   
 ---
 
