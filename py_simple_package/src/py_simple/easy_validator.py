@@ -137,5 +137,3 @@ def is_password_secure(password: str) -> bool:
             return False
     else:
         return False
-
-print(is_valid_zipcode("01234"))

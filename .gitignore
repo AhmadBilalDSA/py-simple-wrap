@@ -34,3 +34,5 @@ coverage.xml
 .env
 .junie/
 py_simple_ideas.txt
+
+issue_templates/
