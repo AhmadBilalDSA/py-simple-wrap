@@ -115,6 +115,7 @@ A huge thank you to the wonderful people who have helped build Py_simple:
 - **averyquinnhq** (Added tests for easy_converter.py)
 - **gaoharimran29-glitch** (Added tests for easy_validator.py)
 - **mmaxjr** (Improved documentation)
+- **sol4nki** (Expanded easy_converter.py module)
 
 See the full list of contributions in [CONTRIBUTORS.md](CONTRIBUTORS.md).
 
