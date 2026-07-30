@@ -1,6 +1,6 @@
 # Py_simple 🚀
 
-Making Python feel like plain English. 
+Making Python feel like plain English.
 
 Py_simple is a beginner-friendly Python wrapper package designed to help beginners and developers perform common tasks using simple, intuitive functions.
 
@@ -47,6 +47,38 @@ Features include:
 - Cleaner mathematical operations
 
 ---
+### 🔤 Easy Strings
+
+Handle common string operations using clear, beginner-friendly functions.
+
+Features include:
+
+- Removing repeated spaces
+- Converting text to `snake_case`
+- Converting text to `kebab-case`
+- Checking whether text is a palindrome
+
+Example:
+
+```python
+from py_simple.easy_strings import (
+    is_palindrome,
+    remove_extra_spaces,
+    to_kebab_case,
+    to_snake_case,
+)
+
+remove_extra_spaces("  hello   world  ")
+# "hello world"
+
+to_snake_case("Hello World")
+# "hello_world"
+
+to_kebab_case("Hello World")
+# "hello-world"
+
+is_palindrome("Never odd or even")
+# True
 
 ### 🔄 Easy Converter
 
