@@ -1,6 +1,6 @@
 # Py_simple 🚀
 
-Making Python feel like plain English.
+Making Python feel like plain English. 
 
 Py_simple is a beginner-friendly Python wrapper package designed to help beginners and developers perform common tasks using simple, intuitive functions.
 
