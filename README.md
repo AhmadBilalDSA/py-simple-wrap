@@ -148,6 +148,7 @@ A huge thank you to the wonderful people who have helped build Py_simple:
 - **gaoharimran29-glitch** (Added tests for easy_validator.py)
 - **mmaxjr** (Improved documentation)
 - **sol4nki** (Expanded easy_converter.py module)
+- **shivams786** (Added easy_strings.py)
 
 See the full list of contributions in [CONTRIBUTORS.md](CONTRIBUTORS.md).
 
