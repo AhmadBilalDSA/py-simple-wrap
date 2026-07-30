@@ -51,6 +51,9 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
  
 - **sol4nki** ([Pranjal Solanki](https://github.com/sol4nki))
   - Expanded easy_converter.py
+
+- **shivams786** ([Shivam Singh](https://github.com/shivams786))
+  - Added easy_strings module
   
 ---
 
