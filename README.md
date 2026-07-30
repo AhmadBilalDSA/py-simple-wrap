@@ -110,8 +110,8 @@ A huge thank you to the wonderful people who have helped build Py_simple:
 
 - **Sara Czasak** (Creator)
 - **ghostfix-pm** (Major features & Refactoring)
-- **Onion0121** (Improved documentation)
 - **jagjitkaur0000** (Added tests for easy_numbers module)
+- **Onion0121** (Improved documentation)
 - **averyquinnhq** (Added tests for easy_converter.py)
 - **gaoharimran29-glitch** (Added tests for easy_validator.py)
 - **mmaxjr** (Improved documentation)
