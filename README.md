@@ -60,6 +60,18 @@ Features include:
 
 ---
 
+### ✅ Easy Validator
+
+Validate common input formats using simple, readable functions.
+
+Features include:
+
+- Email, username, and URL validation
+- US zip code validation
+- Password strength validation
+
+---
+
 More examples and documentation will be added as the project grows.
 
 ---
