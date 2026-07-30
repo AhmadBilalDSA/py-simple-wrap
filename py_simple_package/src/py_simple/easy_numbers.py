@@ -116,7 +116,8 @@ def is_prime(number: int) -> bool:
             is_prime(15)
             (False)
         """
-    limit = int((number ** 0.5) + 1)
+    if number > 0:
+        limit = int((number ** 0.5) + 1)
     if number < 2:
         return False
     elif number == 2:
