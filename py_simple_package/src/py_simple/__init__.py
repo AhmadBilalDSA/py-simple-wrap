@@ -24,3 +24,6 @@ from .easy_validator import (
     is_valid_email, is_valid_username, is_valid_zipcode, is_valid_url,
     is_password_secure,
 )
+from .easy_web import (
+    get_page_content, is_page_up,
+)

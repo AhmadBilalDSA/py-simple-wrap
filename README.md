@@ -72,6 +72,16 @@ Features include:
 
 ---
 
+### 🌐 Easy Web
+[Easy Web Documentation](docs/easy_web.md)
+
+Make getting data from the web less complex.
+
+Features include:
+
+- Checking if website is up
+- Getting page content
+
 More examples and documentation will be added as the project grows.
 
 ---

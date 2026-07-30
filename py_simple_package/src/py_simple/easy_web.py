@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def get_page_content(url: str):
+def get_page_content(url: str) -> str | None:
     try:
         response = requests.get(url)
         if response.ok:
