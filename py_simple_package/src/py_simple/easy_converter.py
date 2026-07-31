@@ -23,13 +23,13 @@ def seconds_to_hh_mm_ss(seconds: int) -> str:
         ```
 
         === "The Traditional Way"
-            ```python
-            seconds = 3665
-            hours = seconds // 3600
-            minutes = (seconds % 3600) // 60
-            secs = seconds % 60
-            time_string = f"{hours:02}:{minutes:02}:{secs:02}"
-            ```
+        ```python
+        seconds = 3665
+        hours = seconds // 3600
+        minutes = (seconds % 3600) // 60
+        secs = seconds % 60
+        time_string = f"{hours:02}:{minutes:02}:{secs:02}"
+        ```
     """
     return str(timedelta(seconds=seconds))
 
@@ -48,8 +48,9 @@ def hh_mm_ss_to_seconds(hours: int = 0, minutes: int = 0, seconds: int = 0) \
         int: The total number of seconds.
 
     Example:
-        hh_mm_ss_to_seconds(1, 1, 1)
-        (3661)
+        ``` python
+        hh_mm_ss_to_seconds(1, 1, 1) # -> 3661
+        ```
     """
     total_seconds = seconds
     total_seconds += hours * 3600
@@ -68,8 +69,9 @@ def km_to_mile(km: float) -> float:
         float: The equivalent distance in miles.
 
     Example:
-        km_to_mile(100)
-        (62.13)
+        ```python
+        km_to_mile(100) # -> 62.13
+        ```
     """
     return float(f"{km * 0.621371:.2f}")
 
@@ -85,8 +87,9 @@ def miles_to_km(miles: float) -> float:
         float: The equivalent distance in kilometers.
 
     Example:
-        miles_to_km(100)
-        (160.93)
+        ```python
+        miles_to_km(100) # -> 160.93
+        ```
     """
     return float(f"{miles * 1.60934:.2f}")
 
@@ -104,12 +107,10 @@ def fluid_oz_to_ml(oz: float, standard = 'us') -> float | None:
             standard isn't 'us' or 'uk'.
 
     Example:
-        standard = 'us'
-        fluid_oz_to_ml(1)
-        (29.6)
-        standard = 'uk'
-        fluid_oz_to_ml(1)
-        (28.4)
+        ```python
+        fluid_oz_to_ml(1, standard='us')  # -> 29.6
+        fluid_oz_to_ml(1, standard='uk')  # -> 28.4
+        ```
     """
     match standard:
         case "uk":
@@ -132,12 +133,11 @@ def ml_to_fluid_oz(milliliters: float, standard = 'us') -> float | None:
             standard isn't 'us' or 'uk'.
 
     Example:
-        standard = 'us'
-        ml_to_fluid_oz(1)
-        (0.03)
-        standard = 'uk'
-        ml_to_fluid_oz(1)
-        (0.04)
+        ``` python
+        ml_to_fluid_oz(1, standard = 'us') # -> 0.03
+
+        ml_to_fluid_oz(1, standard = 'uk') # -> 0.04
+        ```
     """
     match standard:
         case "uk":
@@ -186,8 +186,9 @@ def fahrenheit_to_celsius(temp_fahrenheit: float) -> float:
         float: The equivalent temperature in Celsius.
 
     Example:
-        fahrenheit_to_celsius(104)
-        (40.0)
+        ``` python
+        fahrenheit_to_celsius(104) # -> 40.0
+        ```
     """
     return float(f"{((temp_fahrenheit - 32) * 5 / 9):.2f}")
 
@@ -210,10 +211,10 @@ def kg_to_lb(kg: float) -> float:
         ```
 
         === "The Traditional Way"
-            ```python
-            kg = 5
-            lb = round(kg * 2.20462, 2)
-            ```
+        ```python
+        kg = 5
+        lb = round(kg * 2.20462, 2)
+        ```
     """
     return float(f"{kg * 2.20462:.2f}")
 
@@ -229,8 +230,9 @@ def lb_to_kg(lb: float) -> float:
         float: The equivalent weight in kilograms.
 
     Example:
-        lb_to_kg(110.23)
-        (50.0)
+        ``` python
+        lb_to_kg(110.23) # -> 50.0
+        ```
     """
     return float(f"{(lb * 0.453592):.2f}")
 
@@ -246,8 +248,9 @@ def meters_to_feet(meters: float) -> float:
         float: The equivalent length in feet.
 
     Example:
-        meters_to_feet(100)
-        (328.08)
+        ``` python
+        meters_to_feet(100) # -> 328.08
+        ```
     """
     return float(f"{(meters * 3.28084):.2f}")
 
@@ -263,8 +266,9 @@ def feet_to_meters(feet: float) -> float:
         float: The equivalent length in meters.
 
     Example:
-        feet_to_meters(328.08)
-        (100.0)
+        ``` python
+        feet_to_meters(328.08) # -> 100.0
+        ```
     """
     return float(f"{(feet * 0.3048):.2f}")
 
@@ -280,8 +284,9 @@ def cm_to_inches(cm: float) -> float:
         float: The equivalent length in inches.
 
     Example:
-        cm_to_inches(100)
-        (39.37)
+        ``` python
+        cm_to_inches(100) # -> 39.37
+        ```
     """
     return float(f"{(cm / 2.54):.2f}")
 
@@ -297,8 +302,9 @@ def inches_to_cm(inches: float) -> float:
         float: The equivalent length in centimeters.
 
     Example:
-        inches_to_cm(39.37)
-        (100.0)
+        ``` python
+        inches_to_cm(39.37) # -> 100.0
+        ```
     """
     return float(f"{(inches * 2.54):.2f}")
 
@@ -314,8 +320,9 @@ def sq_meters_to_sq_feet(sq_meters: float) -> float:
         float: The equivalent area in square feet.
 
     Example:
-        sq_meters_to_sq_feet(10)
-        (107.64)
+        ```python
+        sq_meters_to_sq_feet(10) # -> 107.64
+        ```
     """
     return float(f"{(sq_meters * 10.7639):.2f}")
 
@@ -331,8 +338,9 @@ def sq_feet_to_sq_meters(sq_feet: float) -> float:
         float: The equivalent area in square meters.
 
     Example:
-        sq_feet_to_sq_meters(107.64)
-        (10.0)
+        ``` python
+        sq_feet_to_sq_meters(107.64) # -> 10.0
+        ```
     """
     return float(f"{(sq_feet * 0.092903):.2f}")
 
@@ -348,8 +356,9 @@ def mph_to_kph(mph):
         float: The equivalent speed in kph.
 
     Example:
-        mph_to_kph(0.621371)
-        (1.0)
+        ``` python
+        mph_to_kph(0.621371) # -> 1.0
+        ```
     """
     return float(f"{(mph * 1.60934):.2f}")
 
@@ -365,7 +374,8 @@ def kph_to_mph(kph):
         float: The equivalent speed in mph.
 
     Example:
-        kph_to_mph(1.60934)
-        (1.0)
+        ``` python
+        kph_to_mph(1.60934) # -> 1.0
+        ```
     """
     return float(f"{(kph * 0.621371):.2f}")
