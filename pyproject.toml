@@ -42,6 +42,13 @@ Quickstart = "https://github.com/sara-czasak/py_simple/blob/main/QUICKSTART.md"
 test = [
     "pytest>=7.0",
 ]
+docs = [
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocs-include-markdown-plugin",
+    "mkdocstrings",
+    "mkdocstrings-python",
+]
 
 [tool.setuptools.packages.find]
 where = ["py_simple_package/src"]
