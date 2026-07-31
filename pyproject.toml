@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "py_simple_wrap"
-version = "0.1.1"
+version = "0.1.2"
 authors = [
   { name="Sara Czasak", email="sara.p.czasak.m@gmail.com" },
 ]
@@ -36,6 +36,7 @@ Homepage = "https://github.com/sara-czasak/py_simple"
 Repository = "https://github.com/sara-czasak/py_simple"
 "Bug Tracker" = "https://github.com/sara-czasak/py_simple/issues"
 Documentation = "https://github.com/sara-czasak/py_simple/tree/main/docs"
+Quickstart = "https://github.com/sara-czasak/py_simple/blob/main/docs/QUICKSTART.md"
 
 [project.optional-dependencies]
 test = [
