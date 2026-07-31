@@ -18,6 +18,22 @@ def get_page_content(url: str) -> str | None:
 
     Example:
         get_page_content("https://example.com")
+        === "The Py_simple Way"
+        ```python
+        from py_simple import get_page_content
+        content = get_page_content("https://google.com")
+        ```
+
+        === "The Traditional Way"
+        ```python
+        import requests
+        from bs4 import BeautifulSoup
+
+        response = requests.get("https://google.com")
+        if response.status_code == 200:
+            soup = BeautifulSoup(response.text, 'html.parser')
+            content = soup.prettify()
+        ```
     """
     try:
         response = requests.get(url, timeout=10)
@@ -41,8 +57,25 @@ def is_page_up(url: str) -> bool:
         bool: True if the site responded with status 200, False otherwise.
 
     Example:
-        is_page_up("https://example.com")
-        (True)
+        === "The Py_simple Way"
+        ```python
+        from py_simple import is_page_up
+
+        if is_page_up("https://github.com"):
+            print("The site is active!")
+        ```
+
+        === "The Traditional Way"
+            ```python
+            import requests
+
+            try:
+                response = requests.get("https://github.com")
+                if response.status_code == 200:
+                    print("The site is active!")
+            except Exception:
+                print("The site is down or address is invalid.")
+            ```
     """
     try:
         response = requests.get(url, timeout=10)

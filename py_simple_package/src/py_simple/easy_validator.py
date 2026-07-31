@@ -16,10 +16,20 @@ def is_valid_email(email: str) -> bool:
             bool: True if the email is valid, False otherwise.
 
         Example:
-            is_valid_email("mymail@gmail.com")
-            (True)
-            is_valid_email("email.com")
-            (False)
+            === "The Py_simple Way"
+            ```python
+            from py_simple import is_valid_email
+            if is_valid_email("hello@world.com"):
+                print("Looks good!")
+            ```
+
+            === "The Traditional Way"
+            ```python
+            import re
+            pattern = r'[a-zA-Z_.%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]+'
+            if re.fullmatch(pattern, "hello@world.com"):
+                print("Looks good!")
+            ```
         """
     pattern = r'[a-zA-Z_.%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]+'
     return bool(re.fullmatch(pattern, email))

@@ -24,10 +24,16 @@ nav:
   - Home: index.md
   - Tutorial:
       - Quickstart: tutorial/quickstart.md
-  - How-To:
+  - How To:
       - Contributing: how-to/contributing.md
   - Reference:
+      - Easy Numbers: reference/easy_numbers.md
+      - Easy Strings: reference/easy_strings.md
       - Easy Web: reference/easy_web.md
+      - Easy Converter: reference/easy_converter.md
+      - Easy Date Formatter: reference/easy_date_formatter.md
+      - East File Manager: reference/easy_file_manager.md
+      - Easy Validator: reference/easy_validator.md
   - About:
       - README: readme.md
       - Contributors: about/contributors.md
