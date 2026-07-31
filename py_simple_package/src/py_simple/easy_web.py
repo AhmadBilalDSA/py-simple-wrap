@@ -88,39 +88,38 @@ def is_page_up(url: str) -> bool:
 
 def get_page_title(url: str) -> str | None:
     """
-        Returns web page title or None if an error occurs.
+    Returns web page title or None if an error occurs.
 
-        Args:
-            url (str): Website to check.
+    Args:
+        url (str): Website to check.
 
-        Returns:
-            str: Page title
-            None: If error occurs.
+    Returns:
+        str | None: Page title or None if an error occurs.
 
-        Example:
-            === "The Py_simple Way"
-                ```python
-                from py_simple import get_page_title
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import get_page_title
 
 
-                print(get_page_title("https://github.com")) #-> "GitHub ·
-                Change is constant. GitHub keeps you ahead. · GitHub
-                ```
+            print(get_page_title("https://github.com")) #-> "GitHub ·
+            Change is constant. GitHub keeps you ahead. · GitHub
+            ```
 
-            === "The Traditional Way"
-                ```python
-                import requests
+        === "The Traditional Way"
+            ```python
+            import requests
 
-                try:
-                    response = requests.get(url, timeout=10)
-                    response.raise_for_status()
-                    page = BeautifulSoup(response.content, 'html.parser')
-                    title = page.title.string
-                    return title
-                except Exception as e:
-                    print("The site is down or address is invalid.")
-                ```
-        """
+            try:
+                response = requests.get(url, timeout=10)
+                response.raise_for_status()
+                page = BeautifulSoup(response.content, 'html.parser')
+                title = page.title.string
+                return title
+            except Exception as e:
+                print("The site is down or address is invalid.")
+            ```
+    """
     try:
         response = requests.get(url, timeout=10)
         response.raise_for_status()
@@ -134,41 +133,37 @@ def get_page_title(url: str) -> str | None:
 
 def count_links(url: str) -> int | None:
     """
-        Returns number of links in the website or None if an error occurs.
+    Returns number of links in the website or None if an error occurs.
 
-        Args:
-            url (str): Website to count links from.
+    Args:
+        url (str): Website to count links from.
 
-        Returns:
-            int: number of links
-            None: If an error occurs.
+    Returns:
+        int | None: number of links or None if an error occurs.
 
-        Example:
-            === "The Py_simple Way"
-                ```python
-                from py_simple import count_links
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import count_links
 
-
-                print(count_links("https://github.com")) #-> 144
-                ```
-
-            === "The Traditional Way"
-                ```python
-                import requests
-
-                try:
-                    response = requests.get(url, timeout=10)
-                    soup = BeautifulSoup(response.content, 'html.parser')
-                    link_count = 0
-                    if response is not None:
-                        for link in soup.find_all('a'):
-                            link_count += 1
-                        return link_count
-                except Exception as e:
-                    print(f"Something went wrong with {url}\nERROR: {e}")
-                    return None
-                ```
-        """
+            print(count_links("https://github.com")) #-> 144
+            ```
+        === "The Traditional Way"
+            ```python
+            import requests
+            try:
+                response = requests.get(url, timeout=10)
+                soup = BeautifulSoup(response.content, 'html.parser')
+                link_count = 0
+                if response is not None:
+                    for link in soup.find_all('a'):
+                        link_count += 1
+                    return link_count
+            except Exception as e:
+                print(f"Something went wrong with {url}")
+                return None
+            ```
+    """
     try:
         response = requests.get(url, timeout=10)
         soup = BeautifulSoup(response.content, 'html.parser')
@@ -190,22 +185,17 @@ def get_link_list(url: str) -> list[str] | None:
         url (str): Website to get links from.
 
     Returns:
-        list[str]: list of links
-        None: If an error occurs.
+        list[str] | None: list of links or None if the request fails.
 
     Example:
         === "The Py_simple Way"
             ```python
             from py_simple import get_link_list
-
-
             print(get_link_list("https://github.com")) #-> [...]
             ```
-
         === "The Traditional Way"
             ```python
             import requests
-
             try:
                 response = requests.get(url, timeout=10)
                 soup = BeautifulSoup(response.content, 'html.parser')
@@ -215,10 +205,10 @@ def get_link_list(url: str) -> list[str] | None:
                         link_list.append(link.get('href'))
                     return link_list
             except Exception as e:
-                print(f"Something went wrong with {url}\nERROR: {e}")
+                print(f"Something went wrong with {url}")
                 return None
-            ```
-        """
+        ```
+    """
     try:
         response = requests.get(url, timeout=10)
         soup = BeautifulSoup(response.content, 'html.parser')
@@ -230,5 +220,3 @@ def get_link_list(url: str) -> list[str] | None:
     except Exception as e:
         print(f"Something went wrong with {url}\nERROR: {e}")
         return None
-
-
