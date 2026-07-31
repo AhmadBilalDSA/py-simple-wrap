@@ -32,7 +32,7 @@ nav:
       - Easy Web: reference/easy_web.md
       - Easy Converter: reference/easy_converter.md
       - Easy Date Formatter: reference/easy_date_formatter.md
-      - East File Manager: reference/easy_file_manager.md
+      - Easy File Manager: reference/easy_file_manager.md
       - Easy Validator: reference/easy_validator.md
   - About:
       - README: readme.md
