@@ -132,3 +132,103 @@ def get_page_title(url: str) -> str | None:
         return None
 
 
+def count_links(url: str) -> int | None:
+    """
+        Returns number of links in the website or None if an error occurs.
+
+        Args:
+            url (str): Website to count links from.
+
+        Returns:
+            int: number of links
+            None: If an error occurs.
+
+        Example:
+            === "The Py_simple Way"
+                ```python
+                from py_simple import count_links
+
+
+                print(count_links("https://github.com")) #-> 144
+                ```
+
+            === "The Traditional Way"
+                ```python
+                import requests
+
+                try:
+                    response = requests.get(url, timeout=10)
+                    soup = BeautifulSoup(response.content, 'html.parser')
+                    link_count = 0
+                    if response is not None:
+                        for link in soup.find_all('a'):
+                            link_count += 1
+                        return link_count
+                except Exception as e:
+                    print(f"Something went wrong with {url}\nERROR: {e}")
+                    return None
+                ```
+        """
+    try:
+        response = requests.get(url, timeout=10)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        link_count = 0
+        if response is not None:
+            for link in soup.find_all('a'):
+                link_count += 1
+            return link_count
+    except Exception as e:
+        print(f"Something went wrong with {url}\nERROR: {e}")
+        return None
+
+
+def get_link_list(url: str) -> list[str] | None:
+    """
+    Returns a list of links on website or None if an error occurs.
+
+    Args:
+        url (str): Website to get links from.
+
+    Returns:
+        list[str]: list of links
+        None: If an error occurs.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import get_link_list
+
+
+            print(get_link_list("https://github.com")) #-> [...]
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import requests
+
+            try:
+                response = requests.get(url, timeout=10)
+                soup = BeautifulSoup(response.content, 'html.parser')
+                link_list = []
+                if response is not None:
+                    for link in soup.find_all('a'):
+                        link_list.append(link.get('href'))
+                    return link_list
+            except Exception as e:
+                print(f"Something went wrong with {url}\nERROR: {e}")
+                return None
+            ```
+        """
+    try:
+        response = requests.get(url, timeout=10)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        link_list = []
+        if response is not None:
+            for link in soup.find_all('a'):
+                link_list.append(link.get('href'))
+            return link_list
+    except Exception as e:
+        print(f"Something went wrong with {url}\nERROR: {e}")
+        return None
+
+
