@@ -54,7 +54,10 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
 
 - **shivams786** ([Shivam Singh](https://github.com/shivams786))
   - Added easy_strings module
-  
+
+- **HeaTTap** ([HeaTTap](https://github.com/HeaTTap))
+  - Added unit tests for easy_web
+    
 ---
 
 ## How to get your name here? 🛠️
