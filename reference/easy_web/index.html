@@ -1086,43 +1086,91 @@
 
     <div class="doc doc-contents ">
 
-        <pre><code>    Returns number of links in the website or None if an error occurs.
-
-    Args:
-        url (str): Website to count links from.
-
-    Returns:
-        int: number of links
-        None: If an error occurs.
-
-    Example:
-        === "The Py_simple Way"
-            ```python
-            from py_simple import count_links
+        <p>Returns number of links in the website or None if an error occurs.</p>
 
 
-            print(count_links("https://github.com")) #-&gt; 144
-            ```
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>url</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Website to count links from.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
-        === "The Traditional Way"
-            ```python
-            import requests
 
-            try:
-                response = requests.get(url, timeout=10)
-                soup = BeautifulSoup(response.content, 'html.parser')
-                link_count = 0
-                if response is not None:
-                    for link in soup.find_all('a'):
-                        link_count += 1
-                    return link_count
-            except Exception as e:
-                print(f"Something went wrong with {url}
-</code></pre>
-<p>ERROR: {e}")
-                    return None
-                ```</p>
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="int">int</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>int | None: number of links or None if an error occurs.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_web.count_links--__tabbed_1_1" name="py_simple.easy_web.count_links--__tabbed_1" type="radio" /><input id="py_simple.easy_web.count_links--__tabbed_1_2" name="py_simple.easy_web.count_links--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_web.count_links--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_web.count_links--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">count_links</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">count_links</span><span class="p">(</span><span class="s2">&quot;https://github.com&quot;</span><span class="p">))</span> <span class="c1">#-&gt; 144</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">link_count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">):</span>
+            <span class="n">link_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">link_count</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Something went wrong with </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
 
     </div>
 
@@ -1139,43 +1187,91 @@
 
     <div class="doc doc-contents ">
 
-        <pre><code>Returns a list of links on website or None if an error occurs.
-
-Args:
-    url (str): Website to get links from.
-
-Returns:
-    list[str]: list of links
-    None: If an error occurs.
-
-Example:
-    === "The Py_simple Way"
-        ```python
-        from py_simple import get_link_list
+        <p>Returns a list of links on website or None if an error occurs.</p>
 
 
-        print(get_link_list("https://github.com")) #-&gt; [...]
-        ```
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>url</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Website to get links from.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
-    === "The Traditional Way"
-        ```python
-        import requests
 
-        try:
-            response = requests.get(url, timeout=10)
-            soup = BeautifulSoup(response.content, 'html.parser')
-            link_list = []
-            if response is not None:
-                for link in soup.find_all('a'):
-                    link_list.append(link.get('href'))
-                return link_list
-        except Exception as e:
-            print(f"Something went wrong with {url}
-</code></pre>
-<p>ERROR: {e}")
-                return None
-            ```</p>
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[str] | None: list of links or None if the request fails.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_web.get_link_list--__tabbed_1_1" name="py_simple.easy_web.get_link_list--__tabbed_1" type="radio" /><input id="py_simple.easy_web.get_link_list--__tabbed_1_2" name="py_simple.easy_web.get_link_list--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_web.get_link_list--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_web.get_link_list--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_link_list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_link_list</span><span class="p">(</span><span class="s2">&quot;https://github.com&quot;</span><span class="p">))</span> <span class="c1">#-&gt; [...]</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>```python
+import requests
+try:
+    response = requests.get(url, timeout=10)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    link_list = []
+    if response is not None:
+        for link in soup.find_all('a'):
+            link_list.append(link.get('href'))
+        return link_list
+except Exception as e:
+    print(f"Something went wrong with {url}")
+    return None</p>
+</div>
+</div>
+</div>
+<p>```</p>
+</details>
 
     </div>
 
@@ -1327,28 +1423,18 @@ request failed.</p>
     <table>
       <thead>
         <tr>
-<th>Name</th>          <th>Type</th>
+          <th>Type</th>
           <th>Description</th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-<td><code>str</code></td>            <td>
+            <td>
                   <code><span title="str">str</span> | None</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Page title</p>
-              </div>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-<td><code>None</code></td>            <td>
-                  <code><span title="str">str</span> | None</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>If error occurs.</p>
+                <p>str | None: Page title or None if an error occurs.</p>
               </div>
             </td>
           </tr>
