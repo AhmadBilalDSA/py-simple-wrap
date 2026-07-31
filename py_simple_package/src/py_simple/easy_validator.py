@@ -10,7 +10,10 @@ def is_valid_email(email: str) -> bool:
         Returns true if email is valid.
 
         Arguments:
-            email (str) -- email address to validate.
+            email (str): email address to validate.
+
+        Returns:
+            bool: True if the email is valid, False otherwise.
 
         Example:
             is_valid_email("mymail@gmail.com")
@@ -27,7 +30,10 @@ def is_valid_username(username: str) -> bool:
         Returns true if username is valid.
 
         Arguments:
-            username (str) -- username to validate.
+            username (str): username to validate.
+
+        Returns:
+            bool: True if the username is valid, False otherwise.
 
         Example:
             is_valid_username("user_name")
@@ -44,7 +50,10 @@ def is_valid_zipcode(zipcode: int) -> bool:
         Returns true if US zip code is valid.
 
         Arguments:
-            zipcode (int) -- US zipcode to validate.
+            zipcode (int): US zipcode to validate.
+
+        Returns:
+            bool: True if the zip code is valid, False otherwise.
 
         Example:
             is_valid_zipcode(12345)
@@ -61,7 +70,10 @@ def is_valid_url(url: str) -> bool:
         Returns true if url is valid.
 
         Arguments:
-            url (str) -- URL to validate.
+            url (str): URL to validate.
+
+        Returns:
+            bool: True if the URL is valid, False otherwise.
 
         Example:
             is_valid_url("www.google.com")
@@ -86,7 +98,10 @@ def is_password_secure(password: str) -> bool:
             - no repeating characters
 
         Arguments:
-            password (str) -- password to validate.
+            password (str): password to validate.
+
+        Returns:
+            bool: True if the password meets all checks, False otherwise.
 
         Example:
             is_password_secure("1andkrf!AG5")

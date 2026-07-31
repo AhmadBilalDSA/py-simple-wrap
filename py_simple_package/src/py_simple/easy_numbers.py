@@ -8,7 +8,7 @@ def is_even(number: int) -> bool:
         Returns true if the number is even and false if it is odd.
 
         Arguments:
-            number (int) -- number to check if odd or even.
+            number (int): number to check if odd or even.
 
         Example:
             is_even(90)
@@ -24,7 +24,7 @@ def is_odd(number: int) -> bool:
         Returns true if the number is odd and false if it is even.
 
         Arguments:
-            number (int) -- number to check if odd or even.
+            number (int): number to check if odd or even.
 
         Example:
             is_odd(90)
@@ -40,8 +40,8 @@ def is_evenly_divisible(number: int, divisor: int) -> bool:
         Returns true if the number can be evenly divided by divisor.
 
         Arguments:
-            number (int) -- number to check if evenly divided by divisor.
-            divisor (int) -- divisor to check if number can be
+            number (int): number to check if evenly divided by divisor.
+            divisor (int): divisor to check if number can be
              evenly divided by divisor.
 
         Example:
@@ -59,7 +59,7 @@ def is_positive(number: int) -> bool:
         negative.
 
         Arguments:
-            number (int) -- number to check if positive.
+            number (int): number to check if positive.
 
         Example:
             is_positive(90)
@@ -76,7 +76,7 @@ def is_negative(number: int) -> bool:
         positive.
 
         Arguments:
-            number (int) -- number to check if negative.
+            number (int): number to check if negative.
 
         Example:
             is_negative(90)
@@ -92,7 +92,7 @@ def average(nums: list[float]) -> float:
         Returns the average of a list of numbers.
 
         Arguments:
-            nums (list[float]) -- list of numbers to average.
+            nums (list[float]): list of numbers to average.
 
         Example:
             average([1.5, 2, 3])
@@ -108,7 +108,7 @@ def is_prime(number: int) -> bool:
         Returns true if the number is prime and false if it is.
 
         Arguments:
-            number (int) -- number to check if prime.
+            number (int): number to check if prime.
 
         Example:
             is_prime(2)
@@ -138,8 +138,8 @@ def percentage_of(number: int, percentage: float) -> float:
         Returns percentage of number as a float.
 
         Arguments:
-            number (int) -- number to get percentage of.
-            percentage (float) -- percentage to get.
+            number (int): number to get percentage of.
+            percentage (float): percentage to get.
             Must be between 0 and 1 (e.g. 0.5, 0.75)
 
         Example:

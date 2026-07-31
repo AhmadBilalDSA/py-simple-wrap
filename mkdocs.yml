@@ -1,0 +1,34 @@
+site_name: py_simple
+site_description: A beginner-friendly Python wrapper package
+site_url: https://sara-czasak.github.io/py_simple/
+repo_url: https://github.com/sara-czasak/py_simple
+repo_name: sara-czasak/py_simple
+
+theme:
+  name: material
+  palette:
+    primary: indigo
+
+plugins:
+  - search
+  - include-markdown
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_source: false
+            show_root_heading: true
+
+nav:
+  - Home: index.md
+  - Tutorial:
+      - Quickstart: tutorial/quickstart.md
+  - How-To:
+      - Contributing: how-to/contributing.md
+  - Reference:
+      - Easy Web: reference/easy_web.md
+  - About:
+      - README: readme.md
+      - Contributors: about/contributors.md
+      - License: about/license.md

@@ -17,7 +17,13 @@ _FORMATS = {
 
 
 def list_available_formats():
-    """Return the supported format names for reference."""
+    """
+    Returns the supported format names for reference.
+
+    Returns:
+        list[str]: Names of every format key this module supports
+            (e.g. 'pretty', 'dd-mm-yyyy', 'mm/dd/yyyy').
+    """
     return list(_FORMATS.keys())
 
 
@@ -78,62 +84,146 @@ def get_future_pretty_date(num_days_from_now: int):
 # ── Hyphenated formats (DD-MM-YYYY or MM-DD-YYYY) ───────────────────
 
 def dd_mm_yyyy():
-    """Current date in 'DD-MM-YYYY' format (e.g., '20-07-2026')."""
+    """
+    Returns the current date in 'DD-MM-YYYY' format.
+
+    Returns:
+        str: Current date as 'DD-MM-YYYY' (e.g., '20-07-2026').
+    """
     return _format_date(datetime.now(), "dd-mm-yyyy")
 
 
 def past_dd_mm_yyyy(num_days_ago: int):
-    """Past date in 'DD-MM-YYYY' format."""
+    """
+    Returns a past date in 'DD-MM-YYYY' format.
+
+    Args:
+        num_days_ago (int): Number of days to subtract from today.
+
+    Returns:
+        str: Past date as 'DD-MM-YYYY'.
+    """
     return _format_date(_get_past_date(num_days_ago), "dd-mm-yyyy")
 
 
 def future_dd_mm_yyyy(num_days_from_now: int):
-    """Future date in 'DD-MM-YYYY' format."""
+    """
+    Returns a future date in 'DD-MM-YYYY' format.
+
+    Args:
+        num_days_from_now (int): Number of days to add to today.
+
+    Returns:
+        str: Future date as 'DD-MM-YYYY'.
+    """
     return _format_date(_get_future_date(num_days_from_now), "dd-mm-yyyy")
 
 
 def mm_dd_yyyy():
-    """Current date in 'MM-DD-YYYY' format (e.g., '07-20-2026')."""
+    """
+    Returns the current date in 'MM-DD-YYYY' format.
+
+    Returns:
+        str: Current date as 'MM-DD-YYYY' (e.g., '07-20-2026').
+    """
     return _format_date(datetime.now(), "mm-dd-yyyy")
 
 
 def past_mm_dd_yyyy(num_days_ago: int):
-    """Past date in 'MM-DD-YYYY' format."""
+    """
+    Returns a past date in 'MM-DD-YYYY' format.
+
+    Args:
+        num_days_ago (int): Number of days to subtract from today.
+
+    Returns:
+        str: Past date as 'MM-DD-YYYY'.
+    """
     return _format_date(_get_past_date(num_days_ago), "mm-dd-yyyy")
 
 
 def future_mm_dd_yyyy(num_days_from_now: int):
-    """Future date in 'MM-DD-YYYY' format."""
+    """
+    Returns a future date in 'MM-DD-YYYY' format.
+
+    Args:
+        num_days_from_now (int): Number of days to add to today.
+
+    Returns:
+        str: Future date as 'MM-DD-YYYY'.
+    """
     return _format_date(_get_future_date(num_days_from_now), "mm-dd-yyyy")
 
 
 # ── Slashed formats (DD/MM/YYYY or MM/DD/YYYY) ──────────────────────
 
 def slash_dd_mm_yyyy():
-    """Current date in 'DD/MM/YYYY' format (e.g., '20/07/2026')."""
+    """
+    Returns the current date in 'DD/MM/YYYY' format.
+
+    Returns:
+        str: Current date as 'DD/MM/YYYY' (e.g., '20/07/2026').
+    """
     return _format_date(datetime.now(), "dd/mm/yyyy")
 
 
 def past_slash_dd_mm_yyyy(num_days_ago: int):
-    """Past date in 'DD/MM/YYYY' format."""
+    """
+    Returns a past date in 'DD/MM/YYYY' format.
+
+    Args:
+        num_days_ago (int): Number of days to subtract from today.
+
+    Returns:
+        str: Past date as 'DD/MM/YYYY'.
+    """
     return _format_date(_get_past_date(num_days_ago), "dd/mm/yyyy")
 
 
 def future_slash_dd_mm_yyyy(num_days_from_now: int):
-    """Future date in 'DD/MM/YYYY' format."""
+    """
+    Returns a future date in 'DD/MM/YYYY' format.
+
+    Args:
+        num_days_from_now (int): Number of days to add to today.
+
+    Returns:
+        str: Future date as 'DD/MM/YYYY'.
+    """
     return _format_date(_get_future_date(num_days_from_now), "dd/mm/yyyy")
 
 
 def slash_mm_dd_yyyy():
-    """Current date in 'MM/DD/YYYY' format (e.g., '07/20/2026')."""
+    """
+    Returns the current date in 'MM/DD/YYYY' format.
+
+    Returns:
+        str: Current date as 'MM/DD/YYYY' (e.g., '07/20/2026').
+    """
     return _format_date(datetime.now(), "mm/dd/yyyy")
 
 
 def past_slash_mm_dd_yyyy(num_days_ago: int):
-    """Past date in 'MM/DD/YYYY' format."""
+    """
+    Returns a past date in 'MM/DD/YYYY' format.
+
+    Args:
+        num_days_ago (int): Number of days to subtract from today.
+
+    Returns:
+        str: Past date as 'MM/DD/YYYY'.
+    """
     return _format_date(_get_past_date(num_days_ago), "mm/dd/yyyy")
 
 
 def future_slash_mm_dd_yyyy(num_days_from_now: int):
-    """Future date in 'MM/DD/YYYY' format."""
+    """
+    Returns a future date in 'MM/DD/YYYY' format.
+
+    Args:
+        num_days_from_now (int): Number of days to add to today.
+
+    Returns:
+        str: Future date as 'MM/DD/YYYY'.
+    """
     return _format_date(_get_future_date(num_days_from_now), "mm/dd/yyyy")

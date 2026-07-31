@@ -7,6 +7,12 @@ def remove_extra_spaces(text: str) -> str:
     """
     Removes leading, trailing, and repeated spaces from text.
 
+    Args:
+        text (str): Text to clean up.
+
+    Returns:
+        str: Text with extra whitespace removed.
+
     Example:
         remove_extra_spaces("  hello   world  ")
         "hello world"
@@ -17,6 +23,12 @@ def remove_extra_spaces(text: str) -> str:
 def to_snake_case(text: str) -> str:
     """
     Converts text to snake_case.
+
+    Args:
+        text (str): Text to convert.
+
+    Returns:
+        str: Text converted to snake_case.
 
     Example:
         to_snake_case("Hello World")
@@ -29,6 +41,12 @@ def to_snake_case(text: str) -> str:
 def to_kebab_case(text: str) -> str:
     """
     Converts text to kebab-case.
+
+    Args:
+        text (str): Text to convert.
+
+    Returns:
+        str: Text converted to kebab-case.
 
     Example:
         to_kebab_case("Hello World")
@@ -43,6 +61,12 @@ def is_palindrome(text: str) -> bool:
     Returns True when text reads the same forwards and backwards.
 
     Spaces, punctuation, and letter casing are ignored.
+
+    Args:
+        text (str): Text to check.
+
+    Returns:
+        bool: True if text is a palindrome, False otherwise.
 
     Example:
         is_palindrome("Never odd or even")

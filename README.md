@@ -83,7 +83,7 @@ Features include:
 ---
 
 ### 🌐 Easy Web
-[Easy Web Documentation](docs/easy_web.md)
+[Easy Web Documentation](docs/reference/easy_web.md)
 
 Make getting data from the web less complex.
 
@@ -108,7 +108,7 @@ Contributions of all sizes are welcome:
 - Add new functionality
 - Improve examples
 
-Please check [CONTRIBUTING.md](CONTRIBUTING.md) before submitting changes.
+Please check [CONTRIBUTING.md](docs/how-to/contributing.md) before submitting changes.
 
 Every contribution helps make Py_simple better for beginners and developers.
 
@@ -129,7 +129,7 @@ A huge thank you to the wonderful people who have helped build Py_simple:
 - **shivams786** (Added easy_strings.py)
 - **HeaTTap** (Added tests for easy_web module)
 
-See the full list of contributions in [CONTRIBUTORS.md](CONTRIBUTORS.md).
+See the full list of contributions in [CONTRIBUTORS.md](docs/about/contributors.md).
 
 ---
 
@@ -139,4 +139,4 @@ This project is licensed under the MIT License.
 
 You are free to use, modify, and distribute it.
 
-See the [LICENSE.md](LICENSE.md) file for the full legal text.
+See the [LICENSE.md](docs/about/license.md) file for the full legal text.
