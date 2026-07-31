@@ -16,8 +16,20 @@ def seconds_to_hh_mm_ss(seconds: int) -> str:
         str: Time formatted as HH:MM:SS.
 
     Example:
-        seconds_to_hh_mm_ss(90)
-        (00:01:30)
+        === "The Py_simple Way"
+        ```python
+        from py_simple import seconds_to_hh_mm_ss
+        time_string = seconds_to_hh_mm_ss(3665) # Returns: "01:01:05"
+        ```
+
+        === "The Traditional Way"
+            ```python
+            seconds = 3665
+            hours = seconds // 3600
+            minutes = (seconds % 3600) // 60
+            secs = seconds % 60
+            time_string = f"{hours:02}:{minutes:02}:{secs:02}"
+            ```
     """
     return str(timedelta(seconds=seconds))
 
@@ -147,8 +159,17 @@ def celsius_to_fahrenheit(temp_celsius: float) -> float:
         float: The equivalent temperature in Fahrenheit.
 
     Example:
-        celsius_to_fahrenheit(40)
-        (104.0)
+        === "The Py_simple Way"
+        ```python
+        from py_simple import celsius_to_fahrenheit
+        temp_f = celsius_to_fahrenheit(25) # Returns: 77.0
+        ```
+
+        === "The Traditional Way"
+        ```python
+        celsius = 25
+        fahrenheit = (celsius * 9/5) + 32
+        ```
     """
     return float(f"{((temp_celsius * 9 / 5) + 32):.2f}")
 
@@ -182,8 +203,17 @@ def kg_to_lb(kg: float) -> float:
         float: The equivalent weight in pounds.
 
     Example:
-        kg_to_lb(50)
-        (110.23)
+        === "The Py_simple Way"
+        ```python
+        from py_simple import kg_to_lb
+        weight_lb = kg_to_lb(5) # Returns: 11.02
+        ```
+
+        === "The Traditional Way"
+            ```python
+            kg = 5
+            lb = round(kg * 2.20462, 2)
+            ```
     """
     return float(f"{kg * 2.20462:.2f}")
 
