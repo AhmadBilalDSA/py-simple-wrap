@@ -58,28 +58,6 @@ Features include:
 - Converting text to `kebab-case`
 - Checking whether text is a palindrome
 
-Example:
-
-```python
-from py_simple.easy_strings import (
-    is_palindrome,
-    remove_extra_spaces,
-    to_kebab_case,
-    to_snake_case,
-)
-
-remove_extra_spaces("  hello   world  ")
-# "hello world"
-
-to_snake_case("Hello World")
-# "hello_world"
-
-to_kebab_case("Hello World")
-# "hello-world"
-
-is_palindrome("Never odd or even")
-# True
-```
 ### 🔄 Easy Converter
 
 Convert values easily using simple utility functions.
