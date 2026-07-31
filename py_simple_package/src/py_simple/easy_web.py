@@ -84,3 +84,51 @@ def is_page_up(url: str) -> bool:
     except Exception as e:
         print(f"Something went wrong with {url}\nERROR: {e}")
         return False
+
+
+def get_page_title(url: str) -> str | None:
+    """
+        Returns web page title or None if an error occurs.
+
+        Args:
+            url (str): Website to check.
+
+        Returns:
+            str: Page title
+            None: If error occurs.
+
+        Example:
+            === "The Py_simple Way"
+                ```python
+                from py_simple import get_page_title
+
+
+                print(get_page_title("https://github.com")) #-> "GitHub ·
+                Change is constant. GitHub keeps you ahead. · GitHub
+                ```
+
+            === "The Traditional Way"
+                ```python
+                import requests
+
+                try:
+                    response = requests.get(url, timeout=10)
+                    response.raise_for_status()
+                    page = BeautifulSoup(response.content, 'html.parser')
+                    title = page.title.string
+                    return title
+                except Exception as e:
+                    print("The site is down or address is invalid.")
+                ```
+        """
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        page = BeautifulSoup(response.content, 'html.parser')
+        title = page.title.string
+        return title
+    except Exception as e:
+        print(f"Something went wrong with {url}\nERROR: {e}")
+        return None
+
+
