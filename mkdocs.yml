@@ -17,6 +17,7 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
+          paths: [py_simple_package/src]
           options:
             docstring_style: google
             show_source: false
