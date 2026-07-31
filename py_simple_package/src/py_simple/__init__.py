@@ -27,3 +27,6 @@ from .easy_validator import (
 from .easy_web import (
     get_page_content, is_page_up,
 )
+from .easy_strings import (
+    is_palindrome, remove_extra_spaces, to_kebab_case, to_snake_case,
+)
