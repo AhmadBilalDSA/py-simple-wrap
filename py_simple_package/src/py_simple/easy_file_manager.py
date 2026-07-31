@@ -38,7 +38,19 @@ def is_file_there(filename: str) -> bool:
         bool: True if file exists, False otherwise.
 
     Example:
-        is_file_there("new_file.txt")
+        === "The Py_simple Way"
+            ```python
+            from py_simple import is_file_there
+
+            exists = is_file_there("new_file.txt")
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import os
+
+            exists = os.path.isfile("new_file.txt")
+            ```
     """
     return os.path.isfile(filename)
 
@@ -54,7 +66,22 @@ def make_blank_file(filename: str, file_extension: str):
             Allowed: ['txt', 'csv', 'md', 'log']
 
     Example:
-        make_blank_file("new_file", "txt")
+        === "The Py_simple Way"
+            ```python
+            from py_simple import make_blank_file
+
+            make_blank_file("new_file", "txt")
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import os
+
+            filename = "new_file.txt"
+            if not os.path.isfile(filename):
+                with open(filename, "w", encoding="utf-8"):
+                    pass
+            ```
     """
     if _is_valid_extension(file_extension.lower()):
         file = f"{filename}.{file_extension.lower()}"
@@ -80,7 +107,18 @@ def add_a_line(filename: str, line: str):
         line (str): Line to write.
 
     Example:
-        add_a_line("new_file.txt", "hello world!")
+        === "The Py_simple Way"
+            ```python
+            from py_simple import add_a_line
+
+            add_a_line("new_file.txt", "hello world!")
+            ```
+
+        === "The Traditional Way"
+            ```python
+            with open("new_file.txt", "a", encoding="utf-8") as f:
+                f.write("hello world!" + "\\n")
+            ```
     """
     ext = _get_extension(filename)
     if _is_valid_extension(ext):
@@ -105,7 +143,21 @@ def read_file_to_list(filename: str) -> list:
         list: List of lines.
 
     Example:
-        read_file_to_list("new_file.txt")
+        === "The Py_simple Way"
+            ```python
+            from py_simple import read_file_to_list
+
+            lines = read_file_to_list("new_file.txt")
+            ```
+
+        === "The Traditional Way"
+            ```python
+            try:
+                with open("new_file.txt", "r", encoding="utf-8") as f:
+                    lines = [line.strip() for line in f.readlines()]
+            except FileNotFoundError:
+                lines = []
+            ```
     """
     ext = _get_extension(filename)
     if _is_valid_extension(ext):
@@ -131,7 +183,21 @@ def remove_file(filename: str):
         filename (str): File to delete.
 
     Example:
-        remove_file("new_file.txt")
+        === "The Py_simple Way"
+            ```python
+            from py_simple import remove_file
+
+            remove_file("new_file.txt")
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import os
+
+            filename = "new_file.txt"
+            if os.path.isfile(filename):
+                os.remove(filename)
+            ```
     """
     ext = _get_extension(filename)
     if _is_valid_extension(ext):
@@ -156,7 +222,21 @@ def rename_file(old_name: str, new_name: str):
         new_name (str): New filename.
 
     Example:
-        rename_file("old_name.txt", "new_name.txt")
+        === "The Py_simple Way"
+            ```python
+            from py_simple import rename_file
+
+            rename_file("old_name.txt", "new_name.txt")
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import os
+
+            old_name, new_name = "old_name.txt", "new_name.txt"
+            if os.path.isfile(old_name) and not os.path.isfile(new_name):
+                os.rename(old_name, new_name)
+            ```
     """
     ext_old = _get_extension(old_name)
     ext_new = _get_extension(new_name)
@@ -189,8 +269,25 @@ def list_files(extension: str = None) -> list:
         list: Sorted list of filenames matching the filter.
 
     Example:
-        list_files()
-        list_files("txt")
+        === "The Py_simple Way"
+            ```python
+            from py_simple import list_files
+
+            all_valid = list_files()
+            txt_only = list_files("txt")
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import os
+
+            valid_extensions = ["txt", "md", "log", "csv"]
+            matches = [
+                f for f in os.listdir(".")
+                if os.path.isfile(f) and f.split(".")[-1].lower() in valid_extensions
+            ]
+            matches.sort()
+            ```
     """
     if extension is not None and not _is_valid_extension(extension.lower()):
         raise InvalidExtension(
@@ -217,7 +314,22 @@ def copy_file(source: str, destination: str):
         destination (str): Destination path or filename.
 
     Example:
-        copy_file("notes.txt", "notes_backup.txt")
+        === "The Py_simple Way"
+            ```python
+            from py_simple import copy_file
+
+            copy_file("notes.txt", "notes_backup.txt")
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import os
+            import shutil
+
+            source, destination = "notes.txt", "notes_backup.txt"
+            if os.path.isfile(source) and not os.path.isfile(destination):
+                shutil.copy2(source, destination)
+            ```
     """
     ext_src = _get_extension(source)
     ext_dst = _get_extension(destination)

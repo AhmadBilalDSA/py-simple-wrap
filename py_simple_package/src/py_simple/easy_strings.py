@@ -14,8 +14,19 @@ def remove_extra_spaces(text: str) -> str:
         str: Text with extra whitespace removed.
 
     Example:
-        remove_extra_spaces("  hello   world  ")
-        "hello world"
+        === "The Py_simple Way"
+            ```python
+            from py_simple import remove_extra_spaces
+
+            result = remove_extra_spaces("  hello   world  ")
+            # -> "hello world"
+            ```
+
+        === "The Traditional Way"
+            ```python
+            text = "  hello   world  "
+            result = " ".join(text.split())
+            ```
     """
     return " ".join(text.split())
 
@@ -31,8 +42,21 @@ def to_snake_case(text: str) -> str:
         str: Text converted to snake_case.
 
     Example:
-        to_snake_case("Hello World")
-        "hello_world"
+        === "The Py_simple Way"
+            ```python
+            from py_simple import to_snake_case
+
+            result = to_snake_case("Hello World")  # -> "hello_world"
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import re
+
+            text = "Hello World"
+            cleaned = re.sub(r"[^\\w\\s]", " ", text)
+            result = "_".join(cleaned.lower().split())
+            ```
     """
     cleaned_text = _separate_words(text)
     return cleaned_text.lower().replace(" ", "_")
@@ -49,8 +73,21 @@ def to_kebab_case(text: str) -> str:
         str: Text converted to kebab-case.
 
     Example:
-        to_kebab_case("Hello World")
-        "hello-world"
+        === "The Py_simple Way"
+            ```python
+            from py_simple import to_kebab_case
+
+            result = to_kebab_case("Hello World")  # -> "hello-world"
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import re
+
+            text = "Hello World"
+            cleaned = re.sub(r"[^\\w\\s]", " ", text)
+            result = "-".join(cleaned.lower().split())
+            ```
     """
     cleaned_text = _separate_words(text)
     return cleaned_text.lower().replace(" ", "-")
@@ -69,8 +106,19 @@ def is_palindrome(text: str) -> bool:
         bool: True if text is a palindrome, False otherwise.
 
     Example:
-        is_palindrome("Never odd or even")
-        True
+        === "The Py_simple Way"
+            ```python
+            from py_simple import is_palindrome
+
+            result = is_palindrome("Never odd or even")  # -> True
+            ```
+
+        === "The Traditional Way"
+            ```python
+            text = "Never odd or even"
+            cleaned = "".join(c.lower() for c in text if c.isalnum())
+            result = cleaned == cleaned[::-1]
+            ```
     """
     cleaned_text = "".join(
         character.lower() for character in text if character.isalnum()

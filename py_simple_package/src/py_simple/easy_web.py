@@ -17,23 +17,23 @@ def get_page_content(url: str) -> str | None:
             request failed.
 
     Example:
-        get_page_content("https://example.com")
         === "The Py_simple Way"
-        ```python
-        from py_simple import get_page_content
-        content = get_page_content("https://google.com")
-        ```
+            ```python
+            from py_simple import get_page_content
+
+            content = get_page_content("https://google.com")
+            ```
 
         === "The Traditional Way"
-        ```python
-        import requests
-        from bs4 import BeautifulSoup
+            ```python
+            import requests
+            from bs4 import BeautifulSoup
 
-        response = requests.get("https://google.com")
-        if response.status_code == 200:
-            soup = BeautifulSoup(response.text, 'html.parser')
-            content = soup.prettify()
-        ```
+            response = requests.get("https://google.com")
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.text, 'html.parser')
+                content = soup.prettify()
+            ```
     """
     try:
         response = requests.get(url, timeout=10)
@@ -58,12 +58,12 @@ def is_page_up(url: str) -> bool:
 
     Example:
         === "The Py_simple Way"
-        ```python
-        from py_simple import is_page_up
+            ```python
+            from py_simple import is_page_up
 
-        if is_page_up("https://github.com"):
-            print("The site is active!")
-        ```
+            if is_page_up("https://github.com"):
+                print("The site is active!")
+            ```
 
         === "The Traditional Way"
             ```python

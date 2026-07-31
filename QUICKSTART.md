@@ -95,5 +95,6 @@ print(is_palindrome("racecar"))      # True
  
 ## Next Steps
  
+- Browse the **Reference** section in the sidebar for the complete list of functions in every module.
 - See the full [README](docs/readme.md) for the complete list of functions in each module.
 - Want to contribute? Check out [CONTRIBUTING.md](docs/how-to/contributing.md).

@@ -8,6 +8,8 @@ theme:
   name: material
   palette:
     primary: indigo
+  features:
+    - content.code.copy
 
 plugins:
   - search
@@ -19,6 +21,11 @@ plugins:
             docstring_style: google
             show_source: false
             show_root_heading: true
+
+markdown_extensions:
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences
 
 nav:
   - Home: index.md

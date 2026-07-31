@@ -5,117 +5,198 @@ easy_numbers is built to simplify different types of number operations.
 
 def is_even(number: int) -> bool:
     """
-        Returns true if the number is even and false if it is odd.
+    Returns true if the number is even and false if it is odd.
 
-        Arguments:
-            number (int): number to check if odd or even.
+    Args:
+        number (int): Number to check.
 
-        Example:
-            is_even(90)
-            (True)
-            is_even(67)
-            (False)
-        """
+    Returns:
+        bool: True if even, False if odd.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import is_even
+
+            result = is_even(90)  # -> True
+            ```
+
+        === "The Traditional Way"
+            ```python
+            number = 90
+            result = number % 2 == 0
+            ```
+    """
     return number % 2 == 0
 
 
 def is_odd(number: int) -> bool:
     """
-        Returns true if the number is odd and false if it is even.
+    Returns true if the number is odd and false if it is even.
 
-        Arguments:
-            number (int): number to check if odd or even.
+    Args:
+        number (int): Number to check.
 
-        Example:
-            is_odd(90)
-            (False)
-            is_odd(67)
-            (True)
-        """
+    Returns:
+        bool: True if odd, False if even.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import is_odd
+
+            result = is_odd(67)  # -> True
+            ```
+
+        === "The Traditional Way"
+            ```python
+            number = 67
+            result = number % 2 == 1
+            ```
+    """
     return number % 2 == 1
 
 
 def is_evenly_divisible(number: int, divisor: int) -> bool:
     """
-        Returns true if the number can be evenly divided by divisor.
+    Returns true if the number can be evenly divided by divisor.
 
-        Arguments:
-            number (int): number to check if evenly divided by divisor.
-            divisor (int): divisor to check if number can be
-             evenly divided by divisor.
+    Args:
+        number (int): Number to check.
+        divisor (int): Number to divide by.
 
-        Example:
-            is_evenly_divisible(90, 9)
-            (True)
-            is_evenly_divisible(67, 2)
-            (False)
-        """
+    Returns:
+        bool: True if number divides evenly by divisor, False otherwise.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import is_evenly_divisible
+
+            result = is_evenly_divisible(90, 9)  # -> True
+            ```
+
+        === "The Traditional Way"
+            ```python
+            number, divisor = 90, 9
+            result = number % divisor == 0
+            ```
+    """
     return number % divisor == 0
 
 
 def is_positive(number: int) -> bool:
     """
-        Returns true if the number is positive and false if it is
-        negative.
+    Returns true if the number is positive and false if it is negative.
 
-        Arguments:
-            number (int): number to check if positive.
+    Args:
+        number (int): Number to check.
 
-        Example:
-            is_positive(90)
-            (True)
-            is_positive(-10)
-            (False)
-        """
+    Returns:
+        bool: True if positive, False otherwise.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import is_positive
+
+            result = is_positive(90)  # -> True
+            ```
+
+        === "The Traditional Way"
+            ```python
+            number = 90
+            result = number > 0
+            ```
+    """
     return number > 0
 
 
 def is_negative(number: int) -> bool:
     """
-        Returns true if the number is negative and false if it is
-        positive.
+    Returns true if the number is negative and false if it is positive.
 
-        Arguments:
-            number (int): number to check if negative.
+    Args:
+        number (int): Number to check.
 
-        Example:
-            is_negative(90)
-            (False)
-            is_negative(-10)
-            (True)
-        """
+    Returns:
+        bool: True if negative, False otherwise.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import is_negative
+
+            result = is_negative(-10)  # -> True
+            ```
+
+        === "The Traditional Way"
+            ```python
+            number = -10
+            result = number < 0
+            ```
+    """
     return number < 0
 
 
 def average(nums: list[float]) -> float:
     """
-        Returns the average of a list of numbers.
+    Returns the average of a list of numbers.
 
-        Arguments:
-            nums (list[float]): list of numbers to average.
+    Args:
+        nums (list[float]): List of numbers to average.
 
-        Example:
-            average([1.5, 2, 3])
-            (2.17)
-            average([3, 5, 2.3, 6.24])
-            (4.13)
-        """
+    Returns:
+        float: The average, rounded to 2 decimal places.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import average
+
+            result = average([1.5, 2, 3])  # -> 2.17
+            ```
+
+        === "The Traditional Way"
+            ```python
+            nums = [1.5, 2, 3]
+            result = round(sum(nums) / len(nums), 2)
+            ```
+    """
     return float(f"{(sum(nums) / len(nums)):.2f}")
 
 
 def is_prime(number: int) -> bool:
     """
-        Returns true if the number is prime and false if it is.
+    Returns true if the number is prime and false if it is not.
 
-        Arguments:
-            number (int): number to check if prime.
+    Args:
+        number (int): Number to check.
 
-        Example:
-            is_prime(2)
-            (True)
-            is_prime(15)
-            (False)
-        """
+    Returns:
+        bool: True if prime, False otherwise.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import is_prime
+
+            result = is_prime(2)  # -> True
+            ```
+
+        === "The Traditional Way"
+            ```python
+            def is_prime(n):
+                if n < 2:
+                    return False
+                for i in range(2, int(n ** 0.5) + 1):
+                    if n % i == 0:
+                        return False
+                return True
+
+            result = is_prime(2)
+            ```
+    """
     if number > 0:
         limit = int((number ** 0.5) + 1)
     else:
@@ -135,17 +216,28 @@ def is_prime(number: int) -> bool:
 
 def percentage_of(number: int, percentage: float) -> float:
     """
-        Returns percentage of number as a float.
+    Returns percentage of number as a float.
 
-        Arguments:
-            number (int): number to get percentage of.
-            percentage (float): percentage to get.
-            Must be between 0 and 1 (e.g. 0.5, 0.75)
+    Args:
+        number (int): Number to get percentage of.
+        percentage (float): Percentage to get, between 0 and 1
+            (e.g. 0.5, 0.75).
 
-        Example:
-            percentage_of(100, 0.5)
-            (50.0)
-            percentage_of(19, 0.4)
-            (7.6)
-        """
+    Returns:
+        float: The calculated percentage, rounded to 2 decimal places.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import percentage_of
+
+            result = percentage_of(100, 0.5)  # -> 50.0
+            ```
+
+        === "The Traditional Way"
+            ```python
+            number, percentage = 100, 0.5
+            result = round(number * percentage, 2)
+            ```
+    """
     return float(f"{(number * percentage):.2f}")
