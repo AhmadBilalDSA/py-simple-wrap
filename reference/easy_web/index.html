@@ -598,6 +598,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#py_simple.easy_web.count_links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        count_links
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_web.get_link_list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_link_list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#py_simple.easy_web.get_page_content" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -938,6 +960,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#py_simple.easy_web.count_links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        count_links
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_web.get_link_list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_link_list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#py_simple.easy_web.get_page_content" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1030,6 +1074,112 @@
 
 
 
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="py_simple.easy_web.count_links" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">count_links</span><span class="p">(</span><span class="n">url</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <pre><code>    Returns number of links in the website or None if an error occurs.
+
+    Args:
+        url (str): Website to count links from.
+
+    Returns:
+        int: number of links
+        None: If an error occurs.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import count_links
+
+
+            print(count_links("https://github.com")) #-&gt; 144
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import requests
+
+            try:
+                response = requests.get(url, timeout=10)
+                soup = BeautifulSoup(response.content, 'html.parser')
+                link_count = 0
+                if response is not None:
+                    for link in soup.find_all('a'):
+                        link_count += 1
+                    return link_count
+            except Exception as e:
+                print(f"Something went wrong with {url}
+</code></pre>
+<p>ERROR: {e}")
+                    return None
+                ```</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="py_simple.easy_web.get_link_list" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_link_list</span><span class="p">(</span><span class="n">url</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <pre><code>Returns a list of links on website or None if an error occurs.
+
+Args:
+    url (str): Website to get links from.
+
+Returns:
+    list[str]: list of links
+    None: If an error occurs.
+
+Example:
+    === "The Py_simple Way"
+        ```python
+        from py_simple import get_link_list
+
+
+        print(get_link_list("https://github.com")) #-&gt; [...]
+        ```
+
+    === "The Traditional Way"
+        ```python
+        import requests
+
+        try:
+            response = requests.get(url, timeout=10)
+            soup = BeautifulSoup(response.content, 'html.parser')
+            link_list = []
+            if response is not None:
+                for link in soup.find_all('a'):
+                    link_list.append(link.get('href'))
+                return link_list
+        except Exception as e:
+            print(f"Something went wrong with {url}
+</code></pre>
+<p>ERROR: {e}")
+                return None
+            ```</p>
+
+
+    </div>
+
+</div>
 
 <div class="doc doc-object doc-function">
 
