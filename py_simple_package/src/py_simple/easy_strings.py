@@ -126,6 +126,40 @@ def is_palindrome(text: str) -> bool:
     return cleaned_text == cleaned_text[::-1]
 
 
+def is_alphanumeric(text: str) -> bool:
+    """
+    Returns True if text only contains letters and numbers,
+    and False otherwise.
+
+    Args:
+        text (str): Text to check.
+
+    Returns:
+        bool: True if text is alphanumeric, False otherwise.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import is_palindrome
+
+            result = is_alphanumeric("Something123")  # -> True
+            ```
+
+        === "The Traditional Way"
+            ```python
+            text = "Something123"
+                if text.isalnum():
+                    return True
+                else:
+                    return False
+            ```
+    """
+    if text.isalnum():
+        return True
+    else:
+        return False
+
+
 def _separate_words(text: str) -> str:
     """Normalizes common word separators and separates camel-case words."""
     text = re.sub(r"([a-z0-9])([A-Z])", r"\1 \2", text)

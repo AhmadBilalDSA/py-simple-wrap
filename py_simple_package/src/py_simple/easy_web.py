@@ -5,6 +5,12 @@ import requests
 from bs4 import BeautifulSoup
 
 
+_TAGS = {
+    'a': 'href',
+    'img': 'src'
+}
+
+
 def get_page_content(url: str) -> str | None:
     """
     Returns content of the website or None if an error occurs.
