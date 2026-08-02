@@ -160,13 +160,6 @@ def is_alphanumeric(text: str) -> bool:
         return False
 
 
-def _separate_words(text: str) -> str:
-    """Normalizes common word separators and separates camel-case words."""
-    text = re.sub(r"([a-z0-9])([A-Z])", r"\1 \2", text)
-    text = re.sub(r"[_\-]+", " ", text)
-    text = re.sub(r"[^\w\s]", " ", text)
-    return remove_extra_spaces(text)
-
 def count_words(text: str) -> int:
     """
     Counts the total number of words in a text string.
@@ -182,8 +175,7 @@ def count_words(text: str) -> int:
             ```python
             from py_simple import count_words
 
-            result = count_words("Hello world! How are you?")
-            # -> 5
+            result = count_words("Hello world! How are you?") # -> 5
             ```
 
         === "The Traditional Way"
@@ -199,3 +191,12 @@ def count_words(text: str) -> int:
     if not cleaned_text:
         return 0
     return len(cleaned_text.split())
+
+
+
+def _separate_words(text: str) -> str:
+    """Normalizes common word separators and separates camel-case words."""
+    text = re.sub(r"([a-z0-9])([A-Z])", r"\1 \2", text)
+    text = re.sub(r"[_\-]+", " ", text)
+    text = re.sub(r"[^\w\s]", " ", text)
+    return remove_extra_spaces(text)
