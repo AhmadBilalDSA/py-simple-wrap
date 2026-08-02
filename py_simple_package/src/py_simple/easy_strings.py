@@ -166,3 +166,36 @@ def _separate_words(text: str) -> str:
     text = re.sub(r"[_\-]+", " ", text)
     text = re.sub(r"[^\w\s]", " ", text)
     return remove_extra_spaces(text)
+
+def count_words(text: str) -> int:
+    """
+    Counts the total number of words in a text string.
+
+    Args:
+        text (str): Text to process.
+
+    Returns:
+        int: Number of words found.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import count_words
+
+            result = count_words("Hello world! How are you?")
+            # -> 5
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import re
+
+            text = "Hello world! How are you?"
+            cleaned = re.sub(r"[^\\w\\s]", " ", text)
+            result = len(cleaned.split())
+            ```
+    """
+    cleaned_text = _separate_words(text)
+    if not cleaned_text:
+        return 0
+    return len(cleaned_text.split())
