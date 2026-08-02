@@ -57,7 +57,9 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
 
 - **HeaTTap** ([HeaTTap](https://github.com/HeaTTap))
   - Added unit tests for easy_web
-    
+
+- **Challa Leela Prasad** ([@leepCh](https://github.com/leepCh))
+  - Enhanced easy_strings module
 ---
 
 ## How to get your name here? 🛠️
