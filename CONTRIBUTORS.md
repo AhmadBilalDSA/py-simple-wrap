@@ -22,6 +22,13 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
       </a><br />
       💻 🧪 🛡️
     </td>
+    <td align="center">
+      <a href="https://github.com/atiqur-rahman-pro">
+        <img src="https://github.com/atiqur-rahman-pro.png" width="100px;" alt="jagjitkaur0000"/><br />
+        <sub><b>jagjitkaur0000</b></sub>
+      </a><br />
+      💻 🧪 🛡️
+    </td>
   </tr>
 </table>
 

@@ -1,6 +1,6 @@
 # Py_simple 🚀
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
  
 **Making Python feel like plain English.**
@@ -138,38 +138,9 @@ Every contribution helps make Py_simple better for beginners and developers.
  
 ---
 
-## 🌟 Hall of Fame
+## 🤝 Contributors
 
-A huge thank you to the wonderful people who have helped build Py_simple:
-
-- **Sara Czasak** (Creator)
-- **ghostfix-pm** (Major features & Refactoring)
-- **jagjitkaur0000** (Added tests for easy_numbers module)
-- **Onion0121** (Improved documentation)
-- **averyquinnhq** (Added tests for easy_converter.py)
-- **gaoharimran29-glitch** (Added tests for easy_validator.py)
-- **mmaxjr** (Improved documentation)
-- **sol4nki** (Expanded easy_converter.py module)
-- **shivams786** (Added easy_strings.py)
-- **HeaTTap** (Added tests for easy_web module, added easy_colors module)
-- **Challa Leela Prasad** (Enhanced easy_strings module)
-- **atiqur rahman** (Expanded unit tests for easy_strings and easy_web modules)
-
-See the full list of contributions in [CONTRIBUTORS.md](docs/about/contributors.md).
-
----
-
-## ⚖️ License
-
-This project is licensed under the MIT License.
-
-You are free to use, modify, and distribute it.
-
-See the [LICENSE.md](docs/about/license.md) file for the full legal text.
-
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+A huge thank you to these wonderful people for helping make Python simpler for everyone! (Emoji Key: 💻 = Code, 📖 = Docs, ⚠️ = Bug Reports, 🧪 = Tests, 🚇 = Infrastructure)
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -177,8 +148,20 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/atiqur-rahman-pro"><img src="https://avatars.githubusercontent.com/u/264598807?v=4?s=100" width="100px;" alt="atiqur rahman"/><br /><sub><b>atiqur rahman</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=atiqur-rahman-pro" title="Tests">⚠️</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/sara-czasak"><img src="https://avatars.githubusercontent.com/u/217280993?v=4?s=100" width="100px;" alt="Sara Czasak"/><br /><sub><b>Sara Czasak</b></sub></a><br /><a href="{author.profile}" title="Maintainer">🛡️</a> <a href="{author.profile}" title="Project Management">🚀</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=sara-czasak" title="Code">💻</a> <a href="https://github.com/{owner}/{repo}/commits?author={author.login}" title="Documentation">📖</a> <a href="{author.profile}" title="Original Author">👑</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/atiqur-rahman-pro"><img src="https://avatars.githubusercontent.com/u/264598807?v=4?s=100" width="100px;" alt="atiqur rahman"/><br /><sub><b>atiqur rahman</b></sub></a><br /><a href="https://github.com/{owner}/{repo}/commits?author={author.login}" title="Tests">🧪</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Onion0121"><img src="https://avatars.githubusercontent.com/u/246456340?v=4?s=100" width="100px;" alt="Yassin Azzouzi"/><br /><sub><b>Yassin Azzouzi</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=Onion0121" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ghostfix-pm"><img src="https://avatars.githubusercontent.com/u/307249429?v=4?s=100" width="100px;" alt="ghostfix-pm"/><br /><sub><b>ghostfix-pm</b></sub></a><br /><a href="#infra-ghostfix-pm" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/{owner}/{repo}/commits?author={author.login}" title="Tests">🧪</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=ghostfix-pm" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://sol4nki.github.io"><img src="https://avatars.githubusercontent.com/u/75659510?v=4?s=100" width="100px;" alt="Pranjal Solanki"/><br /><sub><b>Pranjal Solanki</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=sol4nki" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/shivams786"><img src="https://avatars.githubusercontent.com/u/143723566?v=4?s=100" width="100px;" alt="Shivam Singh"/><br /><sub><b>Shivam Singh</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=shivams786" title="Documentation">📖</a> <a href="https://github.com/{owner}/{repo}/commits?author={author.login}" title="Tests">🧪</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=shivams786" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/leepCh"><img src="https://avatars.githubusercontent.com/u/195529175?v=4?s=100" width="100px;" alt="Challa Leela Prasad"/><br /><sub><b>Challa Leela Prasad</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=leepCh" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/jagjitkaur0000"><img src="https://avatars.githubusercontent.com/u/226679809?v=4?s=100" width="100px;" alt="jagjitkaur0000"/><br /><sub><b>jagjitkaur0000</b></sub></a><br /><a href="https://github.com/{owner}/{repo}/commits?author={author.login}" title="Tests">🧪</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/HeaTTap"><img src="https://avatars.githubusercontent.com/u/83951176?v=4?s=100" width="100px;" alt="HeaTTap"/><br /><sub><b>HeaTTap</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=HeaTTap" title="Documentation">📖</a> <a href="https://github.com/{owner}/{repo}/commits?author={author.login}" title="Tests">🧪</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=HeaTTap" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/averyquinnhq"><img src="https://avatars.githubusercontent.com/u/309920345?v=4?s=100" width="100px;" alt="Avery Quinn"/><br /><sub><b>Avery Quinn</b></sub></a><br /><a href="https://github.com/{owner}/{repo}/commits?author={author.login}" title="Tests">🧪</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/gaoharimran29-glitch"><img src="https://avatars.githubusercontent.com/u/225884102?v=4?s=100" width="100px;" alt="Gaohar Imran"/><br /><sub><b>Gaohar Imran</b></sub></a><br /><a href="https://github.com/{owner}/{repo}/commits?author={author.login}" title="Tests">🧪</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/mmaxjr"><img src="https://avatars.githubusercontent.com/u/9955641?v=4?s=100" width="100px;" alt="Marcos Max"/><br /><sub><b>Marcos Max</b></sub></a><br /><a href="https://github.com/{owner}/{repo}/commits?author={author.login}" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
@@ -189,3 +172,13 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+---
+
+## ⚖️ License
+
+This project is licensed under the MIT License.
+
+You are free to use, modify, and distribute it.
+
+See the [LICENSE.md](docs/about/license.md) file for the full legal text.

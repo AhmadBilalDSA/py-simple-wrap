@@ -3,10 +3,50 @@
     "README.md"
   ],
   "imageSize": 100,
+  "types": {
+    "projectManagement": {
+      "symbol": "🚀",
+      "description": "Project Management",
+      "link": "{author.profile}"
+    },
+    "maintainer": {
+      "symbol": "🛡️",
+      "description": "Maintainer",
+      "link": "{author.profile}"
+    },
+    "originalAuthor": {
+      "symbol": "👑",
+      "description": "Original Author",
+      "link": "{author.profile}"
+    },
+    "test": {
+      "symbol": "🧪",
+      "description": "Tests",
+      "link": "https://github.com/{owner}/{repo}/commits?author={author.login}"
+    },
+    "documentation": {
+      "symbol": "📖",
+      "description": "Documentation",
+      "link": "https://github.com/{owner}/{repo}/commits?author={author.login}"
+    }
+  },
   "commit": false,
   "commitType": "docs",
   "commitConvention": "angular",
   "contributors": [
+    {
+      "login": "sara-czasak",
+      "name": "Sara Czasak",
+      "avatar_url": "https://avatars.githubusercontent.com/u/217280993?v=4",
+      "profile": "https://github.com/sara-czasak",
+      "contributions": [
+        "maintainer",
+        "projectManagement",
+        "code",
+        "documentation",
+        "originalAuthor"
+      ]
+    },
     {
       "login": "atiqur-rahman-pro",
       "name": "atiqur rahman",
@@ -23,6 +63,93 @@
       "profile": "https://github.com/Onion0121",
       "contributions": [
         "doc"
+      ]
+    },
+    {
+      "login": "ghostfix-pm",
+      "name": "ghostfix-pm",
+      "avatar_url": "https://avatars.githubusercontent.com/u/307249429?v=4",
+      "profile": "https://github.com/ghostfix-pm",
+      "contributions": [
+        "infra",
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "sol4nki",
+      "name": "Pranjal Solanki",
+      "avatar_url": "https://avatars.githubusercontent.com/u/75659510?v=4",
+      "profile": "http://sol4nki.github.io",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "shivams786",
+      "name": "Shivam Singh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/143723566?v=4",
+      "profile": "https://github.com/shivams786",
+      "contributions": [
+        "doc",
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "leepCh",
+      "name": "Challa Leela Prasad",
+      "avatar_url": "https://avatars.githubusercontent.com/u/195529175?v=4",
+      "profile": "https://github.com/leepCh",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "jagjitkaur0000",
+      "name": "jagjitkaur0000",
+      "avatar_url": "https://avatars.githubusercontent.com/u/226679809?v=4",
+      "profile": "https://github.com/jagjitkaur0000",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "HeaTTap",
+      "name": "HeaTTap",
+      "avatar_url": "https://avatars.githubusercontent.com/u/83951176?v=4",
+      "profile": "https://github.com/HeaTTap",
+      "contributions": [
+        "doc",
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "averyquinnhq",
+      "name": "Avery Quinn",
+      "avatar_url": "https://avatars.githubusercontent.com/u/309920345?v=4",
+      "profile": "https://github.com/averyquinnhq",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "gaoharimran29-glitch",
+      "name": "Gaohar Imran",
+      "avatar_url": "https://avatars.githubusercontent.com/u/225884102?v=4",
+      "profile": "https://github.com/gaoharimran29-glitch",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "mmaxjr",
+      "name": "Marcos Max",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9955641?v=4",
+      "profile": "https://github.com/mmaxjr",
+      "contributions": [
+        "documentation"
       ]
     }
   ],
