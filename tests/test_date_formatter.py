@@ -1,9 +1,10 @@
 """Tests for easy_date_formatter module."""
 
 import re
-from datetime import datetime, timedelta
 import pytest
-<<<<<<< Updated upstream
+import datetime as dt
+from py_simple_package.src.py_simple.easy_date_formatter import *
+
 from py_simple_package.src.py_simple.easy_date_formatter import (
     get_pretty_date,
     get_past_pretty_date,
@@ -168,9 +169,6 @@ class TestUtilityFunctions:
         """Should produce valid dates for various future periods."""
         result = future_dd_mm_yyyy(days)
         assert re.match(r'\d{2}-\d{2}-\d{4}', result)
-=======
-import datetime as dt
-from py_simple_package.src.py_simple.easy_date_formatter import *
 
 
 def test_mm_dd_yyyy():
@@ -307,4 +305,4 @@ def test_past_slash_mm_dd_yyyy():
     ]
 
     assert result == expected_output, f"Expected {expected_output} but got {result}"
->>>>>>> Stashed changes
+
