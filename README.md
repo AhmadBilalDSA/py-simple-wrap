@@ -243,6 +243,9 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 | `get_page_content(url)` | Get prettified HTML | `get_page_content("https://google.com")` |
 | `count_links(url)` | Count links on a page | `count_links("https://github.com")` → `144` |
 | `get_link_list(url)` | Get all links as a list | `get_link_list("https://github.com")` → `[...]` |
+| `count_tags(url, tag)` | Count tags of a given type (e.g. `'a'`, `'img'`) | `count_tags("https://github.com", "img")` → `12` |
+| `get_tag_list(url, tag)` | Get useful info from each matching tag | `get_tag_list("https://github.com", "img")` → `[...]` |
+| `print_allowed_tags()` | Print the supported tag → attribute map | `print_allowed_tags()` → `{'a': 'href', 'img': 'src'}` |
 | `get_meta_description(url)` | Get all meta tag contents | `get_meta_description("https://github.com")` → `[...]` |
 | `get_all_headers(url)` | Get text from all `<header>` tags | `get_all_headers("https://github.com")` → `[...]` |
 
