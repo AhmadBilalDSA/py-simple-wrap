@@ -2,16 +2,16 @@
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
- 
+
 **Making Python feel like plain English.**
- 
+
 [![PyPI](https://img.shields.io/pypi/v/py-simple-wrap?style=for-the-badge)](https://pypi.org/project/py-simple-wrap/)
 [![Docs](https://img.shields.io/badge/docs-online-blue?style=for-the-badge)](https://sara-czasak.github.io/py-simple-wrap/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://github.com/sara-czasak/py-simple-wrap/blob/main/LICENSE.md)
-[![GitHub stars](https://img.shields.io/github/stars/sara-czasak/py-simple-wrap?style=for-the-badge)](https://github.com/sara-czasak/py-simple-wrap/stargazers)
- 
+[![GitHub stars](https://img.shields.io/github/stars/sara-czasak/py-simple-wrap?style=for-the-badge)](https://github.com/sara-czasak/py-simple-wrap)
+
 py-simple-wrap is a beginner-friendly Python wrapper package designed to help beginners and developers perform common tasks using simple, intuitive functions.
- 
+
 The goal of this project is to remove the need for memorizing complex syntax or writing repetitive boilerplate code, making Python more accessible and enjoyable for everyone.
 
 ## Before and After
@@ -41,21 +41,21 @@ print(get_page_title("https://github.com"))
 ```bash
 pip install py-simple-wrap
 ```
- 
+
 ```python
 from py_simple import make_blank_file, miles_to_km, is_valid_email
- 
+
 make_blank_file("notes.txt")
 print(miles_to_km(26.2))                    # 42.16...
 print(is_valid_email("hello@example.com"))  # True
 ```
- 
+
 > Full walkthrough in [QUICKSTART.md](QUICKSTART.md), or browse the full **[documentation site](https://sara-czasak.github.io/py-simple-wrap/)**.
- 
+
 ## ⭐ If py-simple-wrap made something easier for you
- 
+
 Consider giving it a **star** — it helps other beginners find it, and it genuinely makes my day. And if there's a function you wish existed, **fork it** and add it; this project grew because other people did exactly that. Every module below started here, except `easy_strings`, which came from a contributor.
- 
+
 ---
 
 ## 🛠️ Module Menu
@@ -301,20 +301,21 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 </details>
 
 ## 🤝 Contributing
- 
+
 I would love to have your help in making Python simpler for everyone!
- 
+
 Contributions of all sizes are welcome:
- 
+
 - Fix documentation
 - Improve existing modules
 - Suggest new features
 - Add new functionality
 - Improve examples
+
 Please check [CONTRIBUTING.md](https://github.com/sara-czasak/py-simple-wrap/blob/main/CONTRIBUTING.md) before submitting changes.
- 
+
 Every contribution helps make py-simple-wrap better for beginners and developers.
- 
+
 ---
 
 ## 🤝 Contributors
@@ -322,12 +323,12 @@ Every contribution helps make py-simple-wrap better for beginners and developers
 A huge thank you to these wonderful people for helping make Python simpler for everyone!
 
 #### Emoji Key:
-- 💻 = Code, 
-- 📖 = Docs, 
-- ⚠️ = Bug Reports, 
-- 🧪 = Tests, 
-- 🚇 = Infrastructure,
-- 🛡️ = Maintainer,
+- 💻 = Code
+- 📖 = Docs
+- ⚠️ = Bug Reports
+- 🧪 = Tests
+- 🚇 = Infrastructure
+- 🛡️ = Maintainer
 - 👑 = Original Author
 - 🚀 = Project Management
 - ✋ = Collaborators
