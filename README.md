@@ -64,86 +64,235 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 ### 📂 Easy File Manager
 
-Simplify everyday file operations with beginner-friendly utilities.
+<details>
+<summary>Click to expand — file operations without the <code>os</code> boilerplate</summary>
 
-Features include:
+<br>
 
-- File management helpers
-- Easier file operations
-- Cleaner Python workflows
+| Function | What it does |
+|---|---|
+| `make_blank_file("notes", "txt")` | Create an empty file |
+| `is_file_there("notes.txt")` | Check if a file exists |
+| `add_a_line("notes.txt", "hello!")` | Append a line to a file |
+| `read_file_to_list("notes.txt")` | Read lines into a list |
+| `remove_file("notes.txt")` | Delete a file |
+| `rename_file("old.txt", "new.txt")` | Rename a file |
+| `copy_file("src.txt", "dst.txt")` | Copy a file |
+| `list_files()` / `list_files("txt")` | List files, optionally by extension |
 
----
+</details>
 
 ### 🕰️ Easy Date Formatter
 
-Make working with dates simpler and more readable.
+<details>
+<summary>Click to expand — readable dates without memorizing strftime codes</summary>
 
-Features include:
+<br>
 
-- Date formatting utilities
-- Easier date manipulation
-- Simple date-related functions
+**Get the current date in any format:**
 
----
+| Function | Example output |
+|---|---|
+| `get_pretty_date()` | `Friday, July 31, 2026` |
+| `dd_mm_yyyy()` | `31-07-2026` |
+| `mm_dd_yyyy()` | `07-31-2026` |
+| `slash_dd_mm_yyyy()` | `31/07/2026` |
+| `slash_mm_dd_yyyy()` | `07/31/2026` |
+
+**Need past or future dates?** Add `past_` or `future_` to any function above and pass the number of days:
+
+| Pattern | Example |
+|---|---|
+| `past_<format>(7)` | `past_pretty_date(7)` → one week ago |
+| `future_<format>(30)` | `future_dd_mm_yyyy(30)` → 30 days from now |
+
+**Also available:** `list_available_formats()` to see all supported format names.
+
+</details>
 
 ### 🔢 Easy Numbers
 
-Perform common number operations using simple and readable functions.
+<details>
+<summary>Click to expand — number checks and calculations without the mental math</summary>
 
-Features include:
+<br>
 
-- Number utilities
-- Beginner-friendly calculations
-- Cleaner mathematical operations
+| Function | What it does | Example |
+|---|---|---|
+| `is_even(n)` | Check if a number is even | `is_even(90)` → `True` |
+| `is_odd(n)` | Check if a number is odd | `is_odd(67)` → `True` |
+| `is_positive(n)` | Check if a number is positive | `is_positive(90)` → `True` |
+| `is_negative(n)` | Check if a number is negative | `is_negative(-10)` → `True` |
+| `is_prime(n)` | Check if a number is prime | `is_prime(2)` → `True` |
+| `is_evenly_divisible(n, d)` | Check if `n` divides evenly by `d` | `is_evenly_divisible(90, 9)` → `True` |
+| `average(nums)` | Average of a list, rounded to 2 decimals | `average([1.5, 2, 3])` → `2.17` |
+| `percentage_of(n, p)` | Get a percentage of a number | `percentage_of(100, 0.5)` → `50.0` |
 
----
+</details>
+
 ### 🔤 Easy Strings
 
-Handle common string operations using clear, beginner-friendly functions.
+<details>
+<summary>Click to expand — string operations that read like English</summary>
 
-Features include:
+<br>
 
-- Removing repeated spaces
-- Converting text to `snake_case`
-- Converting text to `kebab-case`
-- Checking whether text is a palindrome
+| Function | What it does | Example |
+|---|---|---|
+| `remove_extra_spaces(text)` | Strip leading, trailing, and double spaces | `remove_extra_spaces("  hello   world  ")` → `"hello world"` |
+| `to_snake_case(text)` | Convert to snake_case | `to_snake_case("Hello World")` → `"hello_world"` |
+| `to_kebab_case(text)` | Convert to kebab-case | `to_kebab_case("Hello World")` → `"hello-world"` |
+| `is_palindrome(text)` | Check if text reads the same backwards | `is_palindrome("Never odd or even")` → `True` |
+| `is_alphanumeric(text)` | Check if text is letters and numbers only | `is_alphanumeric("Something123")` → `True` |
+| `count_words(text)` | Count the number of words | `count_words("Hello world! How are you?")` → `5` |
+
+</details>
 
 ### 🔄 Easy Converter
 
-Convert values easily using simple utility functions.
+<details>
+<summary>Click to expand — unit conversions without memorizing formulas</summary>
 
-Features include:
+<br>
 
-- Simple conversions
-- Easy-to-use helpers
-- Less repetitive code
+**Time**
 
----
+| Function | Example |
+|---|---|
+| `seconds_to_hh_mm_ss(3665)` | `"01:01:05"` |
+| `hh_mm_ss_to_seconds(1, 1, 1)` | `3661` |
+
+**Distance & Length**
+
+| Function | Example |
+|---|---|
+| `km_to_mile(100)` | `62.13` |
+| `miles_to_km(100)` | `160.93` |
+| `meters_to_feet(100)` | `328.08` |
+| `feet_to_meters(328.08)` | `100.0` |
+| `cm_to_inches(100)` | `39.37` |
+| `inches_to_cm(39.37)` | `100.0` |
+
+**Weight**
+
+| Function | Example |
+|---|---|
+| `kg_to_lb(5)` | `11.02` |
+| `lb_to_kg(110.23)` | `50.0` |
+
+**Temperature**
+
+| Function | Example |
+|---|---|
+| `celsius_to_fahrenheit(25)` | `77.0` |
+| `fahrenheit_to_celsius(104)` | `40.0` |
+
+**Volume**
+
+| Function | Example |
+|---|---|
+| `fluid_oz_to_ml(1, standard='us')` | `29.6` |
+| `fluid_oz_to_ml(1, standard='uk')` | `28.4` |
+| `ml_to_fluid_oz(1, standard='us')` | `0.03` |
+| `ml_to_fluid_oz(1, standard='uk')` | `0.04` |
+
+**Area**
+
+| Function | Example |
+|---|---|
+| `sq_meters_to_sq_feet(10)` | `107.64` |
+| `sq_feet_to_sq_meters(107.64)` | `10.0` |
+
+**Speed**
+
+| Function | Example |
+|---|---|
+| `mph_to_kph(0.621371)` | `1.0` |
+| `kph_to_mph(1.60934)` | `1.0` |
+
+</details>
 
 ### ✅ Easy Validator
 
-Validate common input formats using simple, readable functions.
+<details>
+<summary>Click to expand — input validation without regex memorization</summary>
 
-Features include:
+<br>
 
-- Email, username, and URL validation
-- US zip code validation
-- Password strength validation
+| Function | What it checks | Example |
+|---|---|---|
+| `is_valid_email(str)` | Valid email format | `is_valid_email("hello@world.com")` → `True` |
+| `is_valid_username(str)` | Letters, numbers, and underscores only | `is_valid_username("user_name")` → `True` |
+| `is_valid_url(str)` | URLs with http, https, or www | `is_valid_url("www.google.com")` → `True` |
+| `is_valid_zipcode(int)` | 5-digit US zip code | `is_valid_zipcode(12345)` → `True` |
+| `is_password_secure(str)` | 8+ chars, upper, lower, digits, special, no repeats | `is_password_secure("1andkrf!AG5")` → `True` |
 
----
+</details>
 
 ### 🌐 Easy Web
 
-Make getting data from the web less complex.
+<details>
+<summary>Click to expand — web scraping and checks without the requests/BS4 boilerplate</summary>
 
-Features include:
+<br>
 
-- Checking if website is up
-- Getting page content
+| Function | What it does | Example |
+|---|---|---|
+| `is_page_up(url)` | Check if a site returns 200 | `is_page_up("https://github.com")` → `True` |
+| `get_page_title(url)` | Get the page title | `get_page_title("https://github.com")` → `"GitHub · ..."` |
+| `get_page_content(url)` | Get prettified HTML | `get_page_content("https://google.com")` |
+| `count_links(url)` | Count links on a page | `count_links("https://github.com")` → `144` |
+| `get_link_list(url)` | Get all links as a list | `get_link_list("https://github.com")` → `[...]` |
+| `get_meta_description(url)` | Get all meta tag contents | `get_meta_description("https://github.com")` → `[...]` |
+| `get_all_headers(url)` | Get text from all `<header>` tags | `get_all_headers("https://github.com")` → `[...]` |
 
-More examples and documentation will be added as the project grows.
+</details>
 
----
+### 🎨 Easy Colors
+
+<details>
+<summary>Click to expand — hex and RGB conversions without the manual math</summary>
+
+<br>
+
+| Function | What it does | Example |
+|---|---|---|
+| `is_valid_hex(str)` | Check if a string is a valid hex color | `is_valid_hex("#FFFFFF")` → `True` |
+| `hex_to_rgb(str)` | Convert hex to (R, G, B) tuple | `hex_to_rgb("#FFFFFF")` → `(255, 255, 255)` |
+| `rgb_to_hex(r, g, b)` | Convert RGB to hex string | `rgb_to_hex(255, 255, 255)` → `"#FFFFFF"` |
+
+</details>
+
+### 🔄 Easy Flow
+
+<details>
+<summary>Click to expand — run Python files without the runpy boilerplate</summary>
+
+<br>
+
+| Function | What it does | Example |
+|---|---|---|
+| `run_py_file(str)` | Run a .py file as `__main__` | `run_py_file("script.py")` |
+
+</details>
+
+### 📄 Easy JSON
+
+<details>
+<summary>Click to expand — JSON file handling without the boilerplate</summary>
+
+<br>
+
+| Function | What it does | Example |
+|---|---|---|
+| `open_json(path)` | Read a JSON file into a dict | `open_json("config.json")` |
+| `save_json_data(path, dict)` | Save a dict to a new JSON file | `save_json_data("config.json", {"name": "Sara"})` |
+| `update_json(path, dict)` | Merge new data into an existing JSON file | `update_json("config.json", {"name": "Sara"})` |
+| `pretty_json(data=dict)` | Pretty-print a dict as indented JSON | `pretty_json(data={"name": "Sara"})` |
+| `pretty_json(filepath=path)` | Pretty-print a JSON file's contents | `pretty_json(filepath="config.json")` |
+| `is_json_file(path)` | Check if a file exists and is .json | `is_json_file("config.json")` → `True` |
+
+</details>
 
 ## 🤝 Contributing
  
