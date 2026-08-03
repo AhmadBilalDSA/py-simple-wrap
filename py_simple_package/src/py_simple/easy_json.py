@@ -103,8 +103,7 @@ def save_json_data(filepath: str, data: dict) -> None:
 def pretty_json(data: dict = None, filepath: str = None) -> str | None:
     """
     Returns a pretty-printed, indented JSON string from a dictionary or
-    a JSON file. Provide exactly one of `data` or `filepath` — not both,
-    not neither.
+    a JSON file. Provide exactly one of `data` or `filepath` — not both.
 
     Args:
         data (dict): A dictionary to format as pretty-printed JSON.
