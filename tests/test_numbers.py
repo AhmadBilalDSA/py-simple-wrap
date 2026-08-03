@@ -7,7 +7,12 @@ from py_simple_package.src.py_simple.easy_numbers import (
     average,
     is_prime,
     percentage_of,
+    round_to_nearest,
+    greatest_common_divisor,
+    clamp,
 )
+
+import pytest
 
 
 # even
@@ -187,3 +192,96 @@ def test_percentage_zero():
 
 def test_percentage_decimal():
     assert percentage_of(19, 0.4) == 7.6
+
+# round_to_nearest
+
+
+def test_round_to_nearest_rounds_up():
+    assert round_to_nearest(23, 5) == 25.0
+
+
+def test_round_to_nearest_rounds_down():
+    assert round_to_nearest(21, 5) == 20.0
+
+
+def test_round_to_nearest_exact_multiple():
+    assert round_to_nearest(20, 5) == 20.0
+
+
+def test_round_to_nearest_decimal_input():
+    assert round_to_nearest(7.4, 2) == 8.0
+
+
+def test_round_to_nearest_negative_number():
+    assert round_to_nearest(-23, 5) == -25.0
+
+
+def test_round_to_nearest_nearest_one():
+    assert round_to_nearest(3.2, 1) == 3.0
+
+
+def test_round_to_nearest_zero_raises_value_error():
+    with pytest.raises(ValueError):
+        round_to_nearest(10, 0)
+
+
+# greatest_common_divisor
+
+
+def test_gcd_coprime_numbers():
+    assert greatest_common_divisor(7, 13) == 1
+
+
+def test_gcd_shared_divisor():
+    assert greatest_common_divisor(12, 18) == 6
+
+
+def test_gcd_one_is_multiple_of_other():
+    assert greatest_common_divisor(10, 30) == 10
+
+
+def test_gcd_negative_numbers():
+    assert greatest_common_divisor(-12, 18) == 6
+
+
+def test_gcd_both_negative():
+    assert greatest_common_divisor(-12, -18) == 6
+
+
+def test_gcd_zero_and_number():
+    assert greatest_common_divisor(0, 5) == 5
+
+
+def test_gcd_both_zero():
+    assert greatest_common_divisor(0, 0) == 0
+
+
+# clamp
+
+
+def test_clamp_within_range_unchanged():
+    assert clamp(5, 0, 10) == 5
+
+
+def test_clamp_above_maximum():
+    assert clamp(15, 0, 10) == 10
+
+
+def test_clamp_below_minimum():
+    assert clamp(-3, 0, 10) == 0
+
+
+def test_clamp_at_minimum():
+    assert clamp(0, 0, 10) == 0
+
+
+def test_clamp_at_maximum():
+    assert clamp(10, 0, 10) == 10
+
+
+def test_clamp_decimal_values():
+    assert clamp(2.5, 1.0, 3.0) == 2.5
+
+
+def test_clamp_negative_range():
+    assert clamp(-5, -10, -1) == -5
