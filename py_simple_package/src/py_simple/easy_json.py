@@ -1,3 +1,7 @@
+"""
+easy_json is built to simplify working with json files
+"""
+
 import json
 import os
 
@@ -100,3 +104,44 @@ def save_json_data(filepath: str, data: dict) -> None:
             json.dump(data, json_file, indent=4)
     except Exception as e:
         raise EasyJsonError(f"\n\n\nERROR: {e}") from None
+
+
+def pretty_json(data: dict = None, filepath: str = None) -> str | None:
+    """
+    Returns a pretty-printed, indented JSON string from a dictionary or
+    a JSON file. Provide exactly one of `data` or `filepath` — not both,
+    not neither.
+
+    Args:
+        data (dict): A dictionary to format as pretty-printed JSON.
+        filepath (str): Path to a JSON file to load and format as
+            pretty-printed JSON.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import pretty_json
+
+            print(pretty_json(data={"name": "Sara"}))
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import json
+
+            print(json.dumps({"name": "Sara"}, indent=2))
+            ```
+    """
+    if data is None and filepath is None:
+        raise EasyJsonError("\n\n\nERROR: Either data or filepath must be provided.") \
+            from None
+    if data is not None and filepath is not None:
+        raise EasyJsonError(f"\n\n\nERROR: Please provide data OR filepath.") from None
+    elif data:
+        return json.dumps(data, indent=2)
+    else:
+        try:
+            d = open_json(filepath)
+            return json.dumps(d, indent=2)
+        except Exception as e:
+            raise EasyJsonError(f"\n\n\nERROR: {e}") from None
