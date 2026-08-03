@@ -3,41 +3,57 @@
     "README.md"
   ],
   "imageSize": 100,
+  "projectName": "py_simple",
+  "projectOwner": "sara-czasak",
+  "repoType": "github",
+  "repoHost": "https://github.com",
   "types": {
-    "projectManagement": {
-      "symbol": "🚀",
-      "description": "Project Management",
-      "link": "{author.profile}"
+    "code": {
+      "symbol": "💻",
+      "description": "Code",
+      "link": "https://github.com/sara-czasak/py_simple/commits?author=<%= contributor.login %>"
     },
-    "maintainer": {
-      "symbol": "🛡️",
-      "description": "Maintainer",
-      "link": "{author.profile}"
+    "documentation": {
+      "symbol": "📖",
+      "description": "Docs",
+      "link": "https://github.com/sara-czasak/py_simple/commits?author=<%= contributor.login %>"
     },
-    "originalAuthor": {
-      "symbol": "👑",
-      "description": "Original Author",
-      "link": "{author.profile}"
-    },
-    "Collaborators": {
-      "symbol": "✋",
-      "description": "Collaborators",
-      "link": "{author.profile}"
+    "infra": {
+      "symbol": "🚇",
+      "description": "Infrastructure",
+      "link": "https://github.com/sara-czasak/py_simple/commits?author=<%= contributor.login %>"
     },
     "test": {
       "symbol": "🧪",
       "description": "Tests",
-      "link": "https://github.com/{owner}/{repo}/commits?author={author.login}"
+      "link": "https://github.com/sara-czasak/py_simple/commits?author=<%= contributor.login %>"
     },
-    "documentation": {
-      "symbol": "📖",
-      "description": "Documentation",
-      "link": "https://github.com/{owner}/{repo}/commits?author={author.login}"
+    "maintainer": {
+      "symbol": "🛡️",
+      "description": "Maintainer",
+      "link": "https://github.com/<%= contributor.login %>"
+    },
+    "projectManagement": {
+      "symbol": "🚀",
+      "description": "Project Management",
+      "link": "https://github.com/<%= contributor.login %>"
+    },
+    "originalAuthor": {
+      "symbol": "👑",
+      "description": "Original Author",
+      "link": "https://github.com/<%= contributor.login %>"
+    },
+    "collaborators": {
+      "symbol": "✋",
+      "description": "Collaborators",
+      "link": "https://github.com/<%= contributor.login %>"
     }
   },
   "commit": false,
   "commitType": "docs",
   "commitConvention": "angular",
+  "contributorsPerLine": 7,
+  "skipCi": true,
   "contributors": [
     {
       "login": "sara-czasak",
@@ -50,7 +66,7 @@
         "code",
         "documentation",
         "originalAuthor",
-        "Collaborators"
+        "collaborators"
       ]
     },
     {
@@ -60,7 +76,7 @@
       "profile": "https://github.com/jagjitkaur0000",
       "contributions": [
         "test",
-        "Collaborators"
+        "collaborators"
       ]
     },
     {
@@ -70,7 +86,7 @@
       "profile": "https://github.com/atiqur-rahman-pro",
       "contributions": [
         "test",
-        "Collaborators"
+        "collaborators"
       ]
     },
     {
@@ -79,7 +95,7 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/246456340?v=4",
       "profile": "https://github.com/Onion0121",
       "contributions": [
-        "doc"
+        "documentation"
       ]
     },
     {
@@ -108,7 +124,7 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/143723566?v=4",
       "profile": "https://github.com/shivams786",
       "contributions": [
-        "doc",
+        "documentation",
         "test",
         "code"
       ]
@@ -128,7 +144,7 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/83951176?v=4",
       "profile": "https://github.com/HeaTTap",
       "contributions": [
-        "doc",
+        "documentation",
         "test",
         "code"
       ]
@@ -169,11 +185,5 @@
         "test"
       ]
     }
-  ],
-  "contributorsPerLine": 7,
-  "skipCi": true,
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "projectName": "py_simple",
-  "projectOwner": "sara-czasak"
+  ]
 }
