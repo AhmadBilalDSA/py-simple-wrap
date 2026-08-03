@@ -33,7 +33,7 @@ from .easy_strings import (
     count_words, is_alphanumeric,
 )
 from .easy_json import (
-    open_json, save_json_data, pretty_json,
+    open_json, save_json_data, pretty_json, update_json, is_json_file,
 )
 from .easy_colors import (
     hex_to_rgb, rgb_to_hex, is_valid_hex,

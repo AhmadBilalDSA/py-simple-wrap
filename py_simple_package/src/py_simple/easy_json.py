@@ -140,3 +140,82 @@ def pretty_json(data: dict = None, filepath: str = None) -> str | None:
             return json.dumps(d, indent=2)
         except Exception as e:
             raise EasyJsonError(f"\n\n\nERROR: {e}") from None
+
+
+def update_json(filepath: str, new_data: dict) -> None:
+    """
+    Updates a JSON file with new data, merging it into what's already
+    there. Existing top-level keys in `new_data` overwrite matching keys
+    in the file; anything else in the file is left untouched.
+
+    Args:
+        filepath (str): Path to the JSON file to update.
+        new_data (dict): The data to merge into the existing file.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import update_json
+
+            update_json("config.json", {"name": "Sara"})
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import json
+
+            with open("config.json") as json_file:
+                data = json.load(json_file)
+
+            data.update({"name": "Sara"})
+
+            with open("config.json", "w") as json_file:
+                json.dump(data, json_file, indent=4)
+            ```
+    """
+    try:
+        old_data = open_json(filepath)
+        old_data.update(new_data)
+        with open(filepath, "w") as json_file:
+            json.dump(old_data, json_file, indent=4)
+    except Exception as e:
+        raise EasyJsonError(f"\n\n\nERROR: {e}") from None
+
+
+def is_json_file(filepath: str) -> bool:
+    """
+    Checks whether a filepath points to an existing file with a `.json`
+    extension.
+
+    Args:
+        filepath (str): Path to check.
+
+    Returns:
+        bool: True if the file exists and ends in `.json`, False otherwise.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import is_json_file
+
+            if is_json_file("config.json"):
+                print("Looks good!")
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import os
+
+            filepath = "config.json"
+            if os.path.isfile(filepath) and filepath.split(".")[-1] == "json":
+                print("Looks good!")
+            ```
+    """
+    is_file = os.path.isfile(filepath)
+    if is_file:
+        if filepath.split(".")[-1] == "json":
+            return True
+        else:
+            return False
+    else:
+        return False
