@@ -2,7 +2,7 @@
  
 ## Supported Versions
  
-`Py_simple` is a young project (currently `0.1.x`) and hasn't reached a stable `1.0` release yet, so there isn't a long history of versions to maintain in parallel. Only the **latest published release on PyPI** receives security fixes.
+`py-simple-wrap` is a young project (currently `0.1.x`) and hasn't reached a stable `1.0` release yet, so there isn't a long history of versions to maintain in parallel. Only the **latest published release on PyPI** receives security fixes.
  
 | Version | Supported          |
 | ------- | ------------------ |
@@ -15,7 +15,7 @@ If you're on an older version, please upgrade to the latest release before repor
  
 Please **do not open a public GitHub Issue** for security vulnerabilities — that could expose the problem to others before it's fixed.
  
-Instead, report it privately to the maintainer, **[@sara-czasak](https://github.com/sara-czasak)**, using [GitHub's private vulnerability reporting](https://github.com/sara-czasak/py_simple/security/advisories/new) on this repo (Security tab → "Report a vulnerability"). If that's not available for any reason, open a private message via GitHub instead.
+Instead, report it privately to the maintainer, **[@sara-czasak](https://github.com/sara-czasak)**, using [GitHub's private vulnerability reporting](https://github.com/sara-czasak/py-simple-wrap/security/advisories/new) on this repo (Security tab → "Report a vulnerability"). If that's not available for any reason, open a private message via GitHub instead.
  
 When reporting, please include:
 - A description of the vulnerability and its potential impact

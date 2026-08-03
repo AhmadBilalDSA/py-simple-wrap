@@ -1,8 +1,8 @@
-# py_simple
+# py-simple-wrap
 
 **Making Python feel like plain English.**
 
-py_simple is a beginner-friendly Python package that wraps common, everyday tasks — file handling, date formatting, unit conversion, and more — into simple, readable functions. No boilerplate, no memorizing syntax you'll forget in a week.
+py-simple-wrap is a beginner-friendly Python package that wraps common, everyday tasks — file handling, date formatting, unit conversion, and more — into simple, readable functions. No boilerplate, no memorizing syntax you'll forget in a week.
 
 ```bash
 pip install py-simple-wrap
@@ -15,8 +15,8 @@ pip install py-simple-wrap
 - **Looking for a specific function?** Browse the [Reference](reference/easy_web.md) for full details on every module.
 - **Curious about the project itself?** See [Contributors](about/contributors.md) and [License](about/license.md).
 
-## Why py_simple?
+## Why py-simple-wrap?
 
-Most everyday Python tasks — reading a file, converting units, validating an email — take a few lines of boilerplate every single time. py_simple wraps that boilerplate into one-line function calls, so you can focus on what you're actually building instead of re-deriving the same five lines of code for the hundredth time.
+Most everyday Python tasks — reading a file, converting units, validating an email — take a few lines of boilerplate every single time. py-simple-wrap wraps that boilerplate into one-line function calls, so you can focus on what you're actually building instead of re-deriving the same five lines of code for the hundredth time.
 
 It's built by and for beginners, with contributions welcome from anyone who wants to help make Python a little less intimidating.

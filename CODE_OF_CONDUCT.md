@@ -2,7 +2,7 @@
  
 ## Our Pledge
  
-`Py_simple` exists to make Python feel a little less intimidating, especially for people who are just starting out. That only works if this stays a space where people feel safe asking "dumb" questions, submitting imperfect code, and learning in public.
+`py-simple-wrap` exists to make Python feel a little less intimidating, especially for people who are just starting out. That only works if this stays a space where people feel safe asking "dumb" questions, submitting imperfect code, and learning in public.
  
 We as contributors and maintainers pledge to make participation in this project a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
  
@@ -22,7 +22,7 @@ We as contributors and maintainers pledge to make participation in this project 
 - Any other conduct that would reasonably be considered inappropriate in a professional or learning setting
 ## Scope
  
-This Code of Conduct applies within all project spaces — the GitHub repo, Issues, Pull Requests, Discussions, and the documentation site — and also applies when someone is officially representing the project in public spaces (e.g. posting about `Py_simple` on social media).
+This Code of Conduct applies within all project spaces — the GitHub repo, Issues, Pull Requests, Discussions, and the documentation site — and also applies when someone is officially representing the project in public spaces (e.g. posting about `py-simple-wrap` on social media).
  
 ## Enforcement
  
@@ -36,7 +36,7 @@ Maintainers are responsible for clarifying standards of acceptable behavior and 
 4. **Permanent Ban** — A permanent ban for repeated or severe violations, including harassment or targeted aggression.
 ## Attribution
  
-This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org/), version 2.1, with the tone adjusted to fit `Py_simple`'s beginner-first spirit.
+This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org/), version 2.1, with the tone adjusted to fit `py-simple-wrap`'s beginner-first spirit.
  
 ---
  

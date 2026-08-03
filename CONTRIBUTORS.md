@@ -1,6 +1,6 @@
-# Py_simple Contributors 🌟
+# py-simple-wrap Contributors 🌟
 
-A massive thank you to everyone who has helped build, refine, and grow `Py_simple`. This project exists to help beginners, and it wouldn't be where it is today without the support of the community.
+A massive thank you to everyone who has helped build, refine, and grow `py-simple-wrap`. This project exists to help beginners, and it wouldn't be where it is today without the support of the community.
 
 Remember **always** that you are **valid**, **valuable**, **unique** and **irreplacable**! **You matter more than you know!!**
 
@@ -80,4 +80,4 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
 ## How to get your name here? 🛠️
 I welcome contributions of all sizes! Whether you are fixing a typo in the README, suggesting a new "Simple" module, or writing code, I'd love to have you involved. 
 
-Check out [CONTRIBUTING.md](docs/how-to/contributing.md) to see how you can get started!
+Check out [CONTRIBUTING.md](./CONTRIBUTING.md) to see how you can get started!

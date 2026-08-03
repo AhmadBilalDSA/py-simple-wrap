@@ -1,6 +1,6 @@
 # Quickstart
  
-Get up and running with `py_simple` in under a minute.
+Get up and running with `py-simple-wrap` in under a minute.
  
 ## Installation
  

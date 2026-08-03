@@ -1,12 +1,12 @@
-# Contributing to Py_simple 🚀
+# Contributing to py-simple-wrap 🚀
 
-First of all, thank you for being here! I created `Py_simple` to help others on their learning journey, and I'm excited to have you join me.
+First of all, thank you for being here! I created `py-simple-wrap` to help others on their learning journey, and I'm excited to have you join me.
 
 **I struggle with anxiety myself, so I totally understand if you're feeling nervous about contributing. Please don't be!** The absolute worst thing that could happen is that I might ask for a few changes before merging your code. This is a safe space to learn, make mistakes, and grow together.
 
 ## ⭐ Enjoying the project?
 
-If Py_simple has been useful or you just like what it's doing, a star means a lot — it helps other beginners discover the project and keeps me motivated to keep building it. It takes two seconds and costs nothing. 🙏
+If py-simple-wrap has been useful, or you just like what it's doing, a star means a lot — it helps other beginners discover the project and keeps me motivated to keep building it. It takes two seconds and costs nothing. 🙏
 
 ## The "Simple" Philosophy
 
@@ -24,7 +24,7 @@ If you've never contributed to an open-source project before, here is exactly ho
 3. **Clone Your Fork**: Open your terminal, type `git clone `, and then paste the link you just copied:
 
    ```
-   git clone https://github.com/YOUR_USERNAME/Py_simple.git
+   git clone https://github.com/YOUR_USERNAME/py-simple-wrap.git
    ```
 
 4. **Create a Branch**: It's best to do your work on a new branch:
@@ -47,7 +47,7 @@ If you've never contributed to an open-source project before, here is exactly ho
    git push origin my-new-feature
    ```
 
-8. **Open a Pull Request**: Go to the original `Py_simple` repository on GitHub, and you'll see a button that says "Compare & pull request." Click it and tell me a bit about what you did!
+8. **Open a Pull Request**: Go to the original `py-simple-wrap` repository on GitHub, and you'll see a button that says "Compare & pull request." Click it and tell me a bit about what you did!
 
 ## 💡 What should I contribute?
 
