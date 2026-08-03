@@ -32,6 +32,7 @@ nav:
   - Home: index.md
   - Tutorial:
       - Quickstart: tutorial/quickstart.md
+      - Easy Strings: tutorial/easy_strings.md
   - How To:
       - Contributing: how-to/contributing.md
   - Reference:
