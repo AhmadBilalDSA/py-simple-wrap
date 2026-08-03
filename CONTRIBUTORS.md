@@ -40,6 +40,9 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
   - Implemented `list_files` and `copy_file` tools in `easy_file_manager`.
   - Refactored core logic to use a centralized format registry.
   - Added unit tests for `easy_date_formatter.py` and `easy_file_manager.py`
+  - Added 'count_tags', 'get_tag_list', 'print_allowed_tags' to `easy_web.py`
+  - Updated README.md to include new features
+  - Expanded unit tests for `easy_web.py`
     
 - **Onion0121** ([@Onion0121](https://github.com/Onion0121))
   - Improve documentation (made README.md more approachable for beginners)
