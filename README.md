@@ -150,6 +150,7 @@ A huge thank you to the wonderful people who have helped build Py_simple:
 - **shivams786** (Added easy_strings.py)
 - **HeaTTap** (Added tests for easy_web module)
 - **Challa Leela Prasad** (Enhanced easy_strings module)
+- **atiqur rahman** (Expanded unit tests for easy_strings module)
 
 See the full list of contributions in [CONTRIBUTORS.md](docs/about/contributors.md).
 
