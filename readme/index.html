@@ -840,6 +840,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#before-and-after" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before and After
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#if-py-simple-wrap-made-something-easier-for-you" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -847,6 +870,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1093,6 +1121,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#before-and-after" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before and After
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#if-py-simple-wrap-made-something-easier-for-you" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1100,6 +1151,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1279,6 +1335,38 @@
 <a href="https://github.com/sara-czasak/py-simple-wrap/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/sara-czasak/py-simple-wrap?style=for-the-badge" /></a></p>
 <p>py-simple-wrap is a beginner-friendly Python wrapper package designed to help beginners and developers perform common tasks using simple, intuitive functions.</p>
 <p>The goal of this project is to remove the need for memorizing complex syntax or writing repetitive boilerplate code, making Python more accessible and enjoyable for everyone.</p>
+<h2 id="before-and-after">Before and After</h2>
+<table>
+<tr>
+<th width="50%">The traditional way</th>
+<th width="50%">The py-simple-wrap way</th>
+</tr>
+<tr>
+<td>
+<pre>
+import requests
+
+try:
+    response = requests.get("https://github.com", timeout=10)
+    response.raise_for_status()
+    page = BeautifulSoup(response.content, 'html.parser')
+    title = page.title.string
+    return title
+except Exception as e:
+    print("The site is down or address is invalid.")
+</pre>
+</td>
+<td>
+<pre>
+from py_simple import get_page_title
+
+print(get_page_title("https://github.com"))
+</pre>
+</td>
+</tr>
+</table>
+
+<h2 id="installation">Installation</h2>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>py-simple-wrap
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_blank_file</span><span class="p">,</span> <span class="n">miles_to_km</span><span class="p">,</span> <span class="n">is_valid_email</span>
