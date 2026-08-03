@@ -848,25 +848,25 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+    <nav class="md-nav" aria-label="Before and After">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-traditional-way" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installation
+        😰 The traditional way
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Installation">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#if-py-simple-wrap-made-something-easier-for-you" class="md-nav__link">
+  <a href="#the-py-simple-wrap-way" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⭐ If py-simple-wrap made something easier for you
+        😎 The py-simple-wrap way
       
     </span>
   </a>
@@ -875,6 +875,28 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-py-simple-wrap-made-something-easier-for-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ If py-simple-wrap made something easier for you
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1129,25 +1151,25 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+    <nav class="md-nav" aria-label="Before and After">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-traditional-way" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installation
+        😰 The traditional way
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Installation">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#if-py-simple-wrap-made-something-easier-for-you" class="md-nav__link">
+  <a href="#the-py-simple-wrap-way" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⭐ If py-simple-wrap made something easier for you
+        😎 The py-simple-wrap way
       
     </span>
   </a>
@@ -1156,6 +1178,28 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-py-simple-wrap-made-something-easier-for-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ If py-simple-wrap made something easier for you
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1336,37 +1380,24 @@
 <p>py-simple-wrap is a beginner-friendly Python wrapper package designed to help beginners and developers perform common tasks using simple, intuitive functions.</p>
 <p>The goal of this project is to remove the need for memorizing complex syntax or writing repetitive boilerplate code, making Python more accessible and enjoyable for everyone.</p>
 <h2 id="before-and-after">Before and After</h2>
-<table>
-<tr>
-<th width="50%">The traditional way</th>
-<th width="50%">The py-simple-wrap way</th>
-</tr>
-<tr>
-<td>
-<pre>
-import requests
+<h3 id="the-traditional-way">😰 The traditional way</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
 
-try:
-    response = requests.get("https://github.com", timeout=10)
-    response.raise_for_status()
-    page = BeautifulSoup(response.content, 'html.parser')
-    title = page.title.string
-    return title
-except Exception as e:
-    print("The site is down or address is invalid.")
-</pre>
-</td>
-<td>
-<pre>
-from py_simple import get_page_title
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://github.com&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">string</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The site is down or address is invalid.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="the-py-simple-wrap-way">😎 The py-simple-wrap way</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_page_title</span>
 
-print(get_page_title("https://github.com"))
-</pre>
-</td>
-</tr>
-</table>
-
-<h2 id="installation">Installation</h2>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_page_title</span><span class="p">(</span><span class="s2">&quot;https://github.com&quot;</span><span class="p">))</span>
+</code></pre></div>
+<h2 id="installation">🛠️ Installation</h2>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>py-simple-wrap
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_blank_file</span><span class="p">,</span> <span class="n">miles_to_km</span><span class="p">,</span> <span class="n">is_valid_email</span>
@@ -1378,7 +1409,7 @@ print(get_page_title("https://github.com"))
 <blockquote>
 <p>Full walkthrough in <a href="../QUICKSTART.md">QUICKSTART.md</a>, or browse the full <strong><a href="https://sara-czasak.github.io/py-simple-wrap/">documentation site</a></strong>.</p>
 </blockquote>
-<h3 id="if-py-simple-wrap-made-something-easier-for-you">⭐ If py-simple-wrap made something easier for you</h3>
+<h2 id="if-py-simple-wrap-made-something-easier-for-you">⭐ If py-simple-wrap made something easier for you</h2>
 <p>Consider giving it a <strong>star</strong> — it helps other beginners find it, and it genuinely makes my day. And if there's a function you wish existed, <strong>fork it</strong> and add it; this project grew because other people did exactly that. Every module below started here, except <code>easy_strings</code>, which came from a contributor.</p>
 <hr />
 <h2 id="module-menu">🛠️ Module Menu</h2>
