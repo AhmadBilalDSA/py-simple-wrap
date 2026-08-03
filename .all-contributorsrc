@@ -159,6 +159,15 @@
       "contributions": [
         "documentation"
       ]
+    },
+    {
+      "login": "matheusfrta",
+      "name": "Matheus",
+      "avatar_url": "https://avatars.githubusercontent.com/u/217668693?v=4",
+      "profile": "https://github.com/matheusfrta",
+      "contributions": [
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
