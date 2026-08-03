@@ -60,6 +60,9 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
 
 - **Challa Leela Prasad** ([@leepCh](https://github.com/leepCh))
   - Enhanced easy_strings module
+ 
+- **atiqur rahman** ([@atiqur-rahman-pro](https://github.com/atiqur-rahman-pro))
+  - Added tests for easy_strings module
 ---
 
 ## How to get your name here? 🛠️
