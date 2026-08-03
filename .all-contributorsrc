@@ -15,6 +15,15 @@
       "contributions": [
         "test"
       ]
+    },
+    {
+      "login": "leepCh",
+      "name": "Challa Leela Prasad",
+      "avatar_url": "https://avatars.githubusercontent.com/u/195529175?v=4",
+      "profile": "https://github.com/leepCh",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
