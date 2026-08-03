@@ -241,3 +241,96 @@ def percentage_of(number: int, percentage: float) -> float:
             ```
     """
     return float(f"{(number * percentage):.2f}")
+
+
+def round_to_nearest(number: float, nearest: int) -> float:
+    """
+    Returns a number rounded to the nearest multiple.
+
+    Args:
+        number (float): Number to round.
+        nearest (int): Multiple to round to.
+
+    Returns:
+        float: Rounded number.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import round_to_nearest
+
+            result = round_to_nearest(23, 5)  # -> 25.0
+            ```
+
+        === "The Traditional Way"
+            ```python
+            number, nearest = 23, 5
+            result = round(number / nearest) * nearest
+            ```
+    """
+    if nearest == 0:
+        raise ValueError("'nearest' must not be zero.")
+
+    return round(number / nearest) * nearest
+
+
+def greatest_common_divisor(a: int, b: int) -> int:
+    """
+    Returns the greatest common divisor (GCD) of two numbers.
+
+    Args:
+        a (int): First number.
+        b (int): Second number.
+
+    Returns:
+        int: Greatest common divisor.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import greatest_common_divisor
+
+            result = greatest_common_divisor(12, 18)  # -> 6
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import math
+
+            a, b = 12, 18
+            result = math.gcd(a, b)
+            ```
+    """
+    while b != 0:
+        a, b = b, a % b
+
+    return abs(a)
+
+
+def clamp(number: float, minimum: float, maximum: float) -> float:
+    """
+    Keeps a number within a minimum and maximum range.
+
+    Args:
+        number (float): Number to clamp.
+        minimum (float): Minimum allowed value.
+        maximum (float): Maximum allowed value.
+
+    Returns:
+        float: Clamped number.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import clamp
+
+            result = clamp(15, 0, 10)  # -> 10
+            ```
+
+        === "The Traditional Way"
+            ```python
+            number, minimum, maximum = 15, 0, 10
+            result = max(minimum, min(number, maximum))
+            ```
+    """
+    return max(minimum, min(number, maximum))
