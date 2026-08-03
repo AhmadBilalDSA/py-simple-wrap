@@ -19,6 +19,11 @@
       "description": "Original Author",
       "link": "{author.profile}"
     },
+    "Collaborators": {
+      "symbol": "✋",
+      "description": "Collaborators",
+      "link": "{author.profile}"
+    },
     "test": {
       "symbol": "🧪",
       "description": "Tests",
@@ -44,7 +49,18 @@
         "projectManagement",
         "code",
         "documentation",
-        "originalAuthor"
+        "originalAuthor",
+        "Collaborators"
+      ]
+    },
+    {
+      "login": "jagjitkaur0000",
+      "name": "jagjitkaur0000",
+      "avatar_url": "https://avatars.githubusercontent.com/u/226679809?v=4",
+      "profile": "https://github.com/jagjitkaur0000",
+      "contributions": [
+        "test",
+        "Collaborators"
       ]
     },
     {
@@ -53,7 +69,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/264598807?v=4",
       "profile": "https://github.com/atiqur-rahman-pro",
       "contributions": [
-        "test"
+        "test",
+        "Collaborators"
       ]
     },
     {
@@ -103,15 +120,6 @@
       "profile": "https://github.com/leepCh",
       "contributions": [
         "code"
-      ]
-    },
-    {
-      "login": "jagjitkaur0000",
-      "name": "jagjitkaur0000",
-      "avatar_url": "https://avatars.githubusercontent.com/u/226679809?v=4",
-      "profile": "https://github.com/jagjitkaur0000",
-      "contributions": [
-        "test"
       ]
     },
     {
