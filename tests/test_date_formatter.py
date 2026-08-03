@@ -3,6 +3,7 @@
 import re
 from datetime import datetime, timedelta
 import pytest
+<<<<<<< Updated upstream
 from py_simple_package.src.py_simple.easy_date_formatter import (
     get_pretty_date,
     get_past_pretty_date,
@@ -167,3 +168,143 @@ class TestUtilityFunctions:
         """Should produce valid dates for various future periods."""
         result = future_dd_mm_yyyy(days)
         assert re.match(r'\d{2}-\d{2}-\d{4}', result)
+=======
+import datetime as dt
+from py_simple_package.src.py_simple.easy_date_formatter import *
+
+
+def test_mm_dd_yyyy():
+    # ARRANGE
+    expected_output = dt.datetime.now().strftime("%m-%d-%Y")
+
+    # ACT
+    result = mm_dd_yyyy()
+
+    #ASSERT
+    assert result == expected_output, f"Expected {expected_output} but got {result}"
+
+
+def test_dd_mm_yyyy():
+    # ARRANGE
+    expected_output = datetime.now().strftime("%d-%m-%Y")
+
+    # ACT
+    result = dd_mm_yyyy()
+
+    #ASSERT
+    assert result == expected_output, f"Expected {expected_output} but got {result}"
+
+
+def test_pretty_date():
+    expected_output = datetime.now().strftime("%A, %B %d, %Y")
+
+    result = get_pretty_date()
+
+    assert result == expected_output, f"Expected {expected_output} but got {result}"
+
+
+def test_slash_dd_mm_yyyy():
+    expected_output = dt.datetime.now().strftime("%d/%m/%Y")
+
+    result = slash_dd_mm_yyyy()
+
+    assert result == expected_output, f"Expected {expected_output} but got {result}"
+
+
+def test_slash_mm_dd_yyyy():
+    expected_output = dt.datetime.now().strftime("%m/%d/%Y")
+
+    result = slash_mm_dd_yyyy()
+
+    assert result == expected_output, f"Expected {expected_output} but got {result}"
+
+
+def test_past_pretty_date():
+    expected_output = [
+        (datetime.now() - timedelta(days=1)).strftime("%A, %B %d, %Y"),
+        (datetime.now() - timedelta(days=4)).strftime("%A, %B %d, %Y"),
+         (datetime.now() - timedelta(days=9)).strftime("%A, %B %d, %Y"),
+          (datetime.now() - timedelta(days=30)).strftime("%A, %B %d, %Y"),
+    ]
+
+    result = [
+        get_past_pretty_date(1),
+        get_past_pretty_date(4),
+        get_past_pretty_date(9),
+        get_past_pretty_date(30),
+    ]
+
+    assert result == expected_output, f"Expected {expected_output} but got {result}"
+
+
+def test_past_dd_mm_yyyy():
+    expected_output = [
+        (dt.datetime.now() - timedelta(1)).strftime("%d-%m-%Y"),
+        (dt.datetime.now() - timedelta(25)).strftime("%d-%m-%Y"),
+        (dt.datetime.now() - timedelta(13)).strftime("%d-%m-%Y"),
+        (dt.datetime.now() - timedelta(53)).strftime("%d-%m-%Y")
+    ]
+
+    result = [
+        past_dd_mm_yyyy(1),
+        past_dd_mm_yyyy(25),
+        past_dd_mm_yyyy(13),
+        past_dd_mm_yyyy(53),
+    ]
+
+    assert result == expected_output, f"Expected {expected_output} but got {result}"
+
+
+def test_past_mm_dd_yyyy():
+    expected_output = [
+        (dt.datetime.now() - timedelta(1)).strftime("%m-%d-%Y"),
+        (dt.datetime.now() - timedelta(25)).strftime("%m-%d-%Y"),
+        (dt.datetime.now() - timedelta(13)).strftime("%m-%d-%Y"),
+        (dt.datetime.now() - timedelta(53)).strftime("%m-%d-%Y")
+    ]
+
+    result = [
+        past_mm_dd_yyyy(1),
+        past_mm_dd_yyyy(25),
+        past_mm_dd_yyyy(13),
+        past_mm_dd_yyyy(53),
+    ]
+
+    assert result == expected_output, f"Expected {expected_output} but got {result}"
+
+
+def test_past_slash_dd_mm_yyyy():
+    expected_output = [
+        (dt.datetime.now() - timedelta(1)).strftime("%d/%m/%Y"),
+        (dt.datetime.now() - timedelta(25)).strftime("%d/%m/%Y"),
+        (dt.datetime.now() - timedelta(13)).strftime("%d/%m/%Y"),
+        (dt.datetime.now() - timedelta(53)).strftime("%d/%m/%Y")
+    ]
+
+    result = [
+        past_slash_dd_mm_yyyy(1),
+        past_slash_dd_mm_yyyy(25),
+        past_slash_dd_mm_yyyy(13),
+        past_slash_dd_mm_yyyy(53),
+    ]
+
+    assert result == expected_output, f"Expected {expected_output} but got {result}"
+
+
+def test_past_slash_mm_dd_yyyy():
+    expected_output = [
+        (dt.datetime.now() - timedelta(1)).strftime("%m/%d/%Y"),
+        (dt.datetime.now() - timedelta(25)).strftime("%m/%d/%Y"),
+        (dt.datetime.now() - timedelta(13)).strftime("%m/%d/%Y"),
+        (dt.datetime.now() - timedelta(53)).strftime("%m/%d/%Y")
+    ]
+
+    result = [
+        past_slash_mm_dd_yyyy(1),
+        past_slash_mm_dd_yyyy(25),
+        past_slash_mm_dd_yyyy(13),
+        past_slash_mm_dd_yyyy(53),
+    ]
+
+    assert result == expected_output, f"Expected {expected_output} but got {result}"
+>>>>>>> Stashed changes
