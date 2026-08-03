@@ -52,6 +52,7 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
  
 - **gaoharimran29-glitch** ([@gaoharimran29-glitch](https://github.com/gaoharimran29-glitch))
   - Added unit tests for `easy_validator.py` module
+  - Expanded easy_numbers module
  
 - **mmaxjr** ([@mmaxjr](https://github.com/mmaxjr))
   - Improved documentation to include summary of easy_validator module
