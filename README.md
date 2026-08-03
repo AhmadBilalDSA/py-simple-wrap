@@ -1,6 +1,6 @@
 # Py_simple 🚀
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
  
 **Making Python feel like plain English.**
@@ -173,6 +173,7 @@ A huge thank you to these wonderful people for helping make Python simpler for e
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/averyquinnhq"><img src="https://avatars.githubusercontent.com/u/309920345?v=4?s=100" width="100px;" alt="Avery Quinn"/><br /><sub><b>Avery Quinn</b></sub></a><br /><a href="https://github.com/{owner}/{repo}/commits?author={author.login}" title="Tests">🧪</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/gaoharimran29-glitch"><img src="https://avatars.githubusercontent.com/u/225884102?v=4?s=100" width="100px;" alt="Gaohar Imran"/><br /><sub><b>Gaohar Imran</b></sub></a><br /><a href="https://github.com/{owner}/{repo}/commits?author={author.login}" title="Tests">🧪</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/mmaxjr"><img src="https://avatars.githubusercontent.com/u/9955641?v=4?s=100" width="100px;" alt="Marcos Max"/><br /><sub><b>Marcos Max</b></sub></a><br /><a href="https://github.com/{owner}/{repo}/commits?author={author.login}" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/matheusfrta"><img src="https://avatars.githubusercontent.com/u/217668693?v=4?s=100" width="100px;" alt="Matheus"/><br /><sub><b>Matheus</b></sub></a><br /><a href="https://github.com/{owner}/{repo}/commits?author={author.login}" title="Tests">🧪</a></td>
     </tr>
   </tbody>
 </table>
