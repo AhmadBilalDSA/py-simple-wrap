@@ -148,7 +148,7 @@ A huge thank you to the wonderful people who have helped build Py_simple:
 - **mmaxjr** (Improved documentation)
 - **sol4nki** (Expanded easy_converter.py module)
 - **shivams786** (Added easy_strings.py)
-- **HeaTTap** (Added tests for easy_web module)
+- **HeaTTap** (Added tests for easy_web module, added easy_colors module)
 - **Challa Leela Prasad** (Enhanced easy_strings module)
 - **atiqur rahman** (Expanded unit tests for easy_strings and easy_web modules)
 
