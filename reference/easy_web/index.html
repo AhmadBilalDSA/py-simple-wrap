@@ -648,6 +648,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#py_simple.easy_web.count_tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        count_tags
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#py_simple.easy_web.get_all_headers" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -703,10 +714,32 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#py_simple.easy_web.get_tag_list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_tag_list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#py_simple.easy_web.is_page_up" class="md-nav__link">
     <span class="md-ellipsis">
       
         is_page_up
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_web.print_allowed_tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        print_allowed_tags
       
     </span>
   </a>
@@ -1071,6 +1104,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#py_simple.easy_web.count_tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        count_tags
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#py_simple.easy_web.get_all_headers" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1126,10 +1170,32 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#py_simple.easy_web.get_tag_list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_tag_list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#py_simple.easy_web.is_page_up" class="md-nav__link">
     <span class="md-ellipsis">
       
         is_page_up
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_web.print_allowed_tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        print_allowed_tags
       
     </span>
   </a>
@@ -1373,6 +1439,120 @@ the original error message.</p>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Something went wrong with </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="py_simple.easy_web.count_tags" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">count_tags</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Returns the number of tags of a given type on a page, or None if an
+error occurs.</p>
+<p>Raises ValueError if the tag is not in the allowed tags list
+(see print_allowed_tags).</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>url</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Website to count tags from.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>tag</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>HTML tag to count (e.g. 'a', 'img').</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="int">int</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>int | None: number of matching tags, or None if an error occurs.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_web.count_tags--__tabbed_1_1" name="py_simple.easy_web.count_tags--__tabbed_1" type="radio" /><input id="py_simple.easy_web.count_tags--__tabbed_1_2" name="py_simple.easy_web.count_tags--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_web.count_tags--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_web.count_tags--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">count_tags</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">count_tags</span><span class="p">(</span><span class="s2">&quot;https://github.com&quot;</span><span class="p">,</span> <span class="s2">&quot;img&quot;</span><span class="p">))</span> <span class="c1">#-&gt; 12</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+<span class="n">tag_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">))</span>
 </code></pre></div>
 </div>
 </div>
@@ -1886,6 +2066,124 @@ request failed.</p>
 <div class="doc doc-object doc-function">
 
 
+<h3 id="py_simple.easy_web.get_tag_list" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_tag_list</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Returns a list of the useful info from each matching tag on the page,
+or None if an error occurs.</p>
+<p>For <code>a</code> tags this is the link (<code>href</code>); for <code>img</code> tags it is the
+image source (<code>src</code>). See print_allowed_tags for supported tags.</p>
+<p>Raises ValueError if the tag is not in the allowed tags list.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>url</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Website to get tags from.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>tag</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>HTML tag to list (e.g. 'a', 'img').</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span>[<span title="str">str</span>] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[str] | None: list of attribute values from matching tags,
+or None if an error occurs.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_web.get_tag_list--__tabbed_1_1" name="py_simple.easy_web.get_tag_list--__tabbed_1" type="radio" /><input id="py_simple.easy_web.get_tag_list--__tabbed_1_2" name="py_simple.easy_web.get_tag_list--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_web.get_tag_list--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_web.get_tag_list--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_tag_list</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">get_tag_list</span><span class="p">(</span><span class="s2">&quot;https://github.com&quot;</span><span class="p">,</span> <span class="s2">&quot;img&quot;</span><span class="p">))</span> <span class="c1">#-&gt; [&quot;logo.png&quot;, ...]</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+<span class="n">tag_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">):</span>
+    <span class="n">tag_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tag</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">))</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h3 id="py_simple.easy_web.is_page_up" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">is_page_up</span><span class="p">(</span><span class="n">url</span><span class="p">)</span></code>
 
@@ -1971,6 +2269,41 @@ request failed.</p>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The site is active!&quot;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The site is down or address is invalid.&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="py_simple.easy_web.print_allowed_tags" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">print_allowed_tags</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Prints the dictionary of tags supported by count_tags and get_tag_list.</p>
+<p>Each entry maps a tag name to the attribute that get_tag_list returns
+for that tag.</p>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="py_simple.easy_web.print_allowed_tags--__tabbed_1_1" name="py_simple.easy_web.print_allowed_tags--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_web.print_allowed_tags--__tabbed_1_1">The Py_simple Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">print_allowed_tags</span>
+
+<span class="n">print_allowed_tags</span><span class="p">()</span>
+<span class="c1"># {&#39;a&#39;: &#39;href&#39;, &#39;img&#39;: &#39;src&#39;}</span>
 </code></pre></div>
 </div>
 </div>
