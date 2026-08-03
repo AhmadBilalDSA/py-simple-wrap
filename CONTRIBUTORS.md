@@ -72,6 +72,9 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
 - **atiqur rahman** ([@atiqur-rahman-pro](https://github.com/atiqur-rahman-pro))
   - Added tests for easy_strings module
   - Added tests for easy_web module
+ 
+- **Matheus** ([@matheusfrta](https://github.com/matheusfrta))
+  - Added unit tests for easy_json module
 ---
 
 ## How to get your name here? 🛠️
