@@ -3,8 +3,11 @@ import pytest
 
 from py_simple_package.src.py_simple.easy_json import (
     EasyJsonError,
+    is_json_file,
     open_json,
+    pretty_json,
     save_json_data,
+    update_json,
 )
 
 
@@ -57,3 +60,63 @@ class TestEasyJson:
         with pytest.raises(EasyJsonError) as exc_info:
             save_json_data(str(invalid_file), {"key": "val"})
         assert "ERROR:" in str(exc_info.value)
+
+    def test_pretty_json_with_dict(self):
+        data = {"name": "Sara", "age": 25}
+        result = pretty_json(data=data)
+        assert result == json.dumps(data, indent=2)
+
+    def test_pretty_json_with_filepath(self, tmp_path):
+        json_file = tmp_path / "sample.json"
+        data = {"name": "Sara", "age": 25}
+        json_file.write_text(json.dumps(data), encoding="utf-8")
+
+        result = pretty_json(filepath=str(json_file))
+        assert result == json.dumps(data, indent=2)
+
+    def test_pretty_json_no_args_raises_easy_json_error(self):
+        with pytest.raises(EasyJsonError) as exc_info:
+            pretty_json()
+        assert "ERROR:" in str(exc_info.value)
+
+    def test_pretty_json_both_args_raises_easy_json_error(self, tmp_path):
+        json_file = tmp_path / "sample.json"
+        with pytest.raises(EasyJsonError) as exc_info:
+            pretty_json(data={"a": 1}, filepath=str(json_file))
+        assert "ERROR:" in str(exc_info.value)
+
+    def test_pretty_json_invalid_file_raises_easy_json_error(self, tmp_path):
+        missing_file = tmp_path / "missing.json"
+        with pytest.raises(EasyJsonError) as exc_info:
+            pretty_json(filepath=str(missing_file))
+        assert "ERROR:" in str(exc_info.value)
+
+    def test_update_json_success(self, tmp_path):
+        json_file = tmp_path / "data.json"
+        initial_data = {"a": 1, "b": 2}
+        json_file.write_text(json.dumps(initial_data), encoding="utf-8")
+
+        update_json(str(json_file), {"b": 20, "c": 30})
+
+        updated = json.loads(json_file.read_text(encoding="utf-8"))
+        assert updated == {"a": 1, "b": 20, "c": 30}
+
+    def test_update_json_missing_file_raises_easy_json_error(self, tmp_path):
+        missing_file = tmp_path / "missing.json"
+        with pytest.raises(EasyJsonError) as exc_info:
+            update_json(str(missing_file), {"key": "val"})
+        assert "ERROR:" in str(exc_info.value)
+
+    def test_is_json_file_true(self, tmp_path):
+        json_file = tmp_path / "valid.json"
+        json_file.write_text("{}", encoding="utf-8")
+        assert is_json_file(str(json_file)) is True
+
+    def test_is_json_file_not_json_extension(self, tmp_path):
+        txt_file = tmp_path / "valid.txt"
+        txt_file.write_text("hello", encoding="utf-8")
+        assert is_json_file(str(txt_file)) is False
+
+    def test_is_json_file_does_not_exist(self, tmp_path):
+        missing_file = tmp_path / "ghost.json"
+        assert is_json_file(str(missing_file)) is False
