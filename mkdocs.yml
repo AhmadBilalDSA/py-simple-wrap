@@ -39,7 +39,7 @@ nav:
       - Easy Strings: reference/easy_strings.md
       - Easy Colors: reference/easy_colors.md
       - Easy Web: reference/easy_web.md
-
+      - Easy Json: reference/easy_json.md
       - Easy Converter: reference/easy_converter.md
       - Easy Date Formatter: reference/easy_date_formatter.md
       - Easy File Manager: reference/easy_file_manager.md
