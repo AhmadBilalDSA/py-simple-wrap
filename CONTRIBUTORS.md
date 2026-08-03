@@ -44,6 +44,7 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
   - Updated README.md to include new features
   - Expanded unit tests for `easy_web.py`
   - Added unit tests for `easy_numbers.py`
+  - README.md improvements and cleanup
     
 - **Onion0121** ([@Onion0121](https://github.com/Onion0121))
   - Improve documentation (made README.md more approachable for beginners)
