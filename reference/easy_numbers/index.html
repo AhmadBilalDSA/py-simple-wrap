@@ -553,6 +553,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#py_simple.easy_numbers.clamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clamp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_numbers.greatest_common_divisor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        greatest_common_divisor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#py_simple.easy_numbers.is_even" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -623,6 +645,17 @@
     <span class="md-ellipsis">
       
         percentage_of
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_numbers.round_to_nearest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        round_to_nearest
       
     </span>
   </a>
@@ -1060,6 +1093,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#py_simple.easy_numbers.clamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clamp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_numbers.greatest_common_divisor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        greatest_common_divisor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#py_simple.easy_numbers.is_even" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1130,6 +1185,17 @@
     <span class="md-ellipsis">
       
         percentage_of
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_numbers.round_to_nearest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        round_to_nearest
       
     </span>
   </a>
@@ -1278,6 +1344,238 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">result</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="py_simple.easy_numbers.clamp" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">clamp</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Keeps a number within a minimum and maximum range.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>number</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Number to clamp.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>minimum</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Minimum allowed value.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>maximum</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Maximum allowed value.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>float</code></td>            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Clamped number.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_numbers.clamp--__tabbed_1_1" name="py_simple.easy_numbers.clamp--__tabbed_1" type="radio" /><input id="py_simple.easy_numbers.clamp--__tabbed_1_2" name="py_simple.easy_numbers.clamp--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_numbers.clamp--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_numbers.clamp--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">clamp</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">clamp</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># -&gt; 10</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">number</span><span class="p">,</span> <span class="n">minimum</span><span class="p">,</span> <span class="n">maximum</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">minimum</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">maximum</span><span class="p">))</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="py_simple.easy_numbers.greatest_common_divisor" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">greatest_common_divisor</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Returns the greatest common divisor (GCD) of two numbers.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>a</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>First number.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>b</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Second number.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>int</code></td>            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Greatest common divisor.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_numbers.greatest_common_divisor--__tabbed_1_1" name="py_simple.easy_numbers.greatest_common_divisor--__tabbed_1" type="radio" /><input id="py_simple.easy_numbers.greatest_common_divisor--__tabbed_1_2" name="py_simple.easy_numbers.greatest_common_divisor--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_numbers.greatest_common_divisor--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_numbers.greatest_common_divisor--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">greatest_common_divisor</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">greatest_common_divisor</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>  <span class="c1"># -&gt; 6</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">18</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -1955,6 +2253,113 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">number</span><span class="p">,</span> <span class="n">percentage</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">0.5</span>
 <span class="n">result</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">number</span> <span class="o">*</span> <span class="n">percentage</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="py_simple.easy_numbers.round_to_nearest" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">round_to_nearest</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">nearest</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Returns a number rounded to the nearest multiple.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>number</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Number to round.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>nearest</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Multiple to round to.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>float</code></td>            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Rounded number.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_numbers.round_to_nearest--__tabbed_1_1" name="py_simple.easy_numbers.round_to_nearest--__tabbed_1" type="radio" /><input id="py_simple.easy_numbers.round_to_nearest--__tabbed_1_2" name="py_simple.easy_numbers.round_to_nearest--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_numbers.round_to_nearest--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_numbers.round_to_nearest--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">round_to_nearest</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">round_to_nearest</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># -&gt; 25.0</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">number</span><span class="p">,</span> <span class="n">nearest</span> <span class="o">=</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">number</span> <span class="o">/</span> <span class="n">nearest</span><span class="p">)</span> <span class="o">*</span> <span class="n">nearest</span>
 </code></pre></div>
 </div>
 </div>
