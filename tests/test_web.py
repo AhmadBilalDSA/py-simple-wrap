@@ -2,7 +2,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 import requests
 
-from py_simple_package.src.py_simple.easy_web import get_page_content, is_page_up
+from py_simple_package.src.py_simple.easy_web import get_page_content, is_page_up, SomethingWentWrongError
 
 
 class TestEasyWeb:
@@ -34,8 +34,8 @@ class TestEasyWeb:
     def test_get_page_content_exception(self, mock_get):
         mock_get.side_effect = requests.RequestException("Network Error")
 
-        content = get_page_content("https://invalid-url.com")
-        assert content is None
+        with pytest.raises(SomethingWentWrongError):
+            get_page_content("https://invalid-url.com")
         mock_get.assert_called_once_with("https://invalid-url.com", timeout=10)
 
     @patch("py_simple_package.src.py_simple.easy_web.requests.get")
@@ -55,16 +55,16 @@ class TestEasyWeb:
         mock_response.raise_for_status.side_effect = requests.HTTPError("404 Not Found")
         mock_get.return_value = mock_response
 
-        result = is_page_up("https://example.com/404")
-        assert result is False
+        with pytest.raises(SomethingWentWrongError):
+            is_page_up("https://example.com/404")
         mock_get.assert_called_once_with("https://example.com/404", timeout=10)
 
     @patch("py_simple_package.src.py_simple.easy_web.requests.get")
     def test_is_page_up_connection_error(self, mock_get):
         mock_get.side_effect = requests.ConnectionError("Connection Failed")
 
-        result = is_page_up("https://offline-site.com")
-        assert result is False
+        with pytest.raises(SomethingWentWrongError):
+            is_page_up("https://offline-site.com")
         mock_get.assert_called_once_with("https://offline-site.com", timeout=10)
 
     @patch("py_simple_package.src.py_simple.easy_web.requests.get")

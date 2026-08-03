@@ -11,6 +11,12 @@ _TAGS = {
 }
 
 
+class SomethingWentWrongError(Exception):
+    def __init__(self, message):
+        self.message = message
+        super().__init__(self.message)
+
+
 def get_page_content(url: str) -> str | None:
     """
     Returns content of the website or None if an error occurs.
@@ -48,8 +54,7 @@ def get_page_content(url: str) -> str | None:
         else:
             return None
     except Exception as e:
-        print(f"Something went wrong with {url}\nERROR: {e}")
-        return None
+        raise SomethingWentWrongError(f"\n\n\nERROR: {e}") from None
 
 
 def is_page_up(url: str) -> bool:
@@ -88,8 +93,7 @@ def is_page_up(url: str) -> bool:
         response.raise_for_status()
         return bool(response.status_code == 200)
     except Exception as e:
-        print(f"Something went wrong with {url}\nERROR: {e}")
-        return False
+        raise SomethingWentWrongError(f"\n\n\nERROR: {e}") from None
 
 
 def get_page_title(url: str) -> str | None:
@@ -133,8 +137,7 @@ def get_page_title(url: str) -> str | None:
         title = page.title.string
         return title
     except Exception as e:
-        print(f"Something went wrong with {url}\nERROR: {e}")
-        return None
+        raise SomethingWentWrongError(f"\n\n\nERROR: {e}") from None
 
 
 def count_links(url: str) -> int | None:
@@ -179,8 +182,7 @@ def count_links(url: str) -> int | None:
                 link_count += 1
             return link_count
     except Exception as e:
-        print(f"Something went wrong with {url}\nERROR: {e}")
-        return None
+        raise SomethingWentWrongError(f"\n\n\nERROR: {e}") from None
 
 
 def get_link_list(url: str) -> list[str] | None:
@@ -224,5 +226,35 @@ def get_link_list(url: str) -> list[str] | None:
                 link_list.append(link.get('href'))
             return link_list
     except Exception as e:
-        print(f"Something went wrong with {url}\nERROR: {e}")
-        return None
+        raise SomethingWentWrongError(f"\n\n\nERROR: {e}") from None
+
+
+def get_meta_description(url: str) -> list[str] | None:
+    try:
+        response = requests.get(url, timeout=10)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        meta_description_list = []
+        if response is not None:
+            for meta in soup.find_all('meta'):
+                if meta.get('content') is not None:
+                    meta_description_list.append(meta.get('content'))
+            return meta_description_list
+    except Exception as e:
+        raise SomethingWentWrongError(f"\n\n\nERROR: {e}") from None
+
+
+def get_all_headers(url: str) -> list[str] | None:
+    try:
+        response = requests.get(url, timeout=10)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        header_list = []
+        clean_headers = []
+        if response is not None:
+            for header in soup.find_all('header'):
+                header_list.append(header.text)
+            for header in header_list:
+                clean_headers.append(header.strip().replace("\n", ""))
+            return clean_headers
+    except Exception as e:
+        raise SomethingWentWrongError(f"\n\n\nERROR: {e}") from None
+
