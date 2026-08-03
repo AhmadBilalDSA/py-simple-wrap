@@ -15,38 +15,28 @@ py-simple-wrap is a beginner-friendly Python wrapper package designed to help be
 The goal of this project is to remove the need for memorizing complex syntax or writing repetitive boilerplate code, making Python more accessible and enjoyable for everyone.
 
 ## Before and After
+### 😰 The traditional way
 
-<table>
-<tr>
-<th width="50%">The traditional way</th>
-<th width="50%">The py-simple-wrap way</th>
-</tr>
-<tr>
-<td>
-<pre>
+```python
 import requests
+from bs4 import BeautifulSoup
 
 try:
-    response = requests.get("https://github.com", timeout=10)
+    response = requests.get('https://github.com', timeout=10)
     response.raise_for_status()
     page = BeautifulSoup(response.content, 'html.parser')
     title = page.title.string
-    return title
 except Exception as e:
     print("The site is down or address is invalid.")
-</pre>
-</td>
-<td>
-<pre>
+```
+### 😎 The py-simple-wrap way
+```python
 from py_simple import get_page_title
 
 print(get_page_title("https://github.com"))
-</pre>
-</td>
-</tr>
-</table>
+```
 
-## Installation
+## 🛠️ Installation
 
 ```bash
 pip install py-simple-wrap
@@ -62,7 +52,7 @@ print(is_valid_email("hello@example.com"))  # True
  
 > Full walkthrough in [QUICKSTART.md](QUICKSTART.md), or browse the full **[documentation site](https://sara-czasak.github.io/py-simple-wrap/)**.
  
-### ⭐ If py-simple-wrap made something easier for you
+## ⭐ If py-simple-wrap made something easier for you
  
 Consider giving it a **star** — it helps other beginners find it, and it genuinely makes my day. And if there's a function you wish existed, **fork it** and add it; this project grew because other people did exactly that. Every module below started here, except `easy_strings`, which came from a contributor.
  
