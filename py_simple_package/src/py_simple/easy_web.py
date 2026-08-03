@@ -321,7 +321,7 @@ def get_all_headers(url: str) -> list[str] | None:
                 soup = BeautifulSoup(response.content, 'html.parser')
                 header_list = []
                 for header in soup.find_all('header'):
-                    header_list.append(header.text.strip().replace("\n", ""))
+                    header_list.append(header.text.strip().replace("\\n", ""))
             ```
     """
     try:
