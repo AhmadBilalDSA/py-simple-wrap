@@ -2,7 +2,7 @@
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
- 
+
 **Making Python feel like plain English.**
  
 [![PyPI](https://img.shields.io/pypi/v/py-simple-wrap?style=for-the-badge)](https://pypi.org/project/py-simple-wrap/)
@@ -13,6 +13,9 @@
 py-simple-wrap is a beginner-friendly Python wrapper package designed to help beginners and developers perform common tasks using simple, intuitive functions.
  
 The goal of this project is to remove the need for memorizing complex syntax or writing repetitive boilerplate code, making Python more accessible and enjoyable for everyone.
+
+## You'll love py-simple-wrap if:
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=900&pause=30&color=5E7CF7&background=FF000000&multiline=true&width=1020&height=100&lines=*+You're+learning+Python+and+want+to+do+useful+things+without+memorizing+complex+syntax.;*+You're+a+developer+who's+tired+of+writing+the++same+8+lines+of+code+when+1+will+do.;*+You're+teaching+Python+and+want+students+to++focus+on+logic%2C+not+boilerplates.)](https://git.io/typing-svg)
 
 ## Before and After
 ### 😰 The traditional way
