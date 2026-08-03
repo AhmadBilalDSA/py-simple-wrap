@@ -1,14 +1,14 @@
 # Py_simple 🚀
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=for-the-badge)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
  
 **Making Python feel like plain English.**
  
-[![PyPI](https://img.shields.io/pypi/v/py-simple-wrap)](https://pypi.org/project/py-simple-wrap/)
-[![Docs](https://img.shields.io/badge/docs-online-blue)](https://sara-czasak.github.io/py_simple/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/sara-czasak/py_simple/blob/main/LICENSE.md)
-[![GitHub stars](https://img.shields.io/github/stars/sara-czasak/py_simple?style=social)](https://github.com/sara-czasak/py_simple/stargazers)
+[![PyPI](https://img.shields.io/pypi/v/py-simple-wrap?style=for-the-badge)](https://pypi.org/project/py-simple-wrap/)
+[![Docs](https://img.shields.io/badge/docs-online-blue?style=for-the-badge)](https://sara-czasak.github.io/py_simple/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://github.com/sara-czasak/py_simple/blob/main/LICENSE.md)
+[![GitHub stars](https://img.shields.io/github/stars/sara-czasak/py_simple?style=for-the-badge)](https://github.com/sara-czasak/py_simple/stargazers)
  
 Py_simple is a beginner-friendly Python wrapper package designed to help beginners and developers perform common tasks using simple, intuitive functions.
  
