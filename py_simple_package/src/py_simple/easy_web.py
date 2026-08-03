@@ -12,6 +12,19 @@ _TAGS = {
 
 
 class SomethingWentWrongError(Exception):
+    """
+    Raised when a py_simple web function fails to complete its request.
+
+    This covers network failures, invalid URLs, timeouts, and any other
+    error that prevents a function from returning a real result. Functions
+    that can succeed with "nothing found" (like an empty list) return
+    None in that case instead of raising - this error is only for when
+    something actually went wrong.
+
+    Args:
+        message (str): Description of what went wrong, usually including
+            the original error message.
+    """
     def __init__(self, message):
         self.message = message
         super().__init__(self.message)
@@ -215,7 +228,7 @@ def get_link_list(url: str) -> list[str] | None:
             except Exception as e:
                 print(f"Something went wrong with {url}")
                 return None
-        ```
+            ```
     """
     try:
         response = requests.get(url, timeout=10)
@@ -230,6 +243,40 @@ def get_link_list(url: str) -> list[str] | None:
 
 
 def get_meta_description(url: str) -> list[str] | None:
+    """
+    Returns a list of meta tag contents found on the page, or None if
+    the page has no meta tags.
+
+    Raises SomethingWentWrongError if the request fails (invalid URL,
+    network issue, timeout, etc).
+
+    Args:
+        url (str): Website to get meta descriptions from.
+
+    Returns:
+        list[str] | None: list of meta tag contents, or None if the
+            page has no meta tags with content.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+                from py_simple import get_meta_description
+
+                print(get_meta_description("https://github.com")) #-> [...]
+            ```
+        === "The Traditional Way"
+            ```python
+            import requests
+            from bs4 import BeautifulSoup
+
+            response = requests.get(url, timeout=10)
+            soup = BeautifulSoup(response.content, 'html.parser')
+            meta_description_list = []
+            for meta in soup.find_all('meta'):
+                if meta.get('content') is not None:
+                    meta_description_list.append(meta.get('content'))
+            ```
+    """
     try:
         response = requests.get(url, timeout=10)
         soup = BeautifulSoup(response.content, 'html.parser')
@@ -244,6 +291,39 @@ def get_meta_description(url: str) -> list[str] | None:
 
 
 def get_all_headers(url: str) -> list[str] | None:
+    """
+    Returns a list of cleaned-up text from every <header> tag on the
+    page, or None if the page has no header tags.
+
+    Raises SomethingWentWrongError if the request fails (invalid URL,
+    network issue, timeout, etc).
+
+    Args:
+        url (str): Website to get headers from.
+
+    Returns:
+        list[str] | None: list of header text with whitespace and
+            newlines stripped, or None if the page has no headers.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+                from py_simple import get_all_headers
+
+                print(get_all_headers("https://github.com")) #-> [...]
+            ```
+        === "The Traditional Way"
+            ```python
+                import requests
+                from bs4 import BeautifulSoup
+
+                response = requests.get(url, timeout=10)
+                soup = BeautifulSoup(response.content, 'html.parser')
+                header_list = []
+                for header in soup.find_all('header'):
+                    header_list.append(header.text.strip().replace("\n", ""))
+            ```
+    """
     try:
         response = requests.get(url, timeout=10)
         soup = BeautifulSoup(response.content, 'html.parser')
