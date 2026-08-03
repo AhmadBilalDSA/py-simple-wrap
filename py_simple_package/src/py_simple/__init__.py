@@ -32,3 +32,6 @@ from .easy_strings import (
     is_palindrome, remove_extra_spaces, to_kebab_case, to_snake_case,
     count_words, is_alphanumeric,
 )
+from .easy_json import (
+    open_json,
+)
