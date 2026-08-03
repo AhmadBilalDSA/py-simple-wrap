@@ -3,10 +3,13 @@ import pytest
 import requests
 
 from py_simple_package.src.py_simple.easy_web import (
+    count_tags,
     get_all_headers,
     get_meta_description,
     get_page_content,
+    get_tag_list,
     is_page_up,
+    print_allowed_tags,
     SomethingWentWrongError,
 )
 
@@ -150,3 +153,127 @@ class TestEasyWeb:
         with pytest.raises(SomethingWentWrongError):
             get_all_headers("https://offline-site.com")
         mock_get.assert_called_once_with("https://offline-site.com", timeout=10)
+
+
+class TestCountTags:
+
+    @patch("py_simple_package.src.py_simple.easy_web.requests.get")
+    def test_count_tags_success(self, mock_get):
+        mock_response = MagicMock()
+        mock_response.content = (
+            b'<html><body>'
+            b'<a href="/one">One</a>'
+            b'<a href="/two">Two</a>'
+            b'<a href="/three">Three</a>'
+            b'<img src="logo.png">'
+            b'</body></html>'
+        )
+        mock_get.return_value = mock_response
+
+        result = count_tags("https://example.com", "a")
+        assert result == 3
+        mock_get.assert_called_once_with("https://example.com", timeout=10)
+
+    @patch("py_simple_package.src.py_simple.easy_web.requests.get")
+    def test_count_tags_img(self, mock_get):
+        mock_response = MagicMock()
+        mock_response.content = (
+            b'<html><body>'
+            b'<img src="logo.png">'
+            b'<img src="banner.png">'
+            b'</body></html>'
+        )
+        mock_get.return_value = mock_response
+
+        result = count_tags("https://example.com", "img")
+        assert result == 2
+        mock_get.assert_called_once_with("https://example.com", timeout=10)
+
+    @patch("py_simple_package.src.py_simple.easy_web.requests.get")
+    def test_count_tags_none_found(self, mock_get):
+        mock_response = MagicMock()
+        mock_response.content = b'<html><body><p>No links here</p></body></html>'
+        mock_get.return_value = mock_response
+
+        result = count_tags("https://example.com", "a")
+        assert result == 0
+        mock_get.assert_called_once_with("https://example.com", timeout=10)
+
+    def test_count_tags_unsupported_tag(self):
+        with pytest.raises(ValueError, match="Unsupported tag"):
+            count_tags("https://example.com", "div")
+
+    @patch("py_simple_package.src.py_simple.easy_web.requests.get")
+    def test_count_tags_exception(self, mock_get):
+        mock_get.side_effect = requests.RequestException("Network Error")
+
+        with pytest.raises(SomethingWentWrongError):
+            count_tags("https://invalid-url.com", "a")
+        mock_get.assert_called_once_with("https://invalid-url.com", timeout=10)
+
+
+class TestGetTagList:
+
+    @patch("py_simple_package.src.py_simple.easy_web.requests.get")
+    def test_get_tag_list_hrefs(self, mock_get):
+        mock_response = MagicMock()
+        mock_response.content = (
+            b'<html><body>'
+            b'<a href="/one">One</a>'
+            b'<a href="/two">Two</a>'
+            b'<img src="logo.png">'
+            b'</body></html>'
+        )
+        mock_get.return_value = mock_response
+
+        result = get_tag_list("https://example.com", "a")
+        assert result == ["/one", "/two"]
+        mock_get.assert_called_once_with("https://example.com", timeout=10)
+
+    @patch("py_simple_package.src.py_simple.easy_web.requests.get")
+    def test_get_tag_list_srcs(self, mock_get):
+        mock_response = MagicMock()
+        mock_response.content = (
+            b'<html><body>'
+            b'<img src="logo.png">'
+            b'<img src="banner.png">'
+            b'<a href="/one">One</a>'
+            b'</body></html>'
+        )
+        mock_get.return_value = mock_response
+
+        result = get_tag_list("https://example.com", "img")
+        assert result == ["logo.png", "banner.png"]
+        mock_get.assert_called_once_with("https://example.com", timeout=10)
+
+    @patch("py_simple_package.src.py_simple.easy_web.requests.get")
+    def test_get_tag_list_none_found(self, mock_get):
+        mock_response = MagicMock()
+        mock_response.content = b'<html><body><p>No images</p></body></html>'
+        mock_get.return_value = mock_response
+
+        result = get_tag_list("https://example.com", "img")
+        assert result == []
+        mock_get.assert_called_once_with("https://example.com", timeout=10)
+
+    def test_get_tag_list_unsupported_tag(self):
+        with pytest.raises(ValueError, match="Unsupported tag"):
+            get_tag_list("https://example.com", "script")
+
+    @patch("py_simple_package.src.py_simple.easy_web.requests.get")
+    def test_get_tag_list_exception(self, mock_get):
+        mock_get.side_effect = requests.RequestException("Timeout")
+
+        with pytest.raises(SomethingWentWrongError):
+            get_tag_list("https://invalid-url.com", "a")
+        mock_get.assert_called_once_with("https://invalid-url.com", timeout=10)
+
+
+class TestPrintAllowedTags:
+
+    def test_print_allowed_tags(self, capsys):
+        result = print_allowed_tags()
+        captured = capsys.readouterr()
+        assert "'a': 'href'" in captured.out
+        assert "'img': 'src'" in captured.out
+        assert result is None

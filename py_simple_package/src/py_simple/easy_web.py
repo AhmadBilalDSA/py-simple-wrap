@@ -241,6 +241,124 @@ def get_link_list(url: str) -> list[str] | None:
         raise SomethingWentWrongError(f"\n\n\nERROR: {e}") from None
 
 
+def count_tags(url: str, tag: str) -> int | None:
+    """
+    Returns the number of tags of a given type on a page, or None if an
+    error occurs.
+
+    Raises ValueError if the tag is not in the allowed tags list
+    (see print_allowed_tags).
+
+    Args:
+        url (str): Website to count tags from.
+        tag (str): HTML tag to count (e.g. 'a', 'img').
+
+    Returns:
+        int | None: number of matching tags, or None if an error occurs.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import count_tags
+
+            print(count_tags("https://github.com", "img")) #-> 12
+            ```
+        === "The Traditional Way"
+            ```python
+            import requests
+            from bs4 import BeautifulSoup
+
+            response = requests.get(url, timeout=10)
+            soup = BeautifulSoup(response.content, 'html.parser')
+            tag_count = len(soup.find_all('img'))
+            ```
+    """
+    if tag not in _TAGS:
+        raise ValueError(
+            f"Unsupported tag: '{tag}'. Allowed tags: {', '.join(_TAGS)}"
+        )
+    try:
+        response = requests.get(url, timeout=10)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        if response is not None:
+            return len(soup.find_all(tag))
+    except Exception as e:
+        raise SomethingWentWrongError(f"\n\n\nERROR: {e}") from None
+
+
+def get_tag_list(url: str, tag: str) -> list[str] | None:
+    """
+    Returns a list of the useful info from each matching tag on the page,
+    or None if an error occurs.
+
+    For `a` tags this is the link (`href`); for `img` tags it is the
+    image source (`src`). See print_allowed_tags for supported tags.
+
+    Raises ValueError if the tag is not in the allowed tags list.
+
+    Args:
+        url (str): Website to get tags from.
+        tag (str): HTML tag to list (e.g. 'a', 'img').
+
+    Returns:
+        list[str] | None: list of attribute values from matching tags,
+            or None if an error occurs.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import get_tag_list
+
+            print(get_tag_list("https://github.com", "img")) #-> ["logo.png", ...]
+            ```
+        === "The Traditional Way"
+            ```python
+            import requests
+            from bs4 import BeautifulSoup
+
+            response = requests.get(url, timeout=10)
+            soup = BeautifulSoup(response.content, 'html.parser')
+            tag_list = []
+            for tag in soup.find_all('img'):
+                tag_list.append(tag.get('src'))
+            ```
+    """
+    if tag not in _TAGS:
+        raise ValueError(
+            f"Unsupported tag: '{tag}'. Allowed tags: {', '.join(_TAGS)}"
+        )
+    try:
+        response = requests.get(url, timeout=10)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        attribute = _TAGS[tag]
+        tag_list = []
+        if response is not None:
+            for element in soup.find_all(tag):
+                tag_list.append(element.get(attribute))
+            return tag_list
+    except Exception as e:
+        raise SomethingWentWrongError(f"\n\n\nERROR: {e}") from None
+
+
+def print_allowed_tags() -> None:
+    """
+    Prints the dictionary of tags supported by count_tags and get_tag_list.
+
+    Each entry maps a tag name to the attribute that get_tag_list returns
+    for that tag.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import print_allowed_tags
+
+            print_allowed_tags()
+            # {'a': 'href', 'img': 'src'}
+            ```
+    """
+    print(_TAGS)
+
+
 def get_meta_description(url: str) -> list[str] | None:
     """
     Returns a list of meta tag contents found on the page, or None if
