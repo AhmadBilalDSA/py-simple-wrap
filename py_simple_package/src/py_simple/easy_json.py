@@ -16,12 +16,6 @@ class EasyJsonError(Exception):
 
     Args:
         message (str): Human-readable description of what went wrong.
-
-    Example:
-        try:
-            open_json("missing.json")
-        except EasyJsonError as e:
-            print(e)
     """
     def __init__(self, message):
         self.message = message
@@ -133,10 +127,11 @@ def pretty_json(data: dict = None, filepath: str = None) -> str | None:
             ```
     """
     if data is None and filepath is None:
-        raise EasyJsonError("\n\n\nERROR: Either data or filepath must be provided.") \
-            from None
+        raise EasyJsonError("\n\n\nERROR: Either data or filepath "
+                            "must be provided.") from None
     if data is not None and filepath is not None:
-        raise EasyJsonError(f"\n\n\nERROR: Please provide data OR filepath.") from None
+        raise EasyJsonError(f"\n\n\nERROR: Please provide data OR "
+                            f"filepath.") from None
     elif data:
         return json.dumps(data, indent=2)
     else:
