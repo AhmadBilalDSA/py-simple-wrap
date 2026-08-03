@@ -193,4 +193,4 @@ This project is licensed under the MIT License.
 
 You are free to use, modify, and distribute it.
 
-See the [LICENSE.md](docs/about/license.md) file for the full legal text.
+See the [LICENSE.md](LICENSE.md) file for the full legal text.
