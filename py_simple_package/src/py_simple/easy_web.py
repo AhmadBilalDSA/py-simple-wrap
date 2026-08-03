@@ -124,7 +124,6 @@ def get_page_title(url: str) -> str | None:
             ```python
             from py_simple import get_page_title
 
-
             print(get_page_title("https://github.com")) #-> "GitHub ·
             Change is constant. GitHub keeps you ahead. · GitHub
             ```
