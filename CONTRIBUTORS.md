@@ -43,6 +43,7 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
   - Added 'count_tags', 'get_tag_list', 'print_allowed_tags' to `easy_web.py`
   - Updated README.md to include new features
   - Expanded unit tests for `easy_web.py`
+  - Added unit tests for `easy_numbers.py`
     
 - **Onion0121** ([@Onion0121](https://github.com/Onion0121))
   - Improve documentation (made README.md more approachable for beginners)
