@@ -26,8 +26,9 @@ from .easy_validator import (
 )
 from .easy_web import (
     get_page_content, is_page_up, get_link_list, get_page_title,
-    count_links,
+    count_links, get_all_headers, get_meta_description
 )
 from .easy_strings import (
     is_palindrome, remove_extra_spaces, to_kebab_case, to_snake_case,
+    count_words, is_alphanumeric,
 )
