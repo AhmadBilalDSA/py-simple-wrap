@@ -1,0 +1,26 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "atiqur-rahman-pro",
+      "name": "atiqur rahman",
+      "avatar_url": "https://avatars.githubusercontent.com/u/264598807?v=4",
+      "profile": "https://github.com/atiqur-rahman-pro",
+      "contributions": [
+        "test"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "py_simple",
+  "projectOwner": "sara-czasak"
+}
