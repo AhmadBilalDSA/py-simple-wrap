@@ -15,6 +15,17 @@
       "contributions": [
         "test"
       ]
+    },
+    {
+      "login": "ghostfix-pm",
+      "name": "ghostfix-pm",
+      "avatar_url": "https://avatars.githubusercontent.com/u/307249429?v=4",
+      "profile": "https://github.com/ghostfix-pm",
+      "contributions": [
+        "infra",
+        "test",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
