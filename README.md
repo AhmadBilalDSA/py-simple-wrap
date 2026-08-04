@@ -300,6 +300,8 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 | `pretty_json(data=dict)` | Pretty-print a dict as indented JSON | `pretty_json(data={"name": "Sara"})` |
 | `pretty_json(filepath=path)` | Pretty-print a JSON file's contents | `pretty_json(filepath="config.json")` |
 | `is_json_file(path)` | Check if a file exists and is .json | `is_json_file("config.json")` → `True` |
+| `is_nested_json(data=dict)` | Check if a dict has any nested dicts/lists | `is_nested_json(data={"a": 1, "b": {"c": 2}})` → `True` |
+| `flatten_json(data=dict)` | Flatten a nested dict into single-level keys | `flatten_json(data={"a": 1, "b": {"c": 2}})` → `{"a": 1, "b-c": 2}` |
 
 </details>
 
