@@ -119,11 +119,15 @@ def is_valid_url(url: str) -> bool:
             ```python
             import re
 
-            pattern = r'(https://|http://|www\\.)[a-zA-Z0-9]+\\.[a-zA-Z]+'
+            pattern = (r'(?:https?://(?:www\.)?|www\.)[a-zA-Z0-9-]+\.
+            (?:(?:[a-zA-Z0-9-]+\.)*)?[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?'
+            r'(?:/\S*)?')
             result = bool(re.fullmatch(pattern, "www.google.com"))
             ```
     """
-    pattern = r'(https://|http://|www\.)[a-zA-Z0-9]+\.[a-zA-Z]+'
+    pattern = (
+        r'(?:https?://(?:www\.)?|www\.)[a-zA-Z0-9-]+\.(?:(?:[a-zA-Z0-9-]+\.)*)?[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?'
+        r'(?:/\S*)?')
     return bool(re.fullmatch(pattern, url))
 
 

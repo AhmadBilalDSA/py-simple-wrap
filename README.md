@@ -305,6 +305,22 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 </details>
 
+### 🔍 Easy Regex
+ 
+<details>
+<summary>Click to expand — pull common patterns out of text without writing regex</summary>
+
+<br>
+
+| Function | What it does | Example |
+|---|---|---|
+| `extract_emails(text)` | Find all email addresses in text | `extract_emails("Contact hello@example.com")` → `['hello@example.com']` |
+| `extract_urls(text)` | Find all URLs in text | `extract_urls("Visit www.example.com")` → `['www.example.com']` |
+| `extract_number_sequences(text)` | Find number sequences joined by `-`, `_`, `:`, or `.` (dates, times, IPs, IDs) | `extract_number_sequences("IP 192.168.1.1 at 14:32")` → `['192.168.1.1', '14:32']` |
+| `extract_numbers(text)` | Find all standalone digit sequences | `extract_numbers("I have 3 cats and 12 fish")` → `['3', '12']` |
+ 
+</details>
+
 ## 🤝 Contributing
 
 I would love to have your help in making Python simpler for everyone!

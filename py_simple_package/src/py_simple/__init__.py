@@ -43,3 +43,7 @@ from .easy_colors import (
 from .easy_flow import (
     run_py_file,
 )
+from .easy_regex import (
+    extract_urls, extract_numbers, extract_number_sequences,
+    extract_emails,
+)

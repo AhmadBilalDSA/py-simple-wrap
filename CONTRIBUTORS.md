@@ -56,6 +56,7 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
 - **Onion0121** ([@Onion0121](https://github.com/Onion0121))
   - Improve documentation (made README.md more approachable for beginners)
   - Added tutorial for easy_strings module
+  - Added tutorial for easy_web module
  
 - **jagjitkaur0000** ([@jagjitkaur0000](https://github.com/jagjitkaur0000))
   - Added unit tests for `easy_numbers.py` module
