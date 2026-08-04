@@ -181,3 +181,19 @@ class TestEasyJson:
         with pytest.raises(EasyJsonError) as exc_info:
             flatten_json(data={"a": 1}, filepath=str(json_file))
         assert "ERROR:" in str(exc_info.value)
+
+    def test_flatten_json_with_list_values(self):
+        data = {"a": [1, 2]}
+        result = flatten_json(data=data)
+        assert result == {"a-0": 1, "a-1": 2}
+
+    def test_flatten_json_with_list_of_dicts(self):
+        data = {"users": [{"name": "Sara"}, {"name": "Atiqur"}]}
+        result = flatten_json(data=data)
+        assert result == {"users-0-name": "Sara", "users-1-name": "Atiqur"}
+
+    def test_flatten_json_invalid_filepath_raises_easy_json_error(self, tmp_path):
+        missing_file = tmp_path / "missing.json"
+        with pytest.raises(EasyJsonError) as exc_info:
+            flatten_json(filepath=str(missing_file))
+        assert "ERROR:" in str(exc_info.value)
