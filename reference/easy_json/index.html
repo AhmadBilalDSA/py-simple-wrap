@@ -693,10 +693,32 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#py_simple.easy_json.flatten_json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flatten_json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#py_simple.easy_json.is_json_file" class="md-nav__link">
     <span class="md-ellipsis">
       
         is_json_file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_json.is_nested_json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        is_nested_json
       
     </span>
   </a>
@@ -1066,10 +1088,32 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#py_simple.easy_json.flatten_json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flatten_json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#py_simple.easy_json.is_json_file" class="md-nav__link">
     <span class="md-ellipsis">
       
         is_json_file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_json.is_nested_json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        is_nested_json
       
     </span>
   </a>
@@ -1266,6 +1310,164 @@ consistent, easy-to-read exception instead of a random builtin one.</p>
 <div class="doc doc-object doc-function">
 
 
+<h3 id="py_simple.easy_json.flatten_json" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">flatten_json</span><span class="p">(</span><span class="n">seperator</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Flattens a nested dictionary or JSON file into a single-level
+dictionary, joining nested keys with <code>seperator</code>.</p>
+<p>Handles dicts nested inside dicts, lists nested inside dicts, and
+dicts nested inside lists, at any depth. List items are joined
+using their index (e.g. <code>b-0</code>, <code>b-1</code>). Provide exactly one of
+<code>data</code> or <code>filepath</code> — not both.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>seperator</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>String used to join nested keys together.
+Defaults to "-".</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;-&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>data</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A dictionary to flatten.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>filepath</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Path to a JSON file to flatten.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="dict">dict</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>dict | None: A single-level dictionary with all nested values
+unwrapped into flat, uniquely-named keys.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="EasyJsonError (py_simple.easy_json.EasyJsonError)" href="#py_simple.easy_json.EasyJsonError">EasyJsonError</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If neither or both of <code>data</code>/<code>filepath</code> are
+provided, or if the file can't be opened or parsed.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_json.flatten_json--__tabbed_1_1" name="py_simple.easy_json.flatten_json--__tabbed_1" type="radio" /><input id="py_simple.easy_json.flatten_json--__tabbed_1_2" name="py_simple.easy_json.flatten_json--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_json.flatten_json--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_json.flatten_json--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">flatten_json</span>
+
+<span class="n">flatten_json</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}})</span>
+<span class="c1"># -&gt; {&quot;a&quot;: 1, &quot;b-c&quot;: 2}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">benedict</span><span class="w"> </span><span class="kn">import</span> <span class="n">benedict</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">benedict</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}})</span>
+<span class="n">flat</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">))</span>
+<span class="c1"># still need to manually unwrap dicts/lists further</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h3 id="py_simple.easy_json.is_json_file" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">is_json_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span></code>
 
@@ -1349,6 +1551,144 @@ extension.</p>
 <span class="n">filepath</span> <span class="o">=</span> <span class="s2">&quot;config.json&quot;</span>
 <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span> <span class="ow">and</span> <span class="n">filepath</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;json&quot;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Looks good!&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="py_simple.easy_json.is_nested_json" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">is_nested_json</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filepath</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Checks whether a dictionary or JSON file contains any nested
+dictionaries or lists at the top level.</p>
+<p>Provide exactly one of <code>data</code> or <code>filepath</code> — not both.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>data</code>
+            </td>
+            <td>
+                  <code><span title="dict">dict</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A dictionary to check for nested structures.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>filepath</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Path to a JSON file to check for nested
+structures.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="bool">bool</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>bool | None: True if any top-level value is a dict or list,
+False if all top-level values are flat.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="EasyJsonError (py_simple.easy_json.EasyJsonError)" href="#py_simple.easy_json.EasyJsonError">EasyJsonError</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If neither or both of <code>data</code>/<code>filepath</code> are
+provided, or if the file can't be opened or parsed.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_json.is_nested_json--__tabbed_1_1" name="py_simple.easy_json.is_nested_json--__tabbed_1" type="radio" /><input id="py_simple.easy_json.is_nested_json--__tabbed_1_2" name="py_simple.easy_json.is_nested_json--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_json.is_nested_json--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_json.is_nested_json--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_nested_json</span>
+
+<span class="n">is_nested_json</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}})</span>  <span class="c1"># -&gt; True</span>
+<span class="n">is_nested_json</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>  <span class="c1"># -&gt; False</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}}</span>
+<span class="n">is_nested</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span>
+    <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">list</span><span class="p">))</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
