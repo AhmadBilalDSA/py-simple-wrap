@@ -119,15 +119,15 @@ def is_valid_url(url: str) -> bool:
             ```python
             import re
 
-            pattern = (r'(?:https?://(?:www\.)?|www\.)[a-zA-Z0-9-]+\.
-            (?:(?:[a-zA-Z0-9-]+\.)*)?[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?'
-            r'(?:/\S*)?')
+            pattern = (r'(?:https?://(?:www\.)?|www\.)[a-zA-Z0-9-]+\.'
+               r'(?:(?:[a-zA-Z0-9-]+\.)*)?(?:(?:[a-zA-Z0-9-]+\\)*)'
+               r'?[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?(?:/\S*)?')
             result = bool(re.fullmatch(pattern, "www.google.com"))
             ```
     """
-    pattern = (
-        r'(?:https?://(?:www\.)?|www\.)[a-zA-Z0-9-]+\.(?:(?:[a-zA-Z0-9-]+\.)*)?[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?'
-        r'(?:/\S*)?')
+    pattern = (r'(?:https?://(?:www\.)?|www\.)[a-zA-Z0-9-]+\.'
+               r'(?:(?:[a-zA-Z0-9-]+\.)*)?(?:(?:[a-zA-Z0-9-]+\\)*)'
+               r'?[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?(?:/\S*)?')
     return bool(re.fullmatch(pattern, url))
 
 

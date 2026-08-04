@@ -31,7 +31,7 @@ def test_is_email_extracted(input_text,expected):
         ("visit test.edu today", []),
         ("yourself http://127.0.0.1", []),
         ("explore www.test14-maps.com", ['www.test14-maps.com']),
-        ("for longer url: http:/test.org/example", ['http:/test.org/example'])
+        ("for longer url: http://test.org/example", ['http://test.org/example'])
     ]
 )
 
