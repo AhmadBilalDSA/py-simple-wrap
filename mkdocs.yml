@@ -33,6 +33,7 @@ nav:
   - Tutorial:
       - Quickstart: tutorial/quickstart.md
       - Easy Strings: tutorial/easy_strings.md
+      - Easy Web: tutorial/easy_web.md
   - How To:
       - Contributing: how-to/contributing.md
   - Reference:
