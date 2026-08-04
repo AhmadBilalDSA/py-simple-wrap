@@ -962,10 +962,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#py_simple.easy_async.run_at_the_same_time" class="md-nav__link">
+  <a href="#py_simple.easy_async.run_at_the_same_time_no_params" class="md-nav__link">
     <span class="md-ellipsis">
       
-        run_at_the_same_time
+        run_at_the_same_time_no_params
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_async.run_at_the_same_time_with_params" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_at_the_same_time_with_params
       
     </span>
   </a>
@@ -1119,8 +1130,8 @@ instead of a random builtin one.</p>
 <div class="doc doc-object doc-function">
 
 
-<h3 id="py_simple.easy_async.run_at_the_same_time" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">run_at_the_same_time</span><span class="p">(</span><span class="n">functions</span><span class="p">)</span></code>
+<h3 id="py_simple.easy_async.run_at_the_same_time_no_params" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">run_at_the_same_time_no_params</span><span class="p">(</span><span class="n">functions</span><span class="p">)</span></code>
 
 </h3>
 
@@ -1189,7 +1200,7 @@ running.</p>
 
 <details class="example" open>
   <summary>Example</summary>
-  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_async.run_at_the_same_time--__tabbed_1_1" name="py_simple.easy_async.run_at_the_same_time--__tabbed_1" type="radio" /><input id="py_simple.easy_async.run_at_the_same_time--__tabbed_1_2" name="py_simple.easy_async.run_at_the_same_time--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_async.run_at_the_same_time--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_async.run_at_the_same_time--__tabbed_1_2">The Traditional Way</label></div>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_async.run_at_the_same_time_no_params--__tabbed_1_1" name="py_simple.easy_async.run_at_the_same_time_no_params--__tabbed_1" type="radio" /><input id="py_simple.easy_async.run_at_the_same_time_no_params--__tabbed_1_2" name="py_simple.easy_async.run_at_the_same_time_no_params--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_async.run_at_the_same_time_no_params--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_async.run_at_the_same_time_no_params--__tabbed_1_2">The Traditional Way</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_at_the_same_time</span>
@@ -1217,6 +1228,127 @@ running.</p>
 <span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
     <span class="n">tickets</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">functions</span>
+    <span class="p">]</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="n">tickets</span><span class="p">:</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">ticket</span><span class="o">.</span><span class="n">result</span><span class="p">()))</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="py_simple.easy_async.run_at_the_same_time_with_params" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">run_at_the_same_time_with_params</span><span class="p">(</span><span class="n">functions_and_args</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Runs multiple functions at the same time, each with its own
+arguments, and returns their results.</p>
+<p>Raises EasyAsyncError if any function raises an exception while
+running.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>functions_and_args</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span>[<span title="tuple">tuple</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Functions to run, each given
+as a tuple where the first item is the function and the
+remaining items are the positional arguments to call it
+with, e.g. (func, arg1, arg2).</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>list</code></td>            <td>
+                  <code><span title="list">list</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of (name, result) tuples, one per function.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_async.run_at_the_same_time_with_params--__tabbed_1_1" name="py_simple.easy_async.run_at_the_same_time_with_params--__tabbed_1" type="radio" /><input id="py_simple.easy_async.run_at_the_same_time_with_params--__tabbed_1_2" name="py_simple.easy_async.run_at_the_same_time_with_params--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_async.run_at_the_same_time_with_params--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_async.run_at_the_same_time_with_params--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_at_the_same_time_with_params</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">sub</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+
+<span class="n">run_at_the_same_time_with_params</span><span class="p">([</span>
+    <span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">sub</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+<span class="p">])</span>  <span class="c1"># -&gt; [(&quot;add&quot;, 2), (&quot;sub&quot;, 2)]</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">concurrent.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThreadPoolExecutor</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">sub</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+
+<span class="n">functions_and_args</span> <span class="o">=</span> <span class="p">[(</span><span class="n">add</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">sub</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+    <span class="n">tickets</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">*</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">functions_and_args</span>
     <span class="p">]</span>
     <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">ticket</span> <span class="ow">in</span> <span class="n">tickets</span><span class="p">:</span>
         <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">ticket</span><span class="o">.</span><span class="n">result</span><span class="p">()))</span>
