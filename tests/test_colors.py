@@ -9,7 +9,7 @@ from py_simple_package.src.py_simple.easy_colors import (
 
 @pytest.mark.parametrize(
     "hex_code, expected",
-    [()
+    [
         ("#FFFFFF", True),
         ("#ffffff", True),
         ("FFFFFF", True),
