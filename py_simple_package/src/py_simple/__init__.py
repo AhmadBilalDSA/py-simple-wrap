@@ -47,3 +47,6 @@ from .easy_regex import (
     extract_urls, extract_numbers, extract_number_sequences,
     extract_emails,
 )
+from .easy_async import (
+    run_at_the_same_time,
+)
