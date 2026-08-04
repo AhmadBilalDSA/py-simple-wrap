@@ -13,28 +13,35 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
         <img src="https://github.com/sara-czasak.png" width="100px;" alt="Sara Czasak"/><br />
         <sub><b>Sara Czasak</b></sub>
       </a><br />
-      👑 💻 📖
+      👑 💻 📖 🛡️ ✋️
     </td>
     <td align="center">
       <a href="https://github.com/jagjitkaur0000">
         <img src="https://github.com/jagjitkaur0000.png" width="100px;" alt="jagjitkaur0000"/><br />
         <sub><b>jagjitkaur0000</b></sub>
       </a><br />
-      💻 🧪 🛡️
+      💻 🧪 ✋
     </td>
     <td align="center">
       <a href="https://github.com/atiqur-rahman-pro">
         <img src="https://github.com/atiqur-rahman-pro.png" width="100px;" alt="jagjitkaur0000"/><br />
         <sub><b>jagjitkaur0000</b></sub>
       </a><br />
-      💻 🧪 🛡️
+      💻 🧪 ✋
     </td>
     <td align="center">
       <a href="https://github.com/gaoharimran29-glitch">
         <img src="https://github.com/gaoharimran29-glitch.png" width="100px;" alt="Gaohar Imran"/><br />
         <sub><b>Gaohar Imran</b></sub>
       </a><br />
-      💻 🧪 🛡️
+      💻 🧪 ✋
+    </td>
+    <td align="center">
+      <a href="https://github.com/Onion0121">
+        <img src="https://github.com/Onion0121.png" width="100px;" alt="Yassin Azzouzi"/><br />
+        <sub><b>Yassin Azzouzi</b></sub>
+      </a><br />
+      💻 🧪 📖 ✋
     </td>
   </tr>
 </table>
