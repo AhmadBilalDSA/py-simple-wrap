@@ -1089,6 +1089,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#easy-regex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 Easy Regex
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1430,6 +1441,17 @@
     <span class="md-ellipsis">
       
         📄 Easy JSON
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easy-regex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 Easy Regex
       
     </span>
   </a>
@@ -1787,6 +1809,21 @@
 | `is_json_file(path)` | Check if a file exists and is .json | `is_json_file("config.json")` → `True` |
 | `is_nested_json(data=dict)` | Check if a dict has any nested dicts/lists | `is_nested_json(data={"a": 1, "b": {"c": 2}})` → `True` |
 | `flatten_json(data=dict)` | Flatten a nested dict into single-level keys | `flatten_json(data={"a": 1, "b": {"c": 2}})` → `{"a": 1, "b-c": 2}` |
+
+</details>
+
+<h3 id="easy-regex">🔍 Easy Regex</h3>
+<details>
+<summary>Click to expand — pull common patterns out of text without writing regex</summary>
+
+<br>
+
+| Function | What it does | Example |
+|---|---|---|
+| `extract_emails(text)` | Find all email addresses in text | `extract_emails("Contact hello@example.com")` → `['hello@example.com']` |
+| `extract_urls(text)` | Find all URLs in text | `extract_urls("Visit www.example.com")` → `['www.example.com']` |
+| `extract_number_sequences(text)` | Find number sequences joined by `-`, `_`, `:`, or `.` (dates, times, IPs, IDs) | `extract_number_sequences("IP 192.168.1.1 at 14:32")` → `['192.168.1.1', '14:32']` |
+| `extract_numbers(text)` | Find all standalone digit sequences | `extract_numbers("I have 3 cats and 12 fish")` → `['3', '12']` |
 
 </details>
 
