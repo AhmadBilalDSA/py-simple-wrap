@@ -14,11 +14,13 @@ from .easy_converter import (
     seconds_to_hh_mm_ss, miles_to_km, km_to_mile, fluid_oz_to_ml,
     ml_to_fluid_oz, celsius_to_fahrenheit, fahrenheit_to_celsius, kg_to_lb,
     lb_to_kg, meters_to_feet, feet_to_meters, cm_to_inches, inches_to_cm,
-    sq_feet_to_sq_meters, sq_meters_to_sq_feet
+    sq_feet_to_sq_meters, sq_meters_to_sq_feet, hh_mm_ss_to_seconds,
+    mph_to_kph, kph_to_mph,
 )
 from .easy_numbers import (
     is_even, is_odd, is_evenly_divisible, is_negative, is_positive,
-    average, is_prime, percentage_of
+    average, is_prime, percentage_of, round_to_nearest,
+    greatest_common_divisor, clamp,
 )
 from .easy_validator import (
     is_valid_email, is_valid_username, is_valid_zipcode, is_valid_url,

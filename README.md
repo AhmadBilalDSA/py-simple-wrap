@@ -275,13 +275,14 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 ### 🔄 Easy Flow
 
 <details>
-<summary>Click to expand — run Python files without the runpy boilerplate</summary>
+<summary>Click to expand — run Python files and time function calls without the boilerplate</summary>
 
 <br>
 
 | Function | What it does | Example |
 |---|---|---|
-| `run_py_file(str)` | Run a .py file as `__main__` | `run_py_file("script.py")` |
+| `run_py_file(filename)` | Run a .py file as `__main__` | `run_py_file("script.py")` |
+| `time_function_call(function, args=None)` | Runs a function once and returns how long it took, in seconds | `time_function_call(add, [2, 3])` → `0.000002` |
 
 </details>
 
@@ -319,6 +320,20 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 | `extract_number_sequences(text)` | Find number sequences joined by `-`, `_`, `:`, or `.` (dates, times, IPs, IDs) | `extract_number_sequences("IP 192.168.1.1 at 14:32")` → `['192.168.1.1', '14:32']` |
 | `extract_numbers(text)` | Find all standalone digit sequences | `extract_numbers("I have 3 cats and 12 fish")` → `['3', '12']` |
  
+</details>
+
+### ⚡ Easy Async
+
+<details>
+<summary>Click to expand — run multiple functions at the same time without touching ThreadPoolExecutor directly</summary>
+
+<br>
+
+| Function | What it does | Example |
+|---|---|---|
+| `run_at_the_same_time_no_params(functions)` | Runs multiple zero-argument functions at the same time | `run_at_the_same_time_no_params([add, sub])` → `[('add', 2), ('sub', 2)]` |
+| `run_at_the_same_time_with_params(functions_and_args)` | Runs multiple functions at the same time, each with its own arguments | `run_at_the_same_time_with_params([(add, 1, 1), (sub, 4, 2)])` → `[('add', 2), ('sub', 2)]` |
+
 </details>
 
 ## 🤝 Contributing
