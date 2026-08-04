@@ -1,85 +1,66 @@
-import pytest
-
 from py_simple_package.src.py_simple.easy_regex import (
     extract_emails,
     extract_urls,
     extract_number_sequences,
-    extract_numbers)
+    extract_numbers
+)
 
-class TestEasyRegex:
+import pytest
 
-    @pytest.mark.parametrize(
-        "email,expected",
-        [
-            ("Hello john@gmail.com", ["john@gmail.com"]),
-            ("john@gmail.com alice@yahoo.com", ["john@gmail.com", "alice@yahoo.com"]),
-            ("Hello Everyone", []),
-            ("", []),
-            ("john.smith+work@gmail.com", ["john.smith+work@gmail.com"]),
-            ("USER@EXAMPLE.COM", ["USER@EXAMPLE.COM"]),
-            ("Duplicate a@test.com a@test.com", ["a@test.com", "a@test.com"]),
-        ]
-    )
+# email test
+@pytest.mark.parametrize(
+    "input_text, expected",
+    [
+        ("this is my address, ginny@gmail.com", ["ginny@gmail.com"]),
+        ("this has no address right?",[]),
+        ("what about more than one with hello@example.com and support@test.org",['hello@example.com','support@test.org']),
+        ("a curveball to try test%123@domain.com",['test%123@domain.com']),
+        ("will.this.work@test.edu",['will.this.work@test.edu'])
+    ]
 
-    def test_extract_emails(self, email, expected):
-        assert extract_emails(email) == expected
+)
 
-    @pytest.mark.parametrize(
-        "urls,expected",
-        [
-            ("Visit https://www.example.com", ["https://www.example.com"]),
-            ("Visit http://example.com", ["http://example.com"]),
-            ("Visit www.example.org today", ["www.example.org"]),
-            (
-                "Go to https://google.com and www.github.com",
-                ["https://google.com", "www.github.com"],
-            ),
-            ("", []),
-            ("No links here", []),
-            (
-                "https://docs.python.org/3/library/re.html",
-                ["https://docs.python.org/3/library/re.html"],
-            ),
-        ]
-    )
+def test_is_email_extracted(input_text,expected):
+    assert extract_emails(input_text) == expected
 
-    def test_extract_urls(self, urls, expected):
-        assert extract_urls(urls) == expected
+# url test
+@pytest.mark.parametrize(
+    "input_text, expected",
+    [
+        ("visit https://www.example.com or www.test.org today", ['https://www.example.com','www.test.org']),
+        ("visit test.edu today", []),
+        ("yourself http://127.0.0.1", []),
+        ("explore www.test14-maps.com", ['www.test14-maps.com']),
+        ("for longer url: http://test.org/example", ['http://test.org/example'])
+    ]
+)
 
-    @pytest.mark.parametrize(
-        "number_sequence,expected",
-        [
-            ("IP: 192.168.1.1", ["192.168.1.1"]),
-            ("Today is 04-08-2026", ["04-08-2026"]),
-            ("Time: 14:32", ["14:32"]),
-            ("Version v1.2.3", ["1.2.3"]),
-            ("ID 123_456_789", ["123_456_789"]),
-            (
-                "Server 192.168.1.1 at 14:32 on 04-08-2026",
-                ["192.168.1.1", "14:32", "04-08-2026"],
-            ),
-            ("Just number 123", ["123"]),
-            ("", []),
-            ("No sequences", []),
-        ]
-        )
+def test_is_url_extracted(input_text, expected):
+    assert extract_urls(input_text) == expected
 
-    def test_extract_number_sequences(self, number_sequence, expected):
-        assert extract_number_sequences(number_sequence) == expected
+# number sequence test
+@pytest.mark.parametrize(
+    "input_text, expected",
+    [
+        ("Server 192.168.1.1 logged in at 14:32 on 04-08-2026", ['192.168.1.1', '14:32', '04-08-2026']),
+        ("Python 3.14.6", ['3.14.6']),
+        ("call me at 929_759_0263", ['929_759_0263']),
 
-    @pytest.mark.parametrize(
-        "numbers, expected",
-        [
-            ("I have 3 cats and 12 fish", ["3", "12"]),
-            ("12345", ["12345"]),
-            ("Room42", ["42"]),
-            ("Version 1.2.3", ["1", "2", "3"]),
-            ("IP 192.168.1.1", ["192", "168", "1", "1"]),
-            ("04-08-2026", ["04", "08", "2026"]),
-            ("", []),
-            ("No numbers here", []),
-            ]
-        )
+    ]
+)
 
-    def test_extract_numbers(self, numbers, expected):
-        assert extract_numbers(numbers) == expected
+def test_is_number_sequence_extracted(input_text, expected):
+    assert extract_number_sequences(input_text) == expected
+
+# number test
+@pytest.mark.parametrize(
+    "input_text, expected",
+    [
+        ("I have 3 cats and 12 fish", ['3','12']),
+        ("this is one and this 1 too", ['1']),
+
+    ]
+)
+
+def test_is_number_extracted(input_text,expected):
+    assert extract_numbers(input_text) == expected

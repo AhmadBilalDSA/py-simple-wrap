@@ -29,7 +29,7 @@ def extract_emails(text: str) -> list | None:
             # -> ['hello@example.com', 'support@test.org']
             ```
     """
-    pattern = r'[a-zA-Z_.%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]+'
+    pattern = r'[a-zA-Z0-9_.%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]+'
     return re.findall(pattern, text)
 
 
@@ -56,13 +56,14 @@ def extract_urls(text: str) -> list | None:
             ```python
             import re
 
-            pattern = (r'(?:https?://(?:www\.)?|www\.)[a-zA-Z0-9-]+\.(?:(?:[a-zA-Z0-9-]+\.)*)?[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?'
-                       r'(?:/\S*)?')
+            pattern = (r'(?:https?://(?:www\.)?|www\.)[a-zA-Z0-9-]+\.
+            (?:(?:[a-zA-Z0-9-]+\.)*)?(?:(?:[a-zA-Z0-9-]+\\)*)?[a-zA-Z]{2,}
+            (?:\.[a-zA-Z]{2,})?(?:/\S*)?')
             result = re.findall(pattern, "Visit https://www.example.com or www.test.org today")
             # -> ['https://www.example.com', 'www.test.org']
             ```
     """
-    pattern = (r'(?:https?://(?:www\.)?|www\.)[a-zA-Z0-9-]+\.(?:(?:[a-zA-Z0-9-]+\.)*)?[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?'
+    pattern = (r'(?:https?://(?:www\.)?|www\.)[a-zA-Z0-9-]+\.(?:(?:[a-zA-Z0-9-]+\.)*)?(?:(?:[a-zA-Z0-9-]+\\)*)?[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?'
                r'(?:/\S*)?')
     return re.findall(pattern, text)
 

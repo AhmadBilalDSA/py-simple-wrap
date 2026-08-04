@@ -3,6 +3,7 @@ easy_flow is built to simplify work flows
 """
 
 import runpy
+import time
 
 
 class EasyFlowError(Exception):
@@ -54,3 +55,57 @@ def run_py_file(filename: str):
         runpy.run_path(filename)
     except Exception as e:
         raise EasyFlowError(f"\n\n\nERROR: {e}") from None
+
+
+def time_function_call(function, args: list = None) -> float:
+    """
+    Runs a function once and returns how long it took to run, in
+    seconds.
+
+    Raises EasyFlowError if the function raises an exception while
+    running.
+
+    Args:
+        function: The function to run and time.
+        args (list, optional): Positional arguments to pass to the
+            function. Leave as None to call it with no arguments.
+
+    Returns:
+        float: Number of seconds the function took to run.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import time_function_call
+
+            def add(a, b):
+                return a + b
+
+            time_function_call(add, [2, 3])  # -> 0.000002
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import time
+
+            def add(a, b):
+                return a + b
+
+            start = time.time()
+            try:
+                add(2, 3)
+            except Exception as e:
+                print(f"Couldn't time the function: {e}")
+            duration = time.time() - start
+            ```
+    """
+    try:
+        start = time.time()
+        if args is None:
+            function()
+        else:
+            function(*args)
+        return time.time() - start
+    except Exception as e:
+        raise EasyFlowError(f"\n\n\nERROR: {e}") from None
+
