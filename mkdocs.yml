@@ -1,8 +1,8 @@
-site_name: py_simple
+site_name: py-simple-wrap
 site_description: A beginner-friendly Python wrapper package
-site_url: https://sara-czasak.github.io/py_simple/
-repo_url: https://github.com/sara-czasak/py_simple
-repo_name: sara-czasak/py_simple
+site_url: https://github.com/sara-czasak/py-simple-wrap/
+repo_url: https://github.com/sara-czasak/py-simple-wrap
+repo_name: sara-czasak/py-simple-wrap
 
 theme:
   name: material
