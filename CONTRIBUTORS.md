@@ -97,6 +97,10 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
  
 - **Matheus** ([@matheusfrta](https://github.com/matheusfrta))
   - Added unit tests for easy_json module
+
+- **Mlandvo Maphalala** ([@Mlandvo](https://github.com/Mlandvo))
+  - Added unit tests for easy_regex module
+  
 ---
 
 ## How to get your name here? 🛠️
