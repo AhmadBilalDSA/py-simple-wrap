@@ -29,6 +29,7 @@ classifiers = [
 dependencies = [
     "requests>=2.25.0",
     "beautifulsoup4>=4.9.0",
+    "python-benedict>=0.38.0",
 ]
 
 [project.urls]

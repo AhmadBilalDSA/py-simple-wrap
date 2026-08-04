@@ -4,6 +4,7 @@ easy_json is built to simplify working with json files
 
 import json
 import os
+from benedict import benedict
 
 
 class EasyJsonError(Exception):
@@ -218,3 +219,136 @@ def is_json_file(filepath: str) -> bool:
             return False
     else:
         return False
+
+
+def is_nested_json(data: dict = None, filepath: str = None) -> bool | None:
+    """
+    Checks whether a dictionary or JSON file contains any nested
+    dictionaries or lists at the top level.
+
+    Provide exactly one of `data` or `filepath` — not both.
+
+    Args:
+        data (dict): A dictionary to check for nested structures.
+        filepath (str): Path to a JSON file to check for nested
+            structures.
+
+    Returns:
+        bool | None: True if any top-level value is a dict or list,
+            False if all top-level values are flat.
+
+    Raises:
+        EasyJsonError: If neither or both of `data`/`filepath` are
+            provided, or if the file can't be opened or parsed.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import is_nested_json
+
+            is_nested_json(data={"a": 1, "b": {"c": 2}})  # -> True
+            is_nested_json(data={"a": 1, "b": 2})  # -> False
+            ```
+
+        === "The Traditional Way"
+            ```python
+            data = {"a": 1, "b": {"c": 2}}
+            is_nested = any(
+                isinstance(v, (dict, list)) for v in data.values()
+            )
+            ```
+    """
+    if data is None and filepath is None:
+        raise EasyJsonError("\n\n\nERROR: Either data or filepath "
+                            "must be provided.") from None
+    if data is not None and filepath is not None:
+        raise EasyJsonError(f"\n\n\nERROR: Please provide data OR "
+                            f"filepath.") from None
+    if filepath:
+        to_check = open_json(filepath)
+    else:
+        to_check = data
+    try:
+        for key, value in to_check.items():
+            if isinstance(value, dict) or isinstance(value, list):
+                return True
+            else:
+                continue
+    except Exception as e:
+        raise EasyJsonError(f"\n\n\nERROR: {e}") from None
+
+
+def flatten_json(seperator: str = "-", data: dict = None,
+                 filepath: str = None) -> dict | None:
+    """
+    Flattens a nested dictionary or JSON file into a single-level
+    dictionary, joining nested keys with `seperator`.
+
+    Handles dicts nested inside dicts, lists nested inside dicts, and
+    dicts nested inside lists, at any depth. List items are joined
+    using their index (e.g. `b-0`, `b-1`). Provide exactly one of
+    `data` or `filepath` — not both.
+
+    Args:
+        seperator (str): String used to join nested keys together.
+            Defaults to "-".
+        data (dict): A dictionary to flatten.
+        filepath (str): Path to a JSON file to flatten.
+
+    Returns:
+        dict | None: A single-level dictionary with all nested values
+            unwrapped into flat, uniquely-named keys.
+
+    Raises:
+        EasyJsonError: If neither or both of `data`/`filepath` are
+            provided, or if the file can't be opened or parsed.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import flatten_json
+
+            flatten_json(data={"a": 1, "b": {"c": 2}})
+            # -> {"a": 1, "b-c": 2}
+            ```
+
+        === "The Traditional Way"
+            ```python
+            from benedict import benedict
+
+            d = benedict({"a": 1, "b": {"c": 2}})
+            flat = dict(d.flatten("-"))
+            # still need to manually unwrap dicts/lists further
+            ```
+        """
+    if data is None and filepath is None:
+        raise EasyJsonError("\n\n\nERROR: Either data or filepath "
+                            "must be provided.") from None
+    if data is not None and filepath is not None:
+        raise EasyJsonError(f"\n\n\nERROR: Please provide data OR "
+                            f"filepath.") from None
+    if filepath:
+        nested = open_json(filepath)
+    else:
+        nested = data
+    try:
+        d = benedict(nested)
+        initial_squish = d.flatten(seperator)
+        flat = {}
+        for key, value in initial_squish.items():
+            if isinstance(value, list):
+                for index, item in enumerate(value):
+                    if isinstance(item, dict):
+                        for key2, value2 in item.items():
+                            flat[f"{key}{seperator}{index}{seperator}{key2}"] = value2
+                    else:
+                        flat[f"{key}{seperator}{index}"] = value[index]
+            else:
+                flat[key] = value
+        if is_nested_json(flat):
+            flat = flatten_json(seperator, flat)
+            return flat
+        else:
+            return flat
+    except Exception as e:
+        raise EasyJsonError(f"\n\n\nERROR: {e}") from None
