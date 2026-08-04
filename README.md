@@ -72,15 +72,15 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-| Function | What it does |
-|---|---|
-| `make_blank_file("notes", "txt")` | Create an empty file |
-| `is_file_there("notes.txt")` | Check if a file exists |
-| `add_a_line("notes.txt", "hello!")` | Append a line to a file |
-| `read_file_to_list("notes.txt")` | Read lines into a list |
-| `remove_file("notes.txt")` | Delete a file |
-| `rename_file("old.txt", "new.txt")` | Rename a file |
-| `copy_file("src.txt", "dst.txt")` | Copy a file |
+| Function                             | What it does                        |
+|--------------------------------------|-------------------------------------|
+| `make_blank_file("notes", "txt")`    | Create an empty file                |
+| `is_file_there("notes.txt")`         | Check if a file exists              |
+| `add_a_line("notes.txt", "hello!")`  | Append a line to a file             |
+| `read_file_to_list("notes.txt")`     | Read lines into a list              |
+| `remove_file("notes.txt")`           | Delete a file                       |
+| `rename_file("old.txt", "new.txt")`  | Rename a file                       |
+| `copy_file("src.txt", "dst.txt")`    | Copy a file                         |
 | `list_files()` / `list_files("txt")` | List files, optionally by extension |
 
 </details>
@@ -94,19 +94,19 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 **Get the current date in any format:**
 
-| Function | Example output |
-|---|---|
-| `get_pretty_date()` | `Friday, July 31, 2026` |
-| `dd_mm_yyyy()` | `31-07-2026` |
-| `mm_dd_yyyy()` | `07-31-2026` |
-| `slash_dd_mm_yyyy()` | `31/07/2026` |
-| `slash_mm_dd_yyyy()` | `07/31/2026` |
+| Function             | Example output          |
+|----------------------|-------------------------|
+| `get_pretty_date()`  | `Friday, July 31, 2026` |
+| `dd_mm_yyyy()`       | `31-07-2026`            |
+| `mm_dd_yyyy()`       | `07-31-2026`            |
+| `slash_dd_mm_yyyy()` | `31/07/2026`            |
+| `slash_mm_dd_yyyy()` | `07/31/2026`            |
 
 **Need past or future dates?** Add `past_` or `future_` to any function above and pass the number of days:
 
-| Pattern | Example |
-|---|---|
-| `past_<format>(7)` | `past_pretty_date(7)` → one week ago |
+| Pattern               | Example                                    |
+|-----------------------|--------------------------------------------|
+| `past_<format>(7)`    | `past_pretty_date(7)` → one week ago       |
 | `future_<format>(30)` | `future_dd_mm_yyyy(30)` → 30 days from now |
 
 **Also available:** `list_available_formats()` to see all supported format names.
@@ -120,19 +120,19 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-| Function | What it does | Example |
-|---|---|---|
-| `is_even(n)` | Check if a number is even | `is_even(90)` → `True` |
-| `is_odd(n)` | Check if a number is odd | `is_odd(67)` → `True` |
-| `is_positive(n)` | Check if a number is positive | `is_positive(90)` → `True` |
-| `is_negative(n)` | Check if a number is negative | `is_negative(-10)` → `True` |
-| `is_prime(n)` | Check if a number is prime | `is_prime(2)` → `True` |
-| `is_evenly_divisible(n, d)` | Check if `n` divides evenly by `d` | `is_evenly_divisible(90, 9)` → `True` |
-| `average(nums)` | Average of a list, rounded to 2 decimals | `average([1.5, 2, 3])` → `2.17` |
-| `percentage_of(n, p)` | Get a percentage of a number | `percentage_of(100, 0.5)` → `50.0` |
-| `round_to_nearest(n, m)` | Round to the nearest multiple | `round_to_nearest(23, 5)` → `25.0` |
-| `greatest_common_divisor(a, b)` | Find the GCD of two numbers | `greatest_common_divisor(12, 18)` → `6` |
-| `clamp(n, min, max)` | Keep a number within a range | `clamp(15, 0, 10)` → `10` |
+| Function                        | What it does                             | Example                                 |
+|---------------------------------|------------------------------------------|-----------------------------------------|
+| `is_even(n)`                    | Check if a number is even                | `is_even(90)` → `True`                  |
+| `is_odd(n)`                     | Check if a number is odd                 | `is_odd(67)` → `True`                   |
+| `is_positive(n)`                | Check if a number is positive            | `is_positive(90)` → `True`              |
+| `is_negative(n)`                | Check if a number is negative            | `is_negative(-10)` → `True`             |
+| `is_prime(n)`                   | Check if a number is prime               | `is_prime(2)` → `True`                  |
+| `is_evenly_divisible(n, d)`     | Check if `n` divides evenly by `d`       | `is_evenly_divisible(90, 9)` → `True`   |
+| `average(nums)`                 | Average of a list, rounded to 2 decimals | `average([1.5, 2, 3])` → `2.17`         |
+| `percentage_of(n, p)`           | Get a percentage of a number             | `percentage_of(100, 0.5)` → `50.0`      |
+| `round_to_nearest(n, m)`        | Round to the nearest multiple            | `round_to_nearest(23, 5)` → `25.0`      |
+| `greatest_common_divisor(a, b)` | Find the GCD of two numbers              | `greatest_common_divisor(12, 18)` → `6` |
+| `clamp(n, min, max)`            | Keep a number within a range             | `clamp(15, 0, 10)` → `10`               |
 
 </details>
 
@@ -143,14 +143,14 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-| Function | What it does | Example |
-|---|---|---|
+| Function                    | What it does                               | Example                                                      |
+|-----------------------------|--------------------------------------------|--------------------------------------------------------------|
 | `remove_extra_spaces(text)` | Strip leading, trailing, and double spaces | `remove_extra_spaces("  hello   world  ")` → `"hello world"` |
-| `to_snake_case(text)` | Convert to snake_case | `to_snake_case("Hello World")` → `"hello_world"` |
-| `to_kebab_case(text)` | Convert to kebab-case | `to_kebab_case("Hello World")` → `"hello-world"` |
-| `is_palindrome(text)` | Check if text reads the same backwards | `is_palindrome("Never odd or even")` → `True` |
-| `is_alphanumeric(text)` | Check if text is letters and numbers only | `is_alphanumeric("Something123")` → `True` |
-| `count_words(text)` | Count the number of words | `count_words("Hello world! How are you?")` → `5` |
+| `to_snake_case(text)`       | Convert to snake_case                      | `to_snake_case("Hello World")` → `"hello_world"`             |
+| `to_kebab_case(text)`       | Convert to kebab-case                      | `to_kebab_case("Hello World")` → `"hello-world"`             |
+| `is_palindrome(text)`       | Check if text reads the same backwards     | `is_palindrome("Never odd or even")` → `True`                |
+| `is_alphanumeric(text)`     | Check if text is letters and numbers only  | `is_alphanumeric("Something123")` → `True`                   |
+| `count_words(text)`         | Count the number of words                  | `count_words("Hello world! How are you?")` → `5`             |
 
 </details>
 
@@ -163,58 +163,58 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 **Time**
 
-| Function | Example |
-|---|---|
-| `seconds_to_hh_mm_ss(3665)` | `"01:01:05"` |
-| `hh_mm_ss_to_seconds(1, 1, 1)` | `3661` |
+| Function                       | Example      |
+|--------------------------------|--------------|
+| `seconds_to_hh_mm_ss(3665)`    | `"01:01:05"` |
+| `hh_mm_ss_to_seconds(1, 1, 1)` | `3661`       |
 
 **Distance & Length**
 
-| Function | Example |
-|---|---|
-| `km_to_mile(100)` | `62.13` |
-| `miles_to_km(100)` | `160.93` |
-| `meters_to_feet(100)` | `328.08` |
-| `feet_to_meters(328.08)` | `100.0` |
-| `cm_to_inches(100)` | `39.37` |
-| `inches_to_cm(39.37)` | `100.0` |
+| Function                 | Example  |
+|--------------------------|----------|
+| `km_to_mile(100)`        | `62.13`  |
+| `miles_to_km(100)`       | `160.93` |
+| `meters_to_feet(100)`    | `328.08` |
+| `feet_to_meters(328.08)` | `100.0`  |
+| `cm_to_inches(100)`      | `39.37`  |
+| `inches_to_cm(39.37)`    | `100.0`  |
 
 **Weight**
 
-| Function | Example |
-|---|---|
-| `kg_to_lb(5)` | `11.02` |
-| `lb_to_kg(110.23)` | `50.0` |
+| Function           | Example |
+|--------------------|---------|
+| `kg_to_lb(5)`      | `11.02` |
+| `lb_to_kg(110.23)` | `50.0`  |
 
 **Temperature**
 
-| Function | Example |
-|---|---|
-| `celsius_to_fahrenheit(25)` | `77.0` |
-| `fahrenheit_to_celsius(104)` | `40.0` |
+| Function                     | Example |
+|------------------------------|---------|
+| `celsius_to_fahrenheit(25)`  | `77.0`  |
+| `fahrenheit_to_celsius(104)` | `40.0`  |
 
 **Volume**
 
-| Function | Example |
-|---|---|
-| `fluid_oz_to_ml(1, standard='us')` | `29.6` |
-| `fluid_oz_to_ml(1, standard='uk')` | `28.4` |
-| `ml_to_fluid_oz(1, standard='us')` | `0.03` |
-| `ml_to_fluid_oz(1, standard='uk')` | `0.04` |
+| Function                           | Example |
+|------------------------------------|---------|
+| `fluid_oz_to_ml(1, standard='us')` | `29.6`  |
+| `fluid_oz_to_ml(1, standard='uk')` | `28.4`  |
+| `ml_to_fluid_oz(1, standard='us')` | `0.03`  |
+| `ml_to_fluid_oz(1, standard='uk')` | `0.04`  |
 
 **Area**
 
-| Function | Example |
-|---|---|
-| `sq_meters_to_sq_feet(10)` | `107.64` |
-| `sq_feet_to_sq_meters(107.64)` | `10.0` |
+| Function                       | Example  |
+|--------------------------------|----------|
+| `sq_meters_to_sq_feet(10)`     | `107.64` |
+| `sq_feet_to_sq_meters(107.64)` | `10.0`   |
 
 **Speed**
 
-| Function | Example |
-|---|---|
-| `mph_to_kph(0.621371)` | `1.0` |
-| `kph_to_mph(1.60934)` | `1.0` |
+| Function               | Example |
+|------------------------|---------|
+| `mph_to_kph(0.621371)` | `1.0`   |
+| `kph_to_mph(1.60934)`  | `1.0`   |
 
 </details>
 
@@ -225,12 +225,12 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-| Function | What it checks | Example |
-|---|---|---|
-| `is_valid_email(str)` | Valid email format | `is_valid_email("hello@world.com")` → `True` |
-| `is_valid_username(str)` | Letters, numbers, and underscores only | `is_valid_username("user_name")` → `True` |
-| `is_valid_url(str)` | URLs with http, https, or www | `is_valid_url("www.google.com")` → `True` |
-| `is_valid_zipcode(int)` | 5-digit US zip code | `is_valid_zipcode(12345)` → `True` |
+| Function                  | What it checks                                      | Example                                      |
+|---------------------------|-----------------------------------------------------|----------------------------------------------|
+| `is_valid_email(str)`     | Valid email format                                  | `is_valid_email("hello@world.com")` → `True` |
+| `is_valid_username(str)`  | Letters, numbers, and underscores only              | `is_valid_username("user_name")` → `True`    |
+| `is_valid_url(str)`       | URLs with http, https, or www                       | `is_valid_url("www.google.com")` → `True`    |
+| `is_valid_zipcode(int)`   | 5-digit US zip code                                 | `is_valid_zipcode(12345)` → `True`           |
 | `is_password_secure(str)` | 8+ chars, upper, lower, digits, special, no repeats | `is_password_secure("1andkrf!AG5")` → `True` |
 
 </details>
@@ -242,18 +242,18 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-| Function | What it does | Example |
-|---|---|---|
-| `is_page_up(url)` | Check if a site returns 200 | `is_page_up("https://github.com")` → `True` |
-| `get_page_title(url)` | Get the page title | `get_page_title("https://github.com")` → `"GitHub · ..."` |
-| `get_page_content(url)` | Get prettified HTML | `get_page_content("https://google.com")` |
-| `count_links(url)` | Count links on a page | `count_links("https://github.com")` → `144` |
-| `get_link_list(url)` | Get all links as a list | `get_link_list("https://github.com")` → `[...]` |
-| `count_tags(url, tag)` | Count tags of a given type (e.g. `'a'`, `'img'`) | `count_tags("https://github.com", "img")` → `12` |
-| `get_tag_list(url, tag)` | Get useful info from each matching tag | `get_tag_list("https://github.com", "img")` → `[...]` |
-| `print_allowed_tags()` | Print the supported tag → attribute map | `print_allowed_tags()` → `{'a': 'href', 'img': 'src'}` |
-| `get_meta_description(url)` | Get all meta tag contents | `get_meta_description("https://github.com")` → `[...]` |
-| `get_all_headers(url)` | Get text from all `<header>` tags | `get_all_headers("https://github.com")` → `[...]` |
+| Function                    | What it does                                     | Example                                                   |
+|-----------------------------|--------------------------------------------------|-----------------------------------------------------------|
+| `is_page_up(url)`           | Check if a site returns 200                      | `is_page_up("https://github.com")` → `True`               |
+| `get_page_title(url)`       | Get the page title                               | `get_page_title("https://github.com")` → `"GitHub · ..."` |
+| `get_page_content(url)`     | Get prettified HTML                              | `get_page_content("https://google.com")`                  |
+| `count_links(url)`          | Count links on a page                            | `count_links("https://github.com")` → `144`               |
+| `get_link_list(url)`        | Get all links as a list                          | `get_link_list("https://github.com")` → `[...]`           |
+| `count_tags(url, tag)`      | Count tags of a given type (e.g. `'a'`, `'img'`) | `count_tags("https://github.com", "img")` → `12`          |
+| `get_tag_list(url, tag)`    | Get useful info from each matching tag           | `get_tag_list("https://github.com", "img")` → `[...]`     |
+| `print_allowed_tags()`      | Print the supported tag → attribute map          | `print_allowed_tags()` → `{'a': 'href', 'img': 'src'}`    |
+| `get_meta_description(url)` | Get all meta tag contents                        | `get_meta_description("https://github.com")` → `[...]`    |
+| `get_all_headers(url)`      | Get text from all `<header>` tags                | `get_all_headers("https://github.com")` → `[...]`         |
 
 </details>
 
@@ -264,11 +264,11 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-| Function | What it does | Example |
-|---|---|---|
-| `is_valid_hex(str)` | Check if a string is a valid hex color | `is_valid_hex("#FFFFFF")` → `True` |
-| `hex_to_rgb(str)` | Convert hex to (R, G, B) tuple | `hex_to_rgb("#FFFFFF")` → `(255, 255, 255)` |
-| `rgb_to_hex(r, g, b)` | Convert RGB to hex string | `rgb_to_hex(255, 255, 255)` → `"#FFFFFF"` |
+| Function              | What it does                           | Example                                     |
+|-----------------------|----------------------------------------|---------------------------------------------|
+| `is_valid_hex(str)`   | Check if a string is a valid hex color | `is_valid_hex("#FFFFFF")` → `True`          |
+| `hex_to_rgb(str)`     | Convert hex to (R, G, B) tuple         | `hex_to_rgb("#FFFFFF")` → `(255, 255, 255)` |
+| `rgb_to_hex(r, g, b)` | Convert RGB to hex string              | `rgb_to_hex(255, 255, 255)` → `"#FFFFFF"`   |
 
 </details>
 
@@ -279,9 +279,9 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-| Function | What it does | Example |
-|---|---|---|
-| `run_py_file(filename)` | Run a .py file as `__main__` | `run_py_file("script.py")` |
+| Function                                  | What it does                                                  | Example                                        |
+|-------------------------------------------|---------------------------------------------------------------|------------------------------------------------|
+| `run_py_file(filename)`                   | Run a .py file as `__main__`                                  | `run_py_file("script.py")`                     |
 | `time_function_call(function, args=None)` | Runs a function once and returns how long it took, in seconds | `time_function_call(add, [2, 3])` → `0.000002` |
 
 </details>
@@ -293,16 +293,16 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-| Function | What it does | Example |
-|---|---|---|
-| `open_json(path)` | Read a JSON file into a dict | `open_json("config.json")` |
-| `save_json_data(path, dict)` | Save a dict to a new JSON file | `save_json_data("config.json", {"name": "Sara"})` |
-| `update_json(path, dict)` | Merge new data into an existing JSON file | `update_json("config.json", {"name": "Sara"})` |
-| `pretty_json(data=dict)` | Pretty-print a dict as indented JSON | `pretty_json(data={"name": "Sara"})` |
-| `pretty_json(filepath=path)` | Pretty-print a JSON file's contents | `pretty_json(filepath="config.json")` |
-| `is_json_file(path)` | Check if a file exists and is .json | `is_json_file("config.json")` → `True` |
-| `is_nested_json(data=dict)` | Check if a dict has any nested dicts/lists | `is_nested_json(data={"a": 1, "b": {"c": 2}})` → `True` |
-| `flatten_json(data=dict)` | Flatten a nested dict into single-level keys | `flatten_json(data={"a": 1, "b": {"c": 2}})` → `{"a": 1, "b-c": 2}` |
+| Function                     | What it does                                 | Example                                                             |
+|------------------------------|----------------------------------------------|---------------------------------------------------------------------|
+| `open_json(path)`            | Read a JSON file into a dict                 | `open_json("config.json")`                                          |
+| `save_json_data(path, dict)` | Save a dict to a new JSON file               | `save_json_data("config.json", {"name": "Sara"})`                   |
+| `update_json(path, dict)`    | Merge new data into an existing JSON file    | `update_json("config.json", {"name": "Sara"})`                      |
+| `pretty_json(data=dict)`     | Pretty-print a dict as indented JSON         | `pretty_json(data={"name": "Sara"})`                                |
+| `pretty_json(filepath=path)` | Pretty-print a JSON file's contents          | `pretty_json(filepath="config.json")`                               |
+| `is_json_file(path)`         | Check if a file exists and is .json          | `is_json_file("config.json")` → `True`                              |
+| `is_nested_json(data=dict)`  | Check if a dict has any nested dicts/lists   | `is_nested_json(data={"a": 1, "b": {"c": 2}})` → `True`             |
+| `flatten_json(data=dict)`    | Flatten a nested dict into single-level keys | `flatten_json(data={"a": 1, "b": {"c": 2}})` → `{"a": 1, "b-c": 2}` |
 
 </details>
 
@@ -313,12 +313,12 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-| Function | What it does | Example |
-|---|---|---|
-| `extract_emails(text)` | Find all email addresses in text | `extract_emails("Contact hello@example.com")` → `['hello@example.com']` |
-| `extract_urls(text)` | Find all URLs in text | `extract_urls("Visit www.example.com")` → `['www.example.com']` |
+| Function                         | What it does                                                                   | Example                                                                            |
+|----------------------------------|--------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| `extract_emails(text)`           | Find all email addresses in text                                               | `extract_emails("Contact hello@example.com")` → `['hello@example.com']`            |
+| `extract_urls(text)`             | Find all URLs in text                                                          | `extract_urls("Visit www.example.com")` → `['www.example.com']`                    |
 | `extract_number_sequences(text)` | Find number sequences joined by `-`, `_`, `:`, or `.` (dates, times, IPs, IDs) | `extract_number_sequences("IP 192.168.1.1 at 14:32")` → `['192.168.1.1', '14:32']` |
-| `extract_numbers(text)` | Find all standalone digit sequences | `extract_numbers("I have 3 cats and 12 fish")` → `['3', '12']` |
+| `extract_numbers(text)`          | Find all standalone digit sequences                                            | `extract_numbers("I have 3 cats and 12 fish")` → `['3', '12']`                     |
  
 </details>
 
@@ -329,9 +329,9 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-| Function | What it does | Example |
-|---|---|---|
-| `run_at_the_same_time_no_params(functions)` | Runs multiple zero-argument functions at the same time | `run_at_the_same_time_no_params([add, sub])` → `[('add', 2), ('sub', 2)]` |
+| Function                                               | What it does                                                          | Example                                                                                     |
+|--------------------------------------------------------|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| `run_at_the_same_time_no_params(functions)`            | Runs multiple functions at the same time                              | `run_at_the_same_time_no_params([add, sub])` → `[('add', 2), ('sub', 2)]`                   |
 | `run_at_the_same_time_with_params(functions_and_args)` | Runs multiple functions at the same time, each with its own arguments | `run_at_the_same_time_with_params([(add, 1, 1), (sub, 4, 2)])` → `[('add', 2), ('sub', 2)]` |
 
 </details>
