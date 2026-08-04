@@ -72,7 +72,7 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
   - Added unit tests for `easy_converter.py` module
  
 - **gaoharimran29-glitch** ([@gaoharimran29-glitch](https://github.com/gaoharimran29-glitch))
-  - Added unit tests for `easy_validator.py` module
+  - Added unit tests for `easy_validator.py` module and `easy_regex.py` module
   - Expanded easy_numbers module
  
 - **mmaxjr** ([@mmaxjr](https://github.com/mmaxjr))
