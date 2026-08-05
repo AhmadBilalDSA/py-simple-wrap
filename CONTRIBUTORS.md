@@ -101,6 +101,9 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
 - **Mlandvo Maphalala** ([@Mlandvo](https://github.com/Mlandvo))
   - Added unit tests for easy_regex module
   - Reported a bug
+
+- **qotique** ([@qotique](https://github.com/qotique))
+    - Improved documentation
   
 ---
 

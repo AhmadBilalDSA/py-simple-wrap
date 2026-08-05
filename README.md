@@ -1,6 +1,6 @@
 # py-simple-wrap 🚀
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 **Making Python feel like plain English.**
@@ -437,6 +437,9 @@ A huge thank you to these wonderful people for helping make Python simpler for e
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/matheusfrta"><img src="https://avatars.githubusercontent.com/u/217668693?v=4?s=100" width="100px;" alt="Matheus"/><br /><sub><b>Matheus</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=matheusfrta" title="Tests">🧪</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Mlandvo"><img src="https://avatars.githubusercontent.com/u/39243759?v=4?s=100" width="100px;" alt="Mlandvo Maphalala"/><br /><sub><b>Mlandvo Maphalala</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=Mlandvo" title="Tests">🧪</a> <a href="https://github.com/sara-czasak/py_simple/issues?q=author%3AMlandvo" title="Bug reports">🐛</a></td>
     </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/qotique"><img src="https://github.com/qotique.png?s=100" width="100px;" alt="qotique"/><br /><sub><b>qotique</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=qotique" title="Docs">📖</a></td>
+    </tr>
   </tbody>
 </table>
 
@@ -444,6 +447,8 @@ A huge thank you to these wonderful people for helping make Python simpler for e
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 

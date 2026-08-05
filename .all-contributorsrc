@@ -198,6 +198,15 @@
         "test",
         "bug"
       ]
+    },
+    {
+      "login": "qotique",
+      "name": "qotique",
+      "avatar_url": "https://github.com/qotique.png",
+      "profile": "https://github.com/qotique",
+      "contributions": [
+        "documentation"
+      ]
     }
   ]
 }
