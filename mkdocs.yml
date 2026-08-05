@@ -38,7 +38,9 @@ nav:
       - Contributing: how-to/contributing.md
   - Reference:
       - Easy Numbers: reference/easy_numbers.md
+      - Easy Lists: reference/easy_lists.md
       - Easy Strings: reference/easy_strings.md
+      - Easy Text: reference/easy_text.md
       - Easy Colors: reference/easy_colors.md
       - Easy Web: reference/easy_web.md
       - Easy Json: reference/easy_json.md

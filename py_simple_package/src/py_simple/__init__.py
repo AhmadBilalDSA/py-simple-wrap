@@ -52,3 +52,13 @@ from .easy_regex import (
 from .easy_async import (
     run_at_the_same_time_no_params, run_at_the_same_time_with_params,
 )
+from .easy_lists import (
+    unique_items, find_duplicates, chunk_list, flatten_list,
+    most_common_item, rotate_list, merge_lists, alternate_lists,
+    sum_all, sort_numbers, sort_words,
+)
+from .easy_text import (
+    truncate, remove_punctuation, reverse_words, capitalize_title,
+    count_letters, count_digits, mask_part, pluralize, extract_hashtags,
+    word_frequency,
+)
