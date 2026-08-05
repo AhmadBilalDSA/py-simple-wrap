@@ -136,6 +136,29 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 </details>
 
+### 📋 Easy Lists
+
+<details>
+<summary>Click to expand — list helpers that keep your code short and readable</summary>
+
+<br>
+
+|-----------------------------------|------------------------------------------|------------------------------------------------------------|
+| Function                          | What it does                             | Example                                                    |
+| `unique_items(items)`             | Remove duplicates, keeping order         | `unique_items([1, 2, 2, 3])` → `[1, 2, 3]`                 |
+| `find_duplicates(items)`          | Find items that appear more than once    | `find_duplicates([1, 2, 2, 3, 3, 3])` → `[2, 3]`           |
+| `chunk_list(items, size)`         | Split a list into smaller lists          | `chunk_list([1, 2, 3, 4, 5], 2)` → `[[1, 2], [3, 4], [5]]` |
+| `flatten_list(items)`             | Flatten nested lists one level deep      | `flatten_list([[1, 2], [3]])` → `[1, 2, 3]`                |
+| `most_common_item(items)`         | Find the most frequent item              | `most_common_item([1, 1, 2])` → `1`                        |
+| `rotate_list(items, steps)`       | Rotate items to the right                | `rotate_list([1, 2, 3], 1)` → `[3, 1, 2]`                  |
+| `merge_lists(list_a, list_b)`     | Combine two lists                        | `merge_lists([1, 2], [3, 4])` → `[1, 2, 3, 4]`             |
+| `alternate_lists(list_a, list_b)` | Combine lists by taking turns            | `alternate_lists([1, 2], [3, 4])` → `[1, 3, 2, 4]`         |
+| `sum_all(items)`                  | Add up numbers, even in nested lists     | `sum_all([1, [2, 3], 4])` → `10`                           |
+| `sort_numbers(items)`             | Sort numbers smallest to largest         | `sort_numbers([3, 1, 2])` → `[1, 2, 3]`                    |
+| `sort_words(items)`               | Sort words alphabetically, ignoring case | `sort_words(["banana", "Apple"])` → `["Apple", "banana"]`  |
+
+</details>
+
 ### 🔤 Easy Strings
 
 <details>
@@ -151,6 +174,28 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 | `is_palindrome(text)`       | Check if text reads the same backwards     | `is_palindrome("Never odd or even")` → `True`                |
 | `is_alphanumeric(text)`     | Check if text is letters and numbers only  | `is_alphanumeric("Something123")` → `True`                   |
 | `count_words(text)`         | Count the number of words                  | `count_words("Hello world! How are you?")` → `5`             |
+
+</details>
+
+### ✂️ Easy Text
+
+<details>
+<summary>Click to expand — text formatting helpers that read like English</summary>
+
+<br>
+
+|------------------------------|---------------------------------------------|---------------------------------------------------------------|
+| Function                     | What it does                                | Example                                                       |
+| `truncate(text, length)`     | Shorten text and add an ellipsis            | `truncate("Hello world!", 5)` → `"Hello…"`                    |
+| `remove_punctuation(text)`   | Strip punctuation, keep letters and numbers | `remove_punctuation("Hello, world!")` → `"Hello world"`       |
+| `reverse_words(text)`        | Reverse the order of words                  | `reverse_words("Hello world")` → `"world Hello"`              |
+| `capitalize_title(text)`     | Capitalize the first letter of each word    | `capitalize_title("the great gatsby")` → `"The Great Gatsby"` |
+| `count_letters(text)`        | Count the number of letters                 | `count_letters("Hello 123!")` → `5`                           |
+| `count_digits(text)`         | Count the number of digits                  | `count_digits("Hello 123!")` → `3`                            |
+| `mask_part(text, visible=4)` | Hide part of text behind asterisks          | `mask_part("1234567890", 4)` → `"1234 ******"`                |
+| `pluralize(word, count)`     | Get the singular or plural form             | `pluralize("cat", 3)` → `"cats"`                              |
+| `extract_hashtags(text)`     | Extract hashtags without the # symbol       | `extract_hashtags("#python rocks")` → `["python"]`            |
+| `word_frequency(text)`       | Count how often each word appears           | `word_frequency("the cat and the dog")` → `{"the": 2, ...}`   |
 
 </details>
 
