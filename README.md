@@ -143,8 +143,8 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-|-----------------------------------|------------------------------------------|------------------------------------------------------------|
 | Function                          | What it does                             | Example                                                    |
+|-----------------------------------|------------------------------------------|------------------------------------------------------------|
 | `unique_items(items)`             | Remove duplicates, keeping order         | `unique_items([1, 2, 2, 3])` → `[1, 2, 3]`                 |
 | `find_duplicates(items)`          | Find items that appear more than once    | `find_duplicates([1, 2, 2, 3, 3, 3])` → `[2, 3]`           |
 | `chunk_list(items, size)`         | Split a list into smaller lists          | `chunk_list([1, 2, 3, 4, 5], 2)` → `[[1, 2], [3, 4], [5]]` |
