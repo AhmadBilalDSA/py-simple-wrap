@@ -90,7 +90,7 @@ def hex_to_rgb(hex_code: str) -> tuple[int, int, int]:
     g = int(cleaned[2:4], 16)
     b = int(cleaned[4:6], 16)
 
-    return (r, g, b)
+    return r, g, b
 
 
 def rgb_to_hex(r: int, g: int, b: int) -> str:
