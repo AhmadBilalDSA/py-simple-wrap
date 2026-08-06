@@ -3,7 +3,9 @@ import pytest
 
 from py_simple_package.src.py_simple.easy_json import (
     EasyJsonError,
+    flatten_json,
     is_json_file,
+    is_nested_json,
     open_json,
     pretty_json,
     save_json_data,
@@ -120,3 +122,62 @@ class TestEasyJson:
     def test_is_json_file_does_not_exist(self, tmp_path):
         missing_file = tmp_path / "ghost.json"
         assert is_json_file(str(missing_file)) is False
+
+    def test_is_nested_json_true_with_dict(self):
+        data = {"a": 1, "b": {"c": 2}}
+        assert is_nested_json(data=data) is True
+
+    def test_is_nested_json_true_with_list(self):
+        data = {"a": 1, "b": [1, 2, 3]}
+        assert is_nested_json(data=data) is True
+
+    def test_is_nested_json_false_flat(self):
+        data = {"a": 1, "b": "hello", "c": True}
+        assert not is_nested_json(data=data)
+
+    def test_is_nested_json_with_filepath(self, tmp_path):
+        json_file = tmp_path / "nested.json"
+        data = {"user": {"name": "Sara", "id": 101}}
+        json_file.write_text(json.dumps(data), encoding="utf-8")
+
+        assert is_nested_json(filepath=str(json_file)) is True
+
+    def test_is_nested_json_no_args_raises_easy_json_error(self):
+        with pytest.raises(EasyJsonError) as exc_info:
+            is_nested_json()
+        assert "ERROR:" in str(exc_info.value)
+
+    def test_is_nested_json_both_args_raises_easy_json_error(self, tmp_path):
+        json_file = tmp_path / "sample.json"
+        with pytest.raises(EasyJsonError) as exc_info:
+            is_nested_json(data={"a": 1}, filepath=str(json_file))
+        assert "ERROR:" in str(exc_info.value)
+
+    def test_flatten_json_dict_success(self):
+        data = {"a": 1, "b": {"c": 2}}
+        result = flatten_json(data=data)
+        assert result == {"a": 1, "b-c": 2}
+
+    def test_flatten_json_custom_separator(self):
+        data = {"user": {"details": {"age": 25}}}
+        result = flatten_json(seperator="_", data=data)
+        assert result == {"user_details_age": 25}
+
+    def test_flatten_json_with_filepath(self, tmp_path):
+        json_file = tmp_path / "nested.json"
+        data = {"info": {"status": "ok"}}
+        json_file.write_text(json.dumps(data), encoding="utf-8")
+
+        result = flatten_json(filepath=str(json_file))
+        assert result == {"info-status": "ok"}
+
+    def test_flatten_json_no_args_raises_easy_json_error(self):
+        with pytest.raises(EasyJsonError) as exc_info:
+            flatten_json()
+        assert "ERROR:" in str(exc_info.value)
+
+    def test_flatten_json_both_args_raises_easy_json_error(self, tmp_path):
+        json_file = tmp_path / "sample.json"
+        with pytest.raises(EasyJsonError) as exc_info:
+            flatten_json(data={"a": 1}, filepath=str(json_file))
+        assert "ERROR:" in str(exc_info.value)

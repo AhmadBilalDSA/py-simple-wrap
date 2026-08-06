@@ -106,7 +106,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/246456340?v=4",
       "profile": "https://github.com/Onion0121",
       "contributions": [
-        "documentation"
+        "documentation",
+        "collaborators"
       ]
     },
     {
@@ -185,6 +186,54 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/217668693?v=4",
       "profile": "https://github.com/matheusfrta",
       "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "Mlandvo",
+      "name": "Mlandvo Maphalala",
+      "avatar_url": "https://avatars.githubusercontent.com/u/39243759?v=4",
+      "profile": "https://github.com/Mlandvo",
+      "contributions": [
+        "test",
+        "bug"
+      ]
+    },
+    {
+      "login": "qotique",
+      "name": "qotique",
+      "avatar_url": "https://github.com/qotique.png",
+      "profile": "https://github.com/qotique",
+      "contributions": [
+        "documentation"
+      ]
+    },
+    {
+      "login": "AureSerua",
+      "name": "AureSerua",
+      "avatar_url": "https://github.com/AureSerua.png",
+      "profile": "https://github.com/AureSerua",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "SemTiOne",
+      "name": "Dane Parin",
+      "avatar_url": "https://github.com/SemTiOne.png",
+      "profile": "https://github.com/SemTiOne",
+      "contributions": [
+        "code",
+        "test"
+      ]
+    },
+    {
+      "login": "vjymisal0",
+      "name": "Vijay Misal",
+      "avatar_url": "https://github.com/vjymisal0.png",
+      "profile": "https://github.com/vjymisal0",
+      "contributions": [
+        "code",
         "test"
       ]
     }

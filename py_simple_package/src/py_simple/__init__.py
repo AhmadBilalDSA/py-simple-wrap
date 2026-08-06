@@ -14,11 +14,13 @@ from .easy_converter import (
     seconds_to_hh_mm_ss, miles_to_km, km_to_mile, fluid_oz_to_ml,
     ml_to_fluid_oz, celsius_to_fahrenheit, fahrenheit_to_celsius, kg_to_lb,
     lb_to_kg, meters_to_feet, feet_to_meters, cm_to_inches, inches_to_cm,
-    sq_feet_to_sq_meters, sq_meters_to_sq_feet
+    sq_feet_to_sq_meters, sq_meters_to_sq_feet, hh_mm_ss_to_seconds,
+    mph_to_kph, kph_to_mph,
 )
 from .easy_numbers import (
     is_even, is_odd, is_evenly_divisible, is_negative, is_positive,
-    average, is_prime, percentage_of
+    average, is_prime, percentage_of, round_to_nearest,
+    greatest_common_divisor, clamp,
 )
 from .easy_validator import (
     is_valid_email, is_valid_username, is_valid_zipcode, is_valid_url,
@@ -35,10 +37,43 @@ from .easy_strings import (
 )
 from .easy_json import (
     open_json, save_json_data, pretty_json, update_json, is_json_file,
+    is_nested_json, flatten_json,
 )
 from .easy_colors import (
-    hex_to_rgb, rgb_to_hex, is_valid_hex,
+    hex_to_rgb, rgb_to_hex, is_valid_hex, rgb_to_hsl, hsl_to_rgb,
+    random_hex_color, is_light_color,
 )
 from .easy_flow import (
-    run_py_file,
+    run_py_file, run_py_file_safe, time_function_call, time_it, retry
+)
+from .easy_regex import (
+    extract_urls, extract_numbers, extract_number_sequences,
+    extract_emails,
+)
+from .easy_async import (
+    run_at_the_same_time_no_params, run_at_the_same_time_with_params,
+)
+from .easy_lists import (
+    unique_items, find_duplicates, chunk_list, flatten_list,
+    most_common_item, rotate_list, merge_lists, alternate_lists,
+    sum_all, sort_numbers, sort_words,
+)
+from .easy_text import (
+    truncate, remove_punctuation, reverse_words, capitalize_title,
+    count_letters, count_digits, mask_part, pluralize, extract_hashtags,
+    word_frequency,
+)
+from .easy_dict import (
+    merge_dicts, lists_to_dict, invert_dict, get_nested_value,
+    sort_dict_by_key, sort_dict_by_value, rename_key, find_keys,
+    count_values, most_common_value,
+)
+from .easy_images import (
+    resize_image, convert_image, rotate_image, get_image_info,
+)
+from .easy_game import (
+    basic_game_setup,
+)
+from .easy_generator import (
+    generate_qr_code, generate_password,
 )

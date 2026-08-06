@@ -1,8 +1,8 @@
-site_name: py_simple
+site_name: py-simple-wrap
 site_description: A beginner-friendly Python wrapper package
-site_url: https://sara-czasak.github.io/py_simple/
-repo_url: https://github.com/sara-czasak/py_simple
-repo_name: sara-czasak/py_simple
+site_url: https://github.com/sara-czasak/py-simple-wrap/
+repo_url: https://github.com/sara-czasak/py-simple-wrap
+repo_name: sara-czasak/py-simple-wrap
 
 theme:
   name: material
@@ -33,11 +33,15 @@ nav:
   - Tutorial:
       - Quickstart: tutorial/quickstart.md
       - Easy-Flow: tutorial/easy_flow.md
+      - Easy Strings: tutorial/easy_strings.md
+      - Easy Web: tutorial/easy_web.md
   - How To:
       - Contributing: how-to/contributing.md
   - Reference:
       - Easy Numbers: reference/easy_numbers.md
+      - Easy Lists: reference/easy_lists.md
       - Easy Strings: reference/easy_strings.md
+      - Easy Text: reference/easy_text.md
       - Easy Colors: reference/easy_colors.md
       - Easy Web: reference/easy_web.md
       - Easy Json: reference/easy_json.md
@@ -45,6 +49,8 @@ nav:
       - Easy Date Formatter: reference/easy_date_formatter.md
       - Easy File Manager: reference/easy_file_manager.md
       - Easy Validator: reference/easy_validator.md
+      - Easy Dict: reference/easy_dict.md
+      - Easy Images: reference/easy_images.md
   - About:
       - README: readme.md
       - Contributors: about/contributors.md

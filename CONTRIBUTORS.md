@@ -13,28 +13,35 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
         <img src="https://github.com/sara-czasak.png" width="100px;" alt="Sara Czasak"/><br />
         <sub><b>Sara Czasak</b></sub>
       </a><br />
-      👑 💻 📖
+      👑 💻 📖 🛡️ ✋️
     </td>
     <td align="center">
       <a href="https://github.com/jagjitkaur0000">
         <img src="https://github.com/jagjitkaur0000.png" width="100px;" alt="jagjitkaur0000"/><br />
         <sub><b>jagjitkaur0000</b></sub>
       </a><br />
-      💻 🧪 🛡️
+      💻 🧪 ✋
     </td>
     <td align="center">
       <a href="https://github.com/atiqur-rahman-pro">
         <img src="https://github.com/atiqur-rahman-pro.png" width="100px;" alt="jagjitkaur0000"/><br />
         <sub><b>jagjitkaur0000</b></sub>
       </a><br />
-      💻 🧪 🛡️
+      💻 🧪 ✋
     </td>
     <td align="center">
       <a href="https://github.com/gaoharimran29-glitch">
         <img src="https://github.com/gaoharimran29-glitch.png" width="100px;" alt="Gaohar Imran"/><br />
         <sub><b>Gaohar Imran</b></sub>
       </a><br />
-      💻 🧪 🛡️
+      💻 🧪 ✋
+    </td>
+    <td align="center">
+      <a href="https://github.com/Onion0121">
+        <img src="https://github.com/Onion0121.png" width="100px;" alt="Yassin Azzouzi"/><br />
+        <sub><b>Yassin Azzouzi</b></sub>
+      </a><br />
+      💻 🧪 📖 ✋
     </td>
   </tr>
 </table>
@@ -55,6 +62,8 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
     
 - **Onion0121** ([@Onion0121](https://github.com/Onion0121))
   - Improve documentation (made README.md more approachable for beginners)
+  - Added tutorial for easy_strings module
+  - Added tutorial for easy_web module
  
 - **jagjitkaur0000** ([@jagjitkaur0000](https://github.com/jagjitkaur0000))
   - Added unit tests for `easy_numbers.py` module
@@ -63,7 +72,7 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
   - Added unit tests for `easy_converter.py` module
  
 - **gaoharimran29-glitch** ([@gaoharimran29-glitch](https://github.com/gaoharimran29-glitch))
-  - Added unit tests for `easy_validator.py` module
+  - Added unit tests for `easy_validator.py` module and `easy_regex.py` module
   - Expanded easy_numbers module
  
 - **mmaxjr** ([@mmaxjr](https://github.com/mmaxjr))
@@ -88,6 +97,26 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
  
 - **Matheus** ([@matheusfrta](https://github.com/matheusfrta))
   - Added unit tests for easy_json module
+
+- **Mlandvo Maphalala** ([@Mlandvo](https://github.com/Mlandvo))
+  - Added unit tests for easy_regex module
+  - Reported a bug
+
+- **qotique** ([@qotique](https://github.com/qotique))
+    - Improved documentation
+    - Opened issue requesting `easy_images` module
+
+- **AureSerua** ([@AureSerua](https://github.com/AureSerua))
+    - Expanded `easy_flow.py` module
+
+- **Dane Parin** ([SemTiOne](https://github.com/SemTiOne))
+    - Expand `easy_colors.py` module 
+    - Added unit tests for new functions in `easy_colors.py`
+
+- **Vijay Misal** ([@vjymisal0](https://github.com/vjymisal0))
+    - Add `easy_images.py` module
+    - Add tests for `easy_images.py` module
+  
 ---
 
 ## How to get your name here? 🛠️
