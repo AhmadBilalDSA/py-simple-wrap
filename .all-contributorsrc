@@ -216,6 +216,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "SemTiOne",
+      "name": "Dane Parin",
+      "avatar_url": "https://github.com/SemTiOne.png",
+      "profile": "https://github.com/SemTiOne",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ]
 }

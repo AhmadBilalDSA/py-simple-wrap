@@ -104,6 +104,13 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
 
 - **qotique** ([@qotique](https://github.com/qotique))
     - Improved documentation
+
+- **AureSerua** ([@AureSerua](https://github.com/AureSerua))
+    - Expanded `easy_flow.py` module
+
+- **Dane Parin** ([SemTiOne](https://github.com/SemTiOne))
+    - Expand `easy_colors.py` module 
+    - Added unit tests for new functions in `easy_colors.py`
   
 ---
 
