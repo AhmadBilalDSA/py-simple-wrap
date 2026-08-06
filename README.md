@@ -383,6 +383,28 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 </details>
 
+### 🔑 Easy Dict
+
+<details>
+<summary>Click to expand — dictionary operations without the boilerplate</summary>
+
+<br>
+
+| Function                             | What it does                                                              | Example                                                                                 |
+|--------------------------------------|---------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| `merge_dicts(dict_a, dict_b)`        | Combines two dictionaries, dict_b wins on shared keys                     | `merge_dicts({"a": 1}, {"b": 2})` → `{"a": 1, "b": 2}`                                   |
+| `lists_to_dict(keys, values)`        | Combines two lists into a dictionary, pairing them by position            | `lists_to_dict(["name", "age"], ["Ana", 25])` → `{"name": "Ana", "age": 25}`             |
+| `invert_dict(dictionary)`            | Returns a new dictionary with keys and values swapped                     | `invert_dict({"a": 1, "b": 2})` → `{1: "a", 2: "b"}`                                     |
+| `get_nested_value(dictionary, path)` | Gets a nested value using a dot-separated path, with a default fallback   | `get_nested_value({"user": {"name": "Ana"}}, "user.name")` → `"Ana"`                     |
+| `sort_dict_by_key(dictionary)`       | Returns a new dictionary with keys sorted alphabetically                  | `sort_dict_by_key({"b": 2, "a": 1})` → `{"a": 1, "b": 2}`                                |
+| `sort_dict_by_value(dictionary)`     | Returns a new dictionary with values sorted from smallest to largest      | `sort_dict_by_value({"a": 2, "b": 1})` → `{"b": 1, "a": 2}`                              |
+| `rename_key(dictionary, old, new)`   | Returns a copy of the dictionary with one key renamed                     | `rename_key({"name": "Ana"}, "name", "username")` → `{"username": "Ana"}`                |
+| `find_keys(needle, dictionary)`      | Returns every key whose value matches the given needle                    | `find_keys(1, {"a": 1, "b": 2, "c": 1})` → `["a", "c"]`                                  |
+| `count_values(dictionary)`           | Counts how many times each value appears in the dictionary                | `count_values({"a": 1, "b": 2, "c": 1})` → `{1: 2, 2: 1}`                                |
+| `most_common_value(dictionary)`      | Returns the value that appears most often in the dictionary               | `most_common_value({"a": 1, "b": 2, "c": 1})` → `1`                                      |
+
+</details>
+
 ## 🤝 Contributing
 
 I would love to have your help in making Python simpler for everyone!
