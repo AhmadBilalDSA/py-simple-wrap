@@ -63,3 +63,6 @@ from .easy_text import (
     count_letters, count_digits, mask_part, pluralize, extract_hashtags,
     word_frequency,
 )
+from .easy_images import (
+    resize_image, convert_image, rotate_image, get_image_info,
+)
