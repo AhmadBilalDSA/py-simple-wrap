@@ -49,6 +49,7 @@ nav:
       - Easy File Manager: reference/easy_file_manager.md
       - Easy Validator: reference/easy_validator.md
       - Easy Dict: reference/easy_dict.md
+      - Easy Images: reference/easy_images.md
   - About:
       - README: readme.md
       - Contributors: about/contributors.md

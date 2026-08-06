@@ -1,6 +1,6 @@
 # py-simple-wrap 🚀
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-17-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 **Making Python feel like plain English.**
@@ -403,6 +403,20 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 | `count_values(dictionary)`           | Counts how many times each value appears in the dictionary                | `count_values({"a": 1, "b": 2, "c": 1})` → `{1: 2, 2: 1}`                                |
 | `most_common_value(dictionary)`      | Returns the value that appears most often in the dictionary               | `most_common_value({"a": 1, "b": 2, "c": 1})` → `1`                                      |
 
+### 🖼️ Easy Images
+
+<details>
+<summary>Click to expand — resize, convert, rotate, and inspect images without wrangling Pillow directly</summary>
+
+<br>
+
+| Function                                                 | What it does                                                   | Example                                                                                            |
+|----------------------------------------------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| `resize_image("photo.jpg", "photo_small.jpg", 320, 240)` | Resize an image to given dimensions and save it                | Saves a 320×240 version of `photo.jpg` as `photo_small.jpg`                                        |
+| `convert_image("photo.png", "photo.jpg")`                | Convert an image to a different format based on file extension | Saves `photo.png` as a JPEG at `photo.jpg`                                                         |
+| `rotate_image("photo.jpg", "photo_rotated.jpg", 90)`     | Rotate an image by an angle (counter-clockwise) and save it    | Saves `photo.jpg` rotated 90° as `photo_rotated.jpg`                                               |
+| `get_image_info("photo.jpg")`                            | Get basic info about an image                                  | `get_image_info("photo.jpg")` → `{"width": 1920, "height": 1080, "format": "JPEG", "mode": "RGB"}` |
+
 </details>
 
 ## 🤝 Contributing
@@ -465,6 +479,7 @@ A huge thank you to these wonderful people for helping make Python simpler for e
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/qotique"><img src="https://github.com/qotique.png?s=100" width="100px;" alt="qotique"/><br /><sub><b>qotique</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=qotique" title="Docs">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/AureSerua"><img src="https://github.com/AureSerua.png?s=100" width="100px;" alt="AureSerua"/><br /><sub><b>AureSerua</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=AureSerua" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/SemTiOne"><img src="https://github.com/SemTiOne.png?s=100" width="100px;" alt="Dane Parin"/><br /><sub><b>Dane Parin</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=SemTiOne" title="Code">💻</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=SemTiOne" title="Tests">🧪</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/vjymisal0"><img src="https://github.com/vjymisal0.png?s=100" width="100px;" alt="Vijay Misal"/><br /><sub><b>Vijay Misal</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=vjymisal0" title="Code">💻</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=vjymisal0" title="Tests">🧪</a></td>
     </tr>
   </tbody>
 </table>

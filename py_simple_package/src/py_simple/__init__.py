@@ -68,3 +68,12 @@ from .easy_dict import (
     sort_dict_by_key, sort_dict_by_value, rename_key, find_keys,
     count_values, most_common_value,
 )
+from .easy_images import (
+    resize_image, convert_image, rotate_image, get_image_info,
+)
+from .easy_game import (
+    basic_game_setup,
+)
+from .easy_generator import (
+    generate_qr_code, generate_password,
+)
