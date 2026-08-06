@@ -32,7 +32,7 @@ nav:
   - Home: index.md
   - Tutorial:
       - Quickstart: tutorial/quickstart.md
-      - EasyFlow: tutorial/easy_flow.md
+      - Easy Flow: tutorial/easy_flow.md
       - Easy Strings: tutorial/easy_strings.md
       - Easy Web: tutorial/easy_web.md
       - Easy Async: tutorial/easy_async.md
