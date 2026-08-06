@@ -66,3 +66,9 @@ from .easy_text import (
 from .easy_images import (
     resize_image, convert_image, rotate_image, get_image_info,
 )
+from .easy_game import (
+    basic_game_setup,
+)
+from .easy_generator import (
+    generate_qr_code, generate_password,
+)

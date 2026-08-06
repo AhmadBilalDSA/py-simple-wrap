@@ -28,7 +28,8 @@ class EasyGameError(Exception):
         super().__init__(self.message)
 
 
-def basic_game_setup(width: int, height: int, title: str ="My Game") -> tuple:
+def basic_game_setup(width: int, height: int, title: str ="My Game") -> (
+        tuple):
     """
     Sets up a pygame window and clock in one call, handling the
     pygame.init(), display, caption, and clock boilerplate every
