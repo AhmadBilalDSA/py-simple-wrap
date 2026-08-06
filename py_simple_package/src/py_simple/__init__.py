@@ -63,6 +63,11 @@ from .easy_text import (
     count_letters, count_digits, mask_part, pluralize, extract_hashtags,
     word_frequency,
 )
+from .easy_dict import (
+    merge_dicts, lists_to_dict, invert_dict, get_nested_value,
+    sort_dict_by_key, sort_dict_by_value, rename_key, find_keys,
+    count_values, most_common_value,
+)
 from .easy_images import (
     resize_image, convert_image, rotate_image, get_image_info,
 )
