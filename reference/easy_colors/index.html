@@ -710,10 +710,32 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#py_simple.easy_colors.contrast_ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        contrast_ratio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#py_simple.easy_colors.hex_to_rgb" class="md-nav__link">
     <span class="md-ellipsis">
       
         hex_to_rgb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_colors.hex_to_rgba" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hex_to_rgba
       
     </span>
   </a>
@@ -1178,10 +1200,32 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#py_simple.easy_colors.contrast_ratio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        contrast_ratio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#py_simple.easy_colors.hex_to_rgb" class="md-nav__link">
     <span class="md-ellipsis">
       
         hex_to_rgb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_colors.hex_to_rgba" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hex_to_rgba
       
     </span>
   </a>
@@ -1318,6 +1362,143 @@
 <div class="doc doc-object doc-function">
 
 
+<h3 id="py_simple.easy_colors.contrast_ratio" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">contrast_ratio</span><span class="p">(</span><span class="n">hex1</span><span class="p">,</span> <span class="n">hex2</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Calculates WCAG contrast ratio between two hex colors.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>hex1</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>First hex color string (e.g., "#000000").</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>hex2</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Second hex color string (e.g., "#FFFFFF").</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>float</code></td>            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Contrast ratio between the two colors.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If either hex color is not valid.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_colors.contrast_ratio--__tabbed_1_1" name="py_simple.easy_colors.contrast_ratio--__tabbed_1" type="radio" /><input id="py_simple.easy_colors.contrast_ratio--__tabbed_1_2" name="py_simple.easy_colors.contrast_ratio--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_colors.contrast_ratio--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_colors.contrast_ratio--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">contrast_ratio</span>
+
+<span class="n">contrast_ratio</span><span class="p">(</span><span class="s2">&quot;#000000&quot;</span><span class="p">,</span> <span class="s2">&quot;#FFFFFF&quot;</span><span class="p">)</span>  <span class="c1"># -&gt; 21.0</span>
+<span class="n">contrast_ratio</span><span class="p">(</span><span class="s2">&quot;#777777&quot;</span><span class="p">,</span> <span class="s2">&quot;#FFFFFF&quot;</span><span class="p">)</span>  <span class="c1"># -&gt; 4.48</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">contrast</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">):</span>
+    <span class="n">lighter</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
+    <span class="n">darker</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">lighter</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">darker</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">)</span>
+
+<span class="n">l_black</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">l_white</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">ratio</span> <span class="o">=</span> <span class="n">contrast</span><span class="p">(</span><span class="n">l_black</span><span class="p">,</span> <span class="n">l_white</span><span class="p">)</span>  <span class="c1"># -&gt; 21.0</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h3 id="py_simple.easy_colors.hex_to_rgb" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">hex_to_rgb</span><span class="p">(</span><span class="n">hex_code</span><span class="p">)</span></code>
 
@@ -1423,6 +1604,154 @@
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">hex_code</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
     <span class="n">hex_code</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">hex_code</span><span class="p">)</span>
 <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">hex_code</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="py_simple.easy_colors.hex_to_rgba" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">hex_to_rgba</span><span class="p">(</span><span class="n">hex_code</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Converts a hex color and alpha value into an (R, G, B, A) tuple.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>hex_code</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Hex color string to convert (e.g., "#FFFFFF" or "fff").</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>alpha</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Alpha channel value in range 0.0 to 1.0.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>, <span title="float">float</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>tuple[int, int, int, float]: RGBA values as (r, g, b, alpha).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If hex_code is not a valid hex color.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If alpha is outside the 0.0-1.0 range.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_colors.hex_to_rgba--__tabbed_1_1" name="py_simple.easy_colors.hex_to_rgba--__tabbed_1" type="radio" /><input id="py_simple.easy_colors.hex_to_rgba--__tabbed_1_2" name="py_simple.easy_colors.hex_to_rgba--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_colors.hex_to_rgba--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_colors.hex_to_rgba--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">hex_to_rgba</span>
+
+<span class="n">hex_to_rgba</span><span class="p">(</span><span class="s2">&quot;#FF0000&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># -&gt; (255, 0, 0, 0.5)</span>
+<span class="n">hex_to_rgba</span><span class="p">(</span><span class="s2">&quot;00ff00&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>  <span class="c1"># -&gt; (0, 255, 0, 1.0)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">hex_code</span> <span class="o">=</span> <span class="s2">&quot;#FF0000&quot;</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">hex_code</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="n">hex_code</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">hex_code</span><span class="p">)</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">hex_code</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">hex_code</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">hex_code</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">rgba</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
