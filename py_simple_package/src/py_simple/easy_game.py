@@ -1,4 +1,12 @@
+"""
+easy_game is built on top of pygame to simplify the tricky parts of
+building games.
+"""
+
 import pygame
+
+
+ALLOWED_KEYS = [i for i in dir(pygame) if i.startswith("K_")]
 
 
 class EasyGameError(Exception):
@@ -65,5 +73,3 @@ def basic_game_setup(width: int, height: int, title: str ="My Game") -> tuple:
         return screen, clock
     except Exception as e:
         raise EasyGameError(f"\n\n\nERROR: {e}") from None
-
-
