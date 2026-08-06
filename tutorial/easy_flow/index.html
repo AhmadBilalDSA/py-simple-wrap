@@ -10,25 +10,31 @@
       
       
       
+        <link rel="canonical" href="https://github.com/sara-czasak/py-simple-wrap/tutorial/easy_flow/">
       
+      
+        <link rel="prev" href="../quickstart/">
+      
+      
+        <link rel="next" href="../easy_strings/">
       
       
         
       
       
-      <link rel="icon" href="/sara-czasak/py-simple-wrap/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>py-simple-wrap</title>
+        <title>Easy-Flow - py-simple-wrap</title>
       
     
     
-      <link rel="stylesheet" href="/sara-czasak/py-simple-wrap/assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="/sara-czasak/py-simple-wrap/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="/sara-czasak/py-simple-wrap/assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
-    <script>__md_scope=new URL("/sara-czasak/py-simple-wrap/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#easy-flow" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/sara-czasak/py-simple-wrap/." title="py-simple-wrap" class="md-header__button md-logo" aria-label="py-simple-wrap" data-md-component="logo">
+    <a href="../.." title="py-simple-wrap" class="md-header__button md-logo" aria-label="py-simple-wrap" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -103,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Easy-Flow
             
           </span>
         </div>
@@ -193,7 +204,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/sara-czasak/py-simple-wrap/." title="py-simple-wrap" class="md-nav__button md-logo" aria-label="py-simple-wrap" data-md-component="logo">
+    <a href="../.." title="py-simple-wrap" class="md-nav__button md-logo" aria-label="py-simple-wrap" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -223,7 +234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -247,18 +258,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -279,7 +292,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -297,7 +310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/tutorial/quickstart/" class="md-nav__link">
+      <a href="../quickstart/" class="md-nav__link">
         
   
   
@@ -322,10 +335,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/tutorial/easy_flow/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Easy-Flow
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -341,6 +381,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-small-real-world-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A small real-world example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happened" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happened?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-these-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why use these helpers?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -353,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/tutorial/easy_strings/" class="md-nav__link">
+      <a href="../easy_strings/" class="md-nav__link">
         
   
   
@@ -381,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/tutorial/easy_web/" class="md-nav__link">
+      <a href="../easy_web/" class="md-nav__link">
         
   
   
@@ -463,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/how-to/contributing/" class="md-nav__link">
+      <a href="../../how-to/contributing/" class="md-nav__link">
         
   
   
@@ -545,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/reference/easy_numbers/" class="md-nav__link">
+      <a href="../../reference/easy_numbers/" class="md-nav__link">
         
   
   
@@ -573,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/reference/easy_lists/" class="md-nav__link">
+      <a href="../../reference/easy_lists/" class="md-nav__link">
         
   
   
@@ -601,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/reference/easy_strings/" class="md-nav__link">
+      <a href="../../reference/easy_strings/" class="md-nav__link">
         
   
   
@@ -629,7 +722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/reference/easy_text/" class="md-nav__link">
+      <a href="../../reference/easy_text/" class="md-nav__link">
         
   
   
@@ -657,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/reference/easy_colors/" class="md-nav__link">
+      <a href="../../reference/easy_colors/" class="md-nav__link">
         
   
   
@@ -685,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/reference/easy_web/" class="md-nav__link">
+      <a href="../../reference/easy_web/" class="md-nav__link">
         
   
   
@@ -713,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/reference/easy_json/" class="md-nav__link">
+      <a href="../../reference/easy_json/" class="md-nav__link">
         
   
   
@@ -741,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/reference/easy_converter/" class="md-nav__link">
+      <a href="../../reference/easy_converter/" class="md-nav__link">
         
   
   
@@ -769,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/reference/easy_date_formatter/" class="md-nav__link">
+      <a href="../../reference/easy_date_formatter/" class="md-nav__link">
         
   
   
@@ -797,7 +890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/reference/easy_file_manager/" class="md-nav__link">
+      <a href="../../reference/easy_file_manager/" class="md-nav__link">
         
   
   
@@ -825,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/reference/easy_validator/" class="md-nav__link">
+      <a href="../../reference/easy_validator/" class="md-nav__link">
         
   
   
@@ -853,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/reference/easy_dict/" class="md-nav__link">
+      <a href="../../reference/easy_dict/" class="md-nav__link">
         
   
   
@@ -881,7 +974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/reference/easy_images/" class="md-nav__link">
+      <a href="../../reference/easy_images/" class="md-nav__link">
         
   
   
@@ -963,7 +1056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/readme/" class="md-nav__link">
+      <a href="../../readme/" class="md-nav__link">
         
   
   
@@ -991,7 +1084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/about/contributors/" class="md-nav__link">
+      <a href="../../about/contributors/" class="md-nav__link">
         
   
   
@@ -1019,7 +1112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/sara-czasak/py-simple-wrap/about/license/" class="md-nav__link">
+      <a href="../../about/license/" class="md-nav__link">
         
   
   
@@ -1064,6 +1157,49 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-small-real-world-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A small real-world example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happened" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happened?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-these-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why use these helpers?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1076,8 +1212,57 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+  
+
+
+<h1 id="easy-flow">Easy Flow</h1>
+<p>Running Python files from other scripts can be useful when building tools, automation scripts, or simple workflows. The <code>easy_flow</code> module provides a simple helper that lets you execute Python files while handling errors in a clean and readable way.</p>
+<h2 id="a-small-real-world-example">A small real-world example</h2>
+<p>Imagine you have a small automation project with different Python scripts. Instead of opening each file manually, you want to run them from a main program.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_py_file</span>
+
+<span class="n">run_py_file</span><span class="p">(</span><span class="s2">&quot;backup.py&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Example output:</p>
+<div class="highlight"><pre><span></span><code>RUNNING: backup.py
+Backup completed successfully!
+</code></pre></div>
+<h2 id="what-happened">What happened?</h2>
+<p><code>run_py_file()</code> runs a Python file as if it was executed directly from the command line, making it easy to launch scripts from another program.</p>
+<p>If something goes wrong while running the file, <code>easy_flow</code> catches the error and raises an <code>EasyFlowError</code> with a clear message instead of exposing different types of Python exceptions.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_py_file</span>
+
+<span class="n">run_py_file</span><span class="p">(</span><span class="s2">&quot;broken_script.py&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><pre><span></span><code>RUNNING: broken_script.py
+
+
+ERROR: Something went wrong inside the script
+</code></pre></div>
+<h2 id="why-use-these-helpers">Why use these helpers?</h2>
+<p>Instead of writing the same execution logic and error handling every time, you can simply use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">run_py_file</span><span class="p">(</span><span class="s2">&quot;script.py&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>This keeps your workflow automation simple, readable, and beginner-friendly while providing consistent error handling when running Python files.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1114,10 +1299,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/sara-czasak/py-simple-wrap/", "features": ["content.code.copy"], "search": "/sara-czasak/py-simple-wrap/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/sara-czasak/py-simple-wrap/assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
