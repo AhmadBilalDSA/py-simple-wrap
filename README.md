@@ -383,6 +383,22 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 </details>
 
+### 🖼️ Easy Images
+
+<details>
+<summary>Click to expand — resize, convert, rotate, and inspect images without wrangling Pillow directly</summary>
+
+<br>
+
+| Function                                                 | What it does                                                   | Example                                                                                            |
+|----------------------------------------------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| `resize_image("photo.jpg", "photo_small.jpg", 320, 240)` | Resize an image to given dimensions and save it                | Saves a 320×240 version of `photo.jpg` as `photo_small.jpg`                                        |
+| `convert_image("photo.png", "photo.jpg")`                | Convert an image to a different format based on file extension | Saves `photo.png` as a JPEG at `photo.jpg`                                                         |
+| `rotate_image("photo.jpg", "photo_rotated.jpg", 90)`     | Rotate an image by an angle (counter-clockwise) and save it    | Saves `photo.jpg` rotated 90° as `photo_rotated.jpg`                                               |
+| `get_image_info("photo.jpg")`                            | Get basic info about an image                                  | `get_image_info("photo.jpg")` → `{"width": 1920, "height": 1080, "format": "JPEG", "mode": "RGB"}` |
+
+</details>
+
 ## 🤝 Contributing
 
 I would love to have your help in making Python simpler for everyone!
