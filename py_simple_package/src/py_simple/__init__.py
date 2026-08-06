@@ -40,7 +40,7 @@ from .easy_json import (
     is_nested_json, flatten_json,
 )
 from .easy_colors import (
-    hex_to_rgb, rgb_to_hex, is_valid_hex,
+    hex_to_rgb, rgb_to_hex, is_valid_hex, random_hex_color, is_light_color,
 )
 from .easy_flow import (
     run_py_file, time_function_call,
