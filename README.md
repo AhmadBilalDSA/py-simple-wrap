@@ -314,6 +314,8 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 | `is_valid_hex(str)`   | Check if a string is a valid hex color | `is_valid_hex("#FFFFFF")` → `True`          |
 | `hex_to_rgb(str)`     | Convert hex to (R, G, B) tuple         | `hex_to_rgb("#FFFFFF")` → `(255, 255, 255)` |
 | `rgb_to_hex(r, g, b)` | Convert RGB to hex string              | `rgb_to_hex(255, 255, 255)` → `"#FFFFFF"`   |
+| `rgb_to_hsl(r, g, b)` | Convert RGB to (H, S, L) tuple         | `rgb_to_hsl(255, 0, 0)` → `(0.0, 100.0, 50.0)` |
+| `hsl_to_rgb(h, s, l)` | Convert HSL to (R, G, B) tuple         | `hsl_to_rgb(120, 100, 50)` → `(0, 255, 0)` |
 
 </details>
 

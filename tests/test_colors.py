@@ -2,8 +2,10 @@ import pytest
 
 from py_simple_package.src.py_simple.easy_colors import (
     hex_to_rgb,
+    hsl_to_rgb,
     is_valid_hex,
     rgb_to_hex,
+    rgb_to_hsl,
 )
 
 
@@ -110,3 +112,115 @@ def test_rgb_to_hex_out_of_range(r, g, b):
 def test_rgb_to_hex_invalid_types(r, g, b):
     with pytest.raises(TypeError):
         rgb_to_hex(r, g, b)
+
+
+@pytest.mark.parametrize(
+    "r, g, b, expected",
+    [
+        (255, 0, 0, (0.0, 100.0, 50.0)),
+        (0, 255, 0, (120.0, 100.0, 50.0)),
+        (0, 0, 255, (240.0, 100.0, 50.0)),
+        (255, 255, 255, (0.0, 0.0, 100.0)),
+        (0, 0, 0, (0.0, 0.0, 0.0)),
+        (128, 128, 128, (0.0, 0.0, 50.2)),
+        (18, 52, 86, (210.0, 65.38, 20.39)),
+    ],
+)
+def test_rgb_to_hsl_valid(r, g, b, expected):
+    assert rgb_to_hsl(r, g, b) == expected
+
+
+@pytest.mark.parametrize(
+    "r, g, b",
+    [
+        (-1, 0, 0),
+        (0, 256, 0),
+        (0, 0, 300),
+        (-255, 0, 0),
+    ],
+)
+def test_rgb_to_hsl_out_of_range(r, g, b):
+    with pytest.raises(ValueError):
+        rgb_to_hsl(r, g, b)
+
+
+@pytest.mark.parametrize(
+    "r, g, b",
+    [
+        ("255", 255, 255),
+        (255, 255.0, 255),
+        (True, 255, 255),
+        (255, None, 255),
+    ],
+)
+def test_rgb_to_hsl_invalid_types(r, g, b):
+    with pytest.raises(TypeError):
+        rgb_to_hsl(r, g, b)
+
+
+@pytest.mark.parametrize(
+    "h, s, lightness, expected",
+    [
+        (0, 100, 50, (255, 0, 0)),
+        (120, 100, 50, (0, 255, 0)),
+        (240, 100, 50, (0, 0, 255)),
+        (0, 0, 100, (255, 255, 255)),
+        (0, 0, 0, (0, 0, 0)),
+        (210.0, 65.38, 20.39, (18, 52, 86)),
+        (60, 100, 50, (255, 255, 0)),
+        (300, 100, 50, (255, 0, 255)),
+    ],
+)
+def test_hsl_to_rgb_valid(h, s, lightness, expected):
+    assert hsl_to_rgb(h, s, lightness) == expected
+
+
+@pytest.mark.parametrize(
+    "h, s, lightness",
+    [
+        (-1, 0, 0),
+        (361, 0, 0),
+        (0, -1, 0),
+        (0, 101, 0),
+        (0, 0, -1),
+        (0, 0, 101),
+    ],
+)
+def test_hsl_to_rgb_out_of_range(h, s, lightness):
+    with pytest.raises(ValueError):
+        hsl_to_rgb(h, s, lightness)
+
+
+@pytest.mark.parametrize(
+    "h, s, lightness",
+    [
+        ("120", 100, 50),
+        (120, "100", 50),
+        (120, 100, "50"),
+        (True, 100, 50),
+        (120, None, 50),
+        (120, 100, [50]),
+    ],
+)
+def test_hsl_to_rgb_invalid_types(h, s, lightness):
+    with pytest.raises(TypeError):
+        hsl_to_rgb(h, s, lightness)
+
+
+@pytest.mark.parametrize(
+    "r, g, b",
+    [
+        (255, 0, 0),
+        (0, 255, 0),
+        (0, 0, 255),
+        (255, 255, 255),
+        (0, 0, 0),
+        (18, 52, 86),
+        (64, 128, 255),
+        (123, 45, 67),
+        (255, 128, 0),
+    ],
+)
+def test_rgb_hsl_round_trip(r, g, b):
+    result = hsl_to_rgb(*rgb_to_hsl(r, g, b))
+    assert all(abs(result[i] - channel) <= 1 for i, channel in enumerate((r, g, b)))

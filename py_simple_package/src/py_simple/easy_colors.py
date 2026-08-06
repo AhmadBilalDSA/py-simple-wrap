@@ -133,3 +133,172 @@ def rgb_to_hex(r: int, g: int, b: int) -> str:
             )
 
     return f"#{r:02X}{g:02X}{b:02X}"
+
+
+def rgb_to_hsl(r: int, g: int, b: int) -> tuple[float, float, float]:
+    """
+    Converts (R, G, B) color values to an (H, S, L) tuple.
+
+    Hue is measured in degrees (0-360), while Saturation and Lightness
+    are measured as percentages (0-100).
+
+    Args:
+        r (int): Red channel value (0 to 255).
+        g (int): Green channel value (0 to 255).
+        b (int): Blue channel value (0 to 255).
+
+    Returns:
+        tuple[float, float, float]: HSL values as (h, s, l), where h is in
+        the 0-360 range and s/l are percentages in the 0-100 range.
+
+    Raises:
+        ValueError: If any channel is outside the 0-255 range.
+        TypeError: If any channel is not an integer.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import rgb_to_hsl
+
+            rgb_to_hsl(255, 0, 0)  # -> (0.0, 100.0, 50.0)
+            rgb_to_hsl(18, 52, 86)  # -> (210.0, 65.38, 20.39)
+            ```
+
+        === "The Traditional Way"
+            ```python
+            r, g, b = 18, 52, 86
+            r, g, b = r / 255, g / 255, b / 255
+            color_max, color_min = max(r, g, b), min(r, g, b)
+            delta = color_max - color_min
+            lightness = (color_max + color_min) / 2
+            if delta == 0:
+                hue = saturation = 0
+            else:
+                saturation = delta / (1 - abs(2 * lightness - 1))
+                if color_max == r:
+                    hue = (60 * ((g - b) / delta)) % 360
+                elif color_max == g:
+                    hue = 60 * ((b - r) / delta) + 120
+                else:
+                    hue = 60 * ((r - g) / delta) + 240
+            ```
+    """
+    for name, val in [("r", r), ("g", g), ("b", b)]:
+        if not isinstance(val, int) or isinstance(val, bool):
+            raise TypeError(f"Color channel '{name}' must be an integer.")
+        if not (0 <= val <= 255):
+            raise ValueError(
+                f"Color channel '{name}' must be between 0 and 255, got {val}."
+            )
+
+    red, green, blue = r / 255, g / 255, b / 255
+    color_max = max(red, green, blue)
+    color_min = min(red, green, blue)
+    delta = color_max - color_min
+
+    lightness = (color_max + color_min) / 2
+
+    if delta == 0:
+        hue = 0.0
+        saturation = 0.0
+    else:
+        saturation = delta / (1 - abs(2 * lightness - 1))
+        if color_max == red:
+            hue = (60 * ((green - blue) / delta)) % 360
+        elif color_max == green:
+            hue = 60 * ((blue - red) / delta) + 120
+        else:
+            hue = 60 * ((red - green) / delta) + 240
+
+    return round(hue % 360, 2), round(saturation * 100, 2), round(lightness * 100, 2)
+
+
+def hsl_to_rgb(h: float, s: float, lightness: float) -> tuple[int, int, int]:
+    """
+    Converts an (H, S, L) color to an (R, G, B) integer tuple.
+
+    Hue is measured in degrees (0-360), while Saturation and Lightness
+    are measured as percentages (0-100).
+
+    Args:
+        h (float): Hue in degrees (0 to 360).
+        s (float): Saturation as a percentage (0 to 100).
+        lightness (float): Lightness as a percentage (0 to 100).
+
+    Returns:
+        tuple[int, int, int]: RGB values as (r, g, b) integers in range 0-255.
+
+    Raises:
+        ValueError: If hue is outside the 0-360 range or saturation/lightness
+            are outside the 0-100 range.
+        TypeError: If any value is not an int or float.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import hsl_to_rgb
+
+            hsl_to_rgb(120, 100, 50)  # -> (0, 255, 0)
+            hsl_to_rgb(0, 0, 100)  # -> (255, 255, 255)
+            ```
+
+        === "The Traditional Way"
+            ```python
+            h, s, lightness = 120, 100, 50
+            s, lightness = s / 100, lightness / 100
+            chroma = (1 - abs(2 * lightness - 1)) * s
+            secondary = chroma * (1 - abs((h / 60) % 2 - 1))
+            match = lightness - chroma / 2
+            if h < 60:
+                red, green, blue = chroma, secondary, 0
+            elif h < 120:
+                red, green, blue = secondary, chroma, 0
+            elif h < 180:
+                red, green, blue = 0, chroma, secondary
+            elif h < 240:
+                red, green, blue = 0, secondary, chroma
+            elif h < 300:
+                red, green, blue = secondary, 0, chroma
+            else:
+                red, green, blue = chroma, 0, secondary
+            r = round((red + match) * 255)
+            g = round((green + match) * 255)
+            b = round((blue + match) * 255)
+            ```
+    """
+    for name, val, color_min, color_max in [
+        ("h", h, 0, 360),
+        ("s", s, 0, 100),
+        ("lightness", lightness, 0, 100),
+    ]:
+        if not isinstance(val, (int, float)) or isinstance(val, bool):
+            raise TypeError(f"Color value '{name}' must be an int or a float.")
+        if not (color_min <= val <= color_max):
+            raise ValueError(
+                f"Color value '{name}' must be between {color_min} and "
+                f"{color_max}, got {val}."
+            )
+
+    saturation, lightness = s / 100, lightness / 100
+    chroma = (1 - abs(2 * lightness - 1)) * saturation
+    secondary = chroma * (1 - abs((h / 60) % 2 - 1))
+    match = lightness - chroma / 2
+
+    if h < 60:
+        red, green, blue = chroma, secondary, 0
+    elif h < 120:
+        red, green, blue = secondary, chroma, 0
+    elif h < 180:
+        red, green, blue = 0, chroma, secondary
+    elif h < 240:
+        red, green, blue = 0, secondary, chroma
+    elif h < 300:
+        red, green, blue = secondary, 0, chroma
+    else:
+        red, green, blue = chroma, 0, secondary
+
+    return (
+        round((red + match) * 255),
+        round((green + match) * 255),
+        round((blue + match) * 255),
+    )
