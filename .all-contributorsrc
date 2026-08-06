@@ -207,6 +207,15 @@
       "contributions": [
         "documentation"
       ]
+    },
+    {
+      "login": "AureSerua",
+      "name": "AureSerua",
+      "avatar_url": "https://github.com/AureSerua.png",
+      "profile": "https://github.com/AureSerua",
+      "contributions": [
+        "code"
+      ]
     }
   ]
 }

@@ -1,6 +1,6 @@
 # py-simple-wrap 🚀
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-16-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 **Making Python feel like plain English.**
@@ -439,6 +439,7 @@ A huge thank you to these wonderful people for helping make Python simpler for e
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/qotique"><img src="https://github.com/qotique.png?s=100" width="100px;" alt="qotique"/><br /><sub><b>qotique</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=qotique" title="Docs">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/AureSerua"><img src="https://github.com/AureSerua.png?s=100" width="100px;" alt="AureSerua"/><br /><sub><b>AureSerua</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=AureSerua" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>

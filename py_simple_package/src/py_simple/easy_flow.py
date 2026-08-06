@@ -58,15 +58,45 @@ def run_py_file(filename: str):
 
 def run_py_file_safe(filename: str):
     """
-    Runs a Python file safely and returns (True, None) on success 
-    or (False, error_message) on failure without crashing.
+    Runs a Python file as if it were called directly from the command
+    line (i.e. as `__main__`), returning a success flag instead of
+    raising an exception if something goes wrong.
+
+    Args:
+        filename (str): Path to the `.py` file to run.
+
+    Returns:
+        tuple: `(True, None)` if the file ran successfully, or
+            `(False, error_message)` if it failed, where
+            `error_message` (str) describes what went wrong.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import run_py_file_safe
+
+            success, error = run_py_file_safe("script.py")
+            if not success:
+                print(f"Couldn't run the file: {error}")
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import runpy
+
+            print("RUNNING: script.py")
+            try:
+                runpy.run_path("script.py")
+            except Exception as e:
+                print(f"Couldn't run the file: {e}")
+            ```
     """
     print(f"RUNNING: {filename}")
     try:
         runpy.run_path(filename)
-        return (True, None)
+        return True, None
     except Exception as e:
-        return (False, str(e))
+        return False, str(e)
 
 
 def time_function_call(function, args: list = None) -> float:
@@ -125,6 +155,38 @@ def time_it(func):
     """
     Decorator that measures how long a function takes to run,
     prints the elapsed time, and returns the original result.
+
+    Args:
+        func (callable): The function to decorate.
+
+    Returns:
+        callable: A wrapped version of `func` that behaves the same
+            but prints its runtime each time it's called.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import time_it
+
+            @time_it
+            def add(a, b):
+                return a + b
+
+            add(2, 3)  # prints: add took 0.00s
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import time
+
+            def add(a, b):
+                return a + b
+
+            start = time.time()
+            result = add(2, 3)
+            elapsed = time.time() - start
+            print(f"add took {elapsed:.2f}s")
+            ```
     """
     def wrapper(*args, **kwargs):
         start = time.time()
@@ -193,4 +255,5 @@ def retry(func, attempts=3, delay=1):
             if i == attempts - 1:
                 raise e
             time.sleep(delay)
+    return None
 
