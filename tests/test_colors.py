@@ -6,6 +6,8 @@ from py_simple_package.src.py_simple.easy_colors import (
     is_valid_hex,
     rgb_to_hex,
     rgb_to_hsl,
+    random_hex_color,
+    is_light_color,
 )
 
 
@@ -224,3 +226,80 @@ def test_hsl_to_rgb_invalid_types(h, s, lightness):
 def test_rgb_hsl_round_trip(r, g, b):
     result = hsl_to_rgb(*rgb_to_hsl(r, g, b))
     assert all(abs(result[i] - channel) <= 1 for i, channel in enumerate((r, g, b)))
+
+
+def test_random_hex_color():
+    assert is_valid_hex(random_hex_color())
+
+
+@pytest.mark.parametrize(
+    "hex_code, expected",
+    [
+        ("#FFFFFF", True),
+        ("#ffffff", True),
+        ("FFFFFF", True),
+        ("ffffff", True),
+        ("#FFF", True),
+        ("#fff", True),
+        ("FFF", True),
+        ("fff", True),
+        ("#F0F0F0", True),
+        ("#E0E0E0", True),
+        ("#FFEEEE", True),
+        ("#EEFFEE", True),
+        ("#EEEEFF", True),
+        ("#000000", False),
+        ("#121212", False),
+        ("#1A1A1A", False),
+        ("#333333", False),
+        ("#000080", False),
+        ("#006400", False),
+        ("#8B0000", False),
+        ("#808080", True),
+        ("#7F7F7F", True),
+        ("#858585", True),
+    ],
+)
+def test_is_light_color(hex_code, expected):
+    assert is_light_color(hex_code) == expected
+
+
+@pytest.mark.parametrize(
+    "hex_code, threshold, expected",
+    [
+        ("#808080", 0.15, True),
+        ("#808080", 0.20, True),
+        ("#808080", 0.179, True),
+        ("#FFFFFF", 0.5, True),
+        ("#FFFFFF", 0.9, True),
+        ("#000000", 0.01, False),
+        ("#000000", 0.0, False),
+        ("#333333", 0.05, False),
+        ("#333333", 0.10, False),
+    ],
+)
+def test_is_light_color_with_threshold(hex_code, threshold, expected):
+    assert is_light_color(hex_code, threshold=threshold) == expected
+
+
+def test_is_light_color_invalid_hex():
+    with pytest.raises((ValueError, IndexError)):
+        is_light_color("#GGGGGG")
+
+    with pytest.raises((ValueError, IndexError)):
+        is_light_color("#12345")
+
+    with pytest.raises((ValueError, IndexError)):
+        is_light_color("#1234567")
+
+
+def test_is_light_color_edge_cases():
+    assert is_light_color("#FFF") == is_light_color("#FFFFFF")
+    assert is_light_color("#000") == is_light_color("#000000")
+    assert is_light_color("#ABC") == is_light_color("#AABBCC")
+
+    assert is_light_color("#AbCdEf") == is_light_color("#ABCDEF")
+
+    assert is_light_color("#FF0000")
+    assert is_light_color("#00FF00")
+    assert not is_light_color("#0000FF")

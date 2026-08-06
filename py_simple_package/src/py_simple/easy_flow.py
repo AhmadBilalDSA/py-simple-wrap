@@ -56,6 +56,18 @@ def run_py_file(filename: str):
     except Exception as e:
         raise EasyFlowError(f"\n\n\nERROR: {e}") from None
 
+def run_py_file_safe(filename: str):
+    """
+    Runs a Python file safely and returns (True, None) on success 
+    or (False, error_message) on failure without crashing.
+    """
+    print(f"RUNNING: {filename}")
+    try:
+        runpy.run_path(filename)
+        return (True, None)
+    except Exception as e:
+        return (False, str(e))
+
 
 def time_function_call(function, args: list = None) -> float:
     """
@@ -108,4 +120,77 @@ def time_function_call(function, args: list = None) -> float:
         return time.time() - start
     except Exception as e:
         raise EasyFlowError(f"\n\n\nERROR: {e}") from None
+
+def time_it(func):
+    """
+    Decorator that measures how long a function takes to run,
+    prints the elapsed time, and returns the original result.
+    """
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        elapsed = time.time() - start
+        print(f"{func.__name__} took {elapsed:.2f}s")
+        return result
+
+    return wrapper
+
+def retry(func, attempts=3, delay=1):
+    """
+    Calls a function, automatically retrying it if it raises an exception
+    up to a specified number of attempts, with a pause between tries.
+
+    Args:
+        func (callable): The function to execute.
+        attempts (int, optional): Maximum number of times to try running 
+            the function. Defaults to 3.
+        delay (int or float, optional): Time to wait in seconds between 
+            failed attempts. Defaults to 1.
+
+    Returns:
+        Any: The return value of `func` if it succeeds.
+
+    Raises:
+        Exception: The last exception raised by `func` if all attempts fail.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import retry
+
+            def flaky_api():
+                # Might fail sometimes
+                pass
+
+            result = retry(flaky_api, attempts=5, delay=2)
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import time
+
+            def flaky_api():
+                pass
+
+            attempts = 5
+            delay = 2
+            for i in range(attempts):
+                try:
+                    result = flaky_api()
+                    break
+                except Exception as e:
+                    if i == attempts - 1:
+                        raise e
+                    time.sleep(delay)
+            ```
+    """
+    # loop from 1 up to attempts (max 3)
+    for i in range(attempts):
+        try:
+            result = func()
+            return result
+        except Exception as e:
+            if i == attempts - 1:
+                raise e
+            time.sleep(delay)
 
