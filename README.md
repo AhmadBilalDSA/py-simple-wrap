@@ -403,6 +403,8 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 | `count_values(dictionary)`           | Counts how many times each value appears in the dictionary                | `count_values({"a": 1, "b": 2, "c": 1})` → `{1: 2, 2: 1}`                                |
 | `most_common_value(dictionary)`      | Returns the value that appears most often in the dictionary               | `most_common_value({"a": 1, "b": 2, "c": 1})` → `1`                                      |
 
+</details>
+
 ### 🖼️ Easy Images
 
 <details>
