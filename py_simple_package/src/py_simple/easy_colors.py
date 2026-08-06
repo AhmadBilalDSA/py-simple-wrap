@@ -400,3 +400,144 @@ def is_light_color(hex_code: str, threshold: float = LUMINANCE_LIGHT_THRESHOLD) 
     luminance = r_weight * r_lin + g_weight * g_lin + b_weight * b_lin
 
     return luminance > threshold
+
+
+def _relative_luminance(hex_code: str) -> float:
+    """
+    Calculates WCAG relative luminance for a hex color.
+
+    Uses sRGB linearization and ITU-R BT.709 luminance weights.
+
+    Args:
+        hex_code (str): Hex color string to convert (e.g., "#FFFFFF" or "fff").
+
+    Returns:
+        float: Relative luminance value in range 0.0 to 1.0.
+
+    Raises:
+        ValueError: If hex_code is not a valid hex color.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple.easy_colors import _relative_luminance
+
+            _relative_luminance("#FFFFFF")  # -> 1.0
+            _relative_luminance("#000000")  # -> 0.0
+            ```
+
+        === "The Traditional Way"
+            ```python
+            hex_code = "#FFFFFF".lstrip("#")
+            if len(hex_code) == 3:
+                hex_code = "".join(c * 2 for c in hex_code)
+
+            r, g, b = (int(hex_code[i:i + 2], 16) for i in (0, 2, 4))
+
+            def adjust(channel):
+                c = channel / 255.0
+                return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
+
+            luminance = (
+                0.2126 * adjust(r) +
+                0.7152 * adjust(g) +
+                0.0722 * adjust(b)
+            )
+            ```
+    """
+    r, g, b = hex_to_rgb(hex_code)
+    
+    def adjust(channel: int) -> float:
+        c = channel / 255.0
+        return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
+
+    r_lin, g_lin, b_lin = adjust(r), adjust(g), adjust(b)
+    return 0.2126 * r_lin + 0.7152 * g_lin + 0.0722 * b_lin
+
+
+def hex_to_rgba(hex_code: str, alpha: float) -> tuple[int, int, int, float]:
+    """
+    Converts a hex color and alpha value into an (R, G, B, A) tuple.
+
+    Args:
+        hex_code (str): Hex color string to convert (e.g., "#FFFFFF" or "fff").
+        alpha (float): Alpha channel value in range 0.0 to 1.0.
+
+    Returns:
+        tuple[int, int, int, float]: RGBA values as (r, g, b, alpha).
+
+    Raises:
+        ValueError: If hex_code is not a valid hex color.
+        ValueError: If alpha is outside the 0.0-1.0 range.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import hex_to_rgba
+
+            hex_to_rgba("#FF0000", 0.5)  # -> (255, 0, 0, 0.5)
+            hex_to_rgba("00ff00", 1.0)  # -> (0, 255, 0, 1.0)
+            ```
+
+        === "The Traditional Way"
+            ```python
+            hex_code = "#FF0000".lstrip("#")
+            if len(hex_code) == 3:
+                hex_code = "".join(c * 2 for c in hex_code)
+
+            r = int(hex_code[0:2], 16)
+            g = int(hex_code[2:4], 16)
+            b = int(hex_code[4:6], 16)
+            alpha = 0.5
+            rgba = (r, g, b, alpha)
+            ```
+    """
+    if not (0.0 <= alpha <= 1.0):
+        raise ValueError("Alpha must be between 0.0 and 1.0")
+    
+    r, g, b = hex_to_rgb(hex_code)
+    return (r, g, b, alpha)
+
+
+def contrast_ratio(hex1: str, hex2: str) -> float:
+    """
+    Calculates WCAG contrast ratio between two hex colors.
+
+    Args:
+        hex1 (str): First hex color string (e.g., "#000000").
+        hex2 (str): Second hex color string (e.g., "#FFFFFF").
+
+    Returns:
+        float: Contrast ratio between the two colors.
+
+    Raises:
+        ValueError: If either hex color is not valid.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import contrast_ratio
+
+            contrast_ratio("#000000", "#FFFFFF")  # -> 21.0
+            contrast_ratio("#777777", "#FFFFFF")  # -> 4.48
+            ```
+
+        === "The Traditional Way"
+            ```python
+            def contrast(l1, l2):
+                lighter = max(l1, l2)
+                darker = min(l1, l2)
+                return (lighter + 0.05) / (darker + 0.05)
+
+            l_black = 0.0
+            l_white = 1.0
+            ratio = contrast(l_black, l_white)  # -> 21.0
+            ```
+    """
+    lum1 = _relative_luminance(hex1)
+    lum2 = _relative_luminance(hex2)
+    
+    lighter = max(lum1, lum2)
+    darker = min(lum1, lum2)
+    
+    return (lighter + 0.05) / (darker + 0.05)
