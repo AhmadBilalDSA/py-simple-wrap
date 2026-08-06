@@ -721,10 +721,32 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#py_simple.easy_colors.is_light_color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        is_light_color
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#py_simple.easy_colors.is_valid_hex" class="md-nav__link">
     <span class="md-ellipsis">
       
         is_valid_hex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_colors.random_hex_color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        random_hex_color
       
     </span>
   </a>
@@ -1117,10 +1139,32 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#py_simple.easy_colors.is_light_color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        is_light_color
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#py_simple.easy_colors.is_valid_hex" class="md-nav__link">
     <span class="md-ellipsis">
       
         is_valid_hex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_colors.random_hex_color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        random_hex_color
       
     </span>
   </a>
@@ -1320,6 +1364,149 @@
 <div class="doc doc-object doc-function">
 
 
+<h3 id="py_simple.easy_colors.is_light_color" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">is_light_color</span><span class="p">(</span><span class="n">hex_code</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">LUMINANCE_LIGHT_THRESHOLD</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Takes a hex color and returns whether it's "light" based on perceived luminance.
+Uses the sRGB relative luminance formula (ITU-R BT.709 weights).
+Threshold ~0.179 is commonly used for WCAG contrast calculations.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>hex_code</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Hex color string to convert (e.g., "#FFFFFF" or "fff").</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>threshold</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Luminance threshold for "light" classification
+(default 0.179).</p>
+              </div>
+            </td>
+            <td>
+                  <code><span title="py_simple.easy_colors.LUMINANCE_LIGHT_THRESHOLD">LUMINANCE_LIGHT_THRESHOLD</span></code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>bool</code></td>            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>True if it's "light" based on perceived luminance.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If hex_code is not a valid hex color.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_colors.is_light_color--__tabbed_1_1" name="py_simple.easy_colors.is_light_color--__tabbed_1" type="radio" /><input id="py_simple.easy_colors.is_light_color--__tabbed_1_2" name="py_simple.easy_colors.is_light_color--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_colors.is_light_color--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_colors.is_light_color--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_light_color</span>
+
+<span class="n">is_light_color</span><span class="p">(</span><span class="s2">&quot;#FFFFFF&quot;</span><span class="p">)</span>  <span class="c1"># -&gt; True</span>
+<span class="n">is_light_color</span><span class="p">(</span><span class="s2">&quot;#000000&quot;</span><span class="p">)</span>  <span class="c1"># -&gt; False</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">hex_code</span> <span class="o">=</span> <span class="s2">&quot;#FFFFFF&quot;</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">hex_code</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="n">hex_code</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">hex_code</span><span class="p">)</span>
+<span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">hex_code</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">linearize</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">c</span> <span class="o">/</span> <span class="mf">12.92</span> <span class="k">if</span> <span class="n">c</span> <span class="o">&lt;=</span> <span class="mf">0.03928</span> <span class="k">else</span> <span class="p">((</span><span class="n">c</span> <span class="o">+</span> <span class="mf">0.055</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.055</span><span class="p">)</span> <span class="o">**</span> <span class="mf">2.4</span>
+
+<span class="n">luminance</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">w</span> <span class="o">*</span> <span class="n">linearize</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">((</span><span class="mf">0.2126</span><span class="p">,</span> <span class="mf">0.7152</span><span class="p">,</span> <span class="mf">0.0722</span><span class="p">),</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)))</span>
+<span class="n">is_light</span> <span class="o">=</span> <span class="n">luminance</span> <span class="o">&gt;</span> <span class="mf">0.179</span>  <span class="c1"># -&gt; True</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h3 id="py_simple.easy_colors.is_valid_hex" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">is_valid_hex</span><span class="p">(</span><span class="n">hex_code</span><span class="p">)</span></code>
 
@@ -1407,6 +1594,67 @@ a leading '#' prefix.</p>
 <span class="n">is_valid</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cleaned</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span>
     <span class="n">c</span> <span class="ow">in</span> <span class="s2">&quot;0123456789abcdefABCDEF&quot;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cleaned</span>
 <span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="py_simple.easy_colors.random_hex_color" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">random_hex_color</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Returns a random valid hex color string in uppercase #RRGGBB format.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Uppercase hex color string (e.g., "#FFFFFF").</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_colors.random_hex_color--__tabbed_1_1" name="py_simple.easy_colors.random_hex_color--__tabbed_1" type="radio" /><input id="py_simple.easy_colors.random_hex_color--__tabbed_1_2" name="py_simple.easy_colors.random_hex_color--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_colors.random_hex_color--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_colors.random_hex_color--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">random_hex_color</span>
+
+<span class="n">color</span> <span class="o">=</span> <span class="n">random_hex_color</span><span class="p">()</span>  <span class="c1"># -&gt; e.g. &quot;#A1B2C3&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="n">color</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;#</span><span class="si">{</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mh">0xFFFFFF</span><span class="p">)</span><span class="si">:</span><span class="s2">06X</span><span class="si">}</span><span class="s2">&quot;</span>
 </code></pre></div>
 </div>
 </div>
