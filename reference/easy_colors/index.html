@@ -721,6 +721,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#py_simple.easy_colors.hsl_to_rgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hsl_to_rgb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#py_simple.easy_colors.is_light_color" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -758,6 +769,17 @@
     <span class="md-ellipsis">
       
         rgb_to_hex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_colors.rgb_to_hsl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rgb_to_hsl
       
     </span>
   </a>
@@ -1139,6 +1161,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#py_simple.easy_colors.hsl_to_rgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hsl_to_rgb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#py_simple.easy_colors.is_light_color" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1176,6 +1209,17 @@
     <span class="md-ellipsis">
       
         rgb_to_hex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_colors.rgb_to_hsl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rgb_to_hsl
       
     </span>
   </a>
@@ -1351,6 +1395,184 @@
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">hex_code</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
     <span class="n">hex_code</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">hex_code</span><span class="p">)</span>
 <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">hex_code</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="py_simple.easy_colors.hsl_to_rgb" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">hsl_to_rgb</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">lightness</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Converts an (H, S, L) color to an (R, G, B) integer tuple.</p>
+<p>Hue is measured in degrees (0-360), while Saturation and Lightness
+are measured as percentages (0-100).</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>h</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Hue in degrees (0 to 360).</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>s</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Saturation as a percentage (0 to 100).</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>lightness</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Lightness as a percentage (0 to 100).</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>tuple[int, int, int]: RGB values as (r, g, b) integers in range 0-255.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If hue is outside the 0-360 range or saturation/lightness
+are outside the 0-100 range.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="TypeError">TypeError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If any value is not an int or float.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_colors.hsl_to_rgb--__tabbed_1_1" name="py_simple.easy_colors.hsl_to_rgb--__tabbed_1" type="radio" /><input id="py_simple.easy_colors.hsl_to_rgb--__tabbed_1_2" name="py_simple.easy_colors.hsl_to_rgb--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_colors.hsl_to_rgb--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_colors.hsl_to_rgb--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">hsl_to_rgb</span>
+
+<span class="n">hsl_to_rgb</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>  <span class="c1"># -&gt; (0, 255, 0)</span>
+<span class="n">hsl_to_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># -&gt; (255, 255, 255)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">lightness</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span>
+<span class="n">s</span><span class="p">,</span> <span class="n">lightness</span> <span class="o">=</span> <span class="n">s</span> <span class="o">/</span> <span class="mi">100</span><span class="p">,</span> <span class="n">lightness</span> <span class="o">/</span> <span class="mi">100</span>
+<span class="n">chroma</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="nb">abs</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">lightness</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">s</span>
+<span class="n">secondary</span> <span class="o">=</span> <span class="n">chroma</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="nb">abs</span><span class="p">((</span><span class="n">h</span> <span class="o">/</span> <span class="mi">60</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">lightness</span> <span class="o">-</span> <span class="n">chroma</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="k">if</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">:</span>
+    <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="n">chroma</span><span class="p">,</span> <span class="n">secondary</span><span class="p">,</span> <span class="mi">0</span>
+<span class="k">elif</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="mi">120</span><span class="p">:</span>
+    <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="n">secondary</span><span class="p">,</span> <span class="n">chroma</span><span class="p">,</span> <span class="mi">0</span>
+<span class="k">elif</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="mi">180</span><span class="p">:</span>
+    <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">chroma</span><span class="p">,</span> <span class="n">secondary</span>
+<span class="k">elif</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="mi">240</span><span class="p">:</span>
+    <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">secondary</span><span class="p">,</span> <span class="n">chroma</span>
+<span class="k">elif</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="mi">300</span><span class="p">:</span>
+    <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="n">secondary</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">chroma</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="n">chroma</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">secondary</span>
+<span class="n">r</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">red</span> <span class="o">+</span> <span class="n">match</span><span class="p">)</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">green</span> <span class="o">+</span> <span class="n">match</span><span class="p">)</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">blue</span> <span class="o">+</span> <span class="n">match</span><span class="p">)</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -1812,6 +2034,188 @@ a leading '#' prefix.</p>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span>
 <span class="n">hex_code</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;#</span><span class="si">{</span><span class="n">r</span><span class="si">:</span><span class="s2">02X</span><span class="si">}{</span><span class="n">g</span><span class="si">:</span><span class="s2">02X</span><span class="si">}{</span><span class="n">b</span><span class="si">:</span><span class="s2">02X</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="py_simple.easy_colors.rgb_to_hsl" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">rgb_to_hsl</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Converts (R, G, B) color values to an (H, S, L) tuple.</p>
+<p>Hue is measured in degrees (0-360), while Saturation and Lightness
+are measured as percentages (0-100).</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>r</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Red channel value (0 to 255).</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>g</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Green channel value (0 to 255).</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>b</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Blue channel value (0 to 255).</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>tuple[float, float, float]: HSL values as (h, s, l), where h is in</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>the 0-360 range and s/l are percentages in the 0-100 range.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If any channel is outside the 0-255 range.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="TypeError">TypeError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If any channel is not an integer.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_colors.rgb_to_hsl--__tabbed_1_1" name="py_simple.easy_colors.rgb_to_hsl--__tabbed_1" type="radio" /><input id="py_simple.easy_colors.rgb_to_hsl--__tabbed_1_2" name="py_simple.easy_colors.rgb_to_hsl--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_colors.rgb_to_hsl--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_colors.rgb_to_hsl--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">rgb_to_hsl</span>
+
+<span class="n">rgb_to_hsl</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># -&gt; (0.0, 100.0, 50.0)</span>
+<span class="n">rgb_to_hsl</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">86</span><span class="p">)</span>  <span class="c1"># -&gt; (210.0, 65.38, 20.39)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">86</span>
+<span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">r</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="n">g</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="n">b</span> <span class="o">/</span> <span class="mi">255</span>
+<span class="n">color_max</span><span class="p">,</span> <span class="n">color_min</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="n">color_max</span> <span class="o">-</span> <span class="n">color_min</span>
+<span class="n">lightness</span> <span class="o">=</span> <span class="p">(</span><span class="n">color_max</span> <span class="o">+</span> <span class="n">color_min</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="k">if</span> <span class="n">delta</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">hue</span> <span class="o">=</span> <span class="n">saturation</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">saturation</span> <span class="o">=</span> <span class="n">delta</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="nb">abs</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">lightness</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">color_max</span> <span class="o">==</span> <span class="n">r</span><span class="p">:</span>
+        <span class="n">hue</span> <span class="o">=</span> <span class="p">(</span><span class="mi">60</span> <span class="o">*</span> <span class="p">((</span><span class="n">g</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="n">delta</span><span class="p">))</span> <span class="o">%</span> <span class="mi">360</span>
+    <span class="k">elif</span> <span class="n">color_max</span> <span class="o">==</span> <span class="n">g</span><span class="p">:</span>
+        <span class="n">hue</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="p">((</span><span class="n">b</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="n">delta</span><span class="p">)</span> <span class="o">+</span> <span class="mi">120</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">hue</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="p">((</span><span class="n">r</span> <span class="o">-</span> <span class="n">g</span><span class="p">)</span> <span class="o">/</span> <span class="n">delta</span><span class="p">)</span> <span class="o">+</span> <span class="mi">240</span>
 </code></pre></div>
 </div>
 </div>
