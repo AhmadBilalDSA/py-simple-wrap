@@ -104,6 +104,7 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
 
 - **qotique** ([@qotique](https://github.com/qotique))
     - Improved documentation
+    - Opened issue requesting `easy_images` module
 
 - **AureSerua** ([@AureSerua](https://github.com/AureSerua))
     - Expanded `easy_flow.py` module
@@ -111,6 +112,10 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
 - **Dane Parin** ([SemTiOne](https://github.com/SemTiOne))
     - Expand `easy_colors.py` module 
     - Added unit tests for new functions in `easy_colors.py`
+
+- **Vijay Misal** ([@vjymisal0](https://github.com/vjymisal0))
+    - Add `easy_images.py` module
+    - Add tests for `easy_images.py` module
   
 ---
 
