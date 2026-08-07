@@ -343,7 +343,7 @@
   <span class="md-ellipsis">
     
   
-    Easy-Flow
+    Easy Flow
   
 
     
@@ -400,6 +400,34 @@
     
   
     Easy Web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial/easy_async/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Easy Async
   
 
     
@@ -892,6 +920,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../reference/easy_stats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Easy Stats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../reference/easy_images/" class="md-nav__link">
         
   
@@ -1289,6 +1345,17 @@
     <span class="md-ellipsis">
       
         🖼️ Easy Images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easy-stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Easy Stats
       
     </span>
   </a>
@@ -1702,6 +1769,17 @@
     <span class="md-ellipsis">
       
         🖼️ Easy Images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easy-stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Easy Stats
       
     </span>
   </a>
@@ -2169,6 +2247,23 @@
 | `convert_image("photo.png", "photo.jpg")`                | Convert an image to a different format based on file extension | Saves `photo.png` as a JPEG at `photo.jpg`                                                         |
 | `rotate_image("photo.jpg", "photo_rotated.jpg", 90)`     | Rotate an image by an angle (counter-clockwise) and save it    | Saves `photo.jpg` rotated 90° as `photo_rotated.jpg`                                               |
 | `get_image_info("photo.jpg")`                            | Get basic info about an image                                  | `get_image_info("photo.jpg")` → `{"width": 1920, "height": 1080, "format": "JPEG", "mode": "RGB"}` |
+
+</details>
+
+<h3 id="easy-stats">📊 Easy Stats</h3>
+<details>
+<summary>Click to expand — statistics operations without memorizing the formulas</summary>
+
+<br>
+
+| Function                                   | What it does                                                       | Example                                                                                     |
+|--------------------------------------------|--------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| `median(nums)`                             | Returns the middle value of a list of numbers                      | `median([4, 1, 9, 2])` → `3.0`                                                              |
+| `mode(nums)`                               | Returns the number that appears most often                         | `mode([2, 1, 2, 3])` → `2`                                                                  |
+| `data_range(nums)`                         | Returns the difference between the largest and smallest numbers    | `data_range([4, 1, 8, 2])` → `7`                                                            |
+| `variance(nums)`                           | Returns how spread out the numbers are, as sample variance         | `variance([1, 2, 3])` → `1.0`                                                               |
+| `standard_deviation(nums)`                 | Returns how far numbers typically sit from the average             | `standard_deviation([1, 2, 3])` → `1.0`                                                     |
+| `percentile(nums, percent)`                | Returns the value below which the given percent of numbers fall    | `percentile([1, 2, 3, 4], 75)` → `3`                                                        |
 
 </details>
 
