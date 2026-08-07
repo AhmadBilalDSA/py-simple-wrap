@@ -43,6 +43,13 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
       </a><br />
       💻 🧪 📖 ✋
     </td>
+    <td align="center">
+      <a href="https://github.com/ghostfix-pm">
+        <img src="https://github.com/ghostfix-pm.png" width="100px;" alt="ghostfix-pm"/><br />
+        <sub><b>ghostfix-pm</b></sub>
+      </a><br />
+      💻 🧪 📖 ✋
+    </td>
   </tr>
 </table>
 
