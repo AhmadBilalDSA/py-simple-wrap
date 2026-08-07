@@ -25,7 +25,7 @@ from py_simple_package.src.py_simple.easy_math import (
     ],
 )
 def test_get_least_common_multiple(a, b, expected):
-    assert lcm(a, b) == expected
+    assert get_least_common_multiple(a, b) == expected
 
 
 @pytest.mark.parametrize(
