@@ -82,5 +82,5 @@ from .easy_generator import (
 )
 
 from .easy_math import (
-    lcm, factorial, fibonacci, prime_factors, sum_of_digits, divisors,
+    get_least_common_multiple, factorial, fibonacci, prime_factors, sum_of_digits, divisors,
 )
