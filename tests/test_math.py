@@ -5,7 +5,7 @@ from py_simple_package.src.py_simple.easy_math import (
     factorial,
     fibonacci,
     get_least_common_multiple,
-    prime_factors,
+    prime_factorization,
     sum_of_digits,
 )
 
@@ -77,14 +77,14 @@ def test_fibonacci_rejects_invalid_count(count):
         (360, [2, 2, 2, 3, 3, 5]),
     ],
 )
-def test_prime_factors(n, expected):
-    assert prime_factors(n) == expected
+def test_prime_factorization(n, expected):
+    assert prime_factorization(n) == expected
 
 
 @pytest.mark.parametrize("n", [0, -1])
-def test_prime_factors_rejects_less_than_one(n):
+def test_prime_factorization_rejects_less_than_one(n):
     with pytest.raises(ValueError):
-        prime_factors(n)
+        prime_factorization(n)
 
 
 @pytest.mark.parametrize(
