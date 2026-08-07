@@ -128,9 +128,9 @@ def prime_factorization(n: int) -> list:
     Example:
         === "The Py_simple Way"
             ```python
-            from py_simple import prime_factors
+            from py_simple import prime_factorization
 
-            result = prime_factors(12)  # -> [2, 2, 3]
+            result = prime_factorization(12)  # -> [2, 2, 3]
             ```
 
         === "The Traditional Way"
