@@ -4,7 +4,7 @@ from py_simple_package.src.py_simple.easy_math import (
     divisors,
     factorial,
     fibonacci,
-    lcm,
+    get_least_common_multiple,
     prime_factors,
     sum_of_digits,
 )
