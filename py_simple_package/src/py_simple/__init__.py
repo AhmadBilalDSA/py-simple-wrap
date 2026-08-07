@@ -63,6 +63,9 @@ from .easy_text import (
     count_letters, count_digits, mask_part, pluralize, extract_hashtags,
     word_frequency,
 )
+from .easy_csv import (
+    filter_csv_rows, get_csv_columns, read_csv_to_list, write_csv_from_list
+)
 from .easy_dict import (
     merge_dicts, lists_to_dict, invert_dict, get_nested_value,
     sort_dict_by_key, sort_dict_by_value, rename_key, find_keys,
