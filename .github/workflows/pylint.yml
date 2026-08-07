@@ -25,5 +25,4 @@ jobs:
     - name: Analysing the code with pylint
       continue-on-error: false
       run: |
-        # We point directly to your source code folder
-        pylint py_simple_package/src/py_simple
+        pylint py_simple_package/src/py_simple --fail-under=8.5
