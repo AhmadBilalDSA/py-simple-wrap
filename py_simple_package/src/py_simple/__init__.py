@@ -41,7 +41,7 @@ from .easy_json import (
 )
 from .easy_colors import (
     hex_to_rgb, rgb_to_hex, is_valid_hex, rgb_to_hsl, hsl_to_rgb,
-    random_hex_color, is_light_color,
+    random_hex_color, is_light_color, hex_to_rgba, contrast_ratio,
 )
 from .easy_flow import (
     run_py_file, run_py_file_safe, time_function_call, time_it, retry
@@ -86,5 +86,6 @@ from .easy_generator import (
 )
 
 from .easy_math import (
-    get_least_common_multiple, factorial, fibonacci, prime_factorization, sum_of_digits, divisors,
+    get_least_common_multiple, factorial, fibonacci, prime_factorization,
+    sum_of_digits, divisors,
 )

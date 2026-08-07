@@ -97,15 +97,16 @@ def generate_password(pass_length: int = 12, uppercase_chars: int = 2,
                   digit_chars + special_chars]
 
     all_clear = False
-    last_char = None
     while not all_clear:
+        last_char = None
         random.shuffle(pass_chars)
         for char in pass_chars:
             if char == last_char:
+                all_clear = False
                 break
             else:
                 last_char = char
-        all_clear = True
+            all_clear = True
 
     return ''.join(pass_chars)
 
