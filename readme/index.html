@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://github.com/sara-czasak/py-simple-wrap/readme/">
       
       
-        <link rel="prev" href="../reference/easy_generator/">
+        <link rel="prev" href="../reference/easy_async/">
       
       
         <link rel="next" href="../about/contributors/">
@@ -1025,6 +1025,146 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/easy_csv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Easy CSV
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/easy_game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Easy Game
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/easy_regex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Easy Regex
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/easy_flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Easy Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/easy_async/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Easy Async
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1423,6 +1563,28 @@
     <span class="md-ellipsis">
       
         📊 Easy Stats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easy-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📑 Easy CSV
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easy-game" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎮 Easy Game
       
     </span>
   </a>
@@ -1864,6 +2026,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#easy-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📑 Easy CSV
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easy-game" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎮 Easy Game
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2218,30 +2402,37 @@
 
 <h3 id="easy-colors">🎨 Easy Colors</h3>
 <details>
-<summary>Click to expand — hex and RGB conversions without the manual math</summary>
+<summary>Click to expand — hex/RGB/HSL color conversions without memorizing the formulas</summary>
 
 <br>
 
-| Function              | What it does                           | Example                                     |
-|-----------------------|----------------------------------------|---------------------------------------------|
-| `is_valid_hex(str)`   | Check if a string is a valid hex color | `is_valid_hex("#FFFFFF")` → `True`          |
-| `hex_to_rgb(str)`     | Convert hex to (R, G, B) tuple         | `hex_to_rgb("#FFFFFF")` → `(255, 255, 255)` |
-| `rgb_to_hex(r, g, b)` | Convert RGB to hex string              | `rgb_to_hex(255, 255, 255)` → `"#FFFFFF"`   |
-| `rgb_to_hsl(r, g, b)` | Convert RGB to (H, S, L) tuple         | `rgb_to_hsl(255, 0, 0)` → `(0.0, 100.0, 50.0)` |
-| `hsl_to_rgb(h, s, l)` | Convert HSL to (R, G, B) tuple         | `hsl_to_rgb(120, 100, 50)` → `(0, 255, 0)` |
+| Function                                   | What it does                                                          | Example                                                    |
+|-----------------------------------------------|--------------------------------------------------------------------------|-----------------------------------------------------------------|
+| `is_valid_hex(hex_code)`                       | Checks whether a string is a valid hex color code                        | `is_valid_hex("#FFFFFF")` → `True`                               |
+| `hex_to_rgb(hex_code)`                         | Converts a hex color code to an (R, G, B) tuple                          | `hex_to_rgb("#FFFFFF")` → `(255, 255, 255)`                      |
+| `rgb_to_hex(r, g, b)`                          | Converts (R, G, B) values to a hex color string                          | `rgb_to_hex(255, 255, 255)` → `"#FFFFFF"`                        |
+| `rgb_to_hsl(r, g, b)`                          | Converts (R, G, B) values to an (H, S, L) tuple                          | `rgb_to_hsl(255, 0, 0)` → `(0.0, 100.0, 50.0)`                   |
+| `hsl_to_rgb(h, s, lightness)`                  | Converts an (H, S, L) color to an (R, G, B) tuple                        | `hsl_to_rgb(120, 100, 50)` → `(0, 255, 0)`                       |
+| `random_hex_color()`                           | Returns a random valid hex color string                                  | `random_hex_color()` → e.g. `"#A1B2C3"`                          |
+| `is_light_color(hex_code)`                     | Returns whether a hex color is "light" based on perceived luminance      | `is_light_color("#FFFFFF")` → `True`                             |
+| `hex_to_rgba(hex_code, alpha)`                 | Converts a hex color and alpha value into an (R, G, B, A) tuple          | `hex_to_rgba("#FF0000", 0.5)` → `(255, 0, 0, 0.5)`               |
+| `contrast_ratio(hex1, hex2)`                   | Calculates WCAG contrast ratio between two hex colors                    | `contrast_ratio("#000000", "#FFFFFF")` → `21.0`                  |
 
 </details>
 
 <h3 id="easy-flow">🔄 Easy Flow</h3>
 <details>
-<summary>Click to expand — run Python files and time function calls without the boilerplate</summary>
+<summary>Click to expand — running scripts, timing, and retries without the boilerplate</summary>
 
 <br>
 
-| Function                                  | What it does                                                  | Example                                        |
-|-------------------------------------------|---------------------------------------------------------------|------------------------------------------------|
-| `run_py_file(filename)`                   | Run a .py file as `__main__`                                  | `run_py_file("script.py")`                     |
-| `time_function_call(function, args=None)` | Runs a function once and returns how long it took, in seconds | `time_function_call(add, [2, 3])` → `0.000002` |
+| Function                                   | What it does                                                             | Example                                          |
+|---------------------------------------------|----------------------------------------------------------------------------|-----------------------------------------------------|
+| `run_py_file(filename)`                      | Runs a `.py` file as `__main__`, raising `EasyFlowError` on failure          | `run_py_file("script.py")`                           |
+| `run_py_file_safe(filename)`                 | Same as `run_py_file`, but returns `(success, error)` instead of raising     | `success, error = run_py_file_safe("script.py")`      |
+| `time_function_call(function, args=None)`    | Runs a function once and returns how long it took, in seconds                | `time_function_call(add, [2, 3])` → `0.000002`        |
+| `time_it`                                    | Decorator that times a function and prints how long it took                  | `@time_it` above a function definition               |
+| `retry(func, attempts=3, delay=1)`           | Calls a function, retrying it if it fails, with a pause between attempts     | `retry(flaky_api, attempts=5, delay=2)`               |
 
 </details>
 
@@ -2359,6 +2550,33 @@
 | `variance(nums)`                           | Returns how spread out the numbers are, as sample variance         | `variance([1, 2, 3])` → `1.0`                                                               |
 | `standard_deviation(nums)`                 | Returns how far numbers typically sit from the average             | `standard_deviation([1, 2, 3])` → `1.0`                                                     |
 | `percentile(nums, percent)`                | Returns the value below which the given percent of numbers fall    | `percentile([1, 2, 3, 4], 75)` → `3`                                                        |
+
+</details>
+
+<h3 id="easy-csv">📑 Easy CSV</h3>
+<details>
+<summary>Click to expand — CSV reading and writing without the <code>csv</code> module boilerplate</summary>
+
+<br>
+
+| Function                                                    | What it does                                            | Example                                                                     |
+|--------------------------------------------------------------|----------------------------------------------------------|------------------------------------------------------------------------------|
+| `read_csv_to_list("people.csv")`                              | Reads a CSV file into a list of dicts (or lists)          | `read_csv_to_list("people.csv")` → `[{'Name': 'Alice', 'Age': '24'}]`        |
+| `write_csv_from_list("people.csv", data)`                     | Writes a list of dicts or lists to a CSV file             | `write_csv_from_list("people.csv", [{"Name": "Alice", "Age": "24"}])`        |
+| `get_csv_columns("people.csv")`                                | Returns the column headers of a CSV file                  | `get_csv_columns("people.csv")` → `['Name', 'Age']`                          |
+| `filter_csv_rows("people.csv", "Name", "Alice")`               | Returns rows where a column matches a given value          | `filter_csv_rows("people.csv", "Name", "Alice")` → `[{'Name': 'Alice', 'Age': '24'}]` |
+
+</details>
+
+<h3 id="easy-game">🎮 Easy Game</h3>
+<details>
+<summary>Click to expand — pygame setup without the boilerplate</summary>
+
+<br>
+
+| Function                                        | What it does                                                        | Example                                                        |
+|--------------------------------------------------|-----------------------------------------------------------------------|-------------------------------------------------------------------|
+| `basic_game_setup(800, 600, "My Game")`           | Sets up a pygame window and clock in one call (init, display, caption, clock) | `screen, clock = basic_game_setup(800, 600, "My Game")`           |
 
 </details>
 
