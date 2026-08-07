@@ -1,5 +1,3 @@
-# TODO: Add more functions to make repetitive pygame operations simpler
-
 """
 easy_game is built on top of pygame to simplify the tricky parts of
 building games.

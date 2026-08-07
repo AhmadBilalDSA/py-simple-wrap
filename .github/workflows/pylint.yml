@@ -7,8 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # Testing across multiple versions is great for a library!
-        python-version: ["3.8", "3.9", "3.10"]
+        python-version: ["3.10", "3.11", "3.12"]
 
     steps:
     - uses: actions/checkout@v4
@@ -24,8 +23,7 @@ jobs:
         pip install pylint
 
     - name: Analysing the code with pylint
-      # This ensures a 'Green' checkmark even if there are style warnings
-      continue-on-error: true
+      continue-on-error: false
       run: |
         # We point directly to your source code folder
         pylint py_simple_package/src/py_simple

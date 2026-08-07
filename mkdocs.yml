@@ -55,6 +55,11 @@ nav:
       - Easy Images: reference/easy_images.md
       - Easy Math: reference/easy_math.md
       - Easy Generator: reference/easy_generator.md
+      - Easy CSV: reference/easy_csv.md
+      - Easy Game: reference/easy_game.md
+      - Easy Regex: reference/easy_regex.md
+      - Easy Flow: reference/easy_flow.md
+      - Easy Async: reference/easy_async.md
   - About:
       - README: readme.md
       - Contributors: about/contributors.md
