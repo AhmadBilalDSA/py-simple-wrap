@@ -40,10 +40,11 @@ from .easy_json import (
     is_nested_json, flatten_json,
 )
 from .easy_colors import (
-    hex_to_rgb, rgb_to_hex, is_valid_hex,
+    hex_to_rgb, rgb_to_hex, is_valid_hex, rgb_to_hsl, hsl_to_rgb,
+    random_hex_color, is_light_color,
 )
 from .easy_flow import (
-    run_py_file, time_function_call,
+    run_py_file, run_py_file_safe, time_function_call, time_it, retry
 )
 from .easy_regex import (
     extract_urls, extract_numbers, extract_number_sequences,
@@ -62,7 +63,23 @@ from .easy_text import (
     count_letters, count_digits, mask_part, pluralize, extract_hashtags,
     word_frequency,
 )
-
 from .easy_csv import (
     filter_csv_rows, get_csv_columns, read_csv_to_list, write_csv_from_list
+)
+from .easy_dict import (
+    merge_dicts, lists_to_dict, invert_dict, get_nested_value,
+    sort_dict_by_key, sort_dict_by_value, rename_key, find_keys,
+    count_values, most_common_value,
+)
+from .easy_stats import (
+    median, mode, data_range, variance, standard_deviation, percentile,
+)
+from .easy_images import (
+    resize_image, convert_image, rotate_image, get_image_info,
+)
+from .easy_game import (
+    basic_game_setup,
+)
+from .easy_generator import (
+    generate_qr_code, generate_password,
 )

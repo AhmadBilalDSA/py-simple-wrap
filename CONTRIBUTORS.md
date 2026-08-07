@@ -101,6 +101,21 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
 - **Mlandvo Maphalala** ([@Mlandvo](https://github.com/Mlandvo))
   - Added unit tests for easy_regex module
   - Reported a bug
+
+- **qotique** ([@qotique](https://github.com/qotique))
+    - Improved documentation
+    - Opened issue requesting `easy_images` module
+
+- **AureSerua** ([@AureSerua](https://github.com/AureSerua))
+    - Expanded `easy_flow.py` module
+
+- **Dane Parin** ([SemTiOne](https://github.com/SemTiOne))
+    - Expand `easy_colors.py` module 
+    - Added unit tests for new functions in `easy_colors.py`
+
+- **Vijay Misal** ([@vjymisal0](https://github.com/vjymisal0))
+    - Add `easy_images.py` module
+    - Add tests for `easy_images.py` module
   
 ---
 

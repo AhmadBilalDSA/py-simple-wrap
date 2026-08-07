@@ -1,6 +1,6 @@
 # py-simple-wrap 🚀
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 **Making Python feel like plain English.**
@@ -143,8 +143,8 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-|-----------------------------------|------------------------------------------|------------------------------------------------------------|
 | Function                          | What it does                             | Example                                                    |
+|-----------------------------------|------------------------------------------|------------------------------------------------------------|
 | `unique_items(items)`             | Remove duplicates, keeping order         | `unique_items([1, 2, 2, 3])` → `[1, 2, 3]`                 |
 | `find_duplicates(items)`          | Find items that appear more than once    | `find_duplicates([1, 2, 2, 3, 3, 3])` → `[2, 3]`           |
 | `chunk_list(items, size)`         | Split a list into smaller lists          | `chunk_list([1, 2, 3, 4, 5], 2)` → `[[1, 2], [3, 4], [5]]` |
@@ -314,6 +314,8 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 | `is_valid_hex(str)`   | Check if a string is a valid hex color | `is_valid_hex("#FFFFFF")` → `True`          |
 | `hex_to_rgb(str)`     | Convert hex to (R, G, B) tuple         | `hex_to_rgb("#FFFFFF")` → `(255, 255, 255)` |
 | `rgb_to_hex(r, g, b)` | Convert RGB to hex string              | `rgb_to_hex(255, 255, 255)` → `"#FFFFFF"`   |
+| `rgb_to_hsl(r, g, b)` | Convert RGB to (H, S, L) tuple         | `rgb_to_hsl(255, 0, 0)` → `(0.0, 100.0, 50.0)` |
+| `hsl_to_rgb(h, s, l)` | Convert HSL to (R, G, B) tuple         | `hsl_to_rgb(120, 100, 50)` → `(0, 255, 0)` |
 
 </details>
 
@@ -381,6 +383,62 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 </details>
 
+### 🔑 Easy Dict
+
+<details>
+<summary>Click to expand — dictionary operations without the boilerplate</summary>
+
+<br>
+
+| Function                             | What it does                                                              | Example                                                                                 |
+|--------------------------------------|---------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| `merge_dicts(dict_a, dict_b)`        | Combines two dictionaries, dict_b wins on shared keys                     | `merge_dicts({"a": 1}, {"b": 2})` → `{"a": 1, "b": 2}`                                   |
+| `lists_to_dict(keys, values)`        | Combines two lists into a dictionary, pairing them by position            | `lists_to_dict(["name", "age"], ["Ana", 25])` → `{"name": "Ana", "age": 25}`             |
+| `invert_dict(dictionary)`            | Returns a new dictionary with keys and values swapped                     | `invert_dict({"a": 1, "b": 2})` → `{1: "a", 2: "b"}`                                     |
+| `get_nested_value(dictionary, path)` | Gets a nested value using a dot-separated path, with a default fallback   | `get_nested_value({"user": {"name": "Ana"}}, "user.name")` → `"Ana"`                     |
+| `sort_dict_by_key(dictionary)`       | Returns a new dictionary with keys sorted alphabetically                  | `sort_dict_by_key({"b": 2, "a": 1})` → `{"a": 1, "b": 2}`                                |
+| `sort_dict_by_value(dictionary)`     | Returns a new dictionary with values sorted from smallest to largest      | `sort_dict_by_value({"a": 2, "b": 1})` → `{"b": 1, "a": 2}`                              |
+| `rename_key(dictionary, old, new)`   | Returns a copy of the dictionary with one key renamed                     | `rename_key({"name": "Ana"}, "name", "username")` → `{"username": "Ana"}`                |
+| `find_keys(needle, dictionary)`      | Returns every key whose value matches the given needle                    | `find_keys(1, {"a": 1, "b": 2, "c": 1})` → `["a", "c"]`                                  |
+| `count_values(dictionary)`           | Counts how many times each value appears in the dictionary                | `count_values({"a": 1, "b": 2, "c": 1})` → `{1: 2, 2: 1}`                                |
+| `most_common_value(dictionary)`      | Returns the value that appears most often in the dictionary               | `most_common_value({"a": 1, "b": 2, "c": 1})` → `1`                                      |
+
+</details>
+
+### 🖼️ Easy Images
+
+<details>
+<summary>Click to expand — resize, convert, rotate, and inspect images without wrangling Pillow directly</summary>
+
+<br>
+
+| Function                                                 | What it does                                                   | Example                                                                                            |
+|----------------------------------------------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| `resize_image("photo.jpg", "photo_small.jpg", 320, 240)` | Resize an image to given dimensions and save it                | Saves a 320×240 version of `photo.jpg` as `photo_small.jpg`                                        |
+| `convert_image("photo.png", "photo.jpg")`                | Convert an image to a different format based on file extension | Saves `photo.png` as a JPEG at `photo.jpg`                                                         |
+| `rotate_image("photo.jpg", "photo_rotated.jpg", 90)`     | Rotate an image by an angle (counter-clockwise) and save it    | Saves `photo.jpg` rotated 90° as `photo_rotated.jpg`                                               |
+| `get_image_info("photo.jpg")`                            | Get basic info about an image                                  | `get_image_info("photo.jpg")` → `{"width": 1920, "height": 1080, "format": "JPEG", "mode": "RGB"}` |
+
+</details>
+
+### 📊 Easy Stats
+
+<details>
+<summary>Click to expand — statistics operations without memorizing the formulas</summary>
+
+<br>
+
+| Function                                   | What it does                                                       | Example                                                                                     |
+|--------------------------------------------|--------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| `median(nums)`                             | Returns the middle value of a list of numbers                      | `median([4, 1, 9, 2])` → `3.0`                                                              |
+| `mode(nums)`                               | Returns the number that appears most often                         | `mode([2, 1, 2, 3])` → `2`                                                                  |
+| `data_range(nums)`                         | Returns the difference between the largest and smallest numbers    | `data_range([4, 1, 8, 2])` → `7`                                                            |
+| `variance(nums)`                           | Returns how spread out the numbers are, as sample variance         | `variance([1, 2, 3])` → `1.0`                                                               |
+| `standard_deviation(nums)`                 | Returns how far numbers typically sit from the average             | `standard_deviation([1, 2, 3])` → `1.0`                                                     |
+| `percentile(nums, percent)`                | Returns the value below which the given percent of numbers fall    | `percentile([1, 2, 3, 4], 75)` → `3`                                                        |
+
+</details>
+
 ## 🤝 Contributing
 
 I would love to have your help in making Python simpler for everyone!
@@ -437,6 +495,12 @@ A huge thank you to these wonderful people for helping make Python simpler for e
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/matheusfrta"><img src="https://avatars.githubusercontent.com/u/217668693?v=4?s=100" width="100px;" alt="Matheus"/><br /><sub><b>Matheus</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=matheusfrta" title="Tests">🧪</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Mlandvo"><img src="https://avatars.githubusercontent.com/u/39243759?v=4?s=100" width="100px;" alt="Mlandvo Maphalala"/><br /><sub><b>Mlandvo Maphalala</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=Mlandvo" title="Tests">🧪</a> <a href="https://github.com/sara-czasak/py_simple/issues?q=author%3AMlandvo" title="Bug reports">🐛</a></td>
     </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/qotique"><img src="https://github.com/qotique.png?s=100" width="100px;" alt="qotique"/><br /><sub><b>qotique</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=qotique" title="Docs">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/AureSerua"><img src="https://github.com/AureSerua.png?s=100" width="100px;" alt="AureSerua"/><br /><sub><b>AureSerua</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=AureSerua" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/SemTiOne"><img src="https://github.com/SemTiOne.png?s=100" width="100px;" alt="Dane Parin"/><br /><sub><b>Dane Parin</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=SemTiOne" title="Code">💻</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=SemTiOne" title="Tests">🧪</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/vjymisal0"><img src="https://github.com/vjymisal0.png?s=100" width="100px;" alt="Vijay Misal"/><br /><sub><b>Vijay Misal</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=vjymisal0" title="Code">💻</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=vjymisal0" title="Tests">🧪</a></td>
+    </tr>
   </tbody>
 </table>
 
@@ -444,6 +508,8 @@ A huge thank you to these wonderful people for helping make Python simpler for e
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
