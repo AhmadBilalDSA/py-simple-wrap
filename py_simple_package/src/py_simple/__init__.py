@@ -83,3 +83,7 @@ from .easy_game import (
 from .easy_generator import (
     generate_qr_code, generate_password,
 )
+
+from .easy_math import (
+    get_least_common_multiple, factorial, fibonacci, prime_factors, sum_of_digits, divisors,
+)

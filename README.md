@@ -421,6 +421,25 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 </details>
 
+
+### 🧮 Easy Math
+
+<details>
+<summary>Click to expand — math helpers without re-deriving the formulas</summary>
+
+<br>
+
+| Function                                   | What it does                                                      | Example                                                                   |
+|--------------------------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------------|
+| `lcm(a, b)`                                | Returns the least common multiple of two integers                 | `lcm(4, 6)` → `12`                                                         |
+| `factorial(n)`                             | Returns the factorial of a whole number                           | `factorial(5)` → `120`                                                     |
+| `fibonacci(count)`                         | Returns the first `count` Fibonacci numbers                       | `fibonacci(5)` → `[0, 1, 1, 2, 3]`                                         |
+| `prime_factors(n)`                         | Returns the prime factors of a number, including repeats          | `prime_factors(12)` → `[2, 2, 3]`                                          |
+| `sum_of_digits(n)`                         | Returns the sum of the digits of an integer                       | `sum_of_digits(1234)` → `10`                                               |
+| `divisors(n)`                              | Returns every positive integer that divides n evenly              | `divisors(12)` → `[1, 2, 3, 4, 6, 12]`                                     |
+
+</details>
+  
 ### 📊 Easy Stats
 
 <details>

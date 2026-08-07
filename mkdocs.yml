@@ -53,6 +53,7 @@ nav:
       - Easy Dict: reference/easy_dict.md
       - Easy Stats: reference/easy_stats.md
       - Easy Images: reference/easy_images.md
+      - Easy Math: reference/easy_math.md
   - About:
       - README: readme.md
       - Contributors: about/contributors.md
