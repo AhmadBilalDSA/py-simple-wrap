@@ -421,6 +421,24 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 </details>
 
+### 📊 Easy Stats
+
+<details>
+<summary>Click to expand — statistics operations without memorizing the formulas</summary>
+
+<br>
+
+| Function                                   | What it does                                                       | Example                                                                                     |
+|--------------------------------------------|--------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| `median(nums)`                             | Returns the middle value of a list of numbers                      | `median([4, 1, 9, 2])` → `3.0`                                                              |
+| `mode(nums)`                               | Returns the number that appears most often                         | `mode([2, 1, 2, 3])` → `2`                                                                  |
+| `data_range(nums)`                         | Returns the difference between the largest and smallest numbers    | `data_range([4, 1, 8, 2])` → `7`                                                            |
+| `variance(nums)`                           | Returns how spread out the numbers are, as sample variance         | `variance([1, 2, 3])` → `1.0`                                                               |
+| `standard_deviation(nums)`                 | Returns how far numbers typically sit from the average             | `standard_deviation([1, 2, 3])` → `1.0`                                                     |
+| `percentile(nums, percent)`                | Returns the value below which the given percent of numbers fall    | `percentile([1, 2, 3, 4], 75)` → `3`                                                        |
+
+</details>
+
 ## 🤝 Contributing
 
 I would love to have your help in making Python simpler for everyone!
