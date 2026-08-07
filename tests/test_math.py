@@ -24,7 +24,7 @@ from py_simple_package.src.py_simple.easy_math import (
         (-4, 6, 12),
     ],
 )
-def test_lcm(a, b, expected):
+def test_get_least_common_multiple(a, b, expected):
     assert lcm(a, b) == expected
 
 
