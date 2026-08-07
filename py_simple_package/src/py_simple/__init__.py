@@ -77,3 +77,6 @@ from .easy_game import (
 from .easy_generator import (
     generate_qr_code, generate_password,
 )
+from .easy_math import (
+    lcm, factorial, fibonacci, prime_factors, sum_of_digits, divisors,
+)
