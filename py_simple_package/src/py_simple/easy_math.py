@@ -3,7 +3,7 @@
 import math
 
 
-def lcm(a: int, b: int) -> int:
+def get_least_common_multiple(a: int, b: int) -> int:
     """
     Returns the least common multiple of two integers.
 
