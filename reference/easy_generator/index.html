@@ -1186,6 +1186,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#py_simple.easy_generator.generate_api_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        generate_api_key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_generator.generate_otp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        generate_otp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#py_simple.easy_generator.generate_password" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1201,6 +1223,17 @@
     <span class="md-ellipsis">
       
         generate_qr_code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_generator.generate_uuid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        generate_uuid
       
     </span>
   </a>
@@ -1351,6 +1384,186 @@ library-specific one.</p>
 
 </div>
 
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="py_simple.easy_generator.generate_api_key" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">generate_api_key</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Generates a secure, random, URL-safe API key in one call, using
+Python's <code>secrets</code> module so the result is safe for tokens,
+API keys, and other security-sensitive values.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A random, URL-safe text string suitable for use as an
+API key or access token.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_generator.generate_api_key--__tabbed_1_1" name="py_simple.easy_generator.generate_api_key--__tabbed_1" type="radio" /><input id="py_simple.easy_generator.generate_api_key--__tabbed_1_2" name="py_simple.easy_generator.generate_api_key--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_generator.generate_api_key--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_generator.generate_api_key--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_api_key</span>
+
+<span class="n">key</span> <span class="o">=</span> <span class="n">generate_api_key</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">secrets</span>
+
+<span class="n">key</span> <span class="o">=</span> <span class="n">secrets</span><span class="o">.</span><span class="n">token_urlsafe</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="py_simple.easy_generator.generate_otp" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">generate_otp</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">with_letters</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Generates a random one-time password (OTP) code of a given length
+in one call, handling the character-pool selection every OTP
+generator needs.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>length</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Number of characters in the generated
+code. Defaults to <code>4</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>4</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>with_letters</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If <code>True</code>, the code is drawn
+from both letters and digits. If <code>False</code>, the code is
+digits only. Defaults to <code>False</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The generated OTP code.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_generator.generate_otp--__tabbed_1_1" name="py_simple.easy_generator.generate_otp--__tabbed_1" type="radio" /><input id="py_simple.easy_generator.generate_otp--__tabbed_1_2" name="py_simple.easy_generator.generate_otp--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_generator.generate_otp--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_generator.generate_otp--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_otp</span>
+
+<span class="n">code</span> <span class="o">=</span> <span class="n">generate_otp</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">with_letters</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
+
+<span class="n">length</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">otp_chars</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span>
+<span class="n">code</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">otp_chars</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">))</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
 
 <div class="doc doc-object doc-function">
 
@@ -1637,6 +1850,70 @@ underlying qrcode/PIL error).</p>
 <span class="k">while</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;qrcode</span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">.png&#39;</span><span class="p">):</span>
     <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;qrcode</span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">.png&#39;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="py_simple.easy_generator.generate_uuid" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">generate_uuid</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Generates a random UUID (version 4) as a string in one call, so
+you don't need to import <code>uuid</code> and remember which version to use.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A randomly generated UUID, formatted as the standard
+<code>8-4-4-4-12</code> hex string (e.g.
+<code>"3f2504e0-4f89-11d3-9a0c-0305e82c3301"</code>).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_generator.generate_uuid--__tabbed_1_1" name="py_simple.easy_generator.generate_uuid--__tabbed_1" type="radio" /><input id="py_simple.easy_generator.generate_uuid--__tabbed_1_2" name="py_simple.easy_generator.generate_uuid--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_generator.generate_uuid--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_generator.generate_uuid--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_uuid</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">generate_uuid</span><span class="p">()</span>  <span class="c1"># -&gt; &quot;3f2504e0-4f89-11d3-9a0c-0305e82c3301&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">())</span>
 </code></pre></div>
 </div>
 </div>
