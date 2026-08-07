@@ -68,6 +68,9 @@ from .easy_dict import (
     sort_dict_by_key, sort_dict_by_value, rename_key, find_keys,
     count_values, most_common_value,
 )
+from .easy_stats import (
+    median, mode, data_range, variance, standard_deviation, percentile,
+)
 from .easy_images import (
     resize_image, convert_image, rotate_image, get_image_info,
 )
@@ -77,6 +80,7 @@ from .easy_game import (
 from .easy_generator import (
     generate_qr_code, generate_password,
 )
+
 from .easy_math import (
     lcm, factorial, fibonacci, prime_factors, sum_of_digits, divisors,
 )
