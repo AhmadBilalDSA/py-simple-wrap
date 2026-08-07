@@ -112,7 +112,7 @@ def fibonacci(count: int) -> list:
     return sequence[:count]
 
 
-def prime_factors(n: int) -> list:
+def prime_factorization(n: int) -> list:
     """
     Returns the prime factors of a positive integer, including repeats.
 
