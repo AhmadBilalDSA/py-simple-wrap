@@ -6,6 +6,8 @@ import string
 import random
 import qrcode
 import os
+import uuid
+import secrets
 
 
 class EasyGeneratorError(Exception):
@@ -166,3 +168,109 @@ def generate_qr_code(data_to_encode: str) -> None:
         img.save(f'qrcode{num}.png')
     except Exception as e:
         raise EasyGeneratorError(f"\n\n\nERROR: {e}")
+
+
+def generate_uuid() -> str:
+    """
+    Generates a random UUID (version 4) as a string in one call, so
+    you don't need to import `uuid` and remember which version to use.
+
+    Returns:
+        str: A randomly generated UUID, formatted as the standard
+            `8-4-4-4-12` hex string (e.g.
+            `"3f2504e0-4f89-11d3-9a0c-0305e82c3301"`).
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import generate_uuid
+
+            result = generate_uuid()  # -> "3f2504e0-4f89-11d3-9a0c-0305e82c3301"
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import uuid
+
+            result = str(uuid.uuid4())
+            ```
+    """
+
+    return str(uuid.uuid4())
+
+
+def generate_api_key() -> str:
+    """
+    Generates a secure, random, URL-safe API key in one call, using
+    Python's `secrets` module so the result is safe for tokens,
+    API keys, and other security-sensitive values.
+
+    Returns:
+        str: A random, URL-safe text string suitable for use as an
+            API key or access token.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import generate_api_key
+
+            key = generate_api_key()
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import secrets
+
+            key = secrets.token_urlsafe(64)
+            ```
+    """
+    return secrets.token_urlsafe(64)
+
+
+def generate_otp(length: int = 4, with_letters: bool = False) -> str:
+    """
+    Generates a random one-time password (OTP) code of a given length
+    in one call, handling the character-pool selection every OTP
+    generator needs.
+
+    Args:
+        length (int, optional): Number of characters in the generated
+            code. Defaults to `4`.
+        with_letters (bool, optional): If `True`, the code is drawn
+            from both letters and digits. If `False`, the code is
+            digits only. Defaults to `False`.
+
+    Returns:
+        str: The generated OTP code.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import generate_otp
+
+            code = generate_otp(6, with_letters=True)
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import random
+            import string
+
+            length = 6
+            otp_chars = string.ascii_letters + string.digits
+            code = "".join(random.choice(otp_chars) for _ in range(length))
+            ```
+    """
+    otp = ""
+    if length >= 4:
+        if with_letters:
+            otp_chars = string.ascii_letters + string.digits
+            for i in range(length):
+                otp += str(random.choice(otp_chars))
+        else:
+            for i in range(length):
+                otp += str(random.randint(0, 9))
+        return otp
+    else:
+        raise EasyGeneratorError("\n\n\nERROR: OTP length must be at least 4") from None
+

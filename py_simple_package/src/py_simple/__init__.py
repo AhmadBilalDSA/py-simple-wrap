@@ -81,7 +81,8 @@ from .easy_game import (
     basic_game_setup,
 )
 from .easy_generator import (
-    generate_qr_code, generate_password,
+    generate_qr_code, generate_password, generate_otp, generate_api_key,
+    generate_uuid
 )
 
 from .easy_math import (
