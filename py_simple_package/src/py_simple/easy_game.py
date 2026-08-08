@@ -112,3 +112,30 @@ def check_if_quit() -> bool:
         if event.type == pygame.QUIT:
             return True
     return False
+
+
+def get_mouse_position() -> tuple:
+    """
+    Gets the current position of the mouse cursor, saving you from
+    remembering the exact pygame call.
+
+    Returns:
+        tuple: `(x, y)` coordinates of the mouse cursor, in pixels,
+            relative to the top-left corner of the window.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import get_mouse_position
+
+            x, y = get_mouse_position()
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import pygame
+
+            x, y = pygame.mouse.get_pos()
+            ```
+    """
+    return pygame.mouse.get_pos()

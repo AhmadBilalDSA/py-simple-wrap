@@ -78,7 +78,7 @@ from .easy_images import (
     resize_image, convert_image, rotate_image, get_image_info,
 )
 from .easy_game import (
-    basic_game_setup,
+    basic_game_setup, check_if_quit, get_mouse_position,
 )
 from .easy_generator import (
     generate_qr_code, generate_password, generate_otp, generate_api_key,

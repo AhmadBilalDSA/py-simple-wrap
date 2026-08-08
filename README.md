@@ -309,17 +309,17 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-| Function                                   | What it does                                                          | Example                                                    |
-|-----------------------------------------------|--------------------------------------------------------------------------|-----------------------------------------------------------------|
-| `is_valid_hex(hex_code)`                       | Checks whether a string is a valid hex color code                        | `is_valid_hex("#FFFFFF")` → `True`                               |
-| `hex_to_rgb(hex_code)`                         | Converts a hex color code to an (R, G, B) tuple                          | `hex_to_rgb("#FFFFFF")` → `(255, 255, 255)`                      |
-| `rgb_to_hex(r, g, b)`                          | Converts (R, G, B) values to a hex color string                          | `rgb_to_hex(255, 255, 255)` → `"#FFFFFF"`                        |
-| `rgb_to_hsl(r, g, b)`                          | Converts (R, G, B) values to an (H, S, L) tuple                          | `rgb_to_hsl(255, 0, 0)` → `(0.0, 100.0, 50.0)`                   |
-| `hsl_to_rgb(h, s, lightness)`                  | Converts an (H, S, L) color to an (R, G, B) tuple                        | `hsl_to_rgb(120, 100, 50)` → `(0, 255, 0)`                       |
-| `random_hex_color()`                           | Returns a random valid hex color string                                  | `random_hex_color()` → e.g. `"#A1B2C3"`                          |
-| `is_light_color(hex_code)`                     | Returns whether a hex color is "light" based on perceived luminance      | `is_light_color("#FFFFFF")` → `True`                             |
-| `hex_to_rgba(hex_code, alpha)`                 | Converts a hex color and alpha value into an (R, G, B, A) tuple          | `hex_to_rgba("#FF0000", 0.5)` → `(255, 0, 0, 0.5)`               |
-| `contrast_ratio(hex1, hex2)`                   | Calculates WCAG contrast ratio between two hex colors                    | `contrast_ratio("#000000", "#FFFFFF")` → `21.0`                  |
+| Function                       | What it does                                                        | Example                                            |
+|--------------------------------|---------------------------------------------------------------------|----------------------------------------------------|
+| `is_valid_hex(hex_code)`       | Checks whether a string is a valid hex color code                   | `is_valid_hex("#FFFFFF")` → `True`                 |
+| `hex_to_rgb(hex_code)`         | Converts a hex color code to an (R, G, B) tuple                     | `hex_to_rgb("#FFFFFF")` → `(255, 255, 255)`        |
+| `rgb_to_hex(r, g, b)`          | Converts (R, G, B) values to a hex color string                     | `rgb_to_hex(255, 255, 255)` → `"#FFFFFF"`          |
+| `rgb_to_hsl(r, g, b)`          | Converts (R, G, B) values to an (H, S, L) tuple                     | `rgb_to_hsl(255, 0, 0)` → `(0.0, 100.0, 50.0)`     |
+| `hsl_to_rgb(h, s, lightness)`  | Converts an (H, S, L) color to an (R, G, B) tuple                   | `hsl_to_rgb(120, 100, 50)` → `(0, 255, 0)`         |
+| `random_hex_color()`           | Returns a random valid hex color string                             | `random_hex_color()` → e.g. `"#A1B2C3"`            |
+| `is_light_color(hex_code)`     | Returns whether a hex color is "light" based on perceived luminance | `is_light_color("#FFFFFF")` → `True`               |
+| `hex_to_rgba(hex_code, alpha)` | Converts a hex color and alpha value into an (R, G, B, A) tuple     | `hex_to_rgba("#FF0000", 0.5)` → `(255, 0, 0, 0.5)` |
+| `contrast_ratio(hex1, hex2)`   | Calculates WCAG contrast ratio between two hex colors               | `contrast_ratio("#000000", "#FFFFFF")` → `21.0`    |
 
 </details>
 
@@ -330,13 +330,13 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-| Function                                   | What it does                                                             | Example                                          |
-|---------------------------------------------|----------------------------------------------------------------------------|-----------------------------------------------------|
-| `run_py_file(filename)`                      | Runs a `.py` file as `__main__`, raising `EasyFlowError` on failure          | `run_py_file("script.py")`                           |
-| `run_py_file_safe(filename)`                 | Same as `run_py_file`, but returns `(success, error)` instead of raising     | `success, error = run_py_file_safe("script.py")`      |
-| `time_function_call(function, args=None)`    | Runs a function once and returns how long it took, in seconds                | `time_function_call(add, [2, 3])` → `0.000002`        |
-| `time_it`                                    | Decorator that times a function and prints how long it took                  | `@time_it` above a function definition               |
-| `retry(func, attempts=3, delay=1)`           | Calls a function, retrying it if it fails, with a pause between attempts     | `retry(flaky_api, attempts=5, delay=2)`               |
+| Function                                  | What it does                                                             | Example                                          |
+|-------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------|
+| `run_py_file(filename)`                   | Runs a `.py` file as `__main__`, raising `EasyFlowError` on failure      | `run_py_file("script.py")`                       |
+| `run_py_file_safe(filename)`              | Same as `run_py_file`, but returns `(success, error)` instead of raising | `success, error = run_py_file_safe("script.py")` |
+| `time_function_call(function, args=None)` | Runs a function once and returns how long it took, in seconds            | `time_function_call(add, [2, 3])` → `0.000002`   |
+| `time_it`                                 | Decorator that times a function and prints how long it took              | `@time_it` above a function definition           |
+| `retry(func, attempts=3, delay=1)`        | Calls a function, retrying it if it fails, with a pause between attempts | `retry(flaky_api, attempts=5, delay=2)`          |
 
 </details>
 
@@ -397,18 +397,18 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-| Function                             | What it does                                                              | Example                                                                                 |
-|--------------------------------------|---------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| `merge_dicts(dict_a, dict_b)`        | Combines two dictionaries, dict_b wins on shared keys                     | `merge_dicts({"a": 1}, {"b": 2})` → `{"a": 1, "b": 2}`                                   |
-| `lists_to_dict(keys, values)`        | Combines two lists into a dictionary, pairing them by position            | `lists_to_dict(["name", "age"], ["Ana", 25])` → `{"name": "Ana", "age": 25}`             |
-| `invert_dict(dictionary)`            | Returns a new dictionary with keys and values swapped                     | `invert_dict({"a": 1, "b": 2})` → `{1: "a", 2: "b"}`                                     |
-| `get_nested_value(dictionary, path)` | Gets a nested value using a dot-separated path, with a default fallback   | `get_nested_value({"user": {"name": "Ana"}}, "user.name")` → `"Ana"`                     |
-| `sort_dict_by_key(dictionary)`       | Returns a new dictionary with keys sorted alphabetically                  | `sort_dict_by_key({"b": 2, "a": 1})` → `{"a": 1, "b": 2}`                                |
-| `sort_dict_by_value(dictionary)`     | Returns a new dictionary with values sorted from smallest to largest      | `sort_dict_by_value({"a": 2, "b": 1})` → `{"b": 1, "a": 2}`                              |
-| `rename_key(dictionary, old, new)`   | Returns a copy of the dictionary with one key renamed                     | `rename_key({"name": "Ana"}, "name", "username")` → `{"username": "Ana"}`                |
-| `find_keys(needle, dictionary)`      | Returns every key whose value matches the given needle                    | `find_keys(1, {"a": 1, "b": 2, "c": 1})` → `["a", "c"]`                                  |
-| `count_values(dictionary)`           | Counts how many times each value appears in the dictionary                | `count_values({"a": 1, "b": 2, "c": 1})` → `{1: 2, 2: 1}`                                |
-| `most_common_value(dictionary)`      | Returns the value that appears most often in the dictionary               | `most_common_value({"a": 1, "b": 2, "c": 1})` → `1`                                      |
+| Function                             | What it does                                                            | Example                                                                      |
+|--------------------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| `merge_dicts(dict_a, dict_b)`        | Combines two dictionaries, dict_b wins on shared keys                   | `merge_dicts({"a": 1}, {"b": 2})` → `{"a": 1, "b": 2}`                       |
+| `lists_to_dict(keys, values)`        | Combines two lists into a dictionary, pairing them by position          | `lists_to_dict(["name", "age"], ["Ana", 25])` → `{"name": "Ana", "age": 25}` |
+| `invert_dict(dictionary)`            | Returns a new dictionary with keys and values swapped                   | `invert_dict({"a": 1, "b": 2})` → `{1: "a", 2: "b"}`                         |
+| `get_nested_value(dictionary, path)` | Gets a nested value using a dot-separated path, with a default fallback | `get_nested_value({"user": {"name": "Ana"}}, "user.name")` → `"Ana"`         |
+| `sort_dict_by_key(dictionary)`       | Returns a new dictionary with keys sorted alphabetically                | `sort_dict_by_key({"b": 2, "a": 1})` → `{"a": 1, "b": 2}`                    |
+| `sort_dict_by_value(dictionary)`     | Returns a new dictionary with values sorted from smallest to largest    | `sort_dict_by_value({"a": 2, "b": 1})` → `{"b": 1, "a": 2}`                  |
+| `rename_key(dictionary, old, new)`   | Returns a copy of the dictionary with one key renamed                   | `rename_key({"name": "Ana"}, "name", "username")` → `{"username": "Ana"}`    |
+| `find_keys(needle, dictionary)`      | Returns every key whose value matches the given needle                  | `find_keys(1, {"a": 1, "b": 2, "c": 1})` → `["a", "c"]`                      |
+| `count_values(dictionary)`           | Counts how many times each value appears in the dictionary              | `count_values({"a": 1, "b": 2, "c": 1})` → `{1: 2, 2: 1}`                    |
+| `most_common_value(dictionary)`      | Returns the value that appears most often in the dictionary             | `most_common_value({"a": 1, "b": 2, "c": 1})` → `1`                          |
 
 </details>
 
@@ -436,14 +436,14 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-| Function                                   | What it does                                                      | Example                                                                   |
-|--------------------------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------------|
-| `get_least_common_multiple(a, b)`                                | Returns the least common multiple of two integers                 | `get_least_common_multiple(4, 6)` → `12`                                                         |
-| `factorial(n)`                             | Returns the factorial of a whole number                           | `factorial(5)` → `120`                                                     |
-| `fibonacci(count)`                         | Returns the first `count` Fibonacci numbers                       | `fibonacci(5)` → `[0, 1, 1, 2, 3]`                                         |
-| `prime_factorization(n)`                         | Returns the prime factors of a number, including repeats          | `prime_factorization(12)` → `[2, 2, 3]`                                          |
-| `sum_of_digits(n)`                         | Returns the sum of the digits of an integer                       | `sum_of_digits(1234)` → `10`                                               |
-| `divisors(n)`                              | Returns every positive integer that divides n evenly              | `divisors(12)` → `[1, 2, 3, 4, 6, 12]`                                     |
+| Function                          | What it does                                             | Example                                  |
+|-----------------------------------|----------------------------------------------------------|------------------------------------------|
+| `get_least_common_multiple(a, b)` | Returns the least common multiple of two integers        | `get_least_common_multiple(4, 6)` → `12` |
+| `factorial(n)`                    | Returns the factorial of a whole number                  | `factorial(5)` → `120`                   |
+| `fibonacci(count)`                | Returns the first `count` Fibonacci numbers              | `fibonacci(5)` → `[0, 1, 1, 2, 3]`       |
+| `prime_factorization(n)`          | Returns the prime factors of a number, including repeats | `prime_factorization(12)` → `[2, 2, 3]`  |
+| `sum_of_digits(n)`                | Returns the sum of the digits of an integer              | `sum_of_digits(1234)` → `10`             |
+| `divisors(n)`                     | Returns every positive integer that divides n evenly     | `divisors(12)` → `[1, 2, 3, 4, 6, 12]`   |
 
 </details>
   
@@ -472,12 +472,12 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-| Function                                                    | What it does                                            | Example                                                                     |
-|--------------------------------------------------------------|----------------------------------------------------------|------------------------------------------------------------------------------|
-| `read_csv_to_list("people.csv")`                              | Reads a CSV file into a list of dicts (or lists)          | `read_csv_to_list("people.csv")` → `[{'Name': 'Alice', 'Age': '24'}]`        |
-| `write_csv_from_list("people.csv", data)`                     | Writes a list of dicts or lists to a CSV file             | `write_csv_from_list("people.csv", [{"Name": "Alice", "Age": "24"}])`        |
-| `get_csv_columns("people.csv")`                                | Returns the column headers of a CSV file                  | `get_csv_columns("people.csv")` → `['Name', 'Age']`                          |
-| `filter_csv_rows("people.csv", "Name", "Alice")`               | Returns rows where a column matches a given value          | `filter_csv_rows("people.csv", "Name", "Alice")` → `[{'Name': 'Alice', 'Age': '24'}]` |
+| Function                                         | What it does                                      | Example                                                                               |
+|--------------------------------------------------|---------------------------------------------------|---------------------------------------------------------------------------------------|
+| `read_csv_to_list("people.csv")`                 | Reads a CSV file into a list of dicts (or lists)  | `read_csv_to_list("people.csv")` → `[{'Name': 'Alice', 'Age': '24'}]`                 |
+| `write_csv_from_list("people.csv", data)`        | Writes a list of dicts or lists to a CSV file     | `write_csv_from_list("people.csv", [{"Name": "Alice", "Age": "24"}])`                 |
+| `get_csv_columns("people.csv")`                  | Returns the column headers of a CSV file          | `get_csv_columns("people.csv")` → `['Name', 'Age']`                                   |
+| `filter_csv_rows("people.csv", "Name", "Alice")` | Returns rows where a column matches a given value | `filter_csv_rows("people.csv", "Name", "Alice")` → `[{'Name': 'Alice', 'Age': '24'}]` |
 
 </details>
 
@@ -488,9 +488,11 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-| Function                                        | What it does                                                        | Example                                                        |
-|--------------------------------------------------|-----------------------------------------------------------------------|-------------------------------------------------------------------|
-| `basic_game_setup(800, 600, "My Game")`           | Sets up a pygame window and clock in one call (init, display, caption, clock) | `screen, clock = basic_game_setup(800, 600, "My Game")`           |
+| Function                                | What it does                                                                                                    | Example                                                 |
+|-----------------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
+| `basic_game_setup(800, 600, "My Game")` | Sets up a pygame window and clock in one call (init, display, caption, clock)                                   | `screen, clock = basic_game_setup(800, 600, "My Game")` |
+| `check_if_quit()`                       | Checks the event queue for a quit event, so you don't write the `for event in pygame.event.get()` loop yourself | `if check_if_quit(): running = False`                   |
+| `get_mouse_position()`                  | Gets the current mouse cursor position                                                                          | `x, y = get_mouse_position()`                           |
 
 </details>
 
