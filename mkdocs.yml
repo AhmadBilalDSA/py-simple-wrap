@@ -36,6 +36,7 @@ nav:
       - Easy Strings: tutorial/easy_strings.md
       - Easy Web: tutorial/easy_web.md
       - Easy Async: tutorial/easy_async.md
+      - Easy Colors: tutorial/easy_colors.md
   - How To:
       - Contributing: how-to/contributing.md
   - Reference:
