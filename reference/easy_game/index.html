@@ -1207,6 +1207,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_game.check_if_quit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        check_if_quit
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1508,6 +1519,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#py_simple.easy_game.check_if_quit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        check_if_quit
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1799,6 +1821,77 @@ window (e.g. invalid width/height, display driver issue).</p>
 <span class="n">screen</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_mode</span><span class="p">((</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">))</span>
 <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_caption</span><span class="p">(</span><span class="s2">&quot;My Game&quot;</span><span class="p">)</span>
 <span class="n">clock</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Clock</span><span class="p">()</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="py_simple.easy_game.check_if_quit" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">check_if_quit</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Checks the pygame event queue for a quit event (e.g. the window's
+close button), saving you from writing the <code>for event in
+pygame.event.get()</code> loop yourself every frame.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>bool</code></td>            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p><code>True</code> if a quit event was found in the queue, <code>False</code>
+otherwise.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="py_simple.easy_game.check_if_quit--__tabbed_1_1" name="py_simple.easy_game.check_if_quit--__tabbed_1" type="radio" /><input id="py_simple.easy_game.check_if_quit--__tabbed_1_2" name="py_simple.easy_game.check_if_quit--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="py_simple.easy_game.check_if_quit--__tabbed_1_1">The Py_simple Way</label><label for="py_simple.easy_game.check_if_quit--__tabbed_1_2">The Traditional Way</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_if_quit</span>
+
+<span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">while</span> <span class="n">running</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">check_if_quit</span><span class="p">():</span>
+        <span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pygame</span>
+
+<span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">while</span> <span class="n">running</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">QUIT</span><span class="p">:</span>
+            <span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
 </code></pre></div>
 </div>
 </div>
