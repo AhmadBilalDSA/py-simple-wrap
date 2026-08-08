@@ -74,3 +74,41 @@ def basic_game_setup(width: int, height: int, title: str ="My Game") -> (
         return screen, clock
     except Exception as e:
         raise EasyGameError(f"\n\n\nERROR: {e}") from None
+
+
+def check_if_quit() -> bool:
+    """
+    Checks the pygame event queue for a quit event (e.g. the window's
+    close button), saving you from writing the `for event in
+    pygame.event.get()` loop yourself every frame.
+
+    Returns:
+        bool: `True` if a quit event was found in the queue, `False`
+            otherwise.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import check_if_quit
+
+            running = True
+            while running:
+                if check_if_quit():
+                    running = False
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import pygame
+
+            running = True
+            while running:
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        running = False
+            ```
+    """
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            return True
+    return False
