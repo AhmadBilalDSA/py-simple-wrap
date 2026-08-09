@@ -4,7 +4,7 @@ without requiring users to memorize every chart type or matplotlib function.
 """
 
 import matplotlib.pyplot as plt
-from statsmodels.miscmodels import count
+from typing import Literal
 
 
 def plot_data(X:list, Y: list = None) -> int:
@@ -17,10 +17,24 @@ def plot_data(X:list, Y: list = None) -> int:
         :param Y: list - optional
 
     """
+
+    type_X = _infer_type(X)
+    type_Y = _infer_type(Y) if Y is not None else None
+
+    CHART_SUGGESTIONS = {
+        ("quantitative", None): ["histogram", "line"],
+        ("categorical", None): ["barchart", "pie"],
+        ("quantitative", "quantitative"): ["scatter", "histogram_x", "histogram_y"],
+        ("quantitative", "categorical"): ["barchart"],
+        ("categorical", "quantitative"): ["barchart"],
+        ("categorical", "categorical"): ["barchart_grouped"],
+    }
+
     fig, axes = plt.subplots(3, 3, figsize=(12, 12))
+
     charts = 0 # this variable can be helpful in future
 
-    is_X_quantitative = all(isinstance(x, int) for x in X) # If false, X is a categorical variable.
+    is_X_quantitative = isinstance(X, (int, float)) and not isinstance(X, bool) # If false, X is a categorical variable.
 
     if Y is None:                       # If Y is None, that means that X is the only variable.
         if is_X_quantitative:
@@ -34,7 +48,9 @@ def plot_data(X:list, Y: list = None) -> int:
 
             ### Todo: KDE chart
         else:
-            # What can I do with just one categorical variable?
+            axes[0, 0].hist(X)
+            axes[0, 0].set_title("Histogram")
+            charts += 1
             pass
         pass
 
@@ -42,10 +58,12 @@ def plot_data(X:list, Y: list = None) -> int:
     if Y is not None:
         assert len(X) == len(Y), "X and Y must have the same length"
 
+        is_Y_quantitative = all(isinstance(y, int) for y in Y)
 
-    #is_Y_quantitative = all(isinstance(y, int) for y in Y)
-
-
+        if is_Y_quantitative:
+            axes[0, 0].hist(X, Y)
+            axes[0, 0].set_title("Histogram")
+            charts += 1
 
 
     # With two categorical variables, one can be used for counting, creating a quantitative variable.
@@ -70,6 +88,15 @@ def plot_data(X:list, Y: list = None) -> int:
     return 0
 
 
+def _infer_type(series) -> Literal["quantitative", "categorical"]:
+    # If the list only numbers so it quantitative
+    is_quantitative = all(
+        isinstance(x, (int, float)) and not isinstance(x, bool)
+        for x in series
+    )
+    return "quantitative" if is_quantitative else "categorical"
+
+
 # Testing, this is will be removed
 # %%
 X = [1,2,3,1]
@@ -83,13 +110,12 @@ for item in X:
 counts
 
 # %%
-X = ['a', 'b', 'c']
+X = [5,10,1]
 Y = [4,5,6]
                                           # False: Y is a categorical variable.
 print(all(isinstance(x, int) for x in Y)) # True: Y is a quantitative variable
 type(Y)
 
-# %%
 # If there is only one list, we can visualize its distribution.
 plot_data(X)
 # %%
