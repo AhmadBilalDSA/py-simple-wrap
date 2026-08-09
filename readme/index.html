@@ -2635,6 +2635,9 @@
 | `basic_game_setup(800, 600, "My Game")` | Sets up a pygame window and clock in one call (init, display, caption, clock)                                   | `screen, clock = basic_game_setup(800, 600, "My Game")` |
 | `check_if_quit()`                       | Checks the event queue for a quit event, so you don't write the `for event in pygame.event.get()` loop yourself | `if check_if_quit(): running = False`                   |
 | `get_mouse_position()`                  | Gets the current mouse cursor position                                                                          | `x, y = get_mouse_position()`                           |
+| `is_left_mouse_button_clicked()`        | Checks if the left mouse button is currently held down                                                          | `if is_left_mouse_button_clicked(): ...`                |
+| `is_middle_mouse_button_clicked()`      | Checks if the middle mouse button (scroll wheel) is currently held down                                         | `if is_middle_mouse_button_clicked(): ...`              |
+| `is_right_mouse_button_clicked()`       | Checks if the right mouse button is currently held down                                                         | `if is_right_mouse_button_clicked(): ...`               |
 
 </details>
 
