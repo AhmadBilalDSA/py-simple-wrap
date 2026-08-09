@@ -139,3 +139,89 @@ def get_mouse_position() -> tuple:
             ```
     """
     return pygame.mouse.get_pos()
+
+
+def is_left_mouse_button_clicked() -> bool:
+    """
+    Checks whether the left mouse button is currently held down.
+
+    Returns:
+        bool: `True` if the left mouse button is being pressed,
+            `False` otherwise.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import is_left_mouse_button_clicked
+
+            if is_left_mouse_button_clicked():
+                print("Left click!")
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import pygame
+
+            if pygame.mouse.get_pressed()[0]:
+                print("Left click!")
+            ```
+    """
+    return pygame.mouse.get_pressed()[0]
+
+
+def is_middle_mouse_button_clicked() -> bool:
+    """
+    Checks whether the middle mouse button (scroll wheel) is
+    currently held down.
+
+    Returns:
+        bool: `True` if the middle mouse button is being pressed,
+            `False` otherwise.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import is_middle_mouse_button_clicked
+
+            if is_middle_mouse_button_clicked():
+                print("Middle click!")
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import pygame
+
+            if pygame.mouse.get_pressed()[1]:
+                print("Middle click!")
+            ```
+    """
+    return pygame.mouse.get_pressed()[1]
+
+
+def is_right_mouse_button_clicked() -> bool:
+    """
+    Checks whether the right mouse button is currently held down.
+
+    Returns:
+        bool: `True` if the right mouse button is being pressed,
+            `False` otherwise.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import is_right_mouse_button_clicked
+
+            if is_right_mouse_button_clicked():
+                print("Right click!")
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import pygame
+
+            if pygame.mouse.get_pressed()[2]:
+                print("Right click!")
+            ```
+    """
+    return pygame.mouse.get_pressed()[2]
+

@@ -79,6 +79,8 @@ from .easy_images import (
 )
 from .easy_game import (
     basic_game_setup, check_if_quit, get_mouse_position,
+    is_left_mouse_button_clicked, is_middle_mouse_button_clicked,
+    is_right_mouse_button_clicked
 )
 from .easy_generator import (
     generate_qr_code, generate_password, generate_otp, generate_api_key,
