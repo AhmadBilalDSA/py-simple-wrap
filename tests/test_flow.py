@@ -15,40 +15,38 @@ from py_simple_package.src.py_simple.easy_flow import (
 
 
 class TestEasyFlowError:
-    """Tests for the EasyFlowError exception."""
-
+    
     def test_is_exception(self):
-        """Should be a regular Exception subclass."""
+        """Tests if it is an exception."""
         assert issubclass(EasyFlowError, Exception)
 
     def test_stores_message(self):
-        """Should store and display the given message."""
-        err = EasyFlowError("something broke")
-        assert err.message == "something broke"
-        assert str(err) == "something broke"
+        """Checks if the string provided is the same string outputted."""
+        err = EasyFlowError("something is broken")
+        assert err.message == "something is broken"
+        assert str(err) == "something is broken"
 
 
 class TestRunPyFile:
-    """Tests for run_py_file function."""
-
     def test_runs_successfully(self, tmp_path, capsys):
-        """Should run the file and let its output through."""
+        """Checks if a file can run and let its output through."""
         script = tmp_path / "script.py"
-        script.write_text("print('hello from script')\n")
+        script.write_text("print('hello world')\n")
 
         run_py_file(str(script))
 
         captured = capsys.readouterr()
         assert "RUNNING:" in captured.out
-        assert "hello from script" in captured.out
+        assert "hello world" in captured.out
 
     def test_missing_file_raises(self):
         """Should raise EasyFlowError for a file that doesn't exist."""
-        with pytest.raises(EasyFlowError):
+        with pytest.raises(EasyFlowError) as exc_info:
             run_py_file("does_not_exist.py")
+        assert "does_not_exist.py" in str(exc_info.value)
 
     def test_script_error_raises(self, tmp_path):
-        """Should wrap an exception raised inside the script."""
+        """Checks to see if an error within a script is correctly wrapped."""
         script = tmp_path / "broken.py"
         script.write_text("raise ValueError('boom')\n")
 
@@ -58,10 +56,8 @@ class TestRunPyFile:
 
 
 class TestRunPyFileSafe:
-    """Tests for run_py_file_safe function."""
-
     def test_runs_successfully(self, tmp_path, capsys):
-        """Should return (True, None) and print progress on success."""
+        """Checks if return is True, None and print progress on success."""
         script = tmp_path / "script.py"
         script.write_text("print('all good')\n")
 
@@ -73,13 +69,13 @@ class TestRunPyFileSafe:
         assert "RUNNING:" in captured.out
 
     def test_missing_file_returns_error(self):
-        """Should return (False, message) instead of raising."""
+        """Checks if return is False, message if it failed."""
         success, error = run_py_file_safe("does_not_exist.py")
         assert success is False
-        assert error is not None
+        assert "does_not_exist.py" in error
 
     def test_script_error_returns_error(self, tmp_path):
-        """Should capture an exception raised inside the script."""
+        """Checks for something breaking within the file."""
         script = tmp_path / "broken.py"
         script.write_text("raise ValueError('boom')\n")
 
@@ -90,16 +86,14 @@ class TestRunPyFileSafe:
 
 
 class TestTimeFunctionCall:
-    """Tests for time_function_call function."""
-
     def test_returns_a_float(self):
-        """Should return a non-negative float duration."""
+        """Checks if the output is a non-negative float."""
         duration = time_function_call(lambda: "done")
         assert isinstance(duration, float)
         assert duration >= 0
 
     def test_calls_function_with_args(self):
-        """Should call the function with the given positional args."""
+        """Ensures that functions with arguments work."""
         calls = []
 
         def add(a, b):
@@ -110,7 +104,7 @@ class TestTimeFunctionCall:
         assert calls == [(2, 3)]
 
     def test_calls_function_with_no_args(self):
-        """Should call the function with no arguments when args is None."""
+        """Checks that functions without arguments work."""
         calls = []
 
         def no_args():
@@ -120,7 +114,7 @@ class TestTimeFunctionCall:
         assert calls == [True]
 
     def test_measures_elapsed_time(self, monkeypatch):
-        """Should report the difference between start and end time."""
+        """Checks to see if time difference is calculated correctly."""
         times = iter([100.0, 100.5])
         monkeypatch.setattr(time, "time", lambda: next(times))
 
@@ -128,7 +122,7 @@ class TestTimeFunctionCall:
         assert duration == pytest.approx(0.5)
 
     def test_function_error_raises_easyflowerror(self):
-        """Should wrap an exception raised by the function."""
+        """Checks if exception are wrapped correctly."""
         def boom():
             raise ValueError("bad function")
 
@@ -138,8 +132,6 @@ class TestTimeFunctionCall:
 
 
 class TestTimeIt:
-    """Tests for the time_it decorator."""
-
     def test_returns_original_result(self):
         """Should return whatever the wrapped function returns."""
         @time_it
@@ -169,10 +161,8 @@ class TestTimeIt:
 
 
 class TestRetry:
-    """Tests for the retry function."""
-
     def test_succeeds_on_first_try(self, monkeypatch):
-        """Should return the result immediately if there's no failure."""
+        """Checks what happens if things runs smoothly."""
         monkeypatch.setattr(time, "sleep", lambda s: None)
         calls = []
 
@@ -185,7 +175,7 @@ class TestRetry:
         assert len(calls) == 1
 
     def test_succeeds_after_some_failures(self, monkeypatch):
-        """Should keep retrying until the function succeeds."""
+        """Checks if it retries, failure then success."""
         monkeypatch.setattr(time, "sleep", lambda s: None)
         calls = []
 
@@ -200,7 +190,7 @@ class TestRetry:
         assert len(calls) == 3
 
     def test_raises_after_all_attempts_fail(self, monkeypatch):
-        """Should raise the last exception once attempts are exhausted."""
+        """Tests if max failure limit is reach."""
         monkeypatch.setattr(time, "sleep", lambda s: None)
         calls = []
 
@@ -213,7 +203,7 @@ class TestRetry:
         assert len(calls) == 3
 
     def test_waits_between_attempts(self, monkeypatch):
-        """Should sleep for `delay` seconds between failed attempts."""
+        """Ensure delays are taken between attempts."""
         sleep_calls = []
         monkeypatch.setattr(time, "sleep", lambda s: sleep_calls.append(s))
 
@@ -226,7 +216,7 @@ class TestRetry:
         assert sleep_calls == [2, 2]
 
     def test_default_attempts_and_delay(self, monkeypatch):
-        """Should default to 3 attempts and a 1 second delay."""
+        """Checks default settings."""
         sleep_calls = []
         monkeypatch.setattr(time, "sleep", lambda s: sleep_calls.append(s))
         calls = []
