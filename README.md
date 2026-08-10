@@ -1,6 +1,6 @@
 # py-simple-wrap 🚀
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 **Making Python feel like plain English.**
@@ -305,31 +305,38 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 ### 🎨 Easy Colors
 
 <details>
-<summary>Click to expand — hex and RGB conversions without the manual math</summary>
+<summary>Click to expand — hex/RGB/HSL color conversions without memorizing the formulas</summary>
 
 <br>
 
-| Function              | What it does                           | Example                                     |
-|-----------------------|----------------------------------------|---------------------------------------------|
-| `is_valid_hex(str)`   | Check if a string is a valid hex color | `is_valid_hex("#FFFFFF")` → `True`          |
-| `hex_to_rgb(str)`     | Convert hex to (R, G, B) tuple         | `hex_to_rgb("#FFFFFF")` → `(255, 255, 255)` |
-| `rgb_to_hex(r, g, b)` | Convert RGB to hex string              | `rgb_to_hex(255, 255, 255)` → `"#FFFFFF"`   |
-| `rgb_to_hsl(r, g, b)` | Convert RGB to (H, S, L) tuple         | `rgb_to_hsl(255, 0, 0)` → `(0.0, 100.0, 50.0)` |
-| `hsl_to_rgb(h, s, l)` | Convert HSL to (R, G, B) tuple         | `hsl_to_rgb(120, 100, 50)` → `(0, 255, 0)` |
+| Function                       | What it does                                                        | Example                                            |
+|--------------------------------|---------------------------------------------------------------------|----------------------------------------------------|
+| `is_valid_hex(hex_code)`       | Checks whether a string is a valid hex color code                   | `is_valid_hex("#FFFFFF")` → `True`                 |
+| `hex_to_rgb(hex_code)`         | Converts a hex color code to an (R, G, B) tuple                     | `hex_to_rgb("#FFFFFF")` → `(255, 255, 255)`        |
+| `rgb_to_hex(r, g, b)`          | Converts (R, G, B) values to a hex color string                     | `rgb_to_hex(255, 255, 255)` → `"#FFFFFF"`          |
+| `rgb_to_hsl(r, g, b)`          | Converts (R, G, B) values to an (H, S, L) tuple                     | `rgb_to_hsl(255, 0, 0)` → `(0.0, 100.0, 50.0)`     |
+| `hsl_to_rgb(h, s, lightness)`  | Converts an (H, S, L) color to an (R, G, B) tuple                   | `hsl_to_rgb(120, 100, 50)` → `(0, 255, 0)`         |
+| `random_hex_color()`           | Returns a random valid hex color string                             | `random_hex_color()` → e.g. `"#A1B2C3"`            |
+| `is_light_color(hex_code)`     | Returns whether a hex color is "light" based on perceived luminance | `is_light_color("#FFFFFF")` → `True`               |
+| `hex_to_rgba(hex_code, alpha)` | Converts a hex color and alpha value into an (R, G, B, A) tuple     | `hex_to_rgba("#FF0000", 0.5)` → `(255, 0, 0, 0.5)` |
+| `contrast_ratio(hex1, hex2)`   | Calculates WCAG contrast ratio between two hex colors               | `contrast_ratio("#000000", "#FFFFFF")` → `21.0`    |
 
 </details>
 
 ### 🔄 Easy Flow
 
 <details>
-<summary>Click to expand — run Python files and time function calls without the boilerplate</summary>
+<summary>Click to expand — running scripts, timing, and retries without the boilerplate</summary>
 
 <br>
 
-| Function                                  | What it does                                                  | Example                                        |
-|-------------------------------------------|---------------------------------------------------------------|------------------------------------------------|
-| `run_py_file(filename)`                   | Run a .py file as `__main__`                                  | `run_py_file("script.py")`                     |
-| `time_function_call(function, args=None)` | Runs a function once and returns how long it took, in seconds | `time_function_call(add, [2, 3])` → `0.000002` |
+| Function                                  | What it does                                                             | Example                                          |
+|-------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------|
+| `run_py_file(filename)`                   | Runs a `.py` file as `__main__`, raising `EasyFlowError` on failure      | `run_py_file("script.py")`                       |
+| `run_py_file_safe(filename)`              | Same as `run_py_file`, but returns `(success, error)` instead of raising | `success, error = run_py_file_safe("script.py")` |
+| `time_function_call(function, args=None)` | Runs a function once and returns how long it took, in seconds            | `time_function_call(add, [2, 3])` → `0.000002`   |
+| `time_it`                                 | Decorator that times a function and prints how long it took              | `@time_it` above a function definition           |
+| `retry(func, attempts=3, delay=1)`        | Calls a function, retrying it if it fails, with a pause between attempts | `retry(flaky_api, attempts=5, delay=2)`          |
 
 </details>
 
@@ -390,18 +397,18 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-| Function                             | What it does                                                              | Example                                                                                 |
-|--------------------------------------|---------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| `merge_dicts(dict_a, dict_b)`        | Combines two dictionaries, dict_b wins on shared keys                     | `merge_dicts({"a": 1}, {"b": 2})` → `{"a": 1, "b": 2}`                                   |
-| `lists_to_dict(keys, values)`        | Combines two lists into a dictionary, pairing them by position            | `lists_to_dict(["name", "age"], ["Ana", 25])` → `{"name": "Ana", "age": 25}`             |
-| `invert_dict(dictionary)`            | Returns a new dictionary with keys and values swapped                     | `invert_dict({"a": 1, "b": 2})` → `{1: "a", 2: "b"}`                                     |
-| `get_nested_value(dictionary, path)` | Gets a nested value using a dot-separated path, with a default fallback   | `get_nested_value({"user": {"name": "Ana"}}, "user.name")` → `"Ana"`                     |
-| `sort_dict_by_key(dictionary)`       | Returns a new dictionary with keys sorted alphabetically                  | `sort_dict_by_key({"b": 2, "a": 1})` → `{"a": 1, "b": 2}`                                |
-| `sort_dict_by_value(dictionary)`     | Returns a new dictionary with values sorted from smallest to largest      | `sort_dict_by_value({"a": 2, "b": 1})` → `{"b": 1, "a": 2}`                              |
-| `rename_key(dictionary, old, new)`   | Returns a copy of the dictionary with one key renamed                     | `rename_key({"name": "Ana"}, "name", "username")` → `{"username": "Ana"}`                |
-| `find_keys(needle, dictionary)`      | Returns every key whose value matches the given needle                    | `find_keys(1, {"a": 1, "b": 2, "c": 1})` → `["a", "c"]`                                  |
-| `count_values(dictionary)`           | Counts how many times each value appears in the dictionary                | `count_values({"a": 1, "b": 2, "c": 1})` → `{1: 2, 2: 1}`                                |
-| `most_common_value(dictionary)`      | Returns the value that appears most often in the dictionary               | `most_common_value({"a": 1, "b": 2, "c": 1})` → `1`                                      |
+| Function                             | What it does                                                            | Example                                                                      |
+|--------------------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| `merge_dicts(dict_a, dict_b)`        | Combines two dictionaries, dict_b wins on shared keys                   | `merge_dicts({"a": 1}, {"b": 2})` → `{"a": 1, "b": 2}`                       |
+| `lists_to_dict(keys, values)`        | Combines two lists into a dictionary, pairing them by position          | `lists_to_dict(["name", "age"], ["Ana", 25])` → `{"name": "Ana", "age": 25}` |
+| `invert_dict(dictionary)`            | Returns a new dictionary with keys and values swapped                   | `invert_dict({"a": 1, "b": 2})` → `{1: "a", 2: "b"}`                         |
+| `get_nested_value(dictionary, path)` | Gets a nested value using a dot-separated path, with a default fallback | `get_nested_value({"user": {"name": "Ana"}}, "user.name")` → `"Ana"`         |
+| `sort_dict_by_key(dictionary)`       | Returns a new dictionary with keys sorted alphabetically                | `sort_dict_by_key({"b": 2, "a": 1})` → `{"a": 1, "b": 2}`                    |
+| `sort_dict_by_value(dictionary)`     | Returns a new dictionary with values sorted from smallest to largest    | `sort_dict_by_value({"a": 2, "b": 1})` → `{"b": 1, "a": 2}`                  |
+| `rename_key(dictionary, old, new)`   | Returns a copy of the dictionary with one key renamed                   | `rename_key({"name": "Ana"}, "name", "username")` → `{"username": "Ana"}`    |
+| `find_keys(needle, dictionary)`      | Returns every key whose value matches the given needle                  | `find_keys(1, {"a": 1, "b": 2, "c": 1})` → `["a", "c"]`                      |
+| `count_values(dictionary)`           | Counts how many times each value appears in the dictionary              | `count_values({"a": 1, "b": 2, "c": 1})` → `{1: 2, 2: 1}`                    |
+| `most_common_value(dictionary)`      | Returns the value that appears most often in the dictionary             | `most_common_value({"a": 1, "b": 2, "c": 1})` → `1`                          |
 
 </details>
 
@@ -418,6 +425,77 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 | `convert_image("photo.png", "photo.jpg")`                | Convert an image to a different format based on file extension | Saves `photo.png` as a JPEG at `photo.jpg`                                                         |
 | `rotate_image("photo.jpg", "photo_rotated.jpg", 90)`     | Rotate an image by an angle (counter-clockwise) and save it    | Saves `photo.jpg` rotated 90° as `photo_rotated.jpg`                                               |
 | `get_image_info("photo.jpg")`                            | Get basic info about an image                                  | `get_image_info("photo.jpg")` → `{"width": 1920, "height": 1080, "format": "JPEG", "mode": "RGB"}` |
+
+</details>
+
+
+### 🧮 Easy Math
+
+<details>
+<summary>Click to expand — math helpers without re-deriving the formulas</summary>
+
+<br>
+
+| Function                          | What it does                                             | Example                                  |
+|-----------------------------------|----------------------------------------------------------|------------------------------------------|
+| `get_least_common_multiple(a, b)` | Returns the least common multiple of two integers        | `get_least_common_multiple(4, 6)` → `12` |
+| `factorial(n)`                    | Returns the factorial of a whole number                  | `factorial(5)` → `120`                   |
+| `fibonacci(count)`                | Returns the first `count` Fibonacci numbers              | `fibonacci(5)` → `[0, 1, 1, 2, 3]`       |
+| `prime_factorization(n)`          | Returns the prime factors of a number, including repeats | `prime_factorization(12)` → `[2, 2, 3]`  |
+| `sum_of_digits(n)`                | Returns the sum of the digits of an integer              | `sum_of_digits(1234)` → `10`             |
+| `divisors(n)`                     | Returns every positive integer that divides n evenly     | `divisors(12)` → `[1, 2, 3, 4, 6, 12]`   |
+
+</details>
+  
+### 📊 Easy Stats
+
+<details>
+<summary>Click to expand — statistics operations without memorizing the formulas</summary>
+
+<br>
+
+| Function                                   | What it does                                                       | Example                                                                                     |
+|--------------------------------------------|--------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| `median(nums)`                             | Returns the middle value of a list of numbers                      | `median([4, 1, 9, 2])` → `3.0`                                                              |
+| `mode(nums)`                               | Returns the number that appears most often                         | `mode([2, 1, 2, 3])` → `2`                                                                  |
+| `data_range(nums)`                         | Returns the difference between the largest and smallest numbers    | `data_range([4, 1, 8, 2])` → `7`                                                            |
+| `variance(nums)`                           | Returns how spread out the numbers are, as sample variance         | `variance([1, 2, 3])` → `1.0`                                                               |
+| `standard_deviation(nums)`                 | Returns how far numbers typically sit from the average             | `standard_deviation([1, 2, 3])` → `1.0`                                                     |
+| `percentile(nums, percent)`                | Returns the value below which the given percent of numbers fall    | `percentile([1, 2, 3, 4], 75)` → `3`                                                        |
+
+</details>
+
+### 📑 Easy CSV
+
+<details>
+<summary>Click to expand — CSV reading and writing without the <code>csv</code> module boilerplate</summary>
+
+<br>
+
+| Function                                         | What it does                                      | Example                                                                               |
+|--------------------------------------------------|---------------------------------------------------|---------------------------------------------------------------------------------------|
+| `read_csv_to_list("people.csv")`                 | Reads a CSV file into a list of dicts (or lists)  | `read_csv_to_list("people.csv")` → `[{'Name': 'Alice', 'Age': '24'}]`                 |
+| `write_csv_from_list("people.csv", data)`        | Writes a list of dicts or lists to a CSV file     | `write_csv_from_list("people.csv", [{"Name": "Alice", "Age": "24"}])`                 |
+| `get_csv_columns("people.csv")`                  | Returns the column headers of a CSV file          | `get_csv_columns("people.csv")` → `['Name', 'Age']`                                   |
+| `filter_csv_rows("people.csv", "Name", "Alice")` | Returns rows where a column matches a given value | `filter_csv_rows("people.csv", "Name", "Alice")` → `[{'Name': 'Alice', 'Age': '24'}]` |
+
+</details>
+
+### 🎮 Easy Game
+
+<details>
+<summary>Click to expand — pygame setup without the boilerplate</summary>
+
+<br>
+
+| Function                                | What it does                                                                                                    | Example                                                 |
+|-----------------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
+| `basic_game_setup(800, 600, "My Game")` | Sets up a pygame window and clock in one call (init, display, caption, clock)                                   | `screen, clock = basic_game_setup(800, 600, "My Game")` |
+| `check_if_quit()`                       | Checks the event queue for a quit event, so you don't write the `for event in pygame.event.get()` loop yourself | `if check_if_quit(): running = False`                   |
+| `get_mouse_position()`                  | Gets the current mouse cursor position                                                                          | `x, y = get_mouse_position()`                           |
+| `is_left_mouse_button_clicked()`        | Checks if the left mouse button is currently held down                                                          | `if is_left_mouse_button_clicked(): ...`                |
+| `is_middle_mouse_button_clicked()`      | Checks if the middle mouse button (scroll wheel) is currently held down                                         | `if is_middle_mouse_button_clicked(): ...`              |
+| `is_right_mouse_button_clicked()`       | Checks if the right mouse button is currently held down                                                         | `if is_right_mouse_button_clicked(): ...`               |
 
 </details>
 
@@ -442,17 +520,33 @@ Every contribution helps make py-simple-wrap better for beginners and developers
 ## 🤝 Contributors
 
 A huge thank you to these wonderful people for helping make Python simpler for everyone!
+<details>
+<summary>Emoji Key:</summary>
 
-#### Emoji Key:
-- 💻 = Code
-- 📖 = Docs
-- 🐛 = Bug Reports
-- 🧪 = Tests
-- 🚇 = Infrastructure
-- 🛡️ = Maintainer
+<br>
 - 👑 = Original Author
-- 🚀 = Project Management
+<br>
+- 🪶 = Module author
+<br>
+- 🛡️ = Maintainer
+<br>
 - ✋ = Collaborators
+<br>
+- 💻 = Code
+<br>
+- 🧪 = Tests
+<br>
+- 🚇 = Infrastructure
+<br>
+- 📖 = Docs
+<br>
+- 🐛 = Bug Reports
+<br>
+- 🚀 = Project Management
+<br>
+</details>
+
+<br>
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -460,28 +554,31 @@ A huge thank you to these wonderful people for helping make Python simpler for e
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/sara-czasak"><img src="https://avatars.githubusercontent.com/u/217280993?v=4?s=100" width="100px;" alt="Sara Czasak"/><br /><sub><b>Sara Czasak</b></sub></a><br /><a href="https://github.com/sara-czasak" title="Maintainer">🛡️</a> <a href="https://github.com/sara-czasak" title="Project Management">🚀</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=sara-czasak" title="Code">💻</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=sara-czasak" title="Docs">📖</a> <a href="https://github.com/sara-czasak" title="Original Author">👑</a> <a href="https://github.com/sara-czasak" title="Collaborators">✋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/sara-czasak"><img src="https://avatars.githubusercontent.com/u/217280993?v=4?s=100" width="100px;" alt="Sara Czasak"/><br /><sub><b>Sara Czasak</b></sub></a><br /><a href="https://github.com/sara-czasak" title="Maintainer">🛡️</a> <a href="https://github.com/sara-czasak" title="Project Management">🚀</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=sara-czasak" title="Code">💻</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=sara-czasak" title="Docs">📖</a> <a href="https://github.com/sara-czasak" title="Original Author">👑</a> <a href="https://github.com/sara-czasak" title="Collaborators">✋</a> <a href="https://github.com/sara-czasak" title="module-author">🪶</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/jagjitkaur0000"><img src="https://avatars.githubusercontent.com/u/226679809?v=4?s=100" width="100px;" alt="jagjitkaur0000"/><br /><sub><b>jagjitkaur0000</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=jagjitkaur0000" title="Tests">🧪</a> <a href="https://github.com/jagjitkaur0000" title="Collaborators">✋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/atiqur-rahman-pro"><img src="https://avatars.githubusercontent.com/u/264598807?v=4?s=100" width="100px;" alt="atiqur rahman"/><br /><sub><b>atiqur rahman</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=atiqur-rahman-pro" title="Tests">🧪</a> <a href="https://github.com/atiqur-rahman-pro" title="Collaborators">✋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/gaoharimran29-glitch"><img src="https://avatars.githubusercontent.com/u/225884102?v=4?s=100" width="100px;" alt="Gaohar Imran"/><br /><sub><b>Gaohar Imran</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=gaoharimran29-glitch" title="Tests">🧪</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=gaoharimran29-glitch" title="Code">💻</a> <a href="https://github.com/gaoharimran29-glitch" title="Collaborators">✋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Onion0121"><img src="https://avatars.githubusercontent.com/u/246456340?v=4?s=100" width="100px;" alt="Yassin Azzouzi"/><br /><sub><b>Yassin Azzouzi</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=Onion0121" title="Docs">📖</a> <a href="https://github.com/Onion0121" title="Collaborators">✋</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ghostfix-pm"><img src="https://avatars.githubusercontent.com/u/307249429?v=4?s=100" width="100px;" alt="ghostfix-pm"/><br /><sub><b>ghostfix-pm</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=ghostfix-pm" title="Infrastructure">🚇</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=ghostfix-pm" title="Tests">🧪</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=ghostfix-pm" title="Code">💻</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=ghostfix-pm" title="Docs">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ghostfix-pm"><img src="https://github.com/ghostfix-pm.png?s=100" width="100px;" alt="ghostfix-pm"/><br /><sub><b>ghostfix-pm</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=ghostfix-pm" title="Infrastructure">🚇</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=ghostfix-pm" title="Tests">🧪</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=ghostfix-pm" title="Code">💻</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=ghostfix-pm" title="Docs">📖</a> <a href="https://github.com/ghostfix-pm" title="module-author">🪶</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/sol4nki"><img src="https://avatars.githubusercontent.com/u/75659510?v=4?s=100" width="100px;" alt="Pranjal Solanki"/><br /><sub><b>Pranjal Solanki</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=sol4nki" title="Code">💻</a></td>
     </tr>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/shivams786"><img src="https://avatars.githubusercontent.com/u/143723566?v=4?s=100" width="100px;" alt="Shivam Singh"/><br /><sub><b>Shivam Singh</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=shivams786" title="Docs">📖</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=shivams786" title="Tests">🧪</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=shivams786" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/shivams786"><img src="https://avatars.githubusercontent.com/u/143723566?v=4?s=100" width="100px;" alt="Shivam Singh"/><br /><sub><b>Shivam Singh</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=shivams786" title="Docs">📖</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=shivams786" title="Tests">🧪</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=shivams786" title="Code">💻</a> <a href="https://github.com/shivams786" title="module-author">🪶</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/leepCh"><img src="https://avatars.githubusercontent.com/u/195529175?v=4?s=100" width="100px;" alt="Challa Leela Prasad"/><br /><sub><b>Challa Leela Prasad</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=leepCh" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/HeaTTap"><img src="https://avatars.githubusercontent.com/u/83951176?v=4?s=100" width="100px;" alt="HeaTTap"/><br /><sub><b>HeaTTap</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=HeaTTap" title="Docs">📖</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=HeaTTap" title="Tests">🧪</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=HeaTTap" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/HeaTTap"><img src="https://avatars.githubusercontent.com/u/83951176?v=4?s=100" width="100px;" alt="HeaTTap"/><br /><sub><b>HeaTTap</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=HeaTTap" title="Docs">📖</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=HeaTTap" title="Tests">🧪</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=HeaTTap" title="Code">💻</a> <a href="https://github.com/HeaTTap" title="module-author">🪶</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/averyquinnhq"><img src="https://avatars.githubusercontent.com/u/309920345?v=4?s=100" width="100px;" alt="Avery Quinn"/><br /><sub><b>Avery Quinn</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=averyquinnhq" title="Tests">🧪</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/mmaxjr"><img src="https://avatars.githubusercontent.com/u/9955641?v=4?s=100" width="100px;" alt="Marcos Max"/><br /><sub><b>Marcos Max</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=mmaxjr" title="Docs">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/matheusfrta"><img src="https://avatars.githubusercontent.com/u/217668693?v=4?s=100" width="100px;" alt="Matheus"/><br /><sub><b>Matheus</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=matheusfrta" title="Tests">🧪</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Mlandvo"><img src="https://avatars.githubusercontent.com/u/39243759?v=4?s=100" width="100px;" alt="Mlandvo Maphalala"/><br /><sub><b>Mlandvo Maphalala</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=Mlandvo" title="Tests">🧪</a> <a href="https://github.com/sara-czasak/py_simple/issues?q=author%3AMlandvo" title="Bug reports">🐛</a></td>
     </tr>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/qotique"><img src="https://github.com/qotique.png?s=100" width="100px;" alt="qotique"/><br /><sub><b>qotique</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=qotique" title="Docs">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/qotique"><img src="https://github.com/qotique.png?s=100" width="100px;" alt="qotique"/><br /><sub><b>qotique</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=qotique" title="Docs">📖</a> <a href="https://github.com/qotique" title="module-author">🪶</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/AureSerua"><img src="https://github.com/AureSerua.png?s=100" width="100px;" alt="AureSerua"/><br /><sub><b>AureSerua</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=AureSerua" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/SemTiOne"><img src="https://github.com/SemTiOne.png?s=100" width="100px;" alt="Dane Parin"/><br /><sub><b>Dane Parin</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=SemTiOne" title="Code">💻</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=SemTiOne" title="Tests">🧪</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/vjymisal0"><img src="https://github.com/vjymisal0.png?s=100" width="100px;" alt="Vijay Misal"/><br /><sub><b>Vijay Misal</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=vjymisal0" title="Code">💻</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=vjymisal0" title="Tests">🧪</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/SemTiOne"><img src="https://github.com/SemTiOne.png?s=100" width="100px;" alt="Dane Parin"/><br /><sub><b>Dane Parin</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=SemTiOne" title="Code">💻</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=SemTiOne" title="Tests">🧪</a> <a href="https://github.com/SemTiOne" title="module-author">🪶</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/vjymisal0"><img src="https://github.com/vjymisal0.png?s=100" width="100px;" alt="Vijay Misal"/><br /><sub><b>Vijay Misal</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=vjymisal0" title="Code">💻</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=vjymisal0" title="Tests">🧪</a> <a href="https://github.com/vjymisal0" title="module-author">🪶</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/AashiSrivastava411"><img src="https://github.com/AashiSrivastava411.png?s=100" width="100px;" alt="Aashi Srivastava"/><br /><sub><b>Aashi Srivastava</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=AashiSrivastava411" title="Tests">🧪</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/thomsonl"><img src="https://github.com/thomsonl.png?s=100" width="100px;" alt="Thomson Lee"/><br /><sub><b>Thomson Lee</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=thomsonl" title="Tests">🧪</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/joaoprbrasil"><img src="https://github.com/joaoprbrasil.png?s=100" width="100px;" alt="João Pedro Brasil"/><br /><sub><b>João Pedro Brasil</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=joaoprbrasil" title="Tests">🧪</a> <a href="https://github.com/joaoprbrasil" title="module-author">🪶</a></td>
     </tr>
   </tbody>
 </table>

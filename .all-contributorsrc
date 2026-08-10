@@ -47,6 +47,11 @@
       "symbol": "✋",
       "description": "Collaborators",
       "link": "https://github.com/<%= contributor.login %>"
+    },
+    "module-author": {
+      "symbol": "🪶",
+      "description": "module-author",
+      "link": "https://github.com/<%= contributor.login %>"
     }
   },
   "commit": false,
@@ -66,7 +71,8 @@
         "code",
         "documentation",
         "originalAuthor",
-        "collaborators"
+        "collaborators",
+        "module-author"
       ]
     },
     {
@@ -113,13 +119,14 @@
     {
       "login": "ghostfix-pm",
       "name": "ghostfix-pm",
-      "avatar_url": "https://avatars.githubusercontent.com/u/307249429?v=4",
+      "avatar_url": "https://github.com/ghostfix-pm.png",
       "profile": "https://github.com/ghostfix-pm",
       "contributions": [
         "infra",
         "test",
         "code",
-        "documentation"
+        "documentation",
+        "module-author"
       ]
     },
     {
@@ -139,7 +146,8 @@
       "contributions": [
         "documentation",
         "test",
-        "code"
+        "code",
+        "module-author"
       ]
     },
     {
@@ -159,7 +167,8 @@
       "contributions": [
         "documentation",
         "test",
-        "code"
+        "code",
+        "module-author"
       ]
     },
     {
@@ -205,7 +214,8 @@
       "avatar_url": "https://github.com/qotique.png",
       "profile": "https://github.com/qotique",
       "contributions": [
-        "documentation"
+        "documentation",
+        "module-author"
       ]
     },
     {
@@ -224,7 +234,8 @@
       "profile": "https://github.com/SemTiOne",
       "contributions": [
         "code",
-        "test"
+        "test",
+        "module-author"
       ]
     },
     {
@@ -234,7 +245,36 @@
       "profile": "https://github.com/vjymisal0",
       "contributions": [
         "code",
+        "test",
+        "module-author"
+      ]
+    },
+    {
+      "login": "AashiSrivastava411",
+      "name": "Aashi Srivastava",
+      "avatar_url": "https://github.com/AashiSrivastava411.png",
+      "profile": "https://github.com/AashiSrivastava411",
+      "contributions": [
         "test"
+      ]
+    },
+    {
+      "login": "thomsonl",
+      "name": "Thomson Lee",
+      "avatar_url": "https://github.com/thomsonl.png",
+      "profile": "https://github.com/thomsonl",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "joaoprbrasil",
+      "name": "João Pedro Brasil",
+      "avatar_url": "https://github.com/joaoprbrasil.png",
+      "profile": "https://github.com/joaoprbrasil",
+      "contributions": [
+        "test",
+        "module-author"
       ]
     }
   ]

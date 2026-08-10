@@ -47,7 +47,7 @@ def open_json(filepath: str) -> dict | None:
             import json
 
             try:
-                with open("config.json") as json_file:
+                with open("config.json", encoding="utf-8") as json_file:
                     data = json.load(json_file)
                 print(data["name"])
             except Exception as e:
@@ -55,7 +55,7 @@ def open_json(filepath: str) -> dict | None:
             ```
     """
     try:
-        with open(filepath) as json_file:
+        with open(filepath, encoding="utf-8") as json_file:
             return json.load(json_file)
     except Exception as e:
         raise EasyJsonError(f"\n\n\nERROR: {e}") from None
@@ -95,7 +95,7 @@ def save_json_data(filepath: str, data: dict) -> None:
         raise EasyJsonError(f"\n\n\nERROR: File {filepath} already exists.")
 
     try:
-        with open(filepath, "w") as json_file:
+        with open(filepath, "w", encoding="utf-8") as json_file:
             json.dump(data, json_file, indent=4)
     except Exception as e:
         raise EasyJsonError(f"\n\n\nERROR: {e}") from None
@@ -176,7 +176,7 @@ def update_json(filepath: str, new_data: dict) -> None:
     try:
         old_data = open_json(filepath)
         old_data.update(new_data)
-        with open(filepath, "w") as json_file:
+        with open(filepath, "w", encoding="utf-8") as json_file:
             json.dump(old_data, json_file, indent=4)
     except Exception as e:
         raise EasyJsonError(f"\n\n\nERROR: {e}") from None
@@ -269,7 +269,7 @@ def is_nested_json(data: dict = None, filepath: str = None) -> bool | None:
     else:
         to_check = data
     try:
-        for key, value in to_check.items():
+        for _, value in to_check.items():
             if isinstance(value, dict) or isinstance(value, list):
                 return True
             else:

@@ -6,6 +6,8 @@ import string
 import random
 import qrcode
 import os
+import uuid
+import secrets
 
 
 class EasyGeneratorError(Exception):
@@ -82,28 +84,29 @@ def generate_password(pass_length: int = 12, uppercase_chars: int = 2,
     """
     lowercase_chars = (pass_length -
                        (special_chars + digit_chars + uppercase_chars))
-    lower_chars = [random.choice(string.ascii_lowercase)
+    lower_chars = [secrets.choice(string.ascii_lowercase)
                    for _ in range(lowercase_chars)]
-    upper_chars = [random.choice(string.ascii_uppercase)
+    upper_chars = [secrets.choice(string.ascii_uppercase)
                    for _ in range(uppercase_chars)]
-    digit_chars = [random.choice(string.digits)
+    digit_chars = [secrets.choice(string.digits)
                    for _ in range(digit_chars)]
-    special_chars = [random.choice(string.punctuation)
+    special_chars = [secrets.choice(string.punctuation)
                      for _ in range(special_chars)]
 
     pass_chars = [i for i in lower_chars + upper_chars +
                   digit_chars + special_chars]
 
     all_clear = False
-    last_char = None
     while not all_clear:
+        last_char = None
         random.shuffle(pass_chars)
         for char in pass_chars:
             if char == last_char:
+                all_clear = False
                 break
             else:
                 last_char = char
-        all_clear = True
+            all_clear = True
 
     return ''.join(pass_chars)
 
@@ -166,3 +169,109 @@ def generate_qr_code(data_to_encode: str) -> None:
         img.save(f'qrcode{num}.png')
     except Exception as e:
         raise EasyGeneratorError(f"\n\n\nERROR: {e}")
+
+
+def generate_uuid() -> str:
+    """
+    Generates a random UUID (version 4) as a string in one call, so
+    you don't need to import `uuid` and remember which version to use.
+
+    Returns:
+        str: A randomly generated UUID, formatted as the standard
+            `8-4-4-4-12` hex string (e.g.
+            `"3f2504e0-4f89-11d3-9a0c-0305e82c3301"`).
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import generate_uuid
+
+            result = generate_uuid()  # -> "3f2504e0-4f89-11d3-9a0c-0305e82c3301"
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import uuid
+
+            result = str(uuid.uuid4())
+            ```
+    """
+
+    return str(uuid.uuid4())
+
+
+def generate_api_key() -> str:
+    """
+    Generates a secure, random, URL-safe API key in one call, using
+    Python's `secrets` module so the result is safe for tokens,
+    API keys, and other security-sensitive values.
+
+    Returns:
+        str: A random, URL-safe text string suitable for use as an
+            API key or access token.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import generate_api_key
+
+            key = generate_api_key()
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import secrets
+
+            key = secrets.token_urlsafe(64)
+            ```
+    """
+    return secrets.token_urlsafe(64)
+
+
+def generate_otp(length: int = 4, with_letters: bool = False) -> str:
+    """
+    Generates a random one-time password (OTP) code of a given length
+    in one call, handling the character-pool selection every OTP
+    generator needs.
+
+    Args:
+        length (int, optional): Number of characters in the generated
+            code. Defaults to `4`.
+        with_letters (bool, optional): If `True`, the code is drawn
+            from both letters and digits. If `False`, the code is
+            digits only. Defaults to `False`.
+
+    Returns:
+        str: The generated OTP code.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import generate_otp
+
+            code = generate_otp(6, with_letters=True)
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import random
+            import string
+
+            length = 6
+            otp_chars = string.ascii_letters + string.digits
+            code = "".join(random.choice(otp_chars) for _ in range(length))
+            ```
+    """
+    otp = ""
+    if length >= 4:
+        if with_letters:
+            otp_chars = string.ascii_letters + string.digits
+            for i in range(length):
+                otp += str(secrets.choice(otp_chars))
+        else:
+            for i in range(length):
+                otp += str(secrets.randbelow(10))
+        return otp
+    else:
+        raise EasyGeneratorError("\n\n\nERROR: OTP length must be at least 4") from None
+

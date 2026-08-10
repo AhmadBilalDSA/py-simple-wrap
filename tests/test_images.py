@@ -21,8 +21,10 @@ def tmp_workdir():
     original_cwd = os.getcwd()
     with tempfile.TemporaryDirectory() as tmpdir:
         os.chdir(tmpdir)
-        yield tmpdir
-    os.chdir(original_cwd)
+        try:
+            yield tmpdir
+        finally:
+            os.chdir(original_cwd)
 
 
 @pytest.fixture

@@ -43,6 +43,13 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
       </a><br />
       💻 🧪 📖 ✋
     </td>
+    <td align="center">
+      <a href="https://github.com/ghostfix-pm">
+        <img src="https://github.com/ghostfix-pm.png" width="100px;" alt="ghostfix-pm"/><br />
+        <sub><b>ghostfix-pm</b></sub>
+      </a><br />
+      💻 🧪 📖 ✋
+    </td>
   </tr>
 </table>
 
@@ -116,6 +123,15 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
 - **Vijay Misal** ([@vjymisal0](https://github.com/vjymisal0))
     - Add `easy_images.py` module
     - Add tests for `easy_images.py` module
+
+- **Aashi Srivastaval** ([@AashiSrivastava411](https://github.com/AashiSrivastava411))
+    - Add tests for `easy_async.py` module
+  
+- **Thomson Lee** ([@thomsonl](https://github.com/thomsonl))
+    - Add tests for `easy_flow.py` module
+
+- **João Pedro Brasil** ([@joaoprbrasil](https://github.com/joaoprbrasil))
+    - Add `easy_data_visualization` module
   
 ---
 
