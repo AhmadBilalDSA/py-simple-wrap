@@ -5,117 +5,176 @@ without requiring users to memorize every chart type or matplotlib function.
 
 import matplotlib.pyplot as plt
 from typing import Literal
+from collections import Counter
 
 
-def plot_data(X:list, Y: list = None) -> int:
+def plot_data(X:list, Y: list = None):
     """
-    This function checks the type of variable(s) and suggests the most appropriate charts.
+    Infers the type of the given data (quantitative or categorical) and
+    automatically plots the most appropriate chart(s) for it, handling
+    the chart-type selection, axis setup, and matplotlib boilerplate
+    every data visualization needs.
 
     Args:
-        Two lists representing the data.
-        :param X: list
-        :param Y: list - optional
+        X (list): The primary data series to plot.
+        Y (list, optional): A second data series to plot against `X`.
+            If omitted, only `X` is visualized on its own. Defaults to
+            `None`.
 
+    Returns:
+        None: The chart(s) are rendered directly via `plt.show()`.
+            One or two subplots are created depending on how many
+            chart types are suggested for the given data combination
+            (e.g. a categorical `X` alone suggests both a bar chart
+            and a pie chart).
+
+    Raises:
+        KeyError: If the inferred type combination of `X` and `Y` has
+            no matching entry in `CHART_SUGGESTIONS` (e.g. two
+            categorical series).
+        ValueError: If `X` or `Y` is an empty list (raised internally
+            by `_infer_type`).
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import plot_data
+
+            plot_data([1, 2, 2, 3, 5, 5, 5, 8])
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import matplotlib.pyplot as plt
+
+            data = [1, 2, 2, 3, 5, 5, 5, 8]
+            fig, ax = plt.subplots()
+            ax.hist(data)
+            ax.set_title("Histogram")
+            ax.spines[['top', 'right']].set_visible(False)
+            plt.show()
+            ```
     """
 
+    # Figure out whether each series is "quantitative" or "categorical"
+    # so we can look up which chart(s) make sense for this combination.
     type_X = _infer_type(X)
     type_Y = _infer_type(Y) if Y is not None else None
 
     CHART_SUGGESTIONS = {
         ("quantitative", None): ["histogram", "line"],
         ("categorical", None): ["barchart", "pie"],
-        ("quantitative", "quantitative"): ["scatter", "histogram_x", "histogram_y"],
+        ("quantitative", "quantitative"): ["scatter"],
         ("quantitative", "categorical"): ["barchart"],
         ("categorical", "quantitative"): ["barchart"],
-        ("categorical", "categorical"): ["barchart_grouped"],
     }
 
-    fig, axes = plt.subplots(3, 3, figsize=(12, 12))
+    charts = CHART_SUGGESTIONS[(type_X, type_Y)]
+    chart_index = 0 # tracks which subplot slot to draw into next
 
-    charts = 0 # this variable can be helpful in future
+    fig, axes = plt.subplots(1,2, figsize=(10,5))
 
-    is_X_quantitative = isinstance(X, (int, float)) and not isinstance(X, bool) # If false, X is a categorical variable.
+    if 'histogram' in charts:
+        ax = axes.flat[chart_index]
+        ax.hist(X)
+        ax.set_title("Histogram")
+        ax.spines[['top', 'right']].set_visible(False)
+        chart_index += 1
 
-    if Y is None:                       # If Y is None, that means that X is the only variable.
-        if is_X_quantitative:
-            axes[0, 0].hist(X)
-            axes[0, 0].set_title("Histogram")
-            charts += 1
+    if 'line' in charts:
+        ax = axes.flat[chart_index]
+        ax.plot(X)
+        ax.set_title("Line chart")
+        ax.spines[['top', 'right']].set_visible(False)
+        chart_index += 1
 
-            axes[0, 1].plot (X)
-            axes[0, 1].set_title("Line")
-            charts += 1
+    if 'barchart' in charts:
+        ax = axes.flat[chart_index]
 
-            ### Todo: KDE chart
+        if Y is None:
+            # Single categorical/quantitative series: bar per index.
+            ax.bar(range(len(X)), X)
         else:
-            axes[0, 0].hist(X)
-            axes[0, 0].set_title("Histogram")
-            charts += 1
-            pass
-        pass
+            # Two series: put the categorical one on the x-axis and the
+            # quantitative one as the bar height, regardless of which
+            # argument (X or Y) is which.
+            if((type_X, type_Y) == ("categorical", "quantitative")):
+                ax.bar(X, Y)
+            else:
+                ax.bar(Y, X)
 
+        ax.set_title("Bar chart")
+        ax.spines[['top', 'right']].set_visible(False)
+        chart_index += 1
 
-    if Y is not None:
-        assert len(X) == len(Y), "X and Y must have the same length"
+    if 'pie' in charts:
+        ax = axes.flat[chart_index]
+        counts = Counter(X)
+        ax.pie(counts.values(), labels=counts.keys(), autopct='%1.1f%%')
+        ax.set_title("Pie chart")
+        chart_index += 1
 
-        is_Y_quantitative = all(isinstance(y, int) for y in Y)
+    if 'scatter' in charts:
+        ax = axes.flat[chart_index]
+        ax.scatter(X, Y)
+        ax.set_title("Scatter plot")
+        chart_index += 1
 
-        if is_Y_quantitative:
-            axes[0, 0].hist(X, Y)
-            axes[0, 0].set_title("Histogram")
-            charts += 1
-
-
-    # With two categorical variables, one can be used for counting, creating a quantitative variable.
-    # and we can color the chart based on the other categorical variable.
-
-    # Are X and Y quantitatives? scatterplot
-    # if (is_X_quantitative and is_Y_quantitative):
-    #     # plot_scatter()
-    #     pass
-    #
-    # Is one list categorical and the other quantitative? Barchart
-    # if(is_X_quantitative and not is_Y_quantitative):
-    #     # plot_barchart()
-    #     pass
-    # elif(is_Y_quantitative and not is_X_quantitative):
-    #     # plot_barchart()
-    #     pass
+    # Remove any subplot slots that weren't used (e.g. when only one
+    # chart type was suggested for the given data).
+    for ax in axes.flat[chart_index:]:
+        ax.remove()
 
     print("Plotting data...")
     plt.show()
-    # Is one of them categorical with fewer than 5 categories? pie, donut, barchart
-    return 0
-
 
 def _infer_type(series) -> Literal["quantitative", "categorical"]:
-    # If the list only numbers so it quantitative
+    """
+    Inspects a list of values and classifies it as either
+    "quantitative" (all numeric, excluding booleans) or "categorical"
+    (anything else, including booleans), so `plot_data` can decide
+    which chart types are appropriate.
+
+    Args:
+        series (list): The data series to classify.
+
+    Returns:
+        Literal["quantitative", "categorical"]: `"quantitative"` if
+            every value in `series` is an `int` or `float` (and not a
+            `bool`); `"categorical"` otherwise — this includes lists
+            containing booleans, strings, or mixed types.
+
+    Raises:
+        ValueError: If `series` is empty.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import _infer_type
+
+            kind = _infer_type([1, 2, 3])  # -> "quantitative"
+            kind = _infer_type(["a", "b"])  # -> "categorical"
+            ```
+
+        === "The Traditional Way"
+            ```python
+            series = [1, 2, 3]
+            if not series:
+                raise ValueError("The series cannot be empty.")
+
+            is_quantitative = all(
+                isinstance(x, (int, float)) and not isinstance(x, bool)
+                for x in series
+            )
+            kind = "quantitative" if is_quantitative else "categorical"
+            ```
+    """
+    if not series:
+        raise ValueError("The series cannot be empty.")
+
     is_quantitative = all(
         isinstance(x, (int, float)) and not isinstance(x, bool)
         for x in series
     )
     return "quantitative" if is_quantitative else "categorical"
 
-
-# Testing, this is will be removed
-# %%
-X = [1,2,3,1]
-Y = [4,5,6]
-counts = {}
-type(1)
-
-for item in X:
-    counts[item] = counts.get(item, 0) + 1
-
-counts
-
-# %%
-X = [5,10,1]
-Y = [4,5,6]
-                                          # False: Y is a categorical variable.
-print(all(isinstance(x, int) for x in Y)) # True: Y is a quantitative variable
-type(Y)
-
-# If there is only one list, we can visualize its distribution.
-plot_data(X)
-# %%
