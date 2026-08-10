@@ -41,6 +41,7 @@ nav:
       - Easy Csv: tutorial/easy_csv.md
       - Easy Data Visualization: tutorial/easy_data_visualization.md\
       - Easy Date Formatter: tutorial/easy_date_formatter.md
+      - Easy Dict: tutorial/easy_dict.md
   - How To:
       - Contributing: how-to/contributing.md
   - Reference:
