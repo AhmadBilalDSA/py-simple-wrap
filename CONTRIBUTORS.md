@@ -132,6 +132,9 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
 
 - **João Pedro Brasil** ([@joaoprbrasil](https://github.com/joaoprbrasil))
     - Add `easy_data_visualization` module
+
+- **d.smirnov** ([@smirnov-danil](https://github.com/smirnov-danil))
+    - Expand `easy_colors` module
   
 ---
 

@@ -1,6 +1,6 @@
 # py-simple-wrap 🚀
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-22-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 **Making Python feel like plain English.**
@@ -579,6 +579,9 @@ A huge thank you to these wonderful people for helping make Python simpler for e
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/AashiSrivastava411"><img src="https://github.com/AashiSrivastava411.png?s=100" width="100px;" alt="Aashi Srivastava"/><br /><sub><b>Aashi Srivastava</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=AashiSrivastava411" title="Tests">🧪</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/thomsonl"><img src="https://github.com/thomsonl.png?s=100" width="100px;" alt="Thomson Lee"/><br /><sub><b>Thomson Lee</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=thomsonl" title="Tests">🧪</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/joaoprbrasil"><img src="https://github.com/joaoprbrasil.png?s=100" width="100px;" alt="João Pedro Brasil"/><br /><sub><b>João Pedro Brasil</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=joaoprbrasil" title="Tests">🧪</a> <a href="https://github.com/joaoprbrasil" title="module-author">🪶</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/smirnov-danil"><img src="https://github.com/smirnov-danil.png?s=100" width="100px;" alt="d.smirnov"/><br /><sub><b>d.smirnov</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=smirnov-danil" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>

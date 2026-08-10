@@ -276,6 +276,15 @@
         "test",
         "module-author"
       ]
+    },
+    {
+      "login": "smirnov-danil",
+      "name": "d.smirnov",
+      "avatar_url": "https://github.com/smirnov-danil.png",
+      "profile": "https://github.com/smirnov-danil",
+      "contributions": [
+        "code"
+      ]
     }
   ]
 }
