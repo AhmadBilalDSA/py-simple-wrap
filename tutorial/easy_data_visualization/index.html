@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://github.com/sara-czasak/py-simple-wrap/tutorial/easy_web/">
+        <link rel="canonical" href="https://github.com/sara-czasak/py-simple-wrap/tutorial/easy_data_visualization/">
       
       
-        <link rel="prev" href="../easy_strings/">
+        <link rel="prev" href="../easy_csv/">
       
       
-        <link rel="next" href="../easy_async/">
+        <link rel="next" href="../../how-to/contributing/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Easy Web - py-simple-wrap</title>
+        <title>Easy Data Visualization - py-simple-wrap</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#easy-web" class="md-skip">
+        <a href="#easy-data-visualization" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Easy Web
+              Easy Data Visualization
             
           </span>
         </div>
@@ -391,37 +391,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Easy Web
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../easy_web/" class="md-nav__link">
         
   
   
@@ -437,59 +410,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#a-small-real-world-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A small real-world example
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-happened" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What happened?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-use-these-helpers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why use these helpers?
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -611,10 +531,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../easy_data_visualization/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Easy Data Visualization
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -630,6 +577,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-small-real-world-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A small real-world example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happened" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happened?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-these-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why use these helpers?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1583,38 +1583,43 @@
   
 
 
-<h1 id="easy-web">Easy Web</h1>
-<p>Working with websites often involves several steps before you can extract useful information. The <code>easy_web</code> module provides beginner-friendly helpers that make common web tasks simple and easy to read.</p>
+<h1 id="easy-data-visualization">Easy Data Visualization</h1>
+<p>Working with data visualization often means choosing the right chart and writing several lines of plotting code. The <code>easy_data_visualization</code> module simplifies this process by automatically identifying whether your data is quantitative or categorical and suggesting an appropriate chart.</p>
 <h2 id="a-small-real-world-example">A small real-world example</h2>
-<p>Imagine you want to check whether a website is available before collecting some basic information about it.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_page_up</span><span class="p">,</span> <span class="n">get_page_title</span><span class="p">,</span> <span class="n">count_links</span>
+<p>Imagine you're analyzing a set of values and want to quickly visualize the data without deciding which chart type to use or writing the usual Matplotlib setup yourself.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_data</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
 
-<span class="k">if</span> <span class="n">is_page_up</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The website is online!&quot;</span><span class="p">)</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="n">get_page_title</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">count_links</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The website is unavailable.&quot;</span><span class="p">)</span>
+<span class="n">plot_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
 <p>Example output:</p>
-<div class="highlight"><pre><span></span><code>The website is online!
-GitHub · Build and ship software on a single, collaborative platform · GitHub
-144
+<div class="highlight"><pre><span></span><code>Plotting data...
 </code></pre></div>
+<p>The function automatically creates suitable visualizations, such as a histogram and a line chart, for the quantitative data.</p>
 <h2 id="what-happened">What happened?</h2>
-<p><code>is_page_up()</code> checks whether the website is available before doing anything else.</p>
-<p><code>get_page_title()</code> retrieves the title of the page, making it easy to identify the website you're working with.</p>
-<p><code>count_links()</code> counts all the links on the page without requiring you to parse the HTML yourself.</p>
-<h2 id="why-use-these-helpers">Why use these helpers?</h2>
-<p>These helpers let you focus on the information you want instead of writing the same networking and HTML parsing code every time.</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">is_page_up</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">get_page_title</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">count_links</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+<p><code>plot_data()</code> examines the data and determines whether it is quantitative or categorical before selecting appropriate chart types.</p>
+<p>For example, numerical data can be visualized with a histogram and line chart:</p>
+<div class="highlight"><pre><span></span><code><span class="n">plot_data</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 </code></pre></div>
-<p>This keeps your code simple, readable, and beginner-friendly.</p>
+<p>Categorical data can be visualized with a bar chart and pie chart:</p>
+<div class="highlight"><pre><span></span><code><span class="n">plot_data</span><span class="p">([</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;Java&quot;</span><span class="p">,</span> <span class="s2">&quot;C++&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>You can also provide two data series. When both are quantitative, <code>plot_data()</code> creates a scatter plot:</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="n">plot_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div>
+<p>The module uses <code>_infer_type()</code> internally to classify each series as either <code>quantitative</code> or <code>categorical</code>, allowing <code>plot_data()</code> to choose the appropriate visualization automatically.</p>
+<h2 id="why-use-these-helpers">Why use these helpers?</h2>
+<p>Instead of manually checking your data, choosing a chart, creating Matplotlib figures, and configuring each axis, you can simply write:</p>
+<div class="highlight"><pre><span></span><code><span class="n">plot_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<p>or:</p>
+<div class="highlight"><pre><span></span><code><span class="n">plot_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div>
+<p>This keeps data visualization simple, readable, and beginner-friendly while letting <code>easy_data_visualization</code> handle the chart selection and Matplotlib boilerplate for you.</p>
 
 
 

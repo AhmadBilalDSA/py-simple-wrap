@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://github.com/sara-czasak/py-simple-wrap/tutorial/easy_web/">
+        <link rel="canonical" href="https://github.com/sara-czasak/py-simple-wrap/tutorial/easy_csv/">
       
       
-        <link rel="prev" href="../easy_strings/">
+        <link rel="prev" href="../easy_converter/">
       
       
-        <link rel="next" href="../easy_async/">
+        <link rel="next" href="../easy_data_visualization/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Easy Web - py-simple-wrap</title>
+        <title>Easy Csv - py-simple-wrap</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#easy-web" class="md-skip">
+        <a href="#easy-csv" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Easy Web
+              Easy Csv
             
           </span>
         </div>
@@ -391,37 +391,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Easy Web
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../easy_web/" class="md-nav__link">
         
   
   
@@ -437,59 +410,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#a-small-real-world-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A small real-world example
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-happened" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What happened?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-use-these-helpers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why use these helpers?
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -583,10 +503,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../easy_csv/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Easy Csv
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -602,6 +549,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-small-real-world-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A small real-world example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happened" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happened?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-these-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why use these helpers?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1583,38 +1583,55 @@
   
 
 
-<h1 id="easy-web">Easy Web</h1>
-<p>Working with websites often involves several steps before you can extract useful information. The <code>easy_web</code> module provides beginner-friendly helpers that make common web tasks simple and easy to read.</p>
+<h1 id="easy-csv">Easy CSV</h1>
+<p>Working with CSV files is common when storing or exchanging structured data. Whether you're reading information, creating CSV files, checking columns, or filtering rows, <code>easy_csv</code> provides simple helpers that make working with CSV data easy to read and understand.</p>
 <h2 id="a-small-real-world-example">A small real-world example</h2>
-<p>Imagine you want to check whether a website is available before collecting some basic information about it.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_page_up</span><span class="p">,</span> <span class="n">get_page_title</span><span class="p">,</span> <span class="n">count_links</span>
+<p>Imagine you're managing a list of people stored in a CSV file. You want to read the data, check which columns are available, and find a specific person without writing the CSV parsing logic yourself.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_csv_to_list</span><span class="p">,</span> <span class="n">get_csv_columns</span><span class="p">,</span> <span class="n">filter_csv_rows</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com&quot;</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="n">get_csv_columns</span><span class="p">(</span><span class="s2">&quot;people.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">is_page_up</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The website is online!&quot;</span><span class="p">)</span>
+<span class="n">people</span> <span class="o">=</span> <span class="n">read_csv_to_list</span><span class="p">(</span><span class="s2">&quot;people.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="n">get_page_title</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">count_links</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The website is unavailable.&quot;</span><span class="p">)</span>
+<span class="n">alice</span> <span class="o">=</span> <span class="n">filter_csv_rows</span><span class="p">(</span>
+    <span class="n">filepath</span><span class="o">=</span><span class="s2">&quot;people.csv&quot;</span><span class="p">,</span>
+    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+    <span class="n">value</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">alice</span><span class="p">)</span>
 </code></pre></div>
 <p>Example output:</p>
-<div class="highlight"><pre><span></span><code>The website is online!
-GitHub · Build and ship software on a single, collaborative platform · GitHub
-144
+<div class="highlight"><pre><span></span><code>[&#39;Name&#39;, &#39;Age&#39;]
+[{&#39;Name&#39;: &#39;Alice&#39;, &#39;Age&#39;: &#39;24&#39;}, {&#39;Name&#39;: &#39;Bob&#39;, &#39;Age&#39;: &#39;31&#39;}]
+[{&#39;Name&#39;: &#39;Alice&#39;, &#39;Age&#39;: &#39;24&#39;}]
 </code></pre></div>
 <h2 id="what-happened">What happened?</h2>
-<p><code>is_page_up()</code> checks whether the website is available before doing anything else.</p>
-<p><code>get_page_title()</code> retrieves the title of the page, making it easy to identify the website you're working with.</p>
-<p><code>count_links()</code> counts all the links on the page without requiring you to parse the HTML yourself.</p>
-<h2 id="why-use-these-helpers">Why use these helpers?</h2>
-<p>These helpers let you focus on the information you want instead of writing the same networking and HTML parsing code every time.</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">is_page_up</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">get_page_title</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">count_links</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+<p><code>get_csv_columns()</code> retrieves the column names from the first row of the CSV file.</p>
+<p><code>read_csv_to_list()</code> reads the CSV file and returns its contents as a list of dictionaries by default. You can also set <code>return_dict=False</code> to receive the rows as lists.</p>
+<p><code>filter_csv_rows()</code> finds rows where a specific column matches the value you provide.</p>
+<p>You can also use <code>write_csv_from_list()</code> to create a CSV file from a list of dictionaries or lists.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">write_csv_from_list</span>
+
+<span class="n">people</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">:</span> <span class="s2">&quot;24&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">:</span> <span class="s2">&quot;31&quot;</span><span class="p">},</span>
+<span class="p">]</span>
+
+<span class="n">write_csv_from_list</span><span class="p">(</span><span class="s2">&quot;people.csv&quot;</span><span class="p">,</span> <span class="n">people</span><span class="p">)</span>
 </code></pre></div>
-<p>This keeps your code simple, readable, and beginner-friendly.</p>
+<h2 id="why-use-these-helpers">Why use these helpers?</h2>
+<p>Instead of repeatedly opening files, creating CSV readers and writers, handling headers, and filtering rows manually, you can simply write:</p>
+<div class="highlight"><pre><span></span><code><span class="n">people</span> <span class="o">=</span> <span class="n">read_csv_to_list</span><span class="p">(</span><span class="s2">&quot;people.csv&quot;</span><span class="p">)</span>
+
+<span class="n">alice</span> <span class="o">=</span> <span class="n">filter_csv_rows</span><span class="p">(</span>
+    <span class="s2">&quot;people.csv&quot;</span><span class="p">,</span>
+    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+    <span class="n">value</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>These helpers keep working with CSV files simple, readable, and beginner-friendly while making common tasks such as reading, writing, inspecting, and filtering CSV data easier.</p>
 
 
 
