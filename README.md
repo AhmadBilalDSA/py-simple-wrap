@@ -523,6 +523,7 @@ A huge thank you to these wonderful people for helping make Python simpler for e
 
 #### Emoji Key:
 - 💻 = Code
+- 🪶 = Module author
 - 📖 = Docs
 - 🐛 = Bug Reports
 - 🧪 = Tests
