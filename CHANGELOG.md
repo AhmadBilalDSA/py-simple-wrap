@@ -19,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 <summary>Day-by-day breakdown</summary>
 
 #### 2026-08-04 – 2026-08-09
-**📦 Released v0.2.0**
+**📦 Released v0.2.0 (PYPI)**
 - Added JSON flattening function and tests (`is_nested_json`, `flatten_json`) to `easy_json` ([@sara-czasak](https://github.com/sara-czasak), [@atiqur-rahman-pro](https://github.com/atiqur-rahman-pro))
 - Added `easy_regex` module; tests added ([@sara-czasak](https://github.com/sara-czasak), [@Mlandvo](https://github.com/Mlandvo), [@gaoharimran29-glitch](https://github.com/gaoharimran29-glitch))
 - Added `easy_lists` (11 helpers) and `easy_text` (10 helpers) modules, with tests and docs ([@ghostfix-pm](https://github.com/ghostfix-pm))
@@ -50,7 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - README overhaul: badges, consistency fixes, all-contributors bot setup ([@sara-czasak](https://github.com/sara-czasak))
 
 #### 2026-07-31
-**📦 Released v0.1.1, v0.1.2, v0.1.3, v0.1.4**
+**📦 Released v0.1.1, v0.1.2, v0.1.3, v0.1.4 (PYPI)**
 - Added unit tests for `easy_web` module (closes #15) ([@HeaTTap](https://github.com/HeaTTap))
 - Added `get_page_title` and other new functions to `easy_web`, added unit test workflow ([@sara-czasak](https://github.com/sara-czasak))
 - Refactored docs, started building the docs page, added GitHub Pages deployment workflow ([@sara-czasak](https://github.com/sara-czasak))
@@ -58,7 +58,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Various bug fixes and mkdocs config fixes ([@sara-czasak](https://github.com/sara-czasak))
 
 #### 2026-07-23 – 2026-07-30
-**📦 Released v0.1.0**
+**📦 Released v0.1.0 (PYPI)**
 - Started and expanded `easy_numbers` module (is_prime, percentage_of, fixed negative-number prime bug); tests added ([@sara-czasak](https://github.com/sara-czasak), [@jagjitkaur0000](https://github.com/jagjitkaur0000))
 - Added fluid oz/ml conversions and other features to `easy_converter`; tests added ([@sara-czasak](https://github.com/sara-czasak), [@averyquinnhq](https://github.com/averyquinnhq))
 - Started and expanded `easy_validator` module; tests added ([@sara-czasak](https://github.com/sara-czasak), [@gaoharimran29-glitch](https://github.com/gaoharimran29-glitch))
@@ -70,7 +70,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Various README/CONTRIBUTORS.md updates ([@sara-czasak](https://github.com/sara-czasak))
 
 #### 2026-07-21 – 2026-07-22
-**📦 Initial version (v0.0.1)**
+**📦 Initial version (v0.0.1) PYPI**
 - Project scaffolding: initial commit, README, LICENSE, CONTRIBUTING.md, pyproject.toml ([@sara-czasak](https://github.com/sara-czasak))
 - Added `easy_file_manager` functionality: read-to-list, remove file, rename file ([@sara-czasak](https://github.com/sara-czasak))
 - Added `easy_date_formatter` module, made helper functions private ([@sara-czasak](https://github.com/sara-czasak))
