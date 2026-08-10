@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://github.com/sara-czasak/py-simple-wrap/tutorial/easy_strings/">
+        <link rel="canonical" href="https://github.com/sara-czasak/py-simple-wrap/tutorial/easy_game/">
       
       
-        <link rel="prev" href="../easy_flow/">
+        <link rel="prev" href="../easy_file_manager/">
       
       
-        <link rel="next" href="../easy_web/">
+        <link rel="next" href="../../how-to/contributing/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Easy Strings - py-simple-wrap</title>
+        <title>Easy Game - py-simple-wrap</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#easy-strings" class="md-skip">
+        <a href="#easy-game" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Easy Strings
+              Easy Game
             
           </span>
         </div>
@@ -559,37 +559,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Easy Strings
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../easy_strings/" class="md-nav__link">
         
   
   
@@ -605,59 +578,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#a-small-real-world-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A small real-world example
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-happened" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What happened?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-use-these-helpers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why use these helpers?
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -723,10 +643,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../easy_game/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Easy Game
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -742,6 +689,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-small-real-world-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A small real-world example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happened" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happened?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-these-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why use these helpers?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1723,43 +1723,65 @@
   
 
 
-<h1 id="easy-strings">Easy Strings</h1>
-<p>Working with text is something you'll do in almost every Python project. Whether you're cleaning user input, creating filenames, or preparing text for URLs, <code>easy_strings</code> provides simple helpers that keep your code easy to read.</p>
+<h1 id="easy-game">Easy Game</h1>
+<p>Working with games in Python often means setting up Pygame, creating a game window, handling events, and checking mouse input. The <code>easy_game</code> module provides simple helpers that remove some of this boilerplate and make getting started with Pygame easier.</p>
 <h2 id="a-small-real-world-example">A small real-world example</h2>
-<p>Imagine you're collecting article titles from users. Before saving them, you want to:</p>
-<ul>
-<li>remove extra spaces,</li>
-<li>create a <code>snake_case</code> filename,</li>
-<li>count how many words the title contains.</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="n">remove_extra_spaces</span><span class="p">,</span> <span class="n">to_snake_case</span><span class="p">,</span> <span class="n">count_words</span>
+<p>Imagine you're creating a simple game where you need to open a window, keep track of the game clock, detect when the player closes the window, and check whether the player is pressing the mouse buttons.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">basic_game_setup</span><span class="p">,</span>
+    <span class="n">check_if_quit</span><span class="p">,</span>
+    <span class="n">get_mouse_position</span><span class="p">,</span>
+    <span class="n">is_left_mouse_button_clicked</span><span class="p">,</span>
+<span class="p">)</span>
 
-<span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;   My   First    Python Project!   &quot;</span>
+<span class="n">screen</span><span class="p">,</span> <span class="n">clock</span> <span class="o">=</span> <span class="n">basic_game_setup</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="s2">&quot;My Game&quot;</span><span class="p">)</span>
 
-<span class="n">clean_title</span> <span class="o">=</span> <span class="n">remove_extra_spaces</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="n">to_snake_case</span><span class="p">(</span><span class="n">clean_title</span><span class="p">)</span>
-<span class="n">words</span> <span class="o">=</span> <span class="n">count_words</span><span class="p">(</span><span class="n">clean_title</span><span class="p">)</span>
+<span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">clean_title</span><span class="p">)</span>
-<span class="c1"># My First Python Project!</span>
+<span class="k">while</span> <span class="n">running</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">check_if_quit</span><span class="p">():</span>
+        <span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="c1"># my_first_python_project</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">get_mouse_position</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-<span class="c1"># 4</span>
+    <span class="k">if</span> <span class="n">is_left_mouse_button_clicked</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mouse clicked at: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">clock</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="what-happened">What happened?</h2>
-<p><code>remove_extra_spaces()</code> removes leading, trailing, and repeated spaces from the text.</p>
-<p><code>to_snake_case()</code> converts the cleaned text into <code>snake_case</code>, making it useful for filenames, variables, or URLs.</p>
-<p><code>count_words()</code> counts the number of words in the cleaned text without needing any extra logic.</p>
-<h2 id="why-use-these-helpers">Why use these helpers?</h2>
-<p>Instead of combining multiple string methods and regular expressions every time, you can write cleaner and more readable code:</p>
-<div class="highlight"><pre><span></span><code><span class="n">clean_title</span> <span class="o">=</span> <span class="n">remove_extra_spaces</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="n">to_snake_case</span><span class="p">(</span><span class="n">clean_title</span><span class="p">)</span>
-<span class="n">words</span> <span class="o">=</span> <span class="n">count_words</span><span class="p">(</span><span class="n">clean_title</span><span class="p">)</span>
+<p><code>basic_game_setup()</code> initializes Pygame, creates the game window, sets its title, and creates a clock for controlling the game loop.</p>
+<p><code>check_if_quit()</code> checks the Pygame event queue and returns <code>True</code> when the player closes the game window.</p>
+<p><code>get_mouse_position()</code> returns the current <code>(x, y)</code> position of the mouse cursor.</p>
+<p><code>is_left_mouse_button_clicked()</code> checks whether the left mouse button is currently being held down.</p>
+<p>The module also provides helpers for checking the middle and right mouse buttons:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">py_simple</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">is_middle_mouse_button_clicked</span><span class="p">,</span>
+    <span class="n">is_right_mouse_button_clicked</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="n">is_middle_mouse_button_clicked</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Middle mouse button!&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">is_right_mouse_button_clicked</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Right mouse button!&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p>These helpers keep your code simple, readable, and beginner-friendly.</p>
+<h2 id="why-use-these-helpers">Why use these helpers?</h2>
+<p>Instead of repeatedly writing Pygame initialization, event handling, and mouse input code, you can simply use:</p>
+<div class="highlight"><pre><span></span><code><span class="n">screen</span><span class="p">,</span> <span class="n">clock</span> <span class="o">=</span> <span class="n">basic_game_setup</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="s2">&quot;My Game&quot;</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">check_if_quit</span><span class="p">():</span>
+        <span class="k">break</span>
+
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">get_mouse_position</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">is_left_mouse_button_clicked</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="n">clock</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+</code></pre></div>
+<p>These helpers keep common Pygame tasks simple, readable, and beginner-friendly while letting you focus on building the actual game.</p>
 
 
 
