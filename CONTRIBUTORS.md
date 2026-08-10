@@ -129,6 +129,9 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
   
 - **Thomson Lee** ([@thomsonl](https://github.com/thomsonl))
     - Add tests for `easy_flow.py` module
+
+- **João Pedro Brasil** ([@joaoprbrasil](https://github.com/joaoprbrasil))
+    - Add `easy_data_visualization` module
   
 ---
 
