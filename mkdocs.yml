@@ -32,21 +32,22 @@ nav:
   - Home: index.md
   - Tutorial:
       - Quickstart: tutorial/quickstart.md
-      - Easy Flow: tutorial/easy_flow.md
-      - Easy Strings: tutorial/easy_strings.md
-      - Easy Web: tutorial/easy_web.md
       - Easy Async: tutorial/easy_async.md
       - Easy Colors: tutorial/easy_colors.md
       - Easy Converter: tutorial/easy_converter.md
       - Easy Csv: tutorial/easy_csv.md
+      - Easy Flow: tutorial/easy_flow.md
+      - Easy Strings: tutorial/easy_strings.md
+      - Easy Web: tutorial/easy_web.md
+
       - Easy Data Visualization: tutorial/easy_data_visualization.md
   - How To:
       - Contributing: how-to/contributing.md
   - Reference:
       - Easy Async: reference/easy_async.md
-      - Easy CSV: reference/easy_csv.md
       - Easy Colors: reference/easy_colors.md
       - Easy Converter: reference/easy_converter.md
+      - Easy CSV: reference/easy_csv.md
       - Easy Data Visualization: reference/easy_data_visualization.md
       - Easy Date Formatter: reference/easy_date_formatter.md
       - Easy Dict: reference/easy_dict.md
