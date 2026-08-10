@@ -39,6 +39,7 @@ nav:
       - Easy Colors: tutorial/easy_colors.md
       - Easy Converter: tutorial/easy_converter.md
       - Easy Csv: tutorial/easy_csv.md
+      - Easy Data Visualization: tutorial/easy_data_visualization.md
   - How To:
       - Contributing: how-to/contributing.md
   - Reference:
