@@ -84,28 +84,29 @@ def generate_password(pass_length: int = 12, uppercase_chars: int = 2,
     """
     lowercase_chars = (pass_length -
                        (special_chars + digit_chars + uppercase_chars))
-    lower_chars = [random.choice(string.ascii_lowercase)
+    lower_chars = [secrets.choice(string.ascii_lowercase)
                    for _ in range(lowercase_chars)]
-    upper_chars = [random.choice(string.ascii_uppercase)
+    upper_chars = [secrets.choice(string.ascii_uppercase)
                    for _ in range(uppercase_chars)]
-    digit_chars = [random.choice(string.digits)
+    digit_chars = [secrets.choice(string.digits)
                    for _ in range(digit_chars)]
-    special_chars = [random.choice(string.punctuation)
+    special_chars = [secrets.choice(string.punctuation)
                      for _ in range(special_chars)]
 
     pass_chars = [i for i in lower_chars + upper_chars +
                   digit_chars + special_chars]
 
     all_clear = False
-    last_char = None
     while not all_clear:
+        last_char = None
         random.shuffle(pass_chars)
         for char in pass_chars:
             if char == last_char:
+                all_clear = False
                 break
             else:
                 last_char = char
-        all_clear = True
+            all_clear = True
 
     return ''.join(pass_chars)
 
@@ -266,10 +267,10 @@ def generate_otp(length: int = 4, with_letters: bool = False) -> str:
         if with_letters:
             otp_chars = string.ascii_letters + string.digits
             for i in range(length):
-                otp += str(random.choice(otp_chars))
+                otp += str(secrets.choice(otp_chars))
         else:
             for i in range(length):
-                otp += str(random.randint(0, 9))
+                otp += str(secrets.randbelow(10))
         return otp
     else:
         raise EasyGeneratorError("\n\n\nERROR: OTP length must be at least 4") from None

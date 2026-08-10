@@ -236,6 +236,24 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "AashiSrivastava411",
+      "name": "Aashi Srivastava",
+      "avatar_url": "https://github.com/AashiSrivastava411.png",
+      "profile": "https://github.com/AashiSrivastava411",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "thomsonl",
+      "name": "Thomson Lee",
+      "avatar_url": "https://github.com/thomsonl.png",
+      "profile": "https://github.com/thomsonl",
+      "contributions": [
+        "test"
+      ]
     }
   ]
 }

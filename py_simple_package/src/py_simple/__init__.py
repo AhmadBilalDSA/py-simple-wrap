@@ -41,7 +41,7 @@ from .easy_json import (
 )
 from .easy_colors import (
     hex_to_rgb, rgb_to_hex, is_valid_hex, rgb_to_hsl, hsl_to_rgb,
-    random_hex_color, is_light_color,
+    random_hex_color, is_light_color, hex_to_rgba, contrast_ratio,
 )
 from .easy_flow import (
     run_py_file, run_py_file_safe, time_function_call, time_it, retry
@@ -78,7 +78,9 @@ from .easy_images import (
     resize_image, convert_image, rotate_image, get_image_info,
 )
 from .easy_game import (
-    basic_game_setup,
+    basic_game_setup, check_if_quit, get_mouse_position,
+    is_left_mouse_button_clicked, is_middle_mouse_button_clicked,
+    is_right_mouse_button_clicked
 )
 from .easy_generator import (
     generate_qr_code, generate_password, generate_otp, generate_api_key,
@@ -86,7 +88,8 @@ from .easy_generator import (
 )
 
 from .easy_math import (
-    get_least_common_multiple, factorial, fibonacci, prime_factorization, sum_of_digits, divisors,
+    get_least_common_multiple, factorial, fibonacci, prime_factorization,
+    sum_of_digits, divisors,
 )
 
 from .easy_data_visualization import (

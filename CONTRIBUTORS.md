@@ -123,6 +123,12 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
 - **Vijay Misal** ([@vjymisal0](https://github.com/vjymisal0))
     - Add `easy_images.py` module
     - Add tests for `easy_images.py` module
+
+- **Aashi Srivastaval** ([@AashiSrivastava411](https://github.com/AashiSrivastava411))
+    - Add tests for `easy_async.py` module
+  
+- **Thomson Lee** ([@thomsonl](https://github.com/thomsonl))
+    - Add tests for `easy_flow.py` module
   
 ---
 
