@@ -245,6 +245,15 @@
       "contributions": [
         "test"
       ]
+    },
+    {
+      "login": "thomsonl",
+      "name": "Thomson Lee",
+      "avatar_url": "https://github.com/thomsonl.png",
+      "profile": "https://github.com/thomsonl",
+      "contributions": [
+        "test"
+      ]
     }
   ]
 }

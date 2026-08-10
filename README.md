@@ -1,6 +1,6 @@
 # py-simple-wrap 🚀
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-19-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-20-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 **Making Python feel like plain English.**
@@ -561,6 +561,7 @@ A huge thank you to these wonderful people for helping make Python simpler for e
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/SemTiOne"><img src="https://github.com/SemTiOne.png?s=100" width="100px;" alt="Dane Parin"/><br /><sub><b>Dane Parin</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=SemTiOne" title="Code">💻</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=SemTiOne" title="Tests">🧪</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/vjymisal0"><img src="https://github.com/vjymisal0.png?s=100" width="100px;" alt="Vijay Misal"/><br /><sub><b>Vijay Misal</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=vjymisal0" title="Code">💻</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=vjymisal0" title="Tests">🧪</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/AashiSrivastava411"><img src="https://github.com/AashiSrivastava411.png?s=100" width="100px;" alt="Aashi Srivastava"/><br /><sub><b>Aashi Srivastava</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=AashiSrivastava411" title="Tests">🧪</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/thomsonl"><img src="https://github.com/thomsonl.png?s=100" width="100px;" alt="Thomson Lee"/><br /><sub><b>Thomson Lee</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=thomsonl" title="Tests">🧪</a></td>
     </tr>
   </tbody>
 </table>

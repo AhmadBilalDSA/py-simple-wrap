@@ -127,6 +127,9 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
 - **Aashi Srivastaval** ([@AashiSrivastava411](https://github.com/AashiSrivastava411))
     - Add tests for `easy_async.py` module
   
+- **Thomson Lee** ([@thomsonl](https://github.com/thomsonl))
+    - Add tests for `easy_flow.py` module
+  
 ---
 
 ## How to get your name here? 🛠️
