@@ -522,16 +522,16 @@ Every contribution helps make py-simple-wrap better for beginners and developers
 A huge thank you to these wonderful people for helping make Python simpler for everyone!
 
 #### Emoji Key:
-- 💻 = Code
+- 👑 = Original Author
 - 🪶 = Module author
-- 📖 = Docs
-- 🐛 = Bug Reports
+- 🛡️ = Maintainer
+- ✋ = Collaborators
+- 💻 = Code
 - 🧪 = Tests
 - 🚇 = Infrastructure
-- 🛡️ = Maintainer
-- 👑 = Original Author
+- 📖 = Docs
+- 🐛 = Bug Reports
 - 🚀 = Project Management
-- ✋ = Collaborators
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
