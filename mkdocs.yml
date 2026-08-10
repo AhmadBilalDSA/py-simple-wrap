@@ -36,12 +36,14 @@ nav:
       - Easy Colors: tutorial/easy_colors.md
       - Easy Converter: tutorial/easy_converter.md
       - Easy Csv: tutorial/easy_csv.md
-      - Easy Data Visualization: tutorial/easy_data_visualization.md\
+      - Easy Data Visualization: tutorial/easy_data_visualization.md
       - Easy Date Formatter: tutorial/easy_date_formatter.md
       - Easy Dict: tutorial/easy_dict.md
       - Easy Flow: tutorial/easy_flow.md
       - Easy Strings: tutorial/easy_strings.md
       - Easy Web: tutorial/easy_web.md
+      - Easy File Manager: tutorial/easy_file_manager.md
+      - Easy Game: tutorial/easy_game.md
   - How To:
       - Contributing: how-to/contributing.md
   - Reference:
