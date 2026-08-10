@@ -91,3 +91,7 @@ from .easy_math import (
     get_least_common_multiple, factorial, fibonacci, prime_factorization,
     sum_of_digits, divisors,
 )
+
+from .easy_data_visualization import (
+    plot_data
+)
