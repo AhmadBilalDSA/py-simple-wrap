@@ -43,27 +43,28 @@ nav:
   - How To:
       - Contributing: how-to/contributing.md
   - Reference:
-      - Easy Numbers: reference/easy_numbers.md
+      - Easy Async: reference/easy_async.md
+      - Easy CSV: reference/easy_csv.md
+      - Easy Colors: reference/easy_colors.md
+      - Easy Converter: reference/easy_converter.md
+      - Easy Data Visualization: reference/easy_data_visualization.md
+      - Easy Date Formatter: reference/easy_date_formatter.md
+      - Easy Dict: reference/easy_dict.md
+      - Easy File Manager: reference/easy_file_manager.md
+      - Easy Flow: reference/easy_flow.md
+      - Easy Game: reference/easy_game.md
+      - Easy Generator: reference/easy_generator.md
+      - Easy Images: reference/easy_images.md
+      - Easy Json: reference/easy_json.md
       - Easy Lists: reference/easy_lists.md
+      - Easy Math: reference/easy_math.md
+      - Easy Numbers: reference/easy_numbers.md
+      - Easy Regex: reference/easy_regex.md
+      - Easy Stats: reference/easy_stats.md
       - Easy Strings: reference/easy_strings.md
       - Easy Text: reference/easy_text.md
-      - Easy Colors: reference/easy_colors.md
-      - Easy Web: reference/easy_web.md
-      - Easy Json: reference/easy_json.md
-      - Easy Converter: reference/easy_converter.md
-      - Easy Date Formatter: reference/easy_date_formatter.md
-      - Easy File Manager: reference/easy_file_manager.md
       - Easy Validator: reference/easy_validator.md
-      - Easy Dict: reference/easy_dict.md
-      - Easy Stats: reference/easy_stats.md
-      - Easy Images: reference/easy_images.md
-      - Easy Math: reference/easy_math.md
-      - Easy Generator: reference/easy_generator.md
-      - Easy CSV: reference/easy_csv.md
-      - Easy Game: reference/easy_game.md
-      - Easy Regex: reference/easy_regex.md
-      - Easy Flow: reference/easy_flow.md
-      - Easy Async: reference/easy_async.md
+      - Easy Web: reference/easy_web.md
   - About:
       - README: readme.md
       - Contributors: about/contributors.md
