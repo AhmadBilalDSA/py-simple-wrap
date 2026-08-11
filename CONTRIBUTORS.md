@@ -380,6 +380,58 @@ Every tile below is a real person who showed up for this project. 💛
 
 ---
 
+## 🌀 The Round Table
+*Trusted collaborators with write access to the repo — no head of the table, just people holding it together.*
+
+<table>
+  <tr>
+    <td align="center" valign="top" width="14.28%">
+      <a href="https://github.com/sara-czasak">
+        <img src="https://github.com/sara-czasak.png" width="100px;" alt="Sara Czasak"/><br />
+        <sub><b>Sara Czasak</b></sub>
+      </a>
+    </td>
+    <td align="center" valign="top" width="14.28%">
+      <a href="https://github.com/atiqur-rahman-pro">
+        <img src="https://github.com/atiqur-rahman-pro.png" width="100px;" alt="atiqur rahman"/><br />
+        <sub><b>atiqur rahman</b></sub>
+      </a>
+    </td>
+    <td align="center" valign="top" width="14.28%">
+      <a href="https://github.com/gaoharimran29-glitch">
+        <img src="https://github.com/gaoharimran29-glitch.png" width="100px;" alt="Gaohar Imran"/><br />
+        <sub><b>Gaohar Imran</b></sub>
+      </a>
+    </td>
+    <td align="center" valign="top" width="14.28%">
+      <a href="https://github.com/ghostfix-pm">
+        <img src="https://github.com/ghostfix-pm.png" width="100px;" alt="ghostfix-pm"/><br />
+        <sub><b>ghostfix-pm</b></sub>
+      </a>
+    </td>
+    <td align="center" valign="top" width="14.28%">
+      <a href="https://github.com/jagjitkaur0000">
+        <img src="https://github.com/jagjitkaur0000.png" width="100px;" alt="jagjitkaur0000"/><br />
+        <sub><b>jagjitkaur0000</b></sub>
+      </a>
+    </td>
+    <td align="center" valign="top" width="14.28%">
+      <a href="https://github.com/Onion0121">
+        <img src="https://github.com/Onion0121.png" width="100px;" alt="Yassin Azzouzi"/><br />
+        <sub><b>Yassin Azzouzi</b></sub>
+      </a>
+    </td>
+    <td align="center" valign="top" width="14.28%">
+      <a href="https://github.com/SemTiOne">
+        <img src="https://github.com/SemTiOne.png" width="100px;" alt="Dane Parin"/><br />
+        <sub><b>Dane Parin</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+---
+
 ## How to get your name here? 🛠️
 I welcome contributions of all sizes! Whether you are fixing a typo in the README, suggesting a new "Simple" module, reporting a bug, or writing code, I'd love to have you involved — and to give you a tile of your very own.
 
