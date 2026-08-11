@@ -136,6 +136,9 @@ Remember **always** that you are **valid**, **valuable**, **unique** and **irrep
 - **d.smirnov** ([@smirnov-danil](https://github.com/smirnov-danil))
     - Expand `easy_colors` module
   
+- **Venkat ** ([@Venkat4real ](https://github.com/Venkat4real))
+    - Added `easy_numbers` tutorial
+    - 
 ---
 
 ## How to get your name here? 🛠️
