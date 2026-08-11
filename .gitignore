@@ -33,7 +33,7 @@ coverage.xml
 # Project specifics
 .env
 .junie/
-py_simple_ideas.txt
+py_simple_ideas.md
 
 issue_templates/
 .claude/
