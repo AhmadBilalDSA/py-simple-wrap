@@ -2,7 +2,8 @@
   "files": [
     "README.md"
   ],
-  "imageSize": 100,
+  "imageSize": 60,
+  "contributorsPerLine": 12,
   "projectName": "py_simple",
   "projectOwner": "sara-czasak",
   "repoType": "github",
