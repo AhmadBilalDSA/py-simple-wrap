@@ -97,3 +97,32 @@ export function primaryGuild(scores: ActivityScores, enabled: GuildId[]): GuildI
 export function activityMemberships(scores: ActivityScores, enabled: GuildId[]): GuildId[] {
   return ACTIVITY_GUILD_IDS.filter((id) => enabled.includes(id) && scores[id as keyof ActivityScores] > 0);
 }
+
+/**
+ * The top scorer(s) per activity guild, repo-wide — "who to tag" if you have a question about
+ * that area. Ties (rare) all get the crown rather than picking one arbitrarily; guilds nobody
+ * has touched (score 0 for everyone) have no champion.
+ */
+export function computeGuildChampions(
+  entries: Array<{ key: string; scores: ActivityScores }>,
+  enabled: GuildId[]
+): Map<GuildId, Set<string>> {
+  const champions = new Map<GuildId, Set<string>>();
+  for (const id of ACTIVITY_GUILD_IDS) {
+    if (!enabled.includes(id)) continue;
+    let best = 0;
+    let holders = new Set<string>();
+    for (const entry of entries) {
+      const score = entry.scores[id as keyof ActivityScores];
+      if (score <= 0) continue;
+      if (score > best) {
+        best = score;
+        holders = new Set([entry.key]);
+      } else if (score === best) {
+        holders.add(entry.key);
+      }
+    }
+    if (holders.size > 0) champions.set(id, holders);
+  }
+  return champions;
+}

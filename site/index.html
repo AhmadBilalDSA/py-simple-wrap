@@ -28,11 +28,11 @@
           <button class="menu__item" type="button" data-route="quest" data-key="1">
             <span class="menu__key">1</span> ⚔️ Begin Your Adventure
           </button>
-          <button class="menu__item" type="button" data-action="support" data-key="2">
-            <span class="menu__key">2</span> ⭐ Show Your Support
+          <button class="menu__item" type="button" data-route="leaderboard" data-key="2">
+            <span class="menu__key">2</span> 🏆 Leaderboard
           </button>
-          <button class="menu__item" type="button" data-route="leaderboard" data-key="3">
-            <span class="menu__key">3</span> 🏆 Leaderboard
+          <button class="menu__item" type="button" data-action="support" data-key="3">
+            <span class="menu__key">3</span> ⭐ Show Your Support
           </button>
         </nav>
       </section>
@@ -47,6 +47,11 @@
         <button class="back-link" type="button" data-route="menu">&larr; Back to the Tavern</button>
         <h2 class="screen-heading">Leaderboard</h2>
         <div id="leaderboard-content" class="roster"></div>
+      </section>
+
+      <section id="screen-profile" class="screen" hidden>
+        <button class="back-link" type="button" data-route="leaderboard">&larr; Back to the Leaderboard</button>
+        <div id="profile-content"></div>
       </section>
 
       <footer class="quest-footer">

@@ -24,24 +24,25 @@ function guildInfo(id) {
 
 // ---- Router ----
 
-const SCREENS = ["menu", "quest", "leaderboard"];
+const SCREENS = ["menu", "quest", "leaderboard", "profile"];
 
 function currentRoute() {
-  const hash = location.hash.replace(/^#\/?/, "");
-  return SCREENS.includes(hash) ? hash : "menu";
+  const [screen, param] = location.hash.replace(/^#\/?/, "").split("/");
+  return { screen: SCREENS.includes(screen) ? screen : "menu", param };
 }
 
 function render(route) {
   for (const screen of SCREENS) {
-    document.getElementById(`screen-${screen}`).hidden = screen !== route;
+    document.getElementById(`screen-${screen}`).hidden = screen !== route.screen;
   }
-  if (route === "quest") renderQuestBoard();
-  if (route === "leaderboard") renderLeaderboard();
-  if (route === "menu") document.querySelector(".menu__item")?.focus();
+  if (route.screen === "quest") renderQuestBoard();
+  if (route.screen === "leaderboard") renderLeaderboard();
+  if (route.screen === "profile") renderProfile(route.param);
+  if (route.screen === "menu") document.querySelector(".menu__item")?.focus();
 }
 
-function navigate(route) {
-  location.hash = `/${route}`;
+function navigate(screen, param) {
+  location.hash = param ? `/${screen}/${param}` : `/${screen}`;
 }
 
 window.addEventListener("hashchange", () => render(currentRoute()));
@@ -72,7 +73,7 @@ function setupMenu() {
   });
 
   document.addEventListener("keydown", (e) => {
-    if (currentRoute() !== "menu") return;
+    if (currentRoute().screen !== "menu") return;
     const match = items.find((btn) => btn.dataset.key === e.key);
     if (match) handleMenuAction(match);
   });
@@ -155,15 +156,28 @@ function badgeHtml(badge) {
   return `<span class="${cls}" title="${escapeHtml(badge.label)} — ${escapeHtml(badge.flavor)}">${badge.icon}</span>`;
 }
 
+function contributorKey(contributor) {
+  return encodeURIComponent(contributor.email);
+}
+
+function findContributor(key) {
+  const email = decodeURIComponent(key ?? "");
+  return STATE?.contributors.find((c) => c.email === email) ?? null;
+}
+
 function leaderboardCardHtml(contributor, index) {
   const primary = guildInfo(contributor.primaryGuild);
   const otherGuilds = contributor.guilds.filter((id) => id !== contributor.primaryGuild).map(guildInfo);
   const crests = otherGuilds.map((g) => `<span class="badge" title="${escapeHtml(g.name)}">${g.icon}</span>`).join("");
+  const championOf = contributor.championOf ?? [];
+  const crown = championOf.length
+    ? `<span class="crown" title="Guild Champion: ${escapeHtml(championOf.map((id) => guildInfo(id).name).join(", "))}">👑</span>`
+    : "";
 
   return `
-    <article class="card" style="animation-delay:${index * 60}ms">
+    <article class="card card--clickable" style="animation-delay:${index * 60}ms" data-profile="${contributorKey(contributor)}" tabindex="0" role="button">
       <div class="card__head">
-        <span class="card__name"><span class="card__rank">#${contributor.rank}</span>${escapeHtml(contributor.name)}</span>
+        <span class="card__name"><span class="card__rank">#${contributor.rank}</span>${crown}${escapeHtml(contributor.name)}</span>
         <span class="card__level">Lv.${contributor.level}</span>
       </div>
       <div class="card__subline">${contributor.levelTitle} · ${primary.icon} ${escapeHtml(primary.name)}<span class="card__crests">${crests}</span></div>
@@ -174,6 +188,30 @@ function leaderboardCardHtml(contributor, index) {
   `;
 }
 
+function expertsPanelHtml(contributors) {
+  const activityGuilds = (STATE?.guildCatalog ?? []).filter((g) => g.kind === "activity");
+  if (!activityGuilds.length) return "";
+
+  const rows = activityGuilds
+    .map((guild) => {
+      const champions = contributors.filter((c) => (c.championOf ?? []).includes(guild.id));
+      const names = champions.length
+        ? champions
+            .map((c) => `<a href="#/profile/${contributorKey(c)}">${escapeHtml(c.name)}</a>`)
+            .join(", ")
+        : '<span class="experts__vacant">awaiting a champion</span>';
+      return `<li><span>${guild.icon} ${escapeHtml(guild.name)}</span><span>${names}</span></li>`;
+    })
+    .join("");
+
+  return `
+    <div class="experts">
+      <h3 class="quest-section__title">\u{1F9ED} Ask the Experts</h3>
+      <ul class="experts__list">${rows}</ul>
+    </div>
+  `;
+}
+
 function renderLeaderboard() {
   const content = document.getElementById("leaderboard-content");
   const contributors = STATE?.contributors ?? [];
@@ -181,7 +219,107 @@ function renderLeaderboard() {
     content.innerHTML = '<p class="roster--empty">No adventurers have answered the call yet. Make the first commit!</p>';
     return;
   }
-  content.innerHTML = contributors.map(leaderboardCardHtml).join("");
+  content.innerHTML = expertsPanelHtml(contributors) + contributors.map(leaderboardCardHtml).join("");
+  requestAnimationFrame(() => {
+    content.querySelectorAll(".xp-bar__fill").forEach((el) => {
+      el.style.width = `${el.dataset.progress}%`;
+    });
+  });
+}
+
+document.addEventListener("click", (e) => {
+  const card = e.target.closest("[data-profile]");
+  if (card) navigate("profile", card.dataset.profile);
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Enter" && e.key !== " ") return;
+  const card = document.activeElement?.closest?.("[data-profile]");
+  if (card) {
+    e.preventDefault();
+    navigate("profile", card.dataset.profile);
+  }
+});
+
+// ---- Profile ----
+
+function fullBadgeHtml(badge) {
+  const cls = badge.manual ? "profile-badge profile-badge--manual" : "profile-badge";
+  const date = new Date(badge.earnedAt).toLocaleDateString();
+  return `
+    <li class="${cls}">
+      <span class="profile-badge__icon">${badge.icon}</span>
+      <span class="profile-badge__body">
+        <span class="profile-badge__label">${escapeHtml(badge.label)}${badge.manual ? " ✋" : ""}</span>
+        <span class="profile-badge__flavor">${escapeHtml(badge.flavor)}</span>
+        <span class="profile-badge__date">earned ${date}</span>
+      </span>
+    </li>
+  `;
+}
+
+function renderProfile(key) {
+  const content = document.getElementById("profile-content");
+  const contributor = findContributor(key);
+
+  if (!contributor) {
+    content.innerHTML = '<p class="roster--empty">This adventurer could not be found.</p>';
+    return;
+  }
+
+  const championOf = contributor.championOf ?? [];
+  const guildRows = contributor.guilds
+    .map((id) => guildInfo(id))
+    .sort((a, b) => (a.id === contributor.primaryGuild ? -1 : b.id === contributor.primaryGuild ? 1 : 0))
+    .map((g) => {
+      const tags = [
+        championOf.includes(g.id) ? '<span class="profile-guild__tag profile-guild__tag--champion">👑 champion</span>' : "",
+        g.id === contributor.primaryGuild ? '<span class="profile-guild__tag">primary</span>' : "",
+      ].join("");
+      return `
+        <li class="profile-guild${g.id === contributor.primaryGuild ? " profile-guild--primary" : ""}">
+          <span>${g.icon} ${escapeHtml(g.name)}</span>
+          ${tags}
+        </li>
+      `;
+    })
+    .join("");
+
+  const badgesHtml = [...contributor.badges]
+    .sort((a, b) => b.earnedAt.localeCompare(a.earnedAt))
+    .map(fullBadgeHtml)
+    .join("");
+
+  const relatedIssues = contributor.relatedIssues ?? [];
+  const relatedHtml = relatedIssues
+    .map((issue) => {
+      const tag =
+        issue.kind === "closed" ? '<span class="quest-item__tag quest-item__tag--closed">✅ closed</span>' : '<span class="quest-item__tag">💡 suggested</span>';
+      return `<li><a class="quest-item" href="${issue.url}" target="_blank" rel="noopener"><span class="quest-item__num">#${issue.number}</span>${escapeHtml(issue.title)} ${tag}</a></li>`;
+    })
+    .join("");
+
+  content.innerHTML = `
+    <div class="profile">
+      <div class="profile__head">
+        <h2 class="screen-heading">${escapeHtml(contributor.name)}</h2>
+        <span class="card__rank">#${contributor.rank} · Lv.${contributor.level} ${escapeHtml(contributor.levelTitle)}</span>
+      </div>
+      <div class="xp-bar"><div class="xp-bar__fill" data-progress="${Math.round(contributor.levelProgress * 100)}"></div></div>
+      <div class="card__stats">${contributor.xp} XP · ${contributor.commitCount} commits</div>
+      <div class="card__stats">first seen ${new Date(contributor.firstCommit).toLocaleDateString()} · last active ${new Date(contributor.lastCommit).toLocaleDateString()}</div>
+
+      <h3 class="quest-section__title">Guild Memberships</h3>
+      <ul class="profile-guilds">${guildRows}</ul>
+
+      <h3 class="quest-section__title">Related Quests</h3>
+      ${relatedHtml ? `<ul class="quest-list">${relatedHtml}</ul>` : '<p class="roster--empty">No related quests yet.</p>'}
+
+      <h3 class="quest-section__title">Achievements</h3>
+      ${badgesHtml ? `<ul class="profile-badges">${badgesHtml}</ul>` : '<p class="roster--empty">No badges earned yet — the legend is just beginning.</p>'}
+    </div>
+  `;
+
   requestAnimationFrame(() => {
     content.querySelectorAll(".xp-bar__fill").forEach((el) => {
       el.style.width = `${el.dataset.progress}%`;

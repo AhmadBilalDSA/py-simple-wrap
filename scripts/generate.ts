@@ -1,7 +1,7 @@
 import path from "node:path";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { getCommits, type Commit } from "./lib/git.ts";
-import { loadConfig, deriveTitle, levelTitleFor } from "./lib/config.ts";
+import { loadConfig, deriveTitle, levelTitleFor, resolveIdentity } from "./lib/config.ts";
 import type { GuildId } from "./lib/config.ts";
 import { xpForCommit, levelProgress } from "./lib/xp.ts";
 import {
@@ -11,12 +11,13 @@ import {
   isNewModuleCommit,
   primaryGuild,
   activityMemberships,
+  computeGuildChampions,
   GUILD_CATALOG,
   type ActivityScores,
 } from "./lib/guilds.ts";
 import { evaluateCommitBadges, AUTO_BADGE_META, loadManualBadges, type EarnedBadge, type AutoBadgeId } from "./lib/badges.ts";
 import { fetchCollaborators, fetchLoginForEmail } from "./lib/collaborators.ts";
-import { fetchQuestBoard } from "./lib/issues.ts";
+import { fetchAllIssues, buildQuestBoard, explorePathsFor, issueRefsClosedBy, findClosedByAuthor, findSuitedOpenIssues } from "./lib/issues.ts";
 import { getRepoInfo } from "./lib/repo.ts";
 
 const cwd = process.cwd();
@@ -38,6 +39,7 @@ interface AuthorAccum {
   lastCommitAt: Date;
   scores: ActivityScores;
   badgeEarnedAt: Map<AutoBadgeId, string>;
+  closedIssueRefs: Set<number>;
 }
 
 const byAuthor = new Map<string, AuthorAccum>();
@@ -45,20 +47,21 @@ const knownTopLevelDirs = new Set<string>();
 const fileLastModified = new Map<string, Date>();
 
 function accumFor(commit: Commit): AuthorAccum {
-  const key = commit.authorEmail || commit.authorName;
-  let accum = byAuthor.get(key);
+  const identity = resolveIdentity(commit.authorName, commit.authorEmail, config);
+  let accum = byAuthor.get(identity.key);
   if (!accum) {
     accum = {
-      name: commit.authorName,
-      email: commit.authorEmail,
+      name: identity.name,
+      email: identity.email,
       xp: 0,
       commitCount: 0,
       firstCommitAt: commit.date,
       lastCommitAt: commit.date,
       scores: emptyScores(),
       badgeEarnedAt: new Map(),
+      closedIssueRefs: new Set(),
     };
-    byAuthor.set(key, accum);
+    byAuthor.set(identity.key, accum);
   }
   return accum;
 }
@@ -82,6 +85,8 @@ for (const commit of commits) {
   for (const id of earnedIds) {
     if (!accum.badgeEarnedAt.has(id)) accum.badgeEarnedAt.set(id, commit.date.toISOString());
   }
+
+  for (const ref of issueRefsClosedBy(commit.message)) accum.closedIssueRefs.add(ref);
 }
 
 // Role guilds (Maintainer/Collaborator) need the GitHub collaborators API.
@@ -101,8 +106,17 @@ if (collaborators && collaborators.length > 0 && repo.owner && repo.name) {
 const manualBadges = loadManualBadges(manualBadgesPath);
 const now = Date.now();
 
-const contributors = [...byAuthor.values()]
-  .map((accum) => {
+const issuesResult = repo.owner && repo.name ? await fetchAllIssues(repo.owner, repo.name, token) : null;
+const explorePaths = explorePathsFor(cwd, repo.repoUrl, repo.branch);
+const quests = buildQuestBoard(issuesResult?.open ?? null, config, explorePaths);
+
+const guildChampions = computeGuildChampions(
+  [...byAuthor.entries()].map(([key, accum]) => ({ key, scores: accum.scores })),
+  config.guilds.enabled
+);
+
+const contributors = [...byAuthor.entries()]
+  .map(([key, accum]) => {
     const { level, progress } = levelProgress(config, accum.xp);
     const levelTitle = levelTitleFor(config, level);
 
@@ -139,6 +153,16 @@ const contributors = [...byAuthor.values()]
     const badges = [...autoBadges, ...manualEarned];
     const recentBadges = [...badges].sort((a, b) => b.earnedAt.localeCompare(a.earnedAt)).slice(0, 3);
 
+    const closedIssues = issuesResult ? findClosedByAuthor(issuesResult.closed, accum.closedIssueRefs).slice(0, 3) : [];
+    const suitedIssues = issuesResult
+      ? findSuitedOpenIssues(issuesResult.open, new Set(closedIssues.map((i) => i.number)), primary, 3 - closedIssues.length)
+      : [];
+    const relatedIssues = [...closedIssues, ...suitedIssues];
+
+    const championOf = [...guildChampions.entries()]
+      .filter(([, holders]) => holders.has(key))
+      .map(([guildId]) => guildId);
+
     return {
       name: accum.name,
       email: accum.email,
@@ -153,12 +177,12 @@ const contributors = [...byAuthor.values()]
       guilds: [...guilds],
       badges,
       recentBadges,
+      relatedIssues,
+      championOf,
     };
   })
   .sort((a, b) => b.xp - a.xp)
   .map((contributor, index) => ({ rank: index + 1, ...contributor }));
-
-const quests = await fetchQuestBoard(repo.owner, repo.name, repo.repoUrl, repo.branch, cwd, config, token);
 
 const state = {
   meta: {

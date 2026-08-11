@@ -112,5 +112,6 @@
       "help wanted"
     ],
     "maxPerCategory": 5
-  }
+  },
+  "identityAliases": []
 }

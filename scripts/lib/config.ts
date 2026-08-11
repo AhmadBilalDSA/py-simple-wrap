@@ -11,6 +11,13 @@ export interface LevelTitle {
   title: string;
 }
 
+export interface IdentityAlias {
+  canonicalName: string;
+  canonicalEmail: string;
+  aliasEmails?: string[];
+  aliasNames?: string[];
+}
+
 export type GuildId =
   | "mergeMage"
   | "lorekeeper"
@@ -51,6 +58,7 @@ export interface QuestConfig {
     beginnerLabels: string[];
     maxPerCategory: number;
   };
+  identityAliases: IdentityAlias[];
 }
 
 export function loadConfig(path: string): QuestConfig {
@@ -62,6 +70,27 @@ export function deriveTitle(config: QuestConfig, repoName: string | undefined): 
   if (config.title) return config.title;
   const name = (repoName ?? "this repo").replace(/[-_]+/g, " ").trim().toUpperCase();
   return `${name} ${config.titleSuffix}`.trim();
+}
+
+export interface ResolvedIdentity {
+  key: string;
+  name: string;
+  email: string;
+}
+
+/**
+ * Folds alternate names/emails (e.g. someone who changed their GitHub handle or committed
+ * under an old work email) into one canonical identity, per `identityAliases` in config.
+ */
+export function resolveIdentity(authorName: string, authorEmail: string, config: QuestConfig): ResolvedIdentity {
+  for (const alias of config.identityAliases ?? []) {
+    const matchesEmail = authorEmail === alias.canonicalEmail || (alias.aliasEmails ?? []).includes(authorEmail);
+    const matchesName = authorName === alias.canonicalName || (alias.aliasNames ?? []).includes(authorName);
+    if (matchesEmail || matchesName) {
+      return { key: alias.canonicalEmail, name: alias.canonicalName, email: alias.canonicalEmail };
+    }
+  }
+  return { key: authorEmail || authorName, name: authorName, email: authorEmail };
 }
 
 export function levelTitleFor(config: QuestConfig, level: number): string {
