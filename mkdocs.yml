@@ -50,6 +50,7 @@ nav:
       - Easy Lists: tutorial/easy_lists.md
       - Easy Math: tutorial/easy_math.md
       - Easy Numbers: tutorial/easy_numbers.md
+      - Easy Validator: tutorial/easy_validator.md
   - How To:
       - Contributing: how-to/contributing.md
   - Reference:
