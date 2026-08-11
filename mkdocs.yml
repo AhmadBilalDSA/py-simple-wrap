@@ -44,6 +44,7 @@ nav:
       - Easy Web: tutorial/easy_web.md
       - Easy File Manager: tutorial/easy_file_manager.md
       - Easy Game: tutorial/easy_game.md
+      - Easy Generator: tutorial/easy_generator.md
   - How To:
       - Contributing: how-to/contributing.md
   - Reference:
