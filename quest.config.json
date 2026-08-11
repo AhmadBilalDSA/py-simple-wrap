@@ -115,10 +115,10 @@
   },
   "identityAliases": [
   {
-    "canonicalName": "Star_Wasp7272",
-    "canonicalEmail": "star.wasp7272@gmail.com",
-    "aliasEmails": ["sara.p.czasak.m@gmail.com"],
-    "aliasNames": ["Sara Czasak"]
+    "canonicalName": "Sara Czasak",
+    "canonicalEmail": "sara.p.czasak.m@gmail.com",
+    "aliasEmails": ["star.wasp7272@gmail.com"],
+    "aliasNames": ["Star_Wasp7272"]
   }
 ]
 }
