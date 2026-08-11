@@ -1,4 +1,4 @@
-name: Contributor Quest
+name: Deploy Pages (Docs + Quest)
 
 on:
   push:
@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: read
-  issues: read
   pages: write
   id-token: write
 
@@ -24,25 +23,36 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install docs dependencies
+        run: pip install -e .[docs]
+
+      - name: Build docs
+        run: mkdocs build -d site-build
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install generator dependencies
+      - name: Install quest generator dependencies
         run: npm install
 
-      - name: Assemble site
+      - name: Assemble quest site under /quest
         run: |
-          mkdir -p site-build
-          cp -r site/. site-build/
+          mkdir -p site-build/quest
+          cp -r site/. site-build/quest/
 
       - name: Generate quest data
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_REF_NAME: ${{ github.ref_name }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          QUEST_OUT: ${{ github.workspace }}/site-build/data/state.json
+          QUEST_OUT: ${{ github.workspace }}/site-build/quest/data/state.json
         run: npm run generate
 
       - name: Upload Pages artifact
