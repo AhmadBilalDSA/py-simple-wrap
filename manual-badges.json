@@ -1,0 +1,30 @@
+{
+  "definitions": {
+    "mergeConflictWhisperer": {
+      "label": "The Merge Conflict Whisperer",
+      "icon": "🕊️",
+      "flavor": "Resolved a nasty merge conflict without losing your mind (or the code)."
+    },
+    "offByOneChampion": {
+      "label": "Champion of the Off-By-One",
+      "icon": "🎯",
+      "flavor": "Found and fixed an off-by-one error. A small victory, deeply respected by all who've suffered one."
+    },
+    "dependencySummoner": {
+      "label": "Summoner of Dependencies",
+      "icon": "📦",
+      "flavor": "Successfully upgraded a major dependency without breaking the whole build."
+    },
+    "guildRecruiter": {
+      "label": "Guild Recruiter",
+      "icon": "🎉",
+      "flavor": "Helped onboard a new contributor, answering their questions with patience."
+    },
+    "thePhoenix": {
+      "label": "The Phoenix",
+      "icon": "🔥",
+      "flavor": "Reverted a broken change and rose from the ashes with a working fix."
+    }
+  },
+  "awards": []
+}

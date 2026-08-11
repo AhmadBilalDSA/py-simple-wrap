@@ -1,0 +1,340 @@
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=VT323&display=swap");
+
+:root {
+  --accent: #b8863b;
+  --ink: #3a2c1a;
+  --parchment-lo: #d8c090;
+  --parchment-hi: #f1e2ba;
+  --wood: #1c130c;
+  --wood-hi: #2c1e12;
+  --glow: rgba(184, 134, 59, 0.55);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: radial-gradient(circle at 50% 0%, #241a11, #0c0805 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-family: "VT323", monospace;
+}
+
+.crt-frame {
+  width: min(920px, 100%);
+  border-radius: 10px;
+  background: linear-gradient(160deg, var(--wood-hi), var(--wood));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), inset 0 0 0 2px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.title-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: linear-gradient(180deg, #2a1c10, #1a1109);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+}
+.dot--red { background: #a4432f; }
+.dot--amber { background: #c78f3b; }
+.dot--green { background: #5f7a3d; }
+
+.title-bar__label {
+  margin-left: 8px;
+  color: #a08b6f;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+}
+
+.parchment-panel {
+  position: relative;
+  padding: 32px 36px 24px;
+  background: radial-gradient(120% 90% at 50% -10%, var(--parchment-hi), var(--parchment-lo) 70%);
+  color: var(--ink);
+  min-height: 460px;
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.06) 0px,
+    rgba(0, 0, 0, 0.06) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  mix-blend-mode: multiply;
+  animation: flicker 6s infinite;
+}
+
+@keyframes flicker {
+  0%, 96%, 100% { opacity: 1; }
+  97% { opacity: 0.85; }
+  98% { opacity: 1; }
+}
+
+.quest-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.quest-title {
+  font-family: "IM Fell English SC", serif;
+  font-size: clamp(26px, 5vw, 42px);
+  letter-spacing: 0.06em;
+  margin: 0;
+  color: var(--ink);
+  text-shadow: 0 0 18px var(--glow);
+}
+
+.quest-intro {
+  font-size: 20px;
+  min-height: 1.4em;
+  color: #5c4321;
+  white-space: pre-wrap;
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.quest-intro::after {
+  content: "\2588";
+  margin-left: 2px;
+  animation: caret 1s step-end infinite;
+}
+
+@keyframes caret {
+  50% { opacity: 0; }
+}
+
+.screen[hidden] {
+  display: none;
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.menu__item {
+  font-family: "VT323", monospace;
+  font-size: 22px;
+  text-align: left;
+  padding: 12px 18px;
+  border: 1px solid rgba(58, 44, 26, 0.4);
+  border-radius: 6px;
+  background: rgba(255, 248, 227, 0.4);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.menu__item:hover,
+.menu__item:focus-visible {
+  background: rgba(255, 248, 227, 0.85);
+  transform: translateX(4px);
+  outline: 2px solid var(--accent);
+}
+
+.menu__key {
+  display: inline-block;
+  width: 22px;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* Shared screen chrome */
+.back-link {
+  font-family: "VT323", monospace;
+  font-size: 18px;
+  background: none;
+  border: none;
+  color: #6b5230;
+  cursor: pointer;
+  padding: 0 0 12px;
+}
+.back-link:hover { color: var(--ink); }
+
+.screen-heading {
+  font-family: "IM Fell English SC", serif;
+  font-size: 26px;
+  margin: 0 0 14px;
+}
+
+/* Quest board */
+.quest-section + .quest-section {
+  margin-top: 20px;
+}
+
+.quest-section__title {
+  font-size: 20px;
+  color: #6b5230;
+  margin: 0 0 8px;
+}
+
+.quest-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quest-item {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(58, 44, 26, 0.3);
+  background: rgba(255, 248, 227, 0.5);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 18px;
+}
+.quest-item:hover { background: rgba(255, 248, 227, 0.9); }
+
+.quest-item__num {
+  color: var(--accent);
+  margin-right: 6px;
+}
+
+.quest-item__labels {
+  display: block;
+  font-size: 14px;
+  color: #7a6440;
+  margin-top: 2px;
+}
+
+.explore-note {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+/* Leaderboard */
+.roster {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card {
+  background: rgba(255, 248, 227, 0.55);
+  border: 1px solid rgba(58, 44, 26, 0.35);
+  border-radius: 6px;
+  padding: 12px 16px;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: rise 0.35s ease forwards;
+}
+
+@keyframes rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.card__rank {
+  color: var(--accent);
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.card__name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card__level {
+  font-size: 16px;
+  color: var(--accent);
+}
+
+.card__subline {
+  font-size: 16px;
+  color: #6b5230;
+  margin: 2px 0 8px;
+}
+
+.card__crests {
+  margin-left: 4px;
+}
+
+.xp-bar {
+  height: 9px;
+  border-radius: 5px;
+  background: rgba(58, 44, 26, 0.18);
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.xp-bar__fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), #e2b563);
+  transition: width 0.8s ease;
+}
+
+.card__stats {
+  font-size: 14px;
+  color: #6b5230;
+  margin-bottom: 6px;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 17px;
+}
+
+.badge {
+  cursor: default;
+  position: relative;
+}
+
+.badge--manual::after {
+  content: "✋";
+  font-size: 10px;
+  position: absolute;
+  bottom: -4px;
+  right: -6px;
+}
+
+.roster--empty {
+  text-align: center;
+  color: #6b5230;
+  font-size: 18px;
+  padding: 24px 0;
+}
+
+.quest-footer {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 14px;
+  color: #7a6440;
+}

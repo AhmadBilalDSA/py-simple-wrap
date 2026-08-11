@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contributor Quest</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="crt-frame">
+    <div class="title-bar">
+      <span class="dot dot--red"></span>
+      <span class="dot dot--amber"></span>
+      <span class="dot dot--green"></span>
+      <span class="title-bar__label">quest.exe</span>
+    </div>
+
+    <div class="parchment-panel">
+      <div class="scanlines" aria-hidden="true"></div>
+
+      <header class="quest-header">
+        <h1 id="quest-title" class="quest-title">LOADING QUEST&hellip;</h1>
+      </header>
+
+      <section id="screen-menu" class="screen" aria-live="polite">
+        <p id="menu-intro" class="quest-intro"></p>
+        <nav class="menu" id="menu-nav">
+          <button class="menu__item" type="button" data-route="quest" data-key="1">
+            <span class="menu__key">1</span> ⚔️ Begin Your Adventure
+          </button>
+          <button class="menu__item" type="button" data-action="support" data-key="2">
+            <span class="menu__key">2</span> ⭐ Show Your Support
+          </button>
+          <button class="menu__item" type="button" data-route="leaderboard" data-key="3">
+            <span class="menu__key">3</span> 🏆 Leaderboard
+          </button>
+        </nav>
+      </section>
+
+      <section id="screen-quest" class="screen" hidden>
+        <button class="back-link" type="button" data-route="menu">&larr; Back to the Tavern</button>
+        <h2 id="quest-heading" class="screen-heading"></h2>
+        <div id="quest-content"></div>
+      </section>
+
+      <section id="screen-leaderboard" class="screen" hidden>
+        <button class="back-link" type="button" data-route="menu">&larr; Back to the Tavern</button>
+        <h2 class="screen-heading">Leaderboard</h2>
+        <div id="leaderboard-content" class="roster"></div>
+      </section>
+
+      <footer class="quest-footer">
+        <span id="quest-updated"></span>
+      </footer>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

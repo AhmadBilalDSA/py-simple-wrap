@@ -37,3 +37,7 @@ py_simple_ideas.md
 
 issue_templates/
 .claude/
+
+node_modules/
+site-build/
+data/state.json

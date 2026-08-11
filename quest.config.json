@@ -1,0 +1,116 @@
+{
+  "title": null,
+  "titleSuffix": "CONTRIBUTORS QUEST",
+  "theme": {
+    "accent": "#b8863b"
+  },
+  "xp": {
+    "base": 10,
+    "perChangedLine": 0.1,
+    "changedLineCap": 400
+  },
+  "level": {
+    "divisor": 50
+  },
+  "levelTitles": [
+    {
+      "minLevel": 1,
+      "title": "Greenhorn"
+    },
+    {
+      "minLevel": 3,
+      "title": "Adventurer"
+    },
+    {
+      "minLevel": 6,
+      "title": "Veteran"
+    },
+    {
+      "minLevel": 10,
+      "title": "Champion"
+    },
+    {
+      "minLevel": 15,
+      "title": "Legend"
+    }
+  ],
+  "guilds": {
+    "newAdventurerWindowDays": 30,
+    "enabled": [
+      "mergeMage",
+      "lorekeeper",
+      "verminHunter",
+      "architect",
+      "moduleSmith",
+      "maintainer",
+      "collaborator",
+      "newAdventurer"
+    ],
+    "activity": {
+      "lorekeeper": {
+        "extensions": [
+          "md",
+          "mdx",
+          "rst",
+          "txt"
+        ],
+        "pathPatterns": [
+          "docs"
+        ]
+      },
+      "verminHunter": {
+        "extensions": [],
+        "pathPatterns": [
+          "test",
+          "tests",
+          "__tests__",
+          "spec"
+        ]
+      },
+      "architect": {
+        "commitMessagePrefixes": [
+          "feat",
+          "feature"
+        ]
+      }
+    }
+  },
+  "badges": {
+    "autoEnabled": [
+      "midnightCommitter",
+      "keeperOfReadme",
+      "typoPaladin",
+      "wardenOfTests",
+      "architectOfRealms",
+      "refactorerOfRuins"
+    ],
+    "thresholds": {
+      "midnightCommitter": {
+        "startHour": 0,
+        "endHour": 4
+      },
+      "keeperOfReadme": {
+        "minChangedLines": 20
+      },
+      "typoPaladin": {
+        "maxChangedLines": 3
+      },
+      "wardenOfTests": {
+        "minAddedLines": 5
+      },
+      "refactorerOfRuins": {
+        "minChangedLines": 50,
+        "staleDays": 180
+      }
+    }
+  },
+  "issues": {
+    "beginnerLabels": [
+      "good first issue",
+      "beginner-friendly",
+      "first-time-contributor",
+      "help wanted"
+    ],
+    "maxPerCategory": 5
+  }
+}

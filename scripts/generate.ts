@@ -1,0 +1,177 @@
+import path from "node:path";
+import { mkdirSync, writeFileSync } from "node:fs";
+import { getCommits, type Commit } from "./lib/git.ts";
+import { loadConfig, deriveTitle, levelTitleFor } from "./lib/config.ts";
+import type { GuildId } from "./lib/config.ts";
+import { xpForCommit, levelProgress } from "./lib/xp.ts";
+import {
+  emptyScores,
+  scoreFile,
+  isFeatureCommit,
+  isNewModuleCommit,
+  primaryGuild,
+  activityMemberships,
+  GUILD_CATALOG,
+  type ActivityScores,
+} from "./lib/guilds.ts";
+import { evaluateCommitBadges, AUTO_BADGE_META, loadManualBadges, type EarnedBadge, type AutoBadgeId } from "./lib/badges.ts";
+import { fetchCollaborators, fetchLoginForEmail } from "./lib/collaborators.ts";
+import { fetchQuestBoard } from "./lib/issues.ts";
+import { getRepoInfo } from "./lib/repo.ts";
+
+const cwd = process.cwd();
+const configPath = process.env.QUEST_CONFIG ?? path.join(cwd, "quest.config.json");
+const outPath = process.env.QUEST_OUT ?? path.join(cwd, "site-build", "data", "state.json");
+const manualBadgesPath = process.env.QUEST_MANUAL_BADGES ?? path.join(cwd, "manual-badges.json");
+const token = process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN;
+
+const config = loadConfig(configPath);
+const repo = getRepoInfo(cwd);
+const commits = getCommits(cwd).sort((a, b) => a.date.getTime() - b.date.getTime());
+
+interface AuthorAccum {
+  name: string;
+  email: string;
+  xp: number;
+  commitCount: number;
+  firstCommitAt: Date;
+  lastCommitAt: Date;
+  scores: ActivityScores;
+  badgeEarnedAt: Map<AutoBadgeId, string>;
+}
+
+const byAuthor = new Map<string, AuthorAccum>();
+const knownTopLevelDirs = new Set<string>();
+const fileLastModified = new Map<string, Date>();
+
+function accumFor(commit: Commit): AuthorAccum {
+  const key = commit.authorEmail || commit.authorName;
+  let accum = byAuthor.get(key);
+  if (!accum) {
+    accum = {
+      name: commit.authorName,
+      email: commit.authorEmail,
+      xp: 0,
+      commitCount: 0,
+      firstCommitAt: commit.date,
+      lastCommitAt: commit.date,
+      scores: emptyScores(),
+      badgeEarnedAt: new Map(),
+    };
+    byAuthor.set(key, accum);
+  }
+  return accum;
+}
+
+for (const commit of commits) {
+  const accum = accumFor(commit);
+  const changed = commit.files.reduce((sum, f) => sum + f.additions + f.deletions, 0);
+
+  accum.commitCount += 1;
+  accum.xp += xpForCommit(config, changed);
+  if (commit.date < accum.firstCommitAt) accum.firstCommitAt = commit.date;
+  if (commit.date > accum.lastCommitAt) accum.lastCommitAt = commit.date;
+
+  for (const file of commit.files) {
+    scoreFile(file, config, accum.scores);
+  }
+  if (isFeatureCommit(commit.message, config)) accum.scores.architect += changed;
+  if (isNewModuleCommit(commit.files, knownTopLevelDirs)) accum.scores.moduleSmith += changed;
+
+  const earnedIds = evaluateCommitBadges(commit, config, fileLastModified);
+  for (const id of earnedIds) {
+    if (!accum.badgeEarnedAt.has(id)) accum.badgeEarnedAt.set(id, commit.date.toISOString());
+  }
+}
+
+// Role guilds (Maintainer/Collaborator) need the GitHub collaborators API.
+const roleGuildsEnabled = config.guilds.enabled.includes("maintainer") || config.guilds.enabled.includes("collaborator");
+const collaborators =
+  roleGuildsEnabled && repo.owner && repo.name ? await fetchCollaborators(repo.owner, repo.name, token) : null;
+
+const loginByEmail = new Map<string, string | null>();
+if (collaborators && collaborators.length > 0 && repo.owner && repo.name) {
+  const entries = [...byAuthor.values()];
+  const logins = await Promise.all(
+    entries.map((accum) => (accum.email ? fetchLoginForEmail(repo.owner!, repo.name!, accum.email, token) : Promise.resolve(null)))
+  );
+  entries.forEach((accum, i) => loginByEmail.set(accum.email, logins[i]));
+}
+
+const manualBadges = loadManualBadges(manualBadgesPath);
+const now = Date.now();
+
+const contributors = [...byAuthor.values()]
+  .map((accum) => {
+    const { level, progress } = levelProgress(config, accum.xp);
+    const levelTitle = levelTitleFor(config, level);
+
+    const primary = primaryGuild(accum.scores, config.guilds.enabled);
+    const guilds = new Set<GuildId>(activityMemberships(accum.scores, config.guilds.enabled));
+    guilds.add(primary);
+
+    if (config.guilds.enabled.includes("newAdventurer")) {
+      const daysSinceFirst = (now - accum.firstCommitAt.getTime()) / 86_400_000;
+      if (daysSinceFirst <= config.guilds.newAdventurerWindowDays) guilds.add("newAdventurer");
+    }
+
+    const login = loginByEmail.get(accum.email) ?? null;
+    if (login && collaborators) {
+      const match = collaborators.find((c) => c.login.toLowerCase() === login.toLowerCase());
+      if (match) {
+        if (match.isAdmin && config.guilds.enabled.includes("maintainer")) guilds.add("maintainer");
+        else if (!match.isAdmin && config.guilds.enabled.includes("collaborator")) guilds.add("collaborator");
+      }
+    }
+
+    const autoBadges: EarnedBadge[] = [...accum.badgeEarnedAt.entries()].map(([id, earnedAt]) => ({
+      ...AUTO_BADGE_META[id],
+      earnedAt,
+      manual: false,
+    }));
+    const manualEarned: EarnedBadge[] = manualBadges.awards
+      .filter((award) => award.contributorEmail.toLowerCase() === accum.email.toLowerCase())
+      .flatMap((award) => {
+        const def = manualBadges.definitions[award.badgeId];
+        if (!def) return [];
+        return [{ id: award.badgeId, label: def.label, icon: def.icon, flavor: def.flavor, earnedAt: award.awardedAt, manual: true }];
+      });
+    const badges = [...autoBadges, ...manualEarned];
+    const recentBadges = [...badges].sort((a, b) => b.earnedAt.localeCompare(a.earnedAt)).slice(0, 3);
+
+    return {
+      name: accum.name,
+      email: accum.email,
+      xp: Math.round(accum.xp),
+      level,
+      levelTitle,
+      levelProgress: Math.max(0, Math.min(1, progress)),
+      commitCount: accum.commitCount,
+      firstCommit: accum.firstCommitAt.toISOString(),
+      lastCommit: accum.lastCommitAt.toISOString(),
+      primaryGuild: primary,
+      guilds: [...guilds],
+      badges,
+      recentBadges,
+    };
+  })
+  .sort((a, b) => b.xp - a.xp)
+  .map((contributor, index) => ({ rank: index + 1, ...contributor }));
+
+const quests = await fetchQuestBoard(repo.owner, repo.name, repo.repoUrl, repo.branch, cwd, config, token);
+
+const state = {
+  meta: {
+    title: deriveTitle(config, repo.name ?? undefined),
+    generatedAt: new Date().toISOString(),
+    accent: config.theme.accent,
+    repoUrl: repo.repoUrl,
+  },
+  guildCatalog: GUILD_CATALOG.filter((g) => config.guilds.enabled.includes(g.id)),
+  quests,
+  contributors,
+};
+
+mkdirSync(path.dirname(outPath), { recursive: true });
+writeFileSync(outPath, JSON.stringify(state, null, 2));
+console.log(`Contributor Quest: wrote ${contributors.length} contributor(s) to ${outPath}`);

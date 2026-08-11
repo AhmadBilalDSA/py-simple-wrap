@@ -1,0 +1,16 @@
+{
+  "name": "contributor-quest",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Turns your repo's contributor history into a text-RPG dashboard.",
+  "type": "module",
+  "scripts": {
+    "generate": "tsx scripts/generate.ts",
+    "setup": "tsx scripts/setup.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "@types/node": "^22.9.0"
+  }
+}
