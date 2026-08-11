@@ -49,6 +49,7 @@ nav:
       - Easy Json: tutoria/easy_json.md
       - Easy Lists: tutorial/easy_lists.md
       - Easy Math: tutorial/easy_math.md
+      - Easy Numbers: tutorial/easy_numbers.md
   - How To:
       - Contributing: how-to/contributing.md
   - Reference:
