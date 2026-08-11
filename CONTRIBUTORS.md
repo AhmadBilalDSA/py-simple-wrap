@@ -8,6 +8,28 @@ Every tile below is a real person who showed up for this project. 💛
 
 ---
 
+<!-- NEW-CONTRIBUTORS:START -->
+## 🆕 Newly Arrived
+🎉 **Welcome to the team!** Thank you for your first merged contribution to py-simple-wrap — you'll be sorted into a proper guild soon.
+
+*Detected automatically from merged PRs — not yet sorted into a guild. Maintainer: give these folks a home!*
+
+<table>
+  <tr>
+    <td align="center" valign="top" width="16.6%">
+      <a href="https://github.com/Venkat4real">
+        <img src="https://github.com/Venkat4real.png" width="100px;" alt="Venkat4real"/><br />
+        <sub><b>Venkat4real</b></sub>
+      </a><br />
+      <sub><i>Needs a guild + blurb — see CONTRIBUTING.md.</i></sub>
+    </td>
+  </tr>
+</table>
+
+---
+
+<!-- NEW-CONTRIBUTORS:END -->
+
 ## ⚔️ The Merge Mages' Hall of Fame
 
 🚧 **Leaderboard: coming soon.**
