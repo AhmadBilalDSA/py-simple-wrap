@@ -2,8 +2,7 @@
   "files": [
     "README.md"
   ],
-  "imageSize": 40,
-  "contributorsPerLine": 12,
+  "imageSize": 60,
   "projectName": "py_simple",
   "projectOwner": "sara-czasak",
   "repoType": "github",
@@ -58,7 +57,7 @@
   "commit": false,
   "commitType": "docs",
   "commitConvention": "angular",
-  "contributorsPerLine": 7,
+  "contributorsPerLine": 12,
   "skipCi": true,
   "contributors": [
     {
