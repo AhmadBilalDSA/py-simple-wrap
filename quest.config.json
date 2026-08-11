@@ -113,5 +113,12 @@
     ],
     "maxPerCategory": 5
   },
-  "identityAliases": []
+  "identityAliases": [
+  {
+    "canonicalName": "Star_Wasp7272",
+    "canonicalEmail": "star.wasp7272@gmail.com",
+    "aliasEmails": ["sara.p.czasak.m@gmail.com"],
+    "aliasNames": ["Sara Czasak"]
+  }
+]
 }
