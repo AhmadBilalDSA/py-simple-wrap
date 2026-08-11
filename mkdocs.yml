@@ -47,6 +47,7 @@ nav:
       - Easy Generator: tutorial/easy_generator.md
       - Easy Images: tutorial/easy_images.md
       - Easy Json: tutoria/easy_json.md
+      - Easy Lists: tutorial/easy_lists.md
   - How To:
       - Contributing: how-to/contributing.md
   - Reference:
