@@ -1,10 +1,3 @@
-"""Flags new merged-PR contributors who aren't yet listed in CONTRIBUTORS.md.
-
-Never edits existing guild sections or blurbs — those are hand-written and
-stay hand-written. This only maintains a marker-delimited "Newly Arrived"
-holding section so a human can sort new names into a guild later.
-"""
-
 import json
 import os
 import re
@@ -19,13 +12,11 @@ if not REPO:
         "  bash:        export GITHUB_REPOSITORY=sara-czasak/py-simple-wrap"
     )
 
-# Optional locally — the search endpoint works unauthenticated, just at a
-# lower rate limit (10 req/min vs 30). The workflow always provides this.
 TOKEN = os.environ.get("GITHUB_TOKEN")
 FILE_PATH = "CONTRIBUTORS.md"
 MARKER_START = "<!-- NEW-CONTRIBUTORS:START -->"
 MARKER_END = "<!-- NEW-CONTRIBUTORS:END -->"
-ANCHOR = "## How to get your name here?"
+ANCHOR = "## ⚔️ The Merge Mages' Hall of Fame"
 EXCLUDE_LOGINS = {"allcontributors[bot]", "web-flow"}
 
 
@@ -86,6 +77,8 @@ def build_section(new_logins):
     return (
         f"{MARKER_START}\n"
         "## 🆕 Newly Arrived\n"
+        "🎉 **Welcome to the team!** Thank you for your first merged contribution to "
+        "py-simple-wrap — you'll be sorted into a proper guild soon.\n\n"
         "*Detected automatically from merged PRs — not yet sorted into a guild. "
         "Maintainer: give these folks a home!*\n\n"
         "<table>\n  <tr>\n"
