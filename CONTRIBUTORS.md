@@ -339,6 +339,13 @@ Every tile below is a real person who showed up for this project. 💛
       </a><br />
       <sub><i>Fixed up the README.</i></sub>
     </td>
+    <td align="center" valign="top" width="16.6%">
+      <a href="https://github.com/E4x7k">
+        <img src="https://github.com/E4x7k.png" width="100px;" alt="E4x7k"/><br />
+        <sub><b>E4x7k</b></sub>
+      </a><br />
+      <sub><i>Wrote the docs that make easy_math make sense.</i></sub>
+    </td>
   </tr>
 </table>
 

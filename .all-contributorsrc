@@ -287,10 +287,19 @@
       ]
     },
     {
-      "login": "Venkat4real ",
+      "login": "Venkat4real",
       "name": "Venkat",
       "avatar_url": "https://github.com/Venkat4real.png",
       "profile": "https://github.com/Venkat4real",
+      "contributions": [
+        "documentation"
+      ]
+    },
+    {
+      "login": "E4x7k",
+      "name": "E4x7k",
+      "avatar_url": "https://github.com/E4x7k.png",
+      "profile": "https://github.com/E4x7k",
       "contributions": [
         "documentation"
       ]
