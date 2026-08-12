@@ -45,6 +45,12 @@ nav:
       - Easy File Manager: tutorial/easy_file_manager.md
       - Easy Game: tutorial/easy_game.md
       - Easy Generator: tutorial/easy_generator.md
+      - Easy Images: tutorial/easy_images.md
+      - Easy Json: tutorial/easy_json.md
+      - Easy Lists: tutorial/easy_lists.md
+      - Easy Math: tutorial/easy_math.md
+      - Easy Numbers: tutorial/easy_numbers.md
+      - Easy Validator: tutorial/easy_validator.md
   - How To:
       - Contributing: how-to/contributing.md
   - Reference:
