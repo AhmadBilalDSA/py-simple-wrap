@@ -23,7 +23,7 @@ function guildInfo(id) {
 }
 
 function findGuild(id) {
-  return STATE?.guilds.find((g) => g.id === id) ?? null;
+  return STATE?.guilds?.find((g) => g.id === id) ?? null;
 }
 
 // ---- Router ----
