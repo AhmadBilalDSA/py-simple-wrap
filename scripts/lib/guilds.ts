@@ -43,7 +43,7 @@ export const GUILD_CATALOG: GuildCatalogEntry[] = [
   },
   {
     id: "architect",
-    name: "The Module Magicians' Guild",
+    name: "Architects of New Realms",
     icon: "\u{1F3D7}️",
     kind: "activity",
     description: "Builders of new features, shaping realms that didn't exist yesterday.",
