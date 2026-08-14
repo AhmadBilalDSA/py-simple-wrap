@@ -1,0 +1,19 @@
+
+# --- Contributor Quest commit helpers (all optional) ---
+# Everything below this line is a comment and gets discarded from the commit message
+# unless you uncomment it (delete the leading '#'). Lines left commented out are never
+# seen by Contributor Quest — only what you uncomment becomes part of your real commit.
+#
+# Closing an issue? GitHub closes it automatically once this merges to main:
+# Closes #
+#
+# Uncomment any that apply to THIS commit:
+# [x] Added a new feature
+# [x] Added a new module
+# [x] Fixed a bug
+# [x] Improved documentation
+# [x] Refactored old code
+#
+# Don't want this specific commit counted at all (no XP, no guild credit, no badges,
+# won't affect your leaderboard entry)? Uncomment this:
+# [x] Don't include this commit in Contributor Quest stats
