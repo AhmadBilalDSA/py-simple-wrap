@@ -82,7 +82,8 @@
       "typoPaladin",
       "wardenOfTests",
       "architectOfRealms",
-      "refactorerOfRuins"
+      "refactorerOfRuins",
+      "bugSlayer"
     ],
     "thresholds": {
       "midnightCommitter": {
@@ -113,12 +114,5 @@
     ],
     "maxPerCategory": 5
   },
-  "identityAliases": [
-  {
-    "canonicalName": "Sara Czasak",
-    "canonicalEmail": "sara.p.czasak.m@gmail.com",
-    "aliasEmails": ["star.wasp7272@gmail.com"],
-    "aliasNames": ["Star_Wasp7272"]
-  }
-]
+  "identityAliases": []
 }
