@@ -22,28 +22,28 @@ export interface GuildCatalogEntry {
 export const GUILD_CATALOG: GuildCatalogEntry[] = [
   {
     id: "mergeMage",
-    name: "Merge Mage Guild",
+    name: "The Code Conjurers' Circle",
     icon: "\u{1F9D9}",
     kind: "activity",
     description: "Weavers of general code — they merge the realm together, one commit at a time.",
   },
   {
     id: "lorekeeper",
-    name: "Lorekeepers' Circle",
+    name: "The Lore Keepers' Circle",
     icon: "\u{1F4D6}",
     kind: "activity",
     description: "Chroniclers of the codebase — every README and doc page bears their careful hand.",
   },
   {
     id: "verminHunter",
-    name: "Vermin Hunters' Guild",
+    name: "The Test Sentinels' Order",
     icon: "\u{1FAB2}",
     kind: "activity",
     description: "Sworn hunters of bugs, armed with test suites and unwavering suspicion.",
   },
   {
     id: "architect",
-    name: "Architects of New Realms",
+    name: "The Module Magicians' Guild",
     icon: "\u{1F3D7}️",
     kind: "activity",
     description: "Builders of new features, shaping realms that didn't exist yesterday.",
@@ -57,7 +57,7 @@ export const GUILD_CATALOG: GuildCatalogEntry[] = [
   },
   {
     id: "maintainer",
-    name: "Maintainers' Council",
+    name: "The Round Table",
     icon: "\u{1F451}",
     kind: "role",
     description: "The ruling council — trusted with the keys to the repository itself.",
