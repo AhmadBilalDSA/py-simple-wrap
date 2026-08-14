@@ -16,6 +16,7 @@ import {
   type ActivityScores,
 } from "./lib/guilds.ts";
 import { evaluateCommitBadges, AUTO_BADGE_META, loadManualBadges, type EarnedBadge, type AutoBadgeId } from "./lib/badges.ts";
+import { parseCommitMarkers } from "./lib/commitMarkers.ts";
 import { fetchCollaborators, fetchLoginForEmail } from "./lib/collaborators.ts";
 import {
   fetchAllIssues,
@@ -75,6 +76,9 @@ function accumFor(commit: Commit): AuthorAccum {
 }
 
 for (const commit of commits) {
+  const markers = parseCommitMarkers(commit.message);
+  if (markers.excluded) continue; // "[x] Don't include this commit..." — skip entirely, no accum touched
+
   const accum = accumFor(commit);
   const changed = commit.files.reduce((sum, f) => sum + f.additions + f.deletions, 0);
 
@@ -86,10 +90,11 @@ for (const commit of commits) {
   for (const file of commit.files) {
     scoreFile(file, config, accum.scores);
   }
-  if (isFeatureCommit(commit.message, config)) accum.scores.architect += changed;
-  if (isNewModuleCommit(commit.files, knownTopLevelDirs)) accum.scores.moduleSmith += changed;
+  if (isFeatureCommit(commit.message, config) || markers.feature) accum.scores.architect += changed;
+  if (isNewModuleCommit(commit.files, knownTopLevelDirs) || markers.module) accum.scores.moduleSmith += changed;
+  if (markers.docs) accum.scores.lorekeeper += changed;
 
-  const earnedIds = evaluateCommitBadges(commit, config, fileLastModified);
+  const earnedIds = evaluateCommitBadges(commit, config, fileLastModified, markers);
   for (const id of earnedIds) {
     if (!accum.badgeEarnedAt.has(id)) accum.badgeEarnedAt.set(id, commit.date.toISOString());
   }

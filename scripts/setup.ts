@@ -1,5 +1,6 @@
 import path from "node:path";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { createInterface } from "node:readline";
 import type { GuildId, QuestConfig } from "./lib/config.ts";
 import { GUILD_CATALOG } from "./lib/guilds.ts";
@@ -106,8 +107,26 @@ async function main() {
   config.theme.accent = accent;
 
   writeFileSync(configPath, JSON.stringify(config, null, 2) + "\n");
-
   console.log("\n✅ Wrote quest.config.json\n");
+
+  if (existsSync(path.join(cwd, ".gitmessage"))) {
+    const useTemplate = await askYesNo(
+      "Set up the commit message template locally (git config commit.template .gitmessage)?\n" +
+        "  This lets you tag commits with feature/bug/module/etc markers via 'git commit' (no -m).\n" +
+        "  Note: this only applies to your own local clone — other contributors need to run this\n" +
+        "  themselves too, it can't be forced repo-wide.",
+      true
+    );
+    if (useTemplate) {
+      try {
+        execFileSync("git", ["config", "commit.template", ".gitmessage"], { cwd });
+        console.log("✅ Set commit.template locally.\n");
+      } catch (err) {
+        console.warn("Could not set commit.template automatically — run manually:\n  git config commit.template .gitmessage\n");
+      }
+    }
+  }
+
   console.log("Next steps:");
   console.log("  1. Review quest.config.json (and manual-badges.json if you want hand-awarded badges).");
   console.log("  2. Commit and push to main.");
