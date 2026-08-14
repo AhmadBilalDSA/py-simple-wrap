@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from "node:fs";
 import type { Commit } from "./git.ts";
 import type { QuestConfig } from "./config.ts";
 import { isFeatureCommit, matchesActivity } from "./guilds.ts";
+import { parseCommitMarkers, type CommitMarkers } from "./commitMarkers.ts";
 
 export type AutoBadgeId =
   | "midnightCommitter"
@@ -9,7 +10,8 @@ export type AutoBadgeId =
   | "typoPaladin"
   | "wardenOfTests"
   | "architectOfRealms"
-  | "refactorerOfRuins";
+  | "refactorerOfRuins"
+  | "bugSlayer";
 
 export interface BadgeMeta {
   id: string;
@@ -55,6 +57,12 @@ export const AUTO_BADGE_META: Record<AutoBadgeId, BadgeMeta> = {
     icon: "\u{1F3FA}",
     flavor: "Cleaned up code so old it had cobwebs and questionable variable names.",
   },
+  bugSlayer: {
+    id: "bugSlayer",
+    label: "The Bug Slayer",
+    icon: "\u{1F41B}",
+    flavor: "Steel drawn, chaos vanquished.",
+  },
 };
 
 export interface EarnedBadge {
@@ -74,7 +82,8 @@ export interface EarnedBadge {
 export function evaluateCommitBadges(
   commit: Commit,
   config: QuestConfig,
-  fileLastModified: Map<string, Date>
+  fileLastModified: Map<string, Date>,
+  markers: CommitMarkers = parseCommitMarkers(commit.message)
 ): AutoBadgeId[] {
   const earned: AutoBadgeId[] = [];
   const t = config.badges.thresholds;
@@ -88,7 +97,7 @@ export function evaluateCommitBadges(
   const docChanged = commit.files
     .filter((f) => matchesActivity(f, config.guilds.activity.lorekeeper))
     .reduce((sum, f) => sum + f.additions + f.deletions, 0);
-  if (docChanged >= t.keeperOfReadme.minChangedLines) earned.push("keeperOfReadme");
+  if (docChanged >= t.keeperOfReadme.minChangedLines || markers.docs) earned.push("keeperOfReadme");
 
   if (totalChanged > 0 && totalChanged <= t.typoPaladin.maxChangedLines) earned.push("typoPaladin");
 
@@ -97,17 +106,21 @@ export function evaluateCommitBadges(
     .reduce((sum, f) => sum + f.additions, 0);
   if (testAdditions >= t.wardenOfTests.minAddedLines) earned.push("wardenOfTests");
 
-  if (isFeatureCommit(commit.message, config)) earned.push("architectOfRealms");
+  if (isFeatureCommit(commit.message, config) || markers.feature) earned.push("architectOfRealms");
+
+  if (markers.bugfix) earned.push("bugSlayer");
 
   const staleMs = t.refactorerOfRuins.staleDays * 86_400_000;
+  let refactorEarned = markers.refactor;
   for (const file of commit.files) {
     const changed = file.additions + file.deletions;
     const last = fileLastModified.get(file.path);
     if (last && changed >= t.refactorerOfRuins.minChangedLines && commit.date.getTime() - last.getTime() >= staleMs) {
-      earned.push("refactorerOfRuins");
+      refactorEarned = true;
       break;
     }
   }
+  if (refactorEarned) earned.push("refactorerOfRuins");
   for (const file of commit.files) fileLastModified.set(file.path, commit.date);
 
   return earned.filter((id) => config.badges.autoEnabled.includes(id));
