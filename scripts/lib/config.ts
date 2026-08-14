@@ -78,19 +78,28 @@ export interface ResolvedIdentity {
   email: string;
 }
 
+function norm(value: string): string {
+  return value.trim().toLowerCase();
+}
+
 /**
  * Folds alternate names/emails (e.g. someone who changed their GitHub handle or committed
  * under an old work email) into one canonical identity, per `identityAliases` in config.
+ * Matching is case-insensitive and whitespace-trimmed, since git author info can vary in
+ * casing between commits even for the same person/machine.
  */
 export function resolveIdentity(authorName: string, authorEmail: string, config: QuestConfig): ResolvedIdentity {
+  const email = norm(authorEmail);
+  const name = norm(authorName);
+
   for (const alias of config.identityAliases ?? []) {
-    const matchesEmail = authorEmail === alias.canonicalEmail || (alias.aliasEmails ?? []).includes(authorEmail);
-    const matchesName = authorName === alias.canonicalName || (alias.aliasNames ?? []).includes(authorName);
-    if (matchesEmail || matchesName) {
-      return { key: alias.canonicalEmail, name: alias.canonicalName, email: alias.canonicalEmail };
+    const emailCandidates = [alias.canonicalEmail, ...(alias.aliasEmails ?? [])].map(norm);
+    const nameCandidates = [alias.canonicalName, ...(alias.aliasNames ?? [])].map(norm);
+    if (emailCandidates.includes(email) || nameCandidates.includes(name)) {
+      return { key: norm(alias.canonicalEmail), name: alias.canonicalName, email: alias.canonicalEmail };
     }
   }
-  return { key: authorEmail || authorName, name: authorName, email: authorEmail };
+  return { key: email || name, name: authorName, email: authorEmail };
 }
 
 export function levelTitleFor(config: QuestConfig, level: number): string {

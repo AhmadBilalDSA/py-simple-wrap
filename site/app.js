@@ -22,9 +22,13 @@ function guildInfo(id) {
   return found ?? { id, name: id, icon: "⚔️", kind: "activity" };
 }
 
+function findGuild(id) {
+  return STATE?.guilds.find((g) => g.id === id) ?? null;
+}
+
 // ---- Router ----
 
-const SCREENS = ["menu", "quest", "leaderboard", "profile"];
+const SCREENS = ["menu", "quest", "leaderboard", "profile", "guilds", "guild"];
 
 function currentRoute() {
   const [screen, param] = location.hash.replace(/^#\/?/, "").split("/");
@@ -38,6 +42,8 @@ function render(route) {
   if (route.screen === "quest") renderQuestBoard();
   if (route.screen === "leaderboard") renderLeaderboard();
   if (route.screen === "profile") renderProfile(route.param);
+  if (route.screen === "guilds") renderGuildList();
+  if (route.screen === "guild") renderGuildDetail(route.param);
   if (route.screen === "menu") document.querySelector(".menu__item")?.focus();
 }
 
@@ -80,17 +86,28 @@ function setupMenu() {
 }
 
 function handleMenuAction(btn) {
-  if (btn.dataset.action === "support") {
-    const url = STATE?.meta.repoUrl ?? "https://github.com";
-    window.open(url, "_blank", "noopener");
-    return;
-  }
   if (btn.dataset.route) navigate(btn.dataset.route);
 }
 
+const ACTION_URLS = {
+  support: () => STATE?.meta.repoUrl,
+  discussions: () => (STATE?.meta.repoUrl ? `${STATE.meta.repoUrl}/discussions` : null),
+  challenge: () => (STATE?.meta.repoUrl ? `${STATE.meta.repoUrl}/issues/new` : null),
+};
+
+function runAction(action) {
+  const url = ACTION_URLS[action]?.() ?? "https://github.com";
+  window.open(url, "_blank", "noopener");
+}
+
 document.addEventListener("click", (e) => {
+  const actionBtn = e.target.closest("[data-action]");
+  if (actionBtn) {
+    runAction(actionBtn.dataset.action);
+    return;
+  }
   const back = e.target.closest("[data-route]");
-  if (back && !back.classList.contains("menu__item")) navigate(back.dataset.route);
+  if (back && !back.classList.contains("menu__item")) navigate(back.dataset.route, back.dataset.param);
 });
 
 // ---- Quest board ----
@@ -325,6 +342,62 @@ function renderProfile(key) {
       el.style.width = `${el.dataset.progress}%`;
     });
   });
+}
+
+// ---- Guilds ----
+
+function guildListItemHtml(guild) {
+  return `
+    <button class="guild-card" type="button" data-route="guild" data-param="${guild.id}">
+      <span class="guild-card__icon">${guild.icon}</span>
+      <span class="guild-card__name">${escapeHtml(guild.name)}</span>
+    </button>
+  `;
+}
+
+function renderGuildList() {
+  const content = document.getElementById("guilds-content");
+  const guilds = STATE?.guilds ?? [];
+  if (!guilds.length) {
+    content.innerHTML = '<p class="roster--empty">No guilds are active for this quest yet.</p>';
+    return;
+  }
+  content.innerHTML = guilds.map(guildListItemHtml).join("");
+}
+
+function guildMemberHtml(member, index) {
+  return `<li><a href="#/profile/${contributorKey(member)}">#${index + 1} ${escapeHtml(member.name)}</a></li>`;
+}
+
+function renderGuildDetail(guildId) {
+  const content = document.getElementById("guild-content");
+  const guild = findGuild(guildId);
+
+  if (!guild) {
+    content.innerHTML = '<p class="roster--empty">This guild could not be found.</p>';
+    return;
+  }
+
+  const membersHtml = guild.topMembers.length
+    ? `<ol class="guild-members">${guild.topMembers.map(guildMemberHtml).join("")}</ol>`
+    : '<p class="roster--empty">No one has joined this guild yet — be the first!</p>';
+
+  const quest = guild.questIssue;
+  const questButton = quest
+    ? `<a class="quest-button" href="${quest.url}" target="_blank" rel="noopener">🗺️ Take This Quest: ${escapeHtml(quest.title)}</a>`
+    : `<span class="quest-button quest-button--disabled" title="No open issue matches this guild right now">🗺️ No Quest Available</span>`;
+
+  content.innerHTML = `
+    <div class="guild-detail">
+      <h2 class="screen-heading">${guild.icon} ${escapeHtml(guild.name)}</h2>
+      <p class="quest-intro" style="margin-bottom:20px;">${escapeHtml(guild.description)}</p>
+
+      <h3 class="quest-section__title">Top Members</h3>
+      ${membersHtml}
+
+      ${questButton}
+    </div>
+  `;
 }
 
 // ---- Boot ----

@@ -17,7 +17,15 @@ import {
 } from "./lib/guilds.ts";
 import { evaluateCommitBadges, AUTO_BADGE_META, loadManualBadges, type EarnedBadge, type AutoBadgeId } from "./lib/badges.ts";
 import { fetchCollaborators, fetchLoginForEmail } from "./lib/collaborators.ts";
-import { fetchAllIssues, buildQuestBoard, explorePathsFor, issueRefsClosedBy, findClosedByAuthor, findSuitedOpenIssues } from "./lib/issues.ts";
+import {
+  fetchAllIssues,
+  buildQuestBoard,
+  explorePathsFor,
+  issueRefsClosedBy,
+  findClosedByAuthor,
+  findSuitedOpenIssues,
+  findGuildQuest,
+} from "./lib/issues.ts";
 import { getRepoInfo } from "./lib/repo.ts";
 
 const cwd = process.cwd();
@@ -184,6 +192,24 @@ const contributors = [...byAuthor.entries()]
   .sort((a, b) => b.xp - a.xp)
   .map((contributor, index) => ({ rank: index + 1, ...contributor }));
 
+const scoresByEmail = new Map<string, ActivityScores>();
+for (const accum of byAuthor.values()) scoresByEmail.set(accum.email, accum.scores);
+
+const guilds = GUILD_CATALOG.filter((g) => config.guilds.enabled.includes(g.id)).map((guild) => {
+  const isActivity = guild.kind === "activity";
+  const scoreFor = (email: string) => (isActivity ? scoresByEmail.get(email)?.[guild.id as keyof ActivityScores] ?? 0 : 0);
+
+  const topMembers = contributors
+    .filter((c) => (isActivity ? scoreFor(c.email) > 0 : c.guilds.includes(guild.id)))
+    .sort((a, b) => (isActivity ? scoreFor(b.email) - scoreFor(a.email) : b.xp - a.xp))
+    .slice(0, 5)
+    .map((c) => ({ name: c.name, email: c.email, rank: c.rank }));
+
+  const questIssue = issuesResult ? findGuildQuest(issuesResult.open, guild.id) : null;
+
+  return { ...guild, topMembers, questIssue };
+});
+
 const state = {
   meta: {
     title: deriveTitle(config, repo.name ?? undefined),
@@ -192,6 +218,7 @@ const state = {
     repoUrl: repo.repoUrl,
   },
   guildCatalog: GUILD_CATALOG.filter((g) => config.guilds.enabled.includes(g.id)),
+  guilds,
   quests,
   contributors,
 };

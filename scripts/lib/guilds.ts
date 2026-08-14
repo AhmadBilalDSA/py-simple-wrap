@@ -16,17 +16,66 @@ export interface GuildCatalogEntry {
   name: string;
   icon: string;
   kind: "activity" | "role" | "temporal";
+  description: string;
 }
 
 export const GUILD_CATALOG: GuildCatalogEntry[] = [
-  { id: "mergeMage", name: "Merge Mage Guild", icon: "\u{1F9D9}", kind: "activity" },
-  { id: "lorekeeper", name: "Lorekeepers' Circle", icon: "\u{1F4D6}", kind: "activity" },
-  { id: "verminHunter", name: "Vermin Hunters' Guild", icon: "\u{1FAB2}", kind: "activity" },
-  { id: "architect", name: "Architects of New Realms", icon: "\u{1F3D7}️", kind: "activity" },
-  { id: "moduleSmith", name: "Module Smiths' Guild", icon: "\u{1F9E9}", kind: "activity" },
-  { id: "maintainer", name: "Maintainers' Council", icon: "\u{1F451}", kind: "role" },
-  { id: "collaborator", name: "Collaborators' Guild", icon: "\u{1F91D}", kind: "role" },
-  { id: "newAdventurer", name: "New Adventurers' Guild", icon: "\u{1F331}", kind: "temporal" },
+  {
+    id: "mergeMage",
+    name: "Merge Mage Guild",
+    icon: "\u{1F9D9}",
+    kind: "activity",
+    description: "Weavers of general code — they merge the realm together, one commit at a time.",
+  },
+  {
+    id: "lorekeeper",
+    name: "Lorekeepers' Circle",
+    icon: "\u{1F4D6}",
+    kind: "activity",
+    description: "Chroniclers of the codebase — every README and doc page bears their careful hand.",
+  },
+  {
+    id: "verminHunter",
+    name: "Vermin Hunters' Guild",
+    icon: "\u{1FAB2}",
+    kind: "activity",
+    description: "Sworn hunters of bugs, armed with test suites and unwavering suspicion.",
+  },
+  {
+    id: "architect",
+    name: "Architects of New Realms",
+    icon: "\u{1F3D7}️",
+    kind: "activity",
+    description: "Builders of new features, shaping realms that didn't exist yesterday.",
+  },
+  {
+    id: "moduleSmith",
+    name: "Module Smiths' Guild",
+    icon: "\u{1F9E9}",
+    kind: "activity",
+    description: "Forgers of new modules — they lay the first stones of uncharted territory.",
+  },
+  {
+    id: "maintainer",
+    name: "Maintainers' Council",
+    icon: "\u{1F451}",
+    kind: "role",
+    description: "The ruling council — trusted with the keys to the repository itself.",
+  },
+  {
+    id: "collaborator",
+    name: "Collaborators' Guild",
+    icon: "\u{1F91D}",
+    kind: "role",
+    description: "Official collaborators, welcomed into the inner circle of the project.",
+  },
+  {
+    id: "newAdventurer",
+    name: "New Adventurers' Guild",
+    icon: "\u{1F331}",
+    kind: "temporal",
+    description: "Freshly arrived — every legend has to start somewhere.",
+  },
 ];
 
 export function emptyScores(): ActivityScores {

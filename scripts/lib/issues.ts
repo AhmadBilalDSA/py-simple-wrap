@@ -177,3 +177,16 @@ export function findSuitedOpenIssues(
 export function findClosedByAuthor(closedIssues: QuestIssue[], refs: Set<number>): RelatedIssue[] {
   return closedIssues.filter((issue) => refs.has(issue.number)).map((issue) => ({ ...issue, kind: "closed" as const }));
 }
+
+/**
+ * The single open issue that best represents a guild's domain, for its "quest" button on the
+ * guild detail page. Unlike `findSuitedOpenIssues` (which pads leftover profile slots with any
+ * open issue), this returns null when the guild has no label-hint mapping or no issue actually
+ * matches — a guild page should show "no quest available" rather than a misleading random pick.
+ */
+export function findGuildQuest(openIssues: QuestIssue[], guildId: GuildId): QuestIssue | null {
+  const hints = GUILD_LABEL_HINTS[guildId];
+  if (!hints || hints.length === 0) return null;
+  const match = openIssues.find((issue) => issue.labels.some((label) => hints.some((hint) => label.toLowerCase().includes(hint))));
+  return match ?? null;
+}

@@ -31,10 +31,24 @@
           <button class="menu__item" type="button" data-route="leaderboard" data-key="2">
             <span class="menu__key">2</span> 🏆 Leaderboard
           </button>
-          <button class="menu__item" type="button" data-action="support" data-key="3">
-            <span class="menu__key">3</span> ⭐ Show Your Support
+          <button class="menu__item" type="button" data-route="guilds" data-key="3">
+            <span class="menu__key">3</span> 🏛️ View Guilds
           </button>
         </nav>
+        <div class="menu-actions">
+          <button class="icon-btn" type="button" data-action="support" title="Show Your Support">
+            <span class="icon-btn__icon">⭐</span>
+            <span class="icon-btn__label">Star the Repo</span>
+          </button>
+          <button class="icon-btn" type="button" data-action="discussions" title="Join the Conversation">
+            <span class="icon-btn__icon">💬</span>
+            <span class="icon-btn__label">Join the Conversation</span>
+          </button>
+          <button class="icon-btn" type="button" data-action="challenge" title="Create Your Own Issue Challenge">
+            <span class="icon-btn__icon">🧩</span>
+            <span class="icon-btn__label">Create a Challenge</span>
+          </button>
+        </div>
       </section>
 
       <section id="screen-quest" class="screen" hidden>
@@ -52,6 +66,17 @@
       <section id="screen-profile" class="screen" hidden>
         <button class="back-link" type="button" data-route="leaderboard">&larr; Back to the Leaderboard</button>
         <div id="profile-content"></div>
+      </section>
+
+      <section id="screen-guilds" class="screen" hidden>
+        <button class="back-link" type="button" data-route="menu">&larr; Back to the Tavern</button>
+        <h2 class="screen-heading">The Guild Hall</h2>
+        <div id="guilds-content" class="guild-list"></div>
+      </section>
+
+      <section id="screen-guild" class="screen" hidden>
+        <button class="back-link" type="button" data-route="guilds">&larr; Back to the Guild Hall</button>
+        <div id="guild-content"></div>
       </section>
 
       <footer class="quest-footer">
