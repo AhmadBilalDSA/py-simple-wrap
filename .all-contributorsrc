@@ -2,7 +2,7 @@
   "files": [
     "README.md"
   ],
-  "imageSize": 60,
+  "imageSize": 80,
   "projectName": "py_simple",
   "projectOwner": "sara-czasak",
   "repoType": "github",
@@ -57,7 +57,7 @@
   "commit": false,
   "commitType": "docs",
   "commitConvention": "angular",
-  "contributorsPerLine": 10,
+  "contributorsPerLine": 7,
   "skipCi": true,
   "contributors": [
     {
@@ -302,6 +302,15 @@
       "profile": "https://github.com/E4x7k",
       "contributions": [
         "documentation"
+      ]
+    },
+    {
+      "login": "jbsilva ",
+      "name": "Julio Batista Silva",
+      "avatar_url": "https://github.com/jbsilva.png",
+      "profile": "https://github.com/jbsilva",
+      "contributions": [
+        "infra"
       ]
     }
   ]

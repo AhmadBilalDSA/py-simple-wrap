@@ -382,6 +382,13 @@ Every tile below is a real person who showed up for this project. 💛
       </a><br />
       <sub><i>Expanded pyproject.toml and added core utility infrastructure early on.</i></sub>
     </td>
+    <td align="center" valign="top" width="16.6%">
+      <a href="https://github.com/jbsilva">
+        <img src="https://github.com/jbsilva.png" width="100px;" alt="ghostfix-pm"/><br />
+        <sub><b>Julio Batista Silva</b></sub>
+      </a><br />
+      <sub><i>Swapped pygame for pygame-ce and updated CI to support Python 3.13/3.14.</i></sub>
+    </td>
   </tr>
 </table>
 
