@@ -34,8 +34,50 @@
       "title": "Legend"
     }
   ],
+  "guildCatalog": {
+    "mergeMage": {
+      "name": "The Code Conjurers' Circle",
+      "icon": "🧙",
+      "description": "Weavers of general code — they merge the realm together, one commit at a time."
+    },
+    "lorekeeper": {
+      "name": "The Lore Keepers' Circle",
+      "icon": "📖",
+      "description": "Chroniclers of the codebase — every README and doc page bears their careful hand."
+    },
+    "verminHunter": {
+      "name": "The Test Sentinels' Order",
+      "icon": "🪲",
+      "description": "Sworn hunters of bugs, armed with test suites and unwavering suspicion."
+    },
+    "architect": {
+      "name": "Architects of New Realms",
+      "icon": "🏗️",
+      "description": "Builders of new features, shaping realms that didn't exist yesterday."
+    },
+    "moduleSmith": {
+      "name": "Module Smiths' Guild",
+      "icon": "🧩",
+      "description": "Forgers of new modules — they lay the first stones of uncharted territory."
+    },
+    "maintainer": {
+      "name": "The Round Table",
+      "icon": "👑",
+      "description": "The ruling council — trusted with the keys to the repository itself."
+    },
+    "collaborator": {
+      "name": "Collaborators' Guild",
+      "icon": "🤝",
+      "description": "Official collaborators, welcomed into the inner circle of the project."
+    },
+    "newAdventurer": {
+      "name": "New Adventurers' Guild",
+      "icon": "🌱",
+      "description": "Freshly arrived — every legend has to start somewhere."
+    }
+  },
   "guilds": {
-    "newAdventurerWindowDays": 30,
+    "newAdventurerWindowDays": 7,
     "enabled": [
       "mergeMage",
       "lorekeeper",
@@ -73,6 +115,43 @@
           "feature"
         ]
       }
+    }
+  },
+  "badgeCatalog": {
+    "midnightCommitter": {
+      "label": "Midnight Committer",
+      "icon": "🌙",
+      "flavor": "Pushed a commit between midnight and 4am. The muse does not keep business hours."
+    },
+    "keeperOfReadme": {
+      "label": "Keeper of the Sacred README",
+      "icon": "📜",
+      "flavor": "Improved documentation that future travelers will bless your name for."
+    },
+    "typoPaladin": {
+      "label": "The Typo Paladin",
+      "icon": "⚔️",
+      "flavor": "Fixed a typo. Small deed, righteous cause."
+    },
+    "wardenOfTests": {
+      "label": "Warden of the Test Suite",
+      "icon": "🛡️",
+      "flavor": "Added tests that actually catch something. The realm is safer for it."
+    },
+    "architectOfRealms": {
+      "label": "Architect of New Realms",
+      "icon": "🏗️",
+      "flavor": "Shipped an entirely new feature from concept to merge."
+    },
+    "refactorerOfRuins": {
+      "label": "Refactorer of Ancient Ruins",
+      "icon": "🏺",
+      "flavor": "Cleaned up code so old it had cobwebs and questionable variable names."
+    },
+    "bugSlayer": {
+      "label": "The Bug Slayer",
+      "icon": "🐛",
+      "flavor": "Steel drawn, chaos vanquished."
     }
   },
   "badges": {
@@ -114,12 +193,11 @@
     ],
     "maxPerCategory": 5
   },
-  "identityAliases": [
-  {
-    "canonicalName": "Sara Czasak",
-    "canonicalEmail": "sara.p.czasak.m@gmail.com",
-    "aliasEmails": ["star.wasp7272@gmail.com"],
-    "aliasNames": ["Star_Wasp7272"]
+  "identityAliases": [],
+  "specialQuest": {
+    "enabled": true,
+    "title": "The Weekly Trial",
+    "pointsPerFile": 1,
+    "pointsPerLineAdded": 0.5
   }
-]
 }
