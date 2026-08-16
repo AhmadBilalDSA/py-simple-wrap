@@ -199,5 +199,11 @@
     "title": "The Weekly Trial",
     "pointsPerFile": 1,
     "pointsPerLineAdded": 0.5
+  },
+  "excludedContributors": {
+    "emails": [
+      "sara.p.czasak.m@gmail.com",
+      "star.wasp7272@gmail.com"
+    ]
   }
 }
