@@ -31,34 +31,35 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Tutorial:
-      - Quickstart: tutorial/quickstart.md
-      - Easy Async: tutorial/easy_async.md
-      - Easy Colors: tutorial/easy_colors.md
-      - Easy Converter: tutorial/easy_converter.md
-      - Easy Csv: tutorial/easy_csv.md
-      - Easy Data Visualization: tutorial/easy_data_visualization.md
-      - Easy Date Formatter: tutorial/easy_date_formatter.md
-      - Easy Dict: tutorial/easy_dict.md
-      - Easy Flow: tutorial/easy_flow.md
-      - Easy Strings: tutorial/easy_strings.md
-      - Easy Web: tutorial/easy_web.md
-      - Easy File Manager: tutorial/easy_file_manager.md
-      - Easy Game: tutorial/easy_game.md
-      - Easy Generator: tutorial/easy_generator.md
-      - Easy Images: tutorial/easy_images.md
-      - Easy Json:
-          - Tutorial 1: tutorial/easy_json.md
-          - Tutorial 2: tutorial/easy_json2.md
-      - Easy Lists: tutorial/easy_lists.md
-      - Easy Math:
-          - Tutorial 1: tutorial/easy_math.md
-          - Tutorial 2: tutorial/easy_math2.md
-      - Easy Numbers:
-          - Tutorial 1: tutorial/easy_numbers.md
-          - Tutorial 2: tutorial/easy_numbers2.md
-      - Easy Regex: tutorial/easy_regex.md
-      - Easy Stats: tutorial/easy_stats.md
-      - Easy Validator: tutorial/easy_validator.md
+      - Module Tutorials:
+        - Quickstart: tutorial/quickstart.md
+        - Easy Async: tutorial/easy_async.md
+        - Easy Colors: tutorial/easy_colors.md
+        - Easy Converter: tutorial/easy_converter.md
+        - Easy Csv: tutorial/easy_csv.md
+        - Easy Data Visualization: tutorial/easy_data_visualization.md
+        - Easy Date Formatter: tutorial/easy_date_formatter.md
+        - Easy Dict: tutorial/easy_dict.md
+        - Easy Flow: tutorial/easy_flow.md
+        - Easy Strings: tutorial/easy_strings.md
+        - Easy Web: tutorial/easy_web.md
+        - Easy File Manager: tutorial/easy_file_manager.md
+        - Easy Game: tutorial/easy_game.md
+        - Easy Generator: tutorial/easy_generator.md
+        - Easy Images: tutorial/easy_images.md
+        - Easy Json:
+            - Tutorial 1: tutorial/easy_json.md
+            - Tutorial 2: tutorial/easy_json2.md
+        - Easy Lists: tutorial/easy_lists.md
+        - Easy Math:
+            - Tutorial 1: tutorial/easy_math.md
+            - Tutorial 2: tutorial/easy_math2.md
+        - Easy Numbers:
+            - Tutorial 1: tutorial/easy_numbers.md
+            - Tutorial 2: tutorial/easy_numbers2.md
+        - Easy Regex: tutorial/easy_regex.md
+        - Easy Stats: tutorial/easy_stats.md
+        - Easy Validator: tutorial/easy_validator.md
   - How To:
       - Contributing: how-to/contributing.md
   - Reference:
