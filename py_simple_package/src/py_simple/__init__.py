@@ -92,6 +92,7 @@ from .easy_math import (
     sum_of_digits, divisors,
 )
 
-from .easy_data_visualization import (
-    plot_data
-)
+# EXCLUDED FROM RELEASE UNTIL UNIT TESTS EXIST
+# from .easy_data_visualization import (
+#     plot_data
+# )
