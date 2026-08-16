@@ -10,7 +10,7 @@ Every tile below is a real person who showed up for this project. 💛
 
 ## ⚔️ The Merge Mages' Hall of Fame
 
-🚧 **Leaderboard: coming soon.**
+[![⚔️ View the Live Leaderboard](https://img.shields.io/badge/⚔️_view_live_leaderboard-b8863b?style=for-the-badge)](https://sara-czasak.github.io/py-simple-wrap/quest/#/leaderboard)
 
 ---
 
