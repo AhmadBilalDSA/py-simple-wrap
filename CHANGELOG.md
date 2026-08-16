@@ -18,6 +18,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 <details>
 <summary>Day-by-day breakdown</summary>
 
+#### 2026-08-14 – 2026-08-16
+- Continued quest-system development: achievement tracking, badge fixes, guild-name fixes, and several bug-fix passes across the generator script and site ([@sara-czasak](https://github.com/sara-czasak))
+- Replaced `pygame` with `pygame-ce` for Python 3.14 support; added 3.13/3.14 classifiers and CI matrix entries ([@jbsilva](https://github.com/jbsilva))
+- Added jbsilva as a contributor ([@sara-czasak](https://github.com/sara-czasak))
+- Optimized quest scripts/site and updated the `contributor-quest` dependency lockfile ([@sara-czasak](https://github.com/sara-czasak))
+
+#### 2026-08-12
+- Added `easy_numbers2.md`, `easy_math2.md`, `easy_json2.md` tutorial files; fixed a typo in the Easy Json tutorial path ([@sara-czasak](https://github.com/sara-czasak))
+- Added easy_math tutorial (killmeheaven — not currently listed in `.all-contributorsrc`)
+- Added easy_json tutorial (Boyeong24 — not currently listed in `.all-contributorsrc`)
+- Added E4x7k as a contributor ([@sara-czasak](https://github.com/sara-czasak))
+- Docs edit to `mkdocs.yml` ([@sara-czasak](https://github.com/sara-czasak))
+
+#### 2026-08-11
+- Started a contributor "quest" gamification system: workflow, generator script, guilds/badges/XP libraries, and a companion site ([@sara-czasak](https://github.com/sara-czasak))
+- Added tutorials for `easy_validator`, `easy_regex`, `easy_numbers`, `easy_math`, `easy_lists`, `easy_json`, `easy_images` ([@Onion0121](https://github.com/Onion0121))
+- Added `easy_stats` and `easy_numbers` tutorials ([@Venkat4real](https://github.com/Venkat4real))
+- Added `.github/scripts/update_contributors.py` and an update-contributors workflow, with follow-up bug fixes ([@sara-czasak](https://github.com/sara-czasak))
+- Restructured CONTRIBUTORS.md and added a contributor round table ([@sara-czasak](https://github.com/sara-czasak))
+- Added Venkat4real as a contributor ([@sara-czasak](https://github.com/sara-czasak))
+- Added permissions to the pylint/tests CI workflows ([@sara-czasak](https://github.com/sara-czasak))
+- Several README/`.all-contributorsrc` fixes ([@sara-czasak](https://github.com/sara-czasak))
+
+#### 2026-08-10
+- Added tutorials for `easy_generator`, `easy_game`, `easy_file_manager`, `easy_dict`, `easy_date_formatter`, `easy_data_visualization`, `easy_csv`; alphabetized the tutorials/references list ([@Onion0121](https://github.com/Onion0121), [@sara-czasak](https://github.com/sara-czasak))
+- Added tests for `easy_game` helpers ([@averyquinnhq](https://github.com/averyquinnhq))
+- Added all suggested charts to `easy_data_visualization` ([@joaoprbrasil](https://github.com/joaoprbrasil))
+- Compressed the emoji key into a dropdown menu in README, fixed emoji menu rendering, and added a module-author badge/key ([@sara-czasak](https://github.com/sara-czasak))
+- Added João Pedro Brasil and thomsonl as contributors ([@sara-czasak](https://github.com/sara-czasak))
+- Started CHANGELOG.md and labeled PyPI releases in it ([@sara-czasak](https://github.com/sara-czasak))
+
 #### 2026-08-04 – 2026-08-09
 **📦 Released v0.2.0 (PYPI)**
 - Added JSON flattening function and tests (`is_nested_json`, `flatten_json`) to `easy_json` ([@sara-czasak](https://github.com/sara-czasak), [@atiqur-rahman-pro](https://github.com/atiqur-rahman-pro))
