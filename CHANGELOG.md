@@ -2,18 +2,21 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
-## [0.2.0] - 2026-08-10
+## [0.3.0] - 2026-08-16
 ### Added
-- Added tests for `easy_flow` ([@thomsonl](https://github.com/thomsonl))
-- Added all suggestions charts to `easy_data_visualization` ([@joaoprbrasil](https://github.com/joaoprbrasil))
-- Added tests for `easy_game` helpers ([@averyquinnhq](https://github.com/averyquinnhq))
-- Added tutorials for `easy_csv`, `easy_data_visualization`, `easy_date_formatter`, `easy_dict` ([@Onion0121](https://github.com/Onion0121))
-- Added module-author badge/key to README ([@sara-czasak](https://github.com/sara-czasak))
+- Contributor "quest" gamification system: guilds, badges, XP and achievement tracking ([@sara-czasak](https://github.com/sara-czasak))
+- Added tutorials for `easy_validator`, `easy_regex`, `easy_numbers`, `easy_math`, `easy_lists`, `easy_json`, `easy_images`, `easy_stats` ([@Onion0121](https://github.com/Onion0121), [@Venkat4real](https://github.com/Venkat4real), killmeheaven, Boyeong24 — last two not currently listed in `.all-contributorsrc`)
+-- Added `easy_numbers2.md`, `easy_math2.md`, `easy_json2.md` tutorial files ([@Onion0121](https://github.com/Onion0121)); renamed to resolve filename conflicts with other contributors' tutorials ([@sara-czasak](https://github.com/sara-czasak))
+- Added Python 3.13/3.14 classifiers and CI matrix entries ([@jbsilva](https://github.com/jbsilva))
 ### Changed
-- Compressed emoji key into a dropdown menu in README ([@sara-czasak](https://github.com/sara-czasak))
-- Alphabetized tutorials/references list ([@sara-czasak](https://github.com/sara-czasak))
+- Replaced `pygame` with `pygame-ce` as the `easy_game` dependency for Python 3.14 wheel support ([@jbsilva](https://github.com/jbsilva))
+- Restructured CONTRIBUTORS.md and added a contributor round table ([@sara-czasak](https://github.com/sara-czasak))
+- Added new contributors (E4x7k, jbsilva, Venkat4real) to README/CONTRIBUTORS.md ([@sara-czasak](https://github.com/sara-czasak))
+- Excluded `easy_data_visualization` (`plot_data`) from the public API and removed the `matplotlib` dependency until unit tests exist for it ([@sara-czasak](https://github.com/sara-czasak))
 ### Fixed
-- Fixed emoji menu rendering in README ([@sara-czasak](https://github.com/sara-czasak))
+- Fixed typo in the Easy Json tutorial path in `mkdocs.yml` ([@sara-czasak](https://github.com/sara-czasak))
+- Bug-fixing and optimization passes on the contributor-quest scripts/site ([@sara-czasak](https://github.com/sara-czasak))
+- Added missing permissions to the pylint/tests CI workflows ([@sara-czasak](https://github.com/sara-czasak))
 
 <details>
 <summary>Day-by-day breakdown</summary>
