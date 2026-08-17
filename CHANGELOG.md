@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.3.4] - 2026-08-17
+### Added
+- Added Easy Generator and Easy Data Visualization sections to the README module menu (both were exported in the public API but missing from the docs) ([@sara-czasak](https://github.com/sara-czasak))
+- Added PyPI download-stats badges (day/week/month) to the README, sourced live from pypistats.org ([@sara-czasak](https://github.com/sara-czasak))
+### Fixed
+- Fixed a stale Contributor Hub badge link and a malformed table in the README's Easy Text section ([@sara-czasak](https://github.com/sara-czasak))
+- Fixed a trailing space in a contributor's commit-history link in the README's contributors table ([@sara-czasak](https://github.com/sara-czasak))
+- Fixed a stale `Supported Versions` table in `SECURITY.md` that still named a years-old version number; rewritten to reference "latest PyPI release" instead so it never goes stale again ([@sara-czasak](https://github.com/sara-czasak))
+- Excluded `dependabot[bot]` from Contributors Quest tracking — it was showing up as a contributor on the leaderboard ([@sara-czasak](https://github.com/sara-czasak))
+
 ## [0.3.3] - 2026-08-17
 ### Added
 - Added a Contributor Hub overview page (`docs/contributor-hub/index.md`) that helps beginners find the right template based on what they're stuck on, instead of landing on the first template page by default ([@sara-czasak](https://github.com/sara-czasak))
@@ -45,6 +55,62 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Fixed typo in the Easy Json tutorial path in `mkdocs.yml` ([@sara-czasak](https://github.com/sara-czasak))
 - Bug-fixing and optimization passes on the contributor-quest scripts/site ([@sara-czasak](https://github.com/sara-czasak))
 - Added missing permissions to the pylint/tests CI workflows ([@sara-czasak](https://github.com/sara-czasak))
+
+## [0.2.0] - 2026-08-09
+### Added
+- Added JSON flattening functions (`is_nested_json`, `flatten_json`) to `easy_json`; tests added ([@sara-czasak](https://github.com/sara-czasak), [@atiqur-rahman-pro](https://github.com/atiqur-rahman-pro))
+- Added `easy_regex` module; tests added ([@sara-czasak](https://github.com/sara-czasak), [@Mlandvo](https://github.com/Mlandvo), [@gaoharimran29-glitch](https://github.com/gaoharimran29-glitch))
+- Added `easy_lists` (11 helpers) and `easy_text` (10 helpers) modules, with tests and docs ([@ghostfix-pm](https://github.com/ghostfix-pm))
+- Added `easy_csv` module with CSV helpers ([@qotique](https://github.com/qotique))
+- Added `easy_colors` functions: `random_hex_color`/`is_light_color` ([@smirnov-danil](https://github.com/smirnov-danil)), `rgb_to_hsl`/`hsl_to_rgb` ([@SemTiOne](https://github.com/SemTiOne)), `hex_to_rgba`/`contrast_ratio` ([@gaoharimran29-glitch](https://github.com/gaoharimran29-glitch))
+- Added `run_py_file_safe`, `time_it`, and `retry` to `easy_flow` ([@AureSerua](https://github.com/AureSerua)); added tests ([@thomsonl](https://github.com/thomsonl))
+- Added `easy_images` module ([@vjymisal0](https://github.com/vjymisal0))
+- Started `easy_game` module, added `check_if_quit` and mouse-press detection ([@sara-czasak](https://github.com/sara-czasak))
+- Added `easy_dict`, `easy_math`, and `easy_stats` modules ([@SemTiOne](https://github.com/SemTiOne))
+- Added `easy_generator` module and 3 new helper functions ([@sara-czasak](https://github.com/sara-czasak))
+- Added initial `easy_data_visualization` module and did a modularization pass ([@joaoprbrasil](https://github.com/joaoprbrasil))
+- Added tutorials for `easy_flow`, `easy_async`, `easy_colors`, `easy_converter`, `easy_web` ([@Onion0121](https://github.com/Onion0121))
+- Added async test scaffolding ([@AashiSrivastava411](https://github.com/AashiSrivastava411))
+### Changed
+- Renamed `prime_factors` → `prime_factorization` (and its tests) ([@sara-czasak](https://github.com/sara-czasak))
+### Fixed
+- Multiple bug-fixing passes across `easy_generator` and other modules ([@sara-czasak](https://github.com/sara-czasak))
+
+## [0.1.1] to [0.1.4] - 2026-07-31
+Four patch versions published in quick succession on the same day. Historical commit
+detail doesn't distinguish which change shipped in which specific patch, so they're
+combined into one entry here rather than guessing at a split.
+### Added
+- Added unit tests for `easy_web` module (closes #15) ([@HeaTTap](https://github.com/HeaTTap))
+- Added `get_page_title` and other new functions to `easy_web`, added unit test workflow ([@sara-czasak](https://github.com/sara-czasak))
+- Refactored docs, started building the docs page, added GitHub Pages deployment workflow ([@sara-czasak](https://github.com/sara-czasak))
+### Fixed
+- Docstring/docs improvements and typo fixes across modules ([@sara-czasak](https://github.com/sara-czasak))
+- Various bug fixes and mkdocs config fixes ([@sara-czasak](https://github.com/sara-czasak))
+
+## [0.1.0] - 2026-07-30
+### Added
+- Started and expanded `easy_numbers` module (`is_prime`, `percentage_of`); tests added ([@sara-czasak](https://github.com/sara-czasak), [@jagjitkaur0000](https://github.com/jagjitkaur0000))
+- Added fluid oz/ml conversions and other features to `easy_converter`; tests added ([@sara-czasak](https://github.com/sara-czasak), [@averyquinnhq](https://github.com/averyquinnhq))
+- Started and expanded `easy_validator` module; tests added ([@sara-czasak](https://github.com/sara-czasak), [@gaoharimran29-glitch](https://github.com/gaoharimran29-glitch))
+- Added `easy_strings` module ([@shivams786](https://github.com/shivams786))
+- Added speed converters to `easy_converter` (closes #17) ([@sol4nki](https://github.com/sol4nki))
+- Started `easy_web` module, added docstrings and request timeout ([@sara-czasak](https://github.com/sara-czasak))
+- `pyproject.toml` expansion, comprehensive tests, and new utility functions ([@ghostfix-pm](https://github.com/ghostfix-pm))
+- Enhanced Pylint CI workflow, added `.pylintrc` ([@sara-czasak](https://github.com/sara-czasak))
+### Fixed
+- Fixed a negative-number bug in `easy_numbers`' prime check ([@sara-czasak](https://github.com/sara-czasak))
+### Changed
+- Various README/CONTRIBUTORS.md updates ([@sara-czasak](https://github.com/sara-czasak))
+
+## [0.0.1] - 2026-07-22
+### Added
+- Initial project scaffolding: README, LICENSE, CONTRIBUTING.md, `pyproject.toml` ([@sara-czasak](https://github.com/sara-czasak))
+- Added `easy_file_manager` functionality: read-to-list, remove file, rename file ([@sara-czasak](https://github.com/sara-czasak))
+- Added `easy_date_formatter` module, made helper functions private ([@sara-czasak](https://github.com/sara-czasak))
+### Changed
+- README formatting passes (headers, readability) ([@sara-czasak](https://github.com/sara-czasak))
+- Prepared files for test coverage ([@sara-czasak](https://github.com/sara-czasak))
 
 <details>
 <summary>Day-by-day breakdown</summary>
