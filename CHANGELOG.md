@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.3.3] - 2026-08-17
+### Added
+- Added a Contributor Hub overview page (`docs/contributor-hub/index.md`) that helps beginners find the right template based on what they're stuck on, instead of landing on the first template page by default ([@sara-czasak](https://github.com/sara-czasak))
+- Added a Custom Exception Template to the Contributor Hub, covering the codebase's `<Module>Error` pattern with a worked example ([@sara-czasak](https://github.com/sara-czasak))
+
+
 ## [0.3.2] - 2026-08-17
 ### Added
 - Added `.github/dependabot.yml` to automate dependency updates for pip, npm, and GitHub Actions, with a 7-day cooldown on routine updates (security-alert-driven fixes bypass the cooldown) ([@sara-czasak](https://github.com/sara-czasak))
