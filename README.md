@@ -499,6 +499,21 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 </details>
 
+### 📈 Easy Data Visualization
+
+<details>
+<summary>Click to expand — auto-picks the right chart type for your data, no matplotlib boilerplate</summary>
+
+<br>
+
+| Function          | What it does                                                                                 | Example                                                        |
+|-------------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| `plot_data(X)`    | Infers whether `X` is quantitative or categorical and plots the right chart(s) automatically | `plot_data([1, 2, 2, 3, 5, 5, 5, 8])` → histogram + line chart |
+| `plot_data(X, Y)` | Same, but plots `X` against a second series `Y`                                              | `plot_data(["A", "B", "C"], [10, 20, 30])` → bar chart         |
+
+</details>
+
+
 ### 🎮 Easy Game
 
 <details>
@@ -516,6 +531,24 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 | `is_right_mouse_button_clicked()`       | Checks if the right mouse button is currently held down                                                         | `if is_right_mouse_button_clicked(): ...`               |
 
 </details>
+
+### 🎲 Easy Generator
+
+<details>
+<summary>Click to expand — passwords, QR codes, UUIDs, and API keys without the boilerplate</summary>
+
+<br>
+
+| Function                                                                   | What it does                                                     | Example                                                                                      |
+|----------------------------------------------------------------------------|------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| `generate_password(16, uppercase_chars=3, digit_chars=3, special_chars=3)` | Generates a random password with no repeated adjacent characters | `generate_password(16, uppercase_chars=3, digit_chars=3, special_chars=3)` → `"Kx9!mQ2z..."` |
+| `generate_otp(6, with_letters=True)`                                       | Generates a random one-time password code                        | `generate_otp(6, with_letters=True)` → `"a1B9x3"`                                            |
+| `generate_api_key()`                                                       | Generates a secure, URL-safe API key                             | `generate_api_key()` → `"kZ8x...Q1w"`                                                        |
+| `generate_uuid()`                                                          | Generates a random UUID (version 4)                              | `generate_uuid()` → `"3f2504e0-4f89-11d3-9a0c-0305e82c3301"`                                 |
+| `generate_qr_code("https://example.com")`                                  | Generates a QR code image and saves it to disk                   | Saves `qrcode0.png` (or the next free filename)                                              |
+
+</details>
+
 
 ## 🤝 Contributing
 
