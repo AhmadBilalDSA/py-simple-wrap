@@ -7,13 +7,17 @@
 
 [![Home](https://img.shields.io/badge/🏠_home-py--simple--wrap-3F51B5?style=for-the-badge)](https://sara-czasak.github.io/py-simple-wrap/)
 [![Docs](https://img.shields.io/badge/docs-online-blue?style=for-the-badge)](https://sara-czasak.github.io/py-simple-wrap/docs/)
-[![Contributor Hub](https://img.shields.io/badge/🤝_contributor_hub-start_here-b8863b?style=for-the-badge)](https://sara-czasak.github.io/py-simple-wrap/docs/contributor-hub/docstring_template/)
+[![Contributor Hub](https://img.shields.io/badge/🤝_contributor_hub-start_here-b8863b?style=for-the-badge)](https://sara-czasak.github.io/py-simple-wrap/docs/contributor-hub/)
 [![Contributors Quest](https://img.shields.io/badge/🗺️_contributors_quest-play_now-b8863b?style=for-the-badge)](https://sara-czasak.github.io/py-simple-wrap/quest/)
 
-[![PyPI](https://img.shields.io/pypi/v/py-simple-wrap?style=for-the-badge)](https://pypi.org/project/py-simple-wrap/)
 [![Contributors](https://img.shields.io/badge/contributors-25-orange?style=for-the-badge)](#contributors-)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://github.com/sara-czasak/py-simple-wrap/blob/main/LICENSE.md)
 [![GitHub stars](https://img.shields.io/github/stars/sara-czasak/py-simple-wrap?style=for-the-badge)](https://github.com/sara-czasak/py-simple-wrap)
+
+[![Downloads/day](https://img.shields.io/pypi/dd/py-simple-wrap?style=for-the-badge)](https://pypistats.org/packages/py-simple-wrap)
+[![Downloads/week](https://img.shields.io/pypi/dw/py-simple-wrap?style=for-the-badge)](https://pypistats.org/packages/py-simple-wrap)
+[![Downloads/month](https://img.shields.io/pypi/dm/py-simple-wrap?style=for-the-badge)](https://pypistats.org/packages/py-simple-wrap)
+[![Latest version](https://img.shields.io/pypi/v/py-simple-wrap?style=for-the-badge)](https://pypi.org/project/py-simple-wrap/)
 
 
 py-simple-wrap is a beginner-friendly Python wrapper package designed to help beginners and developers perform common tasks using simple, intuitive functions.
@@ -198,8 +202,8 @@ py-simple-wrap provides simple modules designed to make common Python tasks easi
 
 <br>
 
-|------------------------------|---------------------------------------------|---------------------------------------------------------------|
 | Function                     | What it does                                | Example                                                       |
+|------------------------------|---------------------------------------------|---------------------------------------------------------------|
 | `truncate(text, length)`     | Shorten text and add an ellipsis            | `truncate("Hello world!", 5)` → `"Hello…"`                    |
 | `remove_punctuation(text)`   | Strip punctuation, keep letters and numbers | `remove_punctuation("Hello, world!")` → `"Hello world"`       |
 | `reverse_words(text)`        | Reverse the order of words                  | `reverse_words("Hello world")` → `"world Hello"`              |
