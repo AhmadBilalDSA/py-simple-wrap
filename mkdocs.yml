@@ -63,8 +63,10 @@ nav:
   - How To:
       - Contributing: how-to/contributing.md
   - Contributor Hub:
-      - Docstring Template: contributor-hub/docstring_template.md
-      - Tutorial Template: contributor-hub/tutorial_template.md
+          - Overview: contributor-hub/index.md
+          - Docstring Template: contributor-hub/docstring_template.md
+          - Tutorial Template: contributor-hub/tutorial_template.md
+          - Custom Exception Template: contributor-hub/error_template.md
   - Reference:
       - Easy Async: reference/easy_async.md
       - Easy Colors: reference/easy_colors.md
