@@ -2,6 +2,18 @@
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
+
+## [0.3.1] - 2026-08-17
+### Added
+- Re-included `easy_data_visualization` (`plot_data`) in the public API now that unit tests exist ([@HeaTTap](https://github.com/HeaTTap))
+- Added a "Contributor Hub" docs section with copy-paste Docstring and Tutorial templates ([@sara-czasak](https://github.com/sara-czasak))
+- Added a standalone landing page at the GitHub Pages root, linking out to Docs, Contributor Hub, and Contributors Quest ([@sara-czasak](https://github.com/sara-czasak))
+- Added the `publish.yml` GitHub Actions workflow for manual PyPI releases ([@sara-czasak](https://github.com/sara-czasak))
+### Changed
+- Moved the docs site from the GitHub Pages root to `/docs/` to make room for the new landing page; updated `site_url` and internal README/CONTRIBUTING links accordingly ([@sara-czasak](https://github.com/sara-czasak))
+- Reorganized README badges into two rows (explore vs. project status) and added Home/Contributor Hub/Contributors badges ([@sara-czasak](https://github.com/sara-czasak))
+- Added a Contributor Hub callout to CONTRIBUTING.md pointing new contributors at the docstring/tutorial templates ([@sara-czasak](https://github.com/sara-czasak))
+
 ## [0.3.0] - 2026-08-16
 ### Added
 - Contributor "quest" gamification system: guilds, badges, XP and achievement tracking ([@sara-czasak](https://github.com/sara-czasak))
@@ -22,6 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 <summary>Day-by-day breakdown</summary>
 
 #### 2026-08-14 – 2026-08-16
+**📦 Released v0.3.0 (PYPI)**
 - Continued quest-system development: achievement tracking, badge fixes, guild-name fixes, and several bug-fix passes across the generator script and site ([@sara-czasak](https://github.com/sara-czasak))
 - Replaced `pygame` with `pygame-ce` for Python 3.14 support; added 3.13/3.14 classifiers and CI matrix entries ([@jbsilva](https://github.com/jbsilva))
 - Added jbsilva as a contributor ([@sara-czasak](https://github.com/sara-czasak))
