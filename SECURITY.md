@@ -2,12 +2,13 @@
  
 ## Supported Versions
  
-`py-simple-wrap` is a young project (currently `0.1.x`) and hasn't reached a stable `1.0` release yet, so there isn't a long history of versions to maintain in parallel. Only the **latest published release on PyPI** receives security fixes.
+`py-simple-wrap` is a young project and hasn't reached a stable `1.0` release yet, so there isn't a long history of versions to maintain in parallel. Only the **latest published release on PyPI** receives security fixes.
  
-| Version | Supported          |
-| ------- | ------------------ |
-| 0.1.x (latest) | :white_check_mark: |
-| < 0.1   | :x:                |
+| Version                                                                    | Supported          |
+|----------------------------------------------------------------------------|--------------------|
+| Latest release on [PyPI](https://pypi.org/project/py-simple-wrap/#history) | :white_check_mark: |
+| Any older release                                                          | :x:                |
+
  
 If you're on an older version, please upgrade to the latest release before reporting — there's a good chance it's already fixed.
  
