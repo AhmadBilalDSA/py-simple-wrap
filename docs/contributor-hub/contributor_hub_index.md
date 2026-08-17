@@ -1,0 +1,20 @@
+# Contributor Hub
+
+New here, or making your first contribution to an open-source project ever? You're in the right place. Nobody expects you to already know how this project formats things — that's what this page is for.
+
+Pick whatever's stressing you out below, and go straight to it. You don't need to read all of it, and you don't need to read it in order.
+
+## What do you need help with?
+
+**📝 "I need to write a docstring and I don't know what that even means."**
+Totally normal. The [Docstring Template](docstring_template.md) has a copy-paste block — just fill in the blanks. It also explains *why* the format looks the way it does, in case you're curious, but you don't have to read that part to use it.
+
+**📖 "I added a new module and need to write a tutorial page, but I've never written docs before."**
+The [Tutorial Template](tutorial_template.md) walks through the exact structure every tutorial page in this project uses, with a real example to copy from. You're not writing from a blank page.
+
+**🚨 "My function needs to raise an error, and I don't know how this project wants errors to look."**
+The [Custom Exception Template](error_template.md) has a fill-in-the-blanks class definition, plus a worked example showing both raising and catching it. Errors sound intimidating, but the pattern here is always the same one — once you've seen it once, you'll recognize it everywhere in this codebase.
+
+## Still stuck, or something's not covered here?
+
+That's okay too. Open an issue, or mention it in your pull request, and it'll get sorted out together — see [CONTRIBUTING.md](https://github.com/sara-czasak/py-simple-wrap/blob/main/CONTRIBUTING.md) for how to reach out. Nobody's expected to figure this out alone.
