@@ -4,6 +4,11 @@ First of all, thank you for being here! I created `py-simple-wrap` to help other
 
 **I struggle with anxiety myself, so I totally understand if you're feeling nervous about contributing. Please don't be!** The absolute worst thing that could happen is that I might ask for a few changes before merging your code. This is a safe space to learn, make mistakes, and grow together.
 
+📚 New here? The [Contributor Hub](https://sara-czasak.github.io/py-simple-wrap/docs/contributor-hub/docstring_template/)
+has copy-paste templates for docstrings and tutorial pages, so you're not
+guessing at formatting on your first PR.
+
+
 ## ⭐ Enjoying the project?
 
 If py-simple-wrap has been useful, or you just like what it's doing, a star means a lot — it helps other beginners discover the project and keeps me motivated to keep building it. It takes two seconds and costs nothing. 🙏
@@ -33,7 +38,13 @@ If you've never contributed to an open-source project before, here is exactly ho
    git checkout -b my-new-feature
    ```
 
-5. **Write Your Code**: Add your awesome new function or fix that bug!
+5. **Write Your Code**: Add your awesome new function or fix that bug! If you're
+not sure how to format a docstring or write a tutorial page, check the
+[Contributor Hub](https://sara-czasak.github.io/py-simple-wrap/docs/contributor-hub/docstring_template/)
+on the docs site — it has copy-paste templates for both, built from this
+project's actual conventions.
+
+
 6. **Commit Your Changes**: Save your progress with a helpful message:
 
    ```
@@ -60,7 +71,9 @@ If you've never contributed to an open-source project before, here is exactly ho
 I try to keep the code "Clean" and "Explicit."
 
 - Use descriptive function names (like `is_file_there` instead of `check`).
-- Always include Docstrings with an example.
+- Always include Docstrings with an example — see the
+[Docstring Template](https://sara-czasak.github.io/py-simple-wrap/docs/contributor-hub/docstring_template/)
+in the Contributor Hub for the exact shape we use.
 - Use existing helper functions (like `is_valid_extension`) to keep things consistent.
 
 Thank you for being brave enough to try! I can't wait to see what you build. 🌈✨

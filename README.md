@@ -5,9 +5,13 @@
 
 **Making Python feel like plain English.**
 
-[![PyPI](https://img.shields.io/pypi/v/py-simple-wrap?style=for-the-badge)](https://pypi.org/project/py-simple-wrap/)
+[![Home](https://img.shields.io/badge/🏠_home-py--simple--wrap-3F51B5?style=for-the-badge)](https://sara-czasak.github.io/py-simple-wrap/)
 [![Docs](https://img.shields.io/badge/docs-online-blue?style=for-the-badge)](https://sara-czasak.github.io/py-simple-wrap/docs/)
+[![Contributor Hub](https://img.shields.io/badge/🤝_contributor_hub-start_here-b8863b?style=for-the-badge)](https://sara-czasak.github.io/py-simple-wrap/docs/contributor-hub/docstring_template/)
 [![Contributors Quest](https://img.shields.io/badge/🗺️_contributors_quest-play_now-b8863b?style=for-the-badge)](https://sara-czasak.github.io/py-simple-wrap/quest/)
+
+[![PyPI](https://img.shields.io/pypi/v/py-simple-wrap?style=for-the-badge)](https://pypi.org/project/py-simple-wrap/)
+[![Contributors](https://img.shields.io/badge/contributors-25-orange?style=for-the-badge)](#contributors-)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://github.com/sara-czasak/py-simple-wrap/blob/main/LICENSE.md)
 [![GitHub stars](https://img.shields.io/github/stars/sara-czasak/py-simple-wrap?style=for-the-badge)](https://github.com/sara-czasak/py-simple-wrap)
 
