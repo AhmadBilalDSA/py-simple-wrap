@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>py-simple-wrap</title>
+  <style>
+    :root {
+      --indigo: #3F51B5;
+      --indigo-light: #5E7CF7;
+      --gold: #b8863b;
+      --bg: #fafafa;
+      --card-bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #e2e2e2;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 3rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.25rem;
+    }
+    .tagline {
+      font-size: 1.25rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .card.featured {
+      border: 2px solid var(--gold);
+      background: #fffaf2;
+    }
+    .card h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+    .cta {
+      align-self: flex-start;
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #fff;
+      transition: opacity 0.15s ease;
+    }
+    .cta:hover { opacity: 0.85; }
+    .cta.primary { background: var(--indigo); }
+    .cta.gold { background: var(--gold); }
+
+    .mission {
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      margin-top: 0.5rem;
+    }
+    .mission h2 {
+      font-size: 1.1rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+    }
+    .mission p {
+      font-size: 1.02rem;
+      margin: 0 0 1rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--indigo); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>py-simple-wrap 🚀</h1>
+    <p class="tagline">Making Python feel like plain English.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h2>📖 Explore Documentation</h2>
+        <p>Find out more about the package, its uses, and the people behind it.</p>
+        <a class="cta primary" href="docs/">Browse the Docs</a>
+      </div>
+
+      <div class="card featured">
+        <h2>🤝 New to py-simple-wrap contributing?</h2>
+        <p>Get guidance and templates for the tricky parts. The goal is to help you successfully add your 5 cents to this project — even if you've never contributed before, or you're new to Python.</p>
+        <a class="cta gold" href="docs/contributor-hub/docstring_template/">Visit the Contributor Hub</a>
+      </div>
+
+      <div class="card">
+        <h2>🗺️ Join Contributors Quest</h2>
+        <p>Track your contributions, earn badges, and see how you stack up against other contributors.</p>
+        <a class="cta primary" href="quest/">Play Contributors Quest</a>
+      </div>
+    </div>
+
+    <div class="mission">
+      <h2>Why py-simple-wrap exists</h2>
+      <p>
+        Python is famous for being the beginner-friendly language — but
+        "beginner-friendly" still has a learning curve, and a lot of people
+        give up right before it gets fun. py-simple-wrap exists to shorten
+        that gap: a toolbox with everything a beginner needs to build
+        something fun enough, early enough, to want to stick around and go
+        deeper into Python.
+      </p>
+      <p>
+        It's not trying to replace specialized, production-grade libraries —
+        it's the on-ramp to them, built for the moment before someone's
+        ready to reach for the "real" tool.
+      </p>
+      <p>
+        That same philosophy applies to the people who build it, not just
+        the people who use it. First contributions can be stressful —
+        especially if you're new to open source, or new to Python
+        altogether. This project is built to make that first step as
+        low-pressure as possible: beginners are genuinely welcome, mistakes
+        are part of learning, and the community grows by helping each other
+        rather than gatekeeping. Teamwork makes the dream work.
+      </p>
+    </div>
+
+    <footer>
+      <a href="https://github.com/sara-czasak/py-simple-wrap">View on GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="https://pypi.org/project/py-simple-wrap/">View on PyPI</a>
+    </footer>
+  </div>
+</body>
+</html>

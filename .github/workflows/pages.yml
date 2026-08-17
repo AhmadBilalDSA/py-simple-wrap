@@ -33,7 +33,7 @@ jobs:
         run: pip install -e .[docs]
 
       - name: Build docs
-        run: mkdocs build -d site-build
+        run: mkdocs build -d site-build/docs
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -49,6 +49,9 @@ jobs:
           GITHUB_REF_NAME: ${{ github.ref_name }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx contributor-quest generate --out site-build/quest
+
+      - name: Add landing page
+        run: cp landing/index.html site-build/index.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

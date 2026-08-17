@@ -1,6 +1,6 @@
 site_name: py-simple-wrap
 site_description: A beginner-friendly Python wrapper package
-site_url: https://github.com/sara-czasak/py-simple-wrap/
+site_url: https://sara-czasak.github.io/py-simple-wrap/docs/
 repo_url: https://github.com/sara-czasak/py-simple-wrap
 repo_name: sara-czasak/py-simple-wrap
 
@@ -62,6 +62,9 @@ nav:
         - Easy Validator: tutorial/easy_validator.md
   - How To:
       - Contributing: how-to/contributing.md
+  - Contributor Hub:
+      - Docstring Template: contributor-hub/docstring_template.md
+      - Tutorial Template: contributor-hub/tutorial_template.md
   - Reference:
       - Easy Async: reference/easy_async.md
       - Easy Colors: reference/easy_colors.md
