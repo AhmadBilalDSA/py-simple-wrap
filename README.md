@@ -16,6 +16,14 @@ py-simple-wrap is a beginner-friendly Python wrapper package designed to help be
 
 The goal of this project is to remove the need for memorizing complex syntax or writing repetitive boilerplate code, making Python more accessible and enjoyable for everyone.
 
+## 🎯 Why py-simple-wrap exists
+
+Python is famous for being the beginner-friendly language — but "beginner-friendly" still has a learning curve, and a lot of people give up right before it gets fun. py-simple-wrap exists to shorten that gap: a toolbox with everything a beginner needs to build something fun enough, early enough, to want to stick around and go deeper into Python.
+
+That's the filter for what belongs here. A function makes the cut if it helps someone go from *idea* to *working thing* faster — whether that's a tiny game, a chart, a scraped webpage, or a cleaned-up CSV. It's not trying to replace specialized, production-grade libraries (`pandas`, `matplotlib`, `pygame` and friends do that job better) — it's the on-ramp to them, built for the moment before someone's ready to reach for the "real" tool.
+
+Thinking about contributing a new module? [CONTRIBUTING.md](CONTRIBUTING.md) has more on what fits that filter and how to propose one.
+
 ## You'll love py-simple-wrap if:
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=900&pause=30&color=5E7CF7&background=FF000000&multiline=true&width=1020&height=100&lines=*+You're+learning+Python+and+want+to+do+useful+things+without+memorizing+complex+syntax.;*+You're+a+developer+who's+tired+of+writing+the++same+8+lines+of+code+when+1+will+do.;*+You're+teaching+Python+and+want+students+to++focus+on+logic%2C+not+boilerplates.)](https://git.io/typing-svg)
 
