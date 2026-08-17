@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.3.2] - 2026-08-17
+### Added
+- Added `.github/dependabot.yml` to automate dependency updates for pip, npm, and GitHub Actions, with a 7-day cooldown on routine updates (security-alert-driven fixes bypass the cooldown) ([@sara-czasak](https://github.com/sara-czasak))
+### Changed
+- Bumped GitHub Actions in `pages.yml`/`publish.yml`: `actions/checkout` 4→7, `actions/setup-python` 4→7, `actions/upload-artifact` 4→7, `actions/download-artifact` 4→8, `actions/deploy-pages` 4→5 (Dependabot)
+- Bumped `typescript` 5.9.3→7.0.2 and `@types/node` 22.20.1→26.2.0 in the Quest generator's `package.json` (Dependabot)
+### Fixed
+- Fixed a broken `Documentation` project URL in `pyproject.toml` — pointed at a malformed GitHub folder link that 404'd; now points at the live docs site (`https://sara-czasak.github.io/py-simple-wrap/docs/`) ([@sara-czasak](https://github.com/sara-czasak))
+ 
+
 ## [0.3.1] - 2026-08-17
 ### Added
 - Re-included `easy_data_visualization` (`plot_data`) in the public API now that unit tests exist ([@HeaTTap](https://github.com/HeaTTap))

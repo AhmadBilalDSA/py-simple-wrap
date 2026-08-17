@@ -49,7 +49,7 @@ dependencies = [
 Homepage = "https://github.com/sara-czasak/py-simple-wrap"
 Repository = "https://github.com/sara-czasak/py-simple-wrap"
 "Bug Tracker" = "https://github.com/sara-czasak/py-simple-wrap/issues"
-Documentation = "https://github.com/sara-czasak/py-simple-wrap/docs"
+Documentation = "https://sara-czasak.github.io/py-simple-wrap/docs/"
 Quickstart = "https://github.com/sara-czasak/py-simple-wrap/blob/main/QUICKSTART.md"
 
 [project.optional-dependencies]
