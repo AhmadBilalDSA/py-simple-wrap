@@ -1,4 +1,5 @@
 # py-simple-wrap 🚀
+[![codecov](https://codecov.io/github/sara-czasak/py-simple-wrap/graph/badge.svg?token=W7T71TOK1D)](https://codecov.io/github/sara-czasak/py-simple-wrap)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-25-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
