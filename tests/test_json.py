@@ -181,3 +181,96 @@ class TestEasyJson:
         with pytest.raises(EasyJsonError) as exc_info:
             flatten_json(data={"a": 1}, filepath=str(json_file))
         assert "ERROR:" in str(exc_info.value)
+
+    def test_flatten_json_list_of_scalars_uses_index_keys(self):
+        data = {"a": 1, "b": [10, 20, 30]}
+        result = flatten_json(data=data)
+        assert result == {"a": 1, "b-0": 10, "b-1": 20, "b-2": 30}
+
+    def test_flatten_json_list_of_dicts_joins_index_and_key(self):
+        data = {"users": [{"name": "Sara"}, {"name": "Alex"}]}
+        result = flatten_json(data=data)
+        assert result == {"users-0-name": "Sara", "users-1-name": "Alex"}
+
+    def test_flatten_json_list_of_dicts_custom_separator(self):
+        data = {"users": [{"name": "Sara"}]}
+        result = flatten_json(seperator="_", data=data)
+        assert result == {"users_0_name": "Sara"}
+
+    def test_flatten_json_nested_lists_flatten_recursively(self):
+        data = {"matrix": [[1, 2], [3, 4]]}
+        result = flatten_json(data=data)
+        assert result == {
+            "matrix-0-0": 1,
+            "matrix-0-1": 2,
+            "matrix-1-0": 3,
+            "matrix-1-1": 4,
+        }
+
+    def test_flatten_json_dict_inside_list_inside_dict(self):
+        data = {"a": {"b": [{"c": 1}]}}
+        result = flatten_json(data=data)
+        assert result == {"a-b-0-c": 1}
+
+    def test_flatten_json_empty_dict_returns_empty_dict(self):
+        assert flatten_json(data={}) == {}
+
+    def test_flatten_json_already_flat_is_unchanged(self):
+        data = {"a": 1, "b": "two", "c": True}
+        assert flatten_json(data=data) == data
+
+    def test_flatten_json_non_mapping_raises_easy_json_error(self):
+        with pytest.raises(EasyJsonError) as exc_info:
+            flatten_json(data=[1, 2, 3])
+        assert "ERROR:" in str(exc_info.value)
+
+    def test_is_nested_json_non_mapping_raises_easy_json_error(self):
+        with pytest.raises(EasyJsonError) as exc_info:
+            is_nested_json(data=[1, 2, 3])
+        assert "ERROR:" in str(exc_info.value)
+
+    def test_is_nested_json_empty_dict_is_not_nested(self):
+        assert not is_nested_json(data={})
+
+    def test_is_nested_json_invalid_file_raises_easy_json_error(self, tmp_path):
+        bad_file = tmp_path / "bad.json"
+        bad_file.write_text("{not json}", encoding="utf-8")
+        with pytest.raises(EasyJsonError) as exc_info:
+            is_nested_json(filepath=str(bad_file))
+        assert "ERROR:" in str(exc_info.value)
+
+    def test_flatten_json_invalid_file_raises_easy_json_error(self, tmp_path):
+        bad_file = tmp_path / "bad.json"
+        bad_file.write_text("{not json}", encoding="utf-8")
+        with pytest.raises(EasyJsonError) as exc_info:
+            flatten_json(filepath=str(bad_file))
+        assert "ERROR:" in str(exc_info.value)
+
+    def test_update_json_preserves_untouched_keys(self, tmp_path):
+        json_file = tmp_path / "data.json"
+        json_file.write_text(
+            json.dumps({"keep": "me", "change": "old"}), encoding="utf-8"
+        )
+
+        update_json(str(json_file), {"change": "new"})
+
+        assert json.loads(json_file.read_text(encoding="utf-8")) == {
+            "keep": "me",
+            "change": "new",
+        }
+
+    def test_save_then_open_json_round_trip(self, tmp_path):
+        json_file = tmp_path / "round_trip.json"
+        data = {"nested": {"list": [1, 2]}, "flag": False, "nothing": None}
+
+        save_json_data(str(json_file), data)
+
+        assert open_json(str(json_file)) == data
+
+    def test_is_json_file_uppercase_extension_is_rejected(self, tmp_path):
+        json_file = tmp_path / "valid.JSON"
+        json_file.write_text("{}", encoding="utf-8")
+        assert is_json_file(str(json_file)) is False
+
+    def test_is_json_file_directory_is_not_a_file(self, tmp_path):
+        assert is_json_file(str(tmp_path)) is False
