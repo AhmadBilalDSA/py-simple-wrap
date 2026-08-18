@@ -202,10 +202,12 @@
     "emails": [
       "sara.p.czasak.m@gmail.com",
       "star.wasp7272@gmail.com",
-      "49699333+dependabot[bot]@users.noreply.github.com"
+      "49699333+dependabot[bot]@users.noreply.github.com",
+      "46447321+allcontributors[bot]@users.noreply.github.com"
     ],
     "names": [
-      "dependabot[bot]"
+      "dependabot[bot]",
+      "allcontributors[bot]"
     ]
   }
 }
