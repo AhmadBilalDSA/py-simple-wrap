@@ -1,8 +1,4 @@
 # py-simple-wrap 🚀
-[![codecov](https://codecov.io/github/sara-czasak/py-simple-wrap/graph/badge.svg?token=W7T71TOK1D)](https://codecov.io/github/sara-czasak/py-simple-wrap)
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-25-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 **Making Python feel like plain English.**
 
@@ -24,6 +20,12 @@
 py-simple-wrap is a beginner-friendly Python wrapper package designed to help beginners and developers perform common tasks using simple, intuitive functions.
 
 The goal of this project is to remove the need for memorizing complex syntax or writing repetitive boilerplate code, making Python more accessible and enjoyable for everyone.
+
+**Test coverage**
+
+[![codecov](https://codecov.io/github/sara-czasak/py-simple-wrap/graph/badge.svg?token=W7T71TOK1D)](https://codecov.io/github/sara-czasak/py-simple-wrap)
+
+[![codecov](https://codecov.io/github/sara-czasak/py-simple-wrap/graphs/tree.svg?token=W7T71TOK1D?token=W7T71TOK1D?token=W7T71TOK1D)](https://codecov.io/github/sara-czasak/py-simple-wrap)
 
 ## 🎯 Why py-simple-wrap exists
 
