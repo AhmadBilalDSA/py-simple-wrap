@@ -25,7 +25,7 @@ The goal of this project is to remove the need for memorizing complex syntax or 
 
 [![codecov](https://codecov.io/github/sara-czasak/py-simple-wrap/graph/badge.svg?token=W7T71TOK1D)](https://codecov.io/github/sara-czasak/py-simple-wrap)
 
-[![codecov](https://codecov.io/github/sara-czasak/py-simple-wrap/graphs/tree.svg?token=W7T71TOK1D?token=W7T71TOK1D?token=W7T71TOK1D)](https://codecov.io/github/sara-czasak/py-simple-wrap)
+[![codecov](https://codecov.io/github/sara-czasak/py-simple-wrap/graphs/tree.svg?token=W7T71TOK1D?)](https://codecov.io/github/sara-czasak/py-simple-wrap)
 
 ## 🎯 Why py-simple-wrap exists
 
