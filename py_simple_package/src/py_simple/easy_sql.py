@@ -20,7 +20,7 @@ class EasySqlError(Exception):
         super().__init__(self.message)
 
 
-def open_db(db_filepath: str) -> tuple | None:
+def open_db(db_filepath: str) -> tuple[sqlite3.Connection, sqlite3.Cursor]:
     """
     Opens a connection to an SQLite database file. Creates the file if it
     doesn't exist yet; opens it as-is if it does.
@@ -55,5 +55,5 @@ def open_db(db_filepath: str) -> tuple | None:
         conn = sqlite3.connect(db_filepath)
         cursor = conn.cursor()
         return conn, cursor
-    except Exception as e:
+    except sqlite3.OperationalError as e:
         raise EasySqlError(f"\n\nERROR: {e}") from None

@@ -16,6 +16,21 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install .[test] pytest-cov
+
+      - name: Run tests with coverage
+        run: |
+          pytest --cov=py_simple_package --cov-report=xml
+
+
       - name: Get changed files
         id: changed
         run: |
@@ -33,7 +48,16 @@ jobs:
                 [ "$base" = "__init__" ] && continue
                 short="${base#easy_}"
                 test_file="tests/test_${short}.py"
+                  needs_issue=false
                 if [ ! -f "$test_file" ]; then
+                  needs_issue=true
+                else
+                  line_rate=$(grep -oP "filename=\"${file}\" line-rate=\"\K[0-9.]+" coverage.xml)
+                  if [ -n "$line_rate" ] && awk -v r="$line_rate" 'BEGIN{exit !(r < 1)}'; then
+                    needs_issue=true
+                  fi
+                fi
+                if [ "$needs_issue" = true ]; then
                   title="🧪 [Help Wanted] Implement unit tests for ${base}"
                   existing=$(gh issue list --state open --search "in:title \"$title\"" --json title -q '.[].title')
                   if [ -z "$existing" ]; then
