@@ -299,6 +299,13 @@ Every tile below is a real person who showed up for this project. 💛
       </a><br />
       <sub><i>Added missing tests for easy_web.</i></sub>
     </td>
+    <td align="center" valign="top" width="16.6%">
+      <a href="https://github.com/VidyavathiGK">
+        <img src="https://github.com/VidyavathiGK.png" width="100px;" alt="VidyavathiGK "/><br />
+        <sub><b>Vidyavathi GK</b></sub>
+      </a><br />
+      <sub><i>Created tests for easy_sql module.</i></sub>
+    </td>
   </tr>
 </table>
 
