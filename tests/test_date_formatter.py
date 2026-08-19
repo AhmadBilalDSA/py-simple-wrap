@@ -5,8 +5,6 @@ import pytest
 import datetime as dt
 from py_simple_package.src.py_simple.easy_date_formatter import *
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 from py_simple_package.src.py_simple.easy_date_formatter import (
     get_pretty_date,
     get_past_pretty_date,
@@ -172,11 +170,6 @@ class TestUtilityFunctions:
         result = future_dd_mm_yyyy(days)
         assert re.match(r'\d{2}-\d{2}-\d{4}', result)
 
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-
 def test_mm_dd_yyyy():
     # ARRANGE
     expected_output = dt.datetime.now().strftime("%m-%d-%Y")
@@ -309,14 +302,6 @@ def test_past_slash_mm_dd_yyyy():
         past_slash_mm_dd_yyyy(13),
         past_slash_mm_dd_yyyy(53),
     ]
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     assert result == expected_output, f"Expected {expected_output} but got {result}"
-
-=======
     assert result == expected_output, f"Expected {expected_output} but got {result}"
->>>>>>> Stashed changes
-=======
     assert result == expected_output, f"Expected {expected_output} but got {result}"
->>>>>>> Stashed changes
