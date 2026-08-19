@@ -312,6 +312,15 @@
       "contributions": [
         "infra"
       ]
+    },
+    {
+      "login": "Osheun ",
+      "name": "Osheun",
+      "avatar_url": "https://github.com/Osheun.png",
+      "profile": "https://github.com/Osheun",
+      "contributions": [
+        "test"
+      ]
     }
   ]
 }

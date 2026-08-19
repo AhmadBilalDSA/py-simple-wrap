@@ -278,6 +278,13 @@ Every tile below is a real person who showed up for this project. 💛
       </a><br />
       <sub><i>Included test coverage when building easy_data_visualization.</i></sub>
     </td>
+    <td align="center" valign="top" width="16.6%">
+      <a href="https://github.com/joaoprbrasil">
+        <img src="https://github.com/Osheun.png" width="100px;" alt="Osheun"/><br />
+        <sub><b>Osheun</b></sub>
+      </a><br />
+      <sub><i>Improved tests across multiple modules to increase test coverage.</i></sub>
+    </td>
   </tr>
 </table>
 

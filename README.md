@@ -638,7 +638,8 @@ A huge thank you to these wonderful people for helping make Python simpler for e
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/smirnov-danil"><img src="https://github.com/smirnov-danil.png?s=80" width="80px;" alt="d.smirnov"/><br /><sub><b>d.smirnov</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=smirnov-danil" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Venkat4real"><img src="https://github.com/Venkat4real.png?s=80" width="80px;" alt="Venkat"/><br /><sub><b>Venkat</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=Venkat4real" title="Docs">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/E4x7k"><img src="https://github.com/E4x7k.png?s=80" width="80px;" alt="E4x7k"/><br /><sub><b>E4x7k</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=E4x7k" title="Docs">📖</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/jbsilva"><img src="https://github.com/jbsilva.png?s=80" width="80px;" alt="Julio Batista Silva"/><br /><sub><b>Julio Batista Silva</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=jbsilva" title="Infrastructure">🚇</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/jbsilva"><img src="https://github.com/jbsilva.png?s=80" width="80px;" alt="Julio Batista Silva"/><br /><sub><b>Julio Batista Silva</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=jbsilva " title="Infrastructure">🚇</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Osheun"><img src="https://github.com/Osheun.png?s=80" width="80px;" alt="Osheun"/><br /><sub><b>Osheun</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=Osheun " title="Tests">🧪</a></td>
     </tr>
   </tbody>
 </table>
@@ -648,6 +649,7 @@ A huge thank you to these wonderful people for helping make Python simpler for e
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-26-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
