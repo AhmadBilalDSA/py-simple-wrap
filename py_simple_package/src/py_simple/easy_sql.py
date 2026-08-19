@@ -3,7 +3,6 @@ Beginner friendly helpers for handling databases
 """
 
 import sqlite3
-import os.path
 
 
 class EasySqlError(Exception):
