@@ -301,10 +301,19 @@ Every tile below is a real person who showed up for this project. 💛
     </td>
     <td align="center" valign="top" width="16.6%">
       <a href="https://github.com/VidyavathiGK">
-        <img src="https://github.com/VidyavathiGK.png" width="100px;" alt="VidyavathiGK "/><br />
+        <img src="https://github.com/VidyavathiGK.png" width="100px;" alt="VidyavathiGK"/><br />
         <sub><b>Vidyavathi GK</b></sub>
       </a><br />
       <sub><i>Created tests for easy_sql module.</i></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="top" width="16.6%">
+      <a href="https://github.com/aditya226-sharma">
+        <img src="https://github.com/aditya226-sharma.png" width="100px;" alt="aditya226-sharma"/><br />
+        <sub><b>Aditya Sharma</b></sub>
+      </a><br />
+      <sub><i>Created tests for the easy_converter module</i></sub>
     </td>
   </tr>
 </table>
