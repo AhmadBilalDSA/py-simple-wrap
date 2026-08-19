@@ -1,0 +1,46 @@
+name: Check for missing tests
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'py_simple_package/src/py_simple/**'
+
+jobs:
+  check-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed
+        run: |
+          git diff --name-only ${{ github.event.before }} ${{ github.event.after }} > changed_files.txt
+          cat changed_files.txt
+
+      - name: Check for missing tests
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          while IFS= read -r file; do
+            case "$file" in
+              py_simple_package/src/py_simple/*.py)
+                base=$(basename "$file" .py)
+                [ "$base" = "__init__" ] && continue
+                short="${base#easy_}"
+                test_file="tests/test_${short}.py"
+                if [ ! -f "$test_file" ]; then
+                  title="🧪 [Help Wanted] Implement unit tests for ${base}"
+                  existing=$(gh issue list --state open --search "in:title \"$title\"" --json title -q '.[].title')
+                  if [ -z "$existing" ]; then
+                    body=$(awk '/^---$/{c++; next} c>=2' .github/ISSUE_TEMPLATE/tests.md | sed "s/{{MODULE_NAME}}/${base}/g")
+                    gh issue create --title "$title" --body "$body" --label "tests,good first issue"
+                  fi
+                fi
+                ;;
+            esac
+          done < changed_files.txt
