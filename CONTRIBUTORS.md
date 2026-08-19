@@ -285,6 +285,13 @@ Every tile below is a real person who showed up for this project. 💛
       </a><br />
       <sub><i>Improved tests across multiple modules to increase test coverage.</i></sub>
     </td>
+    <td align="center" valign="top" width="16.6%">
+      <a href="https://github.com/matteogristina">
+        <img src="https://github.com/matteogristina.png" width="100px;" alt="matteogristina"/><br />
+        <sub><b>matteogristina</b></sub>
+      </a><br />
+      <sub><i>Increased test coverage for multiple modules.</i></sub>
+    </td>
   </tr>
 </table>
 
