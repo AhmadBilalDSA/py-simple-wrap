@@ -292,6 +292,13 @@ Every tile below is a real person who showed up for this project. 💛
       </a><br />
       <sub><i>Increased test coverage for multiple modules.</i></sub>
     </td>
+    <td align="center" valign="top" width="16.6%">
+      <a href="https://github.com/qiaobochi040726-source">
+        <img src="https://github.com/qiaobochi040726-source.png" width="100px;" alt="qiaobochi040726-source"/><br />
+        <sub><b>qiaobochi040726-source</b></sub>
+      </a><br />
+      <sub><i>Added missing tests for easy_web.</i></sub>
+    </td>
   </tr>
 </table>
 

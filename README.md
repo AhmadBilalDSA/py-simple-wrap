@@ -641,6 +641,7 @@ A huge thank you to these wonderful people for helping make Python simpler for e
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/jbsilva"><img src="https://github.com/jbsilva.png?s=80" width="80px;" alt="Julio Batista Silva"/><br /><sub><b>Julio Batista Silva</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=jbsilva " title="Infrastructure">🚇</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Osheun"><img src="https://github.com/Osheun.png?s=80" width="80px;" alt="Osheun"/><br /><sub><b>Osheun</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=Osheun " title="Tests">🧪</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/matteogristina"><img src="https://github.com/matteogristina.png?s=80" width="80px;" alt="matteogristina"/><br /><sub><b>matteogristina</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=matteogristina" title="Tests">🧪</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/qiaobochi040726-source"><img src="https://github.com/qiaobochi040726-source.png?s=80" width="80px;" alt="qiaobochi040726-source"/><br /><sub><b>qiaobochi040726-source</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=qiaobochi040726-source" title="Tests">🧪</a></td>
     </tr>
   </tbody>
 </table>
@@ -650,7 +651,7 @@ A huge thank you to these wonderful people for helping make Python simpler for e
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-27-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-28-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
