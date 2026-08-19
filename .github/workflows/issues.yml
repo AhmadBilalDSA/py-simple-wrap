@@ -38,7 +38,7 @@ jobs:
                   existing=$(gh issue list --state open --search "in:title \"$title\"" --json title -q '.[].title')
                   if [ -z "$existing" ]; then
                     body=$(awk '/^---$/{c++; next} c>=2' .github/ISSUE_TEMPLATE/tests.md | sed "s/{{MODULE_NAME}}/${base}/g")
-                    gh issue create --title "$title" --body "$body" --label "tests,good first issue"
+                    gh issue create --title "$title" --body "$body" --label "testing,good first issue"
                   fi
                 fi
                 ;;
