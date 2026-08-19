@@ -230,3 +230,28 @@ class TestRetry:
 
         assert len(calls) == 3
         assert sleep_calls == [1, 1]
+
+    def test_zero_attempts_returns_none(self, monkeypatch):
+        """Checks the loop never runs when attempts is zero."""
+        monkeypatch.setattr(time, "sleep", lambda s: None)
+        calls = []
+
+        def never_called():
+            calls.append(1)
+            return "unreachable"
+
+        assert retry(never_called, attempts=0) is None
+        assert calls == []
+
+    def test_single_attempt_raises_without_sleeping(self, monkeypatch):
+        """Checks a lone failing attempt raises and never waits."""
+        sleep_calls = []
+        monkeypatch.setattr(time, "sleep", lambda s: sleep_calls.append(s))
+
+        def always_fails():
+            raise ValueError("nope")
+
+        with pytest.raises(ValueError):
+            retry(always_fails, attempts=1)
+
+        assert sleep_calls == []
