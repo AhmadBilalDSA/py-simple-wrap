@@ -158,6 +158,13 @@ class TestFilterCsvRows:
         result = filter_csv_rows(str(csv_file), column="Name", value="Zed")
         assert result == []
 
+    def test_filter_header_only_file_returns_empty_list(self, tmp_path):
+        csv_file = tmp_path / "people.csv"
+        csv_file.write_text("Name,Age\n", encoding="utf-8")
+
+        result = filter_csv_rows(str(csv_file), column="Name", value="Alice")
+        assert result == []
+
     def test_filter_missing_column_raises_value_error(self, tmp_path):
         csv_file = tmp_path / "people.csv"
         write_people_csv(csv_file)
