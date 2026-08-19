@@ -1,5 +1,5 @@
 """
-Beginner friendly helpers for handling databases
+Beginner friendly helpers for handling databases.
 """
 
 import sqlite3
