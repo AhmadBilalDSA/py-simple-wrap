@@ -2,7 +2,7 @@
 name: 🧪 [Help Wanted] Implement unit tests for {{MODULE_NAME}}
 about: A module changed in a merged PR has no matching test file
 title: 🧪 [Help Wanted] Implement unit tests for {{MODULE_NAME}}
-labels: tests, good first issue, help-wanted, good-first-issue
+labels: testing, good first issue, help-wanted, good-first-issue
 ---
 > I'm looking for a contributor to help improve the reliability of `Py_simple` by adding unit tests for the **[{{MODULE_NAME}} module](https://github.com/sara-czasak/py-simple-wrap/blob/main/py_simple_package/src/py_simple/{{MODULE_NAME}}.py)**! 
 >
