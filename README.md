@@ -61,9 +61,9 @@ print(get_page_title("https://github.com"))
  
 <div align="center">
 
-| <div style="width:350px">📦 **[Module reference](docs/MODULES.md)**</div> | <div style="width:350px">🤝 **[Contributor hub](https://sara-czasak.github.io/py-simple-wrap/docs/contributor-hub/)**</div> | <div style="width:350px">🗺️ **[Contributors quest](https://sara-czasak.github.io/py-simple-wrap/quest/)**</div> |
-|:-------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------:|
-|                        20+ modules, one line each                         |                                               start here — templates included                                               |                                        play your way through contributing                                        |
+| <div style="width:350px">📦 **[Module reference](MODULES.md)**</div> | <div style="width:350px">🤝 **[Contributor hub](https://sara-czasak.github.io/py-simple-wrap/docs/contributor-hub/)**</div> | <div style="width:350px">🗺️ **[Contributors quest](https://sara-czasak.github.io/py-simple-wrap/quest/)**</div> |
+|:--------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------:|
+|                      20+ modules, one line each                      |                                               start here — templates included                                               |                                        play your way through contributing                                        |
  
 </div>
 <details>
