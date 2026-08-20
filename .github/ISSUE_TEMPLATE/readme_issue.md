@@ -2,7 +2,7 @@
 name: 📔 [Documentation] Add a README module menu entry for {{MODULE_NAME}}
 about: A module changed in a merged PR has no entry in the README's Module Menu
 title: 📔 [Documentation] Add a README module menu entry for {{MODULE_NAME}}
-labels: documentation, good first issue, help-wanted, good-first-issue
+labels: documentation, good first issue, help wanted, good-first-issue
 ---
 `{{MODULE_NAME}}` doesn't have an entry in the README's Module Menu yet.
 
