@@ -1,4 +1,4 @@
-name: Check for missing tests
+name: Check for missing files
 on:
   push:
     branches: [main]
@@ -57,7 +57,7 @@ jobs:
                 if [ ! -f "$test_file" ]; then
                   needs_issue=true
                 else
-                  line_rate=$(grep -oP "filename=\"${file}\" line-rate=\"\K[0-9.]+" coverage.xml)
+                  line_rate=$(grep -oP "filename=\"${file}\" line-rate=\"\K[0-9.]+" coverage.xml || true)
                   if [ -n "$line_rate" ] && awk -v r="$line_rate" 'BEGIN{exit !(r < 1)}'; then
                     needs_issue=true
                   fi
