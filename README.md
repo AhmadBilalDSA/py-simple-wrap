@@ -11,8 +11,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://github.com/sara-czasak/py-simple-wrap/blob/main/LICENSE.md)
 [![GitHub stars](https://img.shields.io/github/stars/sara-czasak/py-simple-wrap?style=for-the-badge)](https://github.com/sara-czasak/py-simple-wrap)
 
-[![Downloads/day](https://img.shields.io/pypi/dd/py-simple-wrap?style=for-the-badge)](https://pypistats.org/packages/py-simple-wrap)
-[![Downloads/week](https://img.shields.io/pypi/dw/py-simple-wrap?style=for-the-badge)](https://pypistats.org/packages/py-simple-wrap)
 [![Downloads/month](https://img.shields.io/pypi/dm/py-simple-wrap?style=for-the-badge)](https://pypistats.org/packages/py-simple-wrap)
 [![Latest version](https://img.shields.io/pypi/v/py-simple-wrap?style=for-the-badge)](https://pypi.org/project/py-simple-wrap/)
 
