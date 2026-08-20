@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'py_simple_package/src/py_simple/**'
+  workflow_dispatch:
 
 jobs:
   check-tests:
@@ -34,7 +35,11 @@ jobs:
       - name: Get changed files
         id: changed
         run: |
-          git diff --name-only ${{ github.event.before }} ${{ github.event.after }} > changed_files.txt
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            find py_simple_package/src/py_simple -maxdepth 1 -name '*.py' -printf '%p\n' > changed_files.txt
+          else
+            git diff --name-only ${{ github.event.before }} ${{ github.event.after }} > changed_files.txt
+          fi
           cat changed_files.txt
 
       - name: Check for missing tests
@@ -70,7 +75,7 @@ jobs:
                 if [ ! -f "$ref_file" ]; then
                   ref_title_raw=$(grep '^title:' .github/ISSUE_TEMPLATE/docs_referance_issue.md | sed 's/^title: *//')
                   ref_title="${ref_title_raw//\{\{MODULE_NAME\}\}/$base}"
-                  ref_labels=$(grep '^labels:' .github/ISSUE_TEMPLATE/docs_referance_issue.md | sed 's/^labels: *//')
+                  ref_labels=$(grep '^labels:' .github/ISSUE_TEMPLATE/docs_referance_issue.md | sed 's/^labels: *//' | sed 's/, */,/g')
 
                   existing_ref=$(gh issue list --state open --search "in:title \"$ref_title\"" --json title -q '.[].title')
                   if [ -z "$existing_ref" ]; then
@@ -83,7 +88,7 @@ jobs:
                 if [ ! -f "$tutorial_file" ]; then
                   tut_title_raw=$(grep '^title:' .github/ISSUE_TEMPLATE/tutorial_issue.md | sed 's/^title: *//')
                   tut_title="${tut_title_raw//\{\{MODULE_NAME\}\}/$base}"
-                  tut_labels=$(grep '^labels:' .github/ISSUE_TEMPLATE/tutorial_issue.md | sed 's/^labels: *//')
+                  tut_labels=$(grep '^labels:' .github/ISSUE_TEMPLATE/tutorial_issue.md | sed 's/^labels: *//' | sed 's/, */,/g')
 
                   existing_tut=$(gh issue list --state open --search "in:title \"$tut_title\"" --json title -q '.[].title')
                   if [ -z "$existing_tut" ]; then
