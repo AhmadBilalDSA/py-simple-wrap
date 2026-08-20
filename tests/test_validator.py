@@ -73,7 +73,13 @@ class TestEasyValidator:
             ("Ab1!cd", False),
             ("abcd12!ef", False),
             ("Abcdef!g1", False),
-            ("Abcd12!!Ef", False)
+            ("Abcd12!!Ef", False),
+            ("AAbcdef1!2", False),
+            ("Abbcdef1!2", False),
+            ("Abcdef11!2", False),
+            (" 1andkrf!AG5", True),
+            ("Abcde12!", False),
+            ("", False),
         ],
     )
 

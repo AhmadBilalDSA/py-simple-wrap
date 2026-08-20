@@ -173,6 +173,22 @@ def test_is_prime_zero():
     assert is_prime(0) is False
 
 
+def test_is_prime_even_composite():
+    assert is_prime(4) is False
+
+
+def test_is_prime_large_even():
+    assert is_prime(100) is False
+
+
+def test_is_prime_negative():
+    assert is_prime(-7) is False
+
+
+def test_is_prime_odd_composite_square():
+    assert is_prime(25) is False
+
+
 
 
 # percentage

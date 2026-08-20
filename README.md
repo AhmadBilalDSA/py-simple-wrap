@@ -11,8 +11,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://github.com/sara-czasak/py-simple-wrap/blob/main/LICENSE.md)
 [![GitHub stars](https://img.shields.io/github/stars/sara-czasak/py-simple-wrap?style=for-the-badge)](https://github.com/sara-czasak/py-simple-wrap)
 
-[![Downloads/day](https://img.shields.io/pypi/dd/py-simple-wrap?style=for-the-badge)](https://pypistats.org/packages/py-simple-wrap)
-[![Downloads/week](https://img.shields.io/pypi/dw/py-simple-wrap?style=for-the-badge)](https://pypistats.org/packages/py-simple-wrap)
 [![Downloads/month](https://img.shields.io/pypi/dm/py-simple-wrap?style=for-the-badge)](https://pypistats.org/packages/py-simple-wrap)
 [![Latest version](https://img.shields.io/pypi/v/py-simple-wrap?style=for-the-badge)](https://pypi.org/project/py-simple-wrap/)
 
@@ -638,7 +636,14 @@ A huge thank you to these wonderful people for helping make Python simpler for e
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/smirnov-danil"><img src="https://github.com/smirnov-danil.png?s=80" width="80px;" alt="d.smirnov"/><br /><sub><b>d.smirnov</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=smirnov-danil" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Venkat4real"><img src="https://github.com/Venkat4real.png?s=80" width="80px;" alt="Venkat"/><br /><sub><b>Venkat</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=Venkat4real" title="Docs">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/E4x7k"><img src="https://github.com/E4x7k.png?s=80" width="80px;" alt="E4x7k"/><br /><sub><b>E4x7k</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=E4x7k" title="Docs">📖</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/jbsilva"><img src="https://github.com/jbsilva.png?s=80" width="80px;" alt="Julio Batista Silva"/><br /><sub><b>Julio Batista Silva</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=jbsilva" title="Infrastructure">🚇</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/jbsilva"><img src="https://github.com/jbsilva.png?s=80" width="80px;" alt="Julio Batista Silva"/><br /><sub><b>Julio Batista Silva</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=jbsilva " title="Infrastructure">🚇</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Osheun"><img src="https://github.com/Osheun.png?s=80" width="80px;" alt="Osheun"/><br /><sub><b>Osheun</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=Osheun " title="Tests">🧪</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/matteogristina"><img src="https://github.com/matteogristina.png?s=80" width="80px;" alt="matteogristina"/><br /><sub><b>matteogristina</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=matteogristina" title="Tests">🧪</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/qiaobochi040726-source"><img src="https://github.com/qiaobochi040726-source.png?s=80" width="80px;" alt="qiaobochi040726-source"/><br /><sub><b>qiaobochi040726-source</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=qiaobochi040726-source" title="Tests">🧪</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/VidyavathiGK"><img src="https://github.com/VidyavathiGK.png?s=80" width="80px;" alt="Vidyavathi GK"/><br /><sub><b>Vidyavathi GK</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=VidyavathiGK" title="Tests">🧪</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/aditya226-sharma"><img src="https://github.com/aditya226-sharma.png?s=80" width="80px;" alt="Aditya Sharma"/><br /><sub><b>Aditya Sharma</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=aditya226-sharma" title="Tests">🧪</a></td>
     </tr>
   </tbody>
 </table>
@@ -648,6 +653,7 @@ A huge thank you to these wonderful people for helping make Python simpler for e
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-30-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

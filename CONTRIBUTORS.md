@@ -278,6 +278,43 @@ Every tile below is a real person who showed up for this project. 💛
       </a><br />
       <sub><i>Included test coverage when building easy_data_visualization.</i></sub>
     </td>
+    <td align="center" valign="top" width="16.6%">
+      <a href="https://github.com/joaoprbrasil">
+        <img src="https://github.com/Osheun.png" width="100px;" alt="Osheun"/><br />
+        <sub><b>Osheun</b></sub>
+      </a><br />
+      <sub><i>Improved tests across multiple modules to increase test coverage.</i></sub>
+    </td>
+    <td align="center" valign="top" width="16.6%">
+      <a href="https://github.com/matteogristina">
+        <img src="https://github.com/matteogristina.png" width="100px;" alt="matteogristina"/><br />
+        <sub><b>matteogristina</b></sub>
+      </a><br />
+      <sub><i>Increased test coverage for multiple modules.</i></sub>
+    </td>
+    <td align="center" valign="top" width="16.6%">
+      <a href="https://github.com/qiaobochi040726-source">
+        <img src="https://github.com/qiaobochi040726-source.png" width="100px;" alt="qiaobochi040726-source"/><br />
+        <sub><b>qiaobochi040726-source</b></sub>
+      </a><br />
+      <sub><i>Added missing tests for easy_web.</i></sub>
+    </td>
+    <td align="center" valign="top" width="16.6%">
+      <a href="https://github.com/VidyavathiGK">
+        <img src="https://github.com/VidyavathiGK.png" width="100px;" alt="VidyavathiGK"/><br />
+        <sub><b>Vidyavathi GK</b></sub>
+      </a><br />
+      <sub><i>Created tests for easy_sql module.</i></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="top" width="16.6%">
+      <a href="https://github.com/aditya226-sharma">
+        <img src="https://github.com/aditya226-sharma.png" width="100px;" alt="aditya226-sharma"/><br />
+        <sub><b>Aditya Sharma</b></sub>
+      </a><br />
+      <sub><i>Created tests for the easy_converter module</i></sub>
+    </td>
   </tr>
 </table>
 

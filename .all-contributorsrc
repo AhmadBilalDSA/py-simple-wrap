@@ -312,6 +312,51 @@
       "contributions": [
         "infra"
       ]
+    },
+    {
+      "login": "Osheun ",
+      "name": "Osheun",
+      "avatar_url": "https://github.com/Osheun.png",
+      "profile": "https://github.com/Osheun",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "matteogristina",
+      "name": "matteogristina",
+      "avatar_url": "https://github.com/matteogristina.png",
+      "profile": "https://github.com/matteogristina",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "qiaobochi040726-source",
+      "name": "qiaobochi040726-source",
+      "avatar_url": "https://github.com/qiaobochi040726-source.png",
+      "profile": "https://github.com/qiaobochi040726-source",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "VidyavathiGK",
+      "name": "Vidyavathi GK",
+      "avatar_url": "https://github.com/VidyavathiGK.png",
+      "profile": "https://github.com/VidyavathiGK",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "aditya226-sharma",
+      "name": "Aditya Sharma",
+      "avatar_url": "https://github.com/aditya226-sharma.png",
+      "profile": "https://github.com/aditya226-sharma",
+      "contributions": [
+        "test"
+      ]
     }
   ]
 }

@@ -8,6 +8,8 @@ from py_simple_package.src.py_simple.easy_colors import (
     rgb_to_hsl,
     random_hex_color,
     is_light_color,
+    hex_to_rgba,
+    contrast_ratio,
 )
 
 
@@ -303,3 +305,35 @@ def test_is_light_color_edge_cases():
     assert is_light_color("#FF0000")
     assert is_light_color("#00FF00")
     assert not is_light_color("#0000FF")
+
+
+@pytest.mark.parametrize(
+    "hex_code, alpha, expected",
+    [
+        ("#FF0000", 0.5, (255, 0, 0, 0.5)),
+        ("00ff00", 1.0, (0, 255, 0, 1.0)),
+        ("#000", 0.0, (0, 0, 0, 0.0)),
+        ("#4287F5", 0.8, (66, 135, 245, 0.8)),
+    ],
+)
+def test_hex_to_rgba_valid(hex_code, alpha, expected):
+    assert hex_to_rgba(hex_code, alpha) == expected
+
+
+@pytest.mark.parametrize("alpha", [-0.1, 1.1])
+def test_hex_to_rgba_invalid_alpha(alpha):
+    with pytest.raises(ValueError):
+        hex_to_rgba("#FF0000", alpha)
+
+
+@pytest.mark.parametrize(
+    "hex1, hex2, expected",
+    [
+        ("#000000", "#FFFFFF", 21.0),
+        ("#FFFFFF", "#000000", 21.0),
+        ("#000000", "#000000", 1.0),
+        ("#777777", "#FFFFFF", 4.478089453577214),
+    ],
+)
+def test_contrast_ratio(hex1, hex2, expected):
+    assert contrast_ratio(hex1, hex2) == pytest.approx(expected)

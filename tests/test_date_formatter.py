@@ -334,7 +334,6 @@ def test_past_slash_mm_dd_yyyy():
         past_slash_mm_dd_yyyy(13),
         past_slash_mm_dd_yyyy(53),
     ]
-
     assert result == expected_output, f"Expected {expected_output} but got {result}"
 
 
@@ -427,3 +426,5 @@ def test_future_slash_mm_dd_yyyy():
 
     assert result == expected_output, f"Expected {expected_output} but got {result}"
 
+    assert result == expected_output, f"Expected {expected_output} but got {result}"
+    assert result == expected_output, f"Expected {expected_output} but got {result}"
