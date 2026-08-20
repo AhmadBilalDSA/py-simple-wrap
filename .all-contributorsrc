@@ -357,6 +357,15 @@
       "contributions": [
         "test"
       ]
+    },
+    {
+      "login": "muraleegithub",
+      "name": "muraleegithub",
+      "avatar_url": "https://github.com/muraleegithub.png",
+      "profile": "https://github.com/muraleegithub",
+      "contributions": [
+        "documentation"
+      ]
     }
   ]
 }

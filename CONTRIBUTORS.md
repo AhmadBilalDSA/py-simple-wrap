@@ -383,6 +383,13 @@ Every tile below is a real person who showed up for this project. 💛
       </a><br />
       <sub><i>Wrote the docs that make easy_math make sense.</i></sub>
     </td>
+    <td align="center" valign="top" width="16.6%">
+      <a href="https://github.com/muraleegithub">
+        <img src="https://github.com/muraleegithub.png" width="100px;" alt="muraleegithub"/><br />
+        <sub><b>muraleegithub</b></sub>
+      </a><br />
+      <sub><i>Added reference for `easy_sql` module.</i></sub>
+    </td>
   </tr>
 </table>
 

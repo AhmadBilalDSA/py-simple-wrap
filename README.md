@@ -644,6 +644,7 @@ A huge thank you to these wonderful people for helping make Python simpler for e
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/VidyavathiGK"><img src="https://github.com/VidyavathiGK.png?s=80" width="80px;" alt="Vidyavathi GK"/><br /><sub><b>Vidyavathi GK</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=VidyavathiGK" title="Tests">🧪</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/aditya226-sharma"><img src="https://github.com/aditya226-sharma.png?s=80" width="80px;" alt="Aditya Sharma"/><br /><sub><b>Aditya Sharma</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=aditya226-sharma" title="Tests">🧪</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/muraleegithub"><img src="https://github.com/muraleegithub.png?s=80" width="80px;" alt="muraleegithub"/><br /><sub><b>muraleegithub</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=muraleegithub" title="Docs">📖</a></td>
     </tr>
   </tbody>
 </table>
@@ -653,7 +654,7 @@ A huge thank you to these wonderful people for helping make Python simpler for e
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-30-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-31-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
