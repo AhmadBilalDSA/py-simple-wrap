@@ -90,15 +90,7 @@ jobs:
             heading="${GUILD_HEADING[$t]:-}"
             [ -z "$heading" ] && continue
 
-            tile=$(cat <<EOF
-    <td align="center" valign="top" width="16.6%">
-      <a href="https://github.com/${login}">
-        <img src="https://github.com/${login}.png" width="100px;" alt="${name}"/><br />
-        <sub><b>${name}</b></sub>
-      </a>
-    </td>
-EOF
-)
+            tile=$(printf '    <td align="center" valign="top" width="16.6%%">\n      <a href="https://github.com/%s">\n        <img src="https://github.com/%s.png" width="100px;" alt="%s"/><br />\n        <sub><b>%s</b></sub>\n      </a>\n    </td>' "$login" "$login" "$name" "$name")
             awk -v heading="$heading" -v tile="$tile" '
               BEGIN { in_section=0; inserted=0 }
               {
