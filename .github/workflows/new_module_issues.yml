@@ -18,7 +18,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           title=$(grep '^title:' .github/ISSUE_TEMPLATE/new_module_issue.md | sed 's/^title: *//')
-          labels=$(grep '^labels:' .github/ISSUE_TEMPLATE/new_module_issue.md | sed 's/^labels: *//')
+          labels=$(grep '^labels:' .github/ISSUE_TEMPLATE/new_module_issue.md | sed 's/^labels: *//' | sed 's/, */,/g')
           body=$(awk '/^---$/{c++; next} c>=2' .github/ISSUE_TEMPLATE/new_module_issue.md)
 
           open_count=$(gh issue list --state open --search "in:title \"$title\"" --json title -q '.[].title' | wc -l)
