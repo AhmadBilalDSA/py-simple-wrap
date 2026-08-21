@@ -4,7 +4,7 @@ When processing data—like cleaning up user submissions or formatting query res
 
 ## Real-World Example: Cleaning Survey Feedback
 
-Imagine you are managing feedback submissions from a community survey. Respondents frequently submit duplicate answers, and some entries include unwanted repetition. 
+Imagine you are managing feedback submissions from a community survey. Respondents frequently submit duplicate answers, and some entries include unwanted repetition.
 
 Here is how you can use `easy_lists` functions together to clean, de-duplicate, and organize the feedback for review:
 
@@ -18,7 +18,7 @@ raw_responses = [
     "Great service!",
     "Fast delivery",
     "Needs improvement",
-    "Loved the UI"
+    "Loved the UI",
 ]
 
 # Step 1: Find duplicate responses to track repeating trends
@@ -29,6 +29,6 @@ print("Duplicate feedback found:", duplicates)
 unique_feedback = easy_lists.unique_items(raw_responses)
 print("Unique feedback:", unique_feedback)
 
-# Step 3: Chunk the unique feedback into pages of 2 items each for the report
+# Step 3: Chunk the unique feedback into pages of 2 items each
 paginated_feedback = easy_lists.chunk_list(unique_feedback, 2)
 print("Paginated feedback reports:", paginated_feedback)
