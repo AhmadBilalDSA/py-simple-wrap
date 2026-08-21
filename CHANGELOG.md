@@ -3,6 +3,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.3.5] - 2026-08-21
+### Added
+- Added a tutorial page for `easy_text` ([@gaoharimran29-glitch](https://github.com/gaoharimran29-glitch))
+- Added "What happened" and "Why use these helpers" sections to the `easy_lists` tutorial ([@VidyavathiGK](https://github.com/VidyavathiGK))
+- Added a Codecov coverage badge to the README and expanded `tests.yml` to report coverage ([@sara-czasak](https://github.com/sara-czasak))
+- Added test coverage for `easy_json`, `easy_validator`, `easy_numbers`, `easy_flow`, `easy_csv`, `easy_colors`, `easy_web`, `easy_converter`, and `easy_date_formatter` ([@Osheun](https://github.com/Osheun), [@matteogristina](https://github.com/matteogristina), [@qiaobochi040726-source](https://github.com/qiaobochi040726-source), [@aditya226-sharma](https://github.com/aditya226-sharma))
+- Added an `easy_sql` module (SQLite connection helpers via `open_db`) to the public API, with initial tests ([@sara-czasak](https://github.com/sara-czasak), [@VidyavathiGK](https://github.com/VidyavathiGK))
+- Added `MODULES.md`, a standalone module-reference page, moving detailed module-by-module content out of the README ([@sara-czasak](https://github.com/sara-czasak))
+- Added `.github/workflows/issues.yml`, which automatically opens issues for modules missing tests, test coverage, reference docs, or tutorials ([@sara-czasak](https://github.com/sara-czasak))
+- Added `.github/workflows/new_module_issues.yml`, which maintains a running pool of 5 open "want to add a module?" issues on a weekly schedule ([@sara-czasak](https://github.com/sara-czasak))
+- Added `.github/workflows/contributors.yml`, which automatically credits first-time contributors in the README and `CONTRIBUTORS.md` via an auto-opened PR ([@sara-czasak](https://github.com/sara-czasak))
+### Changed
+- Redesigned `README.md`, trimming it substantially and moving detailed module content out to the new `MODULES.md` ([@sara-czasak](https://github.com/sara-czasak))
+- Reworked `publish.yml` to trigger automatically when `pyproject.toml`'s version number changes, and to automatically create the matching git tag and GitHub Release after a successful PyPI publish ([@sara-czasak](https://github.com/sara-czasak))
+- Standardized test file naming under `tests/` (e.g. `test_dicts.py` → `test_dict.py`, `test_easy_game.py` → `test_game.py`) ([@sara-czasak](https://github.com/sara-czasak))
+- Simplified `CONTRIBUTORS.md`'s guild tiles by removing the per-person blurbs, so new entries can be added automatically ([@sara-czasak](https://github.com/sara-czasak))
+### Fixed
+- Fixed unresolved git merge-conflict markers accidentally committed into `tests/test_date_formatter.py`, which broke test collection for the entire suite on every Python version ([@sara-czasak](https://github.com/sara-czasak))
+
 ## [0.3.4] - 2026-08-17
 ### Added
 - Added Easy Generator and Easy Data Visualization sections to the README module menu (both were exported in the public API but missing from the docs) ([@sara-czasak](https://github.com/sara-czasak))
