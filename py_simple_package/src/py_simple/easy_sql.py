@@ -59,7 +59,7 @@ def open_db(db_filepath: str) -> tuple[sqlite3.Connection, sqlite3.Cursor]:
         raise EasySqlError(f"\n\nERROR: {e}") from None
 
 # TODO: foo per query: run_select, run_update, run_delete, etc
-def run_select(table_name: str, cursor: sqlite3.Cursor , to_select: str):
+def run_select(table_name: str, to_select: str):
     try:
         conn, cursor = open_db(table_name)
         res = cursor.execute(f"SELECT {to_select} FROM {table_name}")
