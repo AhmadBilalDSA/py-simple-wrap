@@ -29,7 +29,7 @@ from .easy_validator import (
 from .easy_web import (
     get_page_content, is_page_up, get_link_list, get_page_title,
     count_links, count_tags, get_tag_list, print_allowed_tags,
-    get_all_headers, get_meta_description
+    get_all_headers, get_meta_description,
 )
 from .easy_strings import (
     is_palindrome, remove_extra_spaces, to_kebab_case, to_snake_case,
@@ -44,7 +44,7 @@ from .easy_colors import (
     random_hex_color, is_light_color, hex_to_rgba, contrast_ratio,
 )
 from .easy_flow import (
-    run_py_file, run_py_file_safe, time_function_call, time_it, retry
+    run_py_file, run_py_file_safe, time_function_call, time_it, retry,
 )
 from .easy_regex import (
     extract_urls, extract_numbers, extract_number_sequences,
@@ -64,7 +64,8 @@ from .easy_text import (
     word_frequency,
 )
 from .easy_csv import (
-    filter_csv_rows, get_csv_columns, read_csv_to_list, write_csv_from_list
+    filter_csv_rows, get_csv_columns, read_csv_to_list,
+    write_csv_from_list,
 )
 from .easy_dict import (
     merge_dicts, lists_to_dict, invert_dict, get_nested_value,
@@ -80,11 +81,11 @@ from .easy_images import (
 from .easy_game import (
     basic_game_setup, check_if_quit, get_mouse_position,
     is_left_mouse_button_clicked, is_middle_mouse_button_clicked,
-    is_right_mouse_button_clicked
+    is_right_mouse_button_clicked,
 )
 from .easy_generator import (
     generate_qr_code, generate_password, generate_otp, generate_api_key,
-    generate_uuid
+    generate_uuid,
 )
 
 from .easy_math import (
@@ -104,4 +105,7 @@ from .easy_random import (
     pick_random_item,
     shuffle_list,
     random_int,
+)
+from .easy_sql import (
+    open_db,
 )

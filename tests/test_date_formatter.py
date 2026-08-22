@@ -1,5 +1,6 @@
 """Tests for easy_date_formatter module."""
 
+from unittest.mock import patch
 import re
 import pytest
 import datetime as dt
@@ -23,6 +24,9 @@ from py_simple_package.src.py_simple.easy_date_formatter import (
     future_slash_mm_dd_yyyy,
     list_available_formats,
     _FORMATS,
+    _format_date,
+    _get_past_date,
+    _get_future_date,
 )
 
 
@@ -170,6 +174,34 @@ class TestUtilityFunctions:
         result = future_dd_mm_yyyy(days)
         assert re.match(r'\d{2}-\d{2}-\d{4}', result)
 
+    @pytest.mark.parametrize(
+        "fmt_key, pattern",
+        [
+            ("pretty", "%A, %B %d, %Y"),
+            ("dd-mm-yyyy", "%d-%m-%Y"),
+            ("mm-dd-yyyy", "%m-%d-%Y"),
+            ("dd/mm/yyyy", "%d/%m/%Y"),
+            ("mm/dd/yyyy", "%m/%d/%Y"),
+        ],
+    )
+    def test_format_date_applies_registered_pattern(self, fmt_key, pattern):
+        """Should match the strftime pattern registered for each key."""
+        day = dt.datetime(2026, 7, 20, 12, 34, 56)
+        assert _format_date(day, fmt_key) == day.strftime(pattern)
+
+    @patch("py_simple_package.src.py_simple.easy_date_formatter.datetime")
+    def test_get_past_date_subtracts_days(self, mock_datetime):
+        """Should pin exact output against a fixed now."""
+        mock_datetime.now.return_value = dt.datetime(2026, 7, 20, 12, 34, 56)
+        assert _get_past_date(7) == dt.datetime(2026, 7, 13, 12, 34, 56)
+
+    @patch("py_simple_package.src.py_simple.easy_date_formatter.datetime")
+    def test_get_future_date_adds_days(self, mock_datetime):
+        """Should pin exact output against a fixed now."""
+        mock_datetime.now.return_value = dt.datetime(2026, 7, 20, 12, 34, 56)
+        assert _get_future_date(7) == dt.datetime(2026, 7, 27, 12, 34, 56)
+
+
 def test_mm_dd_yyyy():
     # ARRANGE
     expected_output = dt.datetime.now().strftime("%m-%d-%Y")
@@ -303,5 +335,96 @@ def test_past_slash_mm_dd_yyyy():
         past_slash_mm_dd_yyyy(53),
     ]
     assert result == expected_output, f"Expected {expected_output} but got {result}"
+
+
+def test_future_pretty_date():
+    expected_output = [
+        (datetime.now() + timedelta(1)).strftime("%A, %B %d, %Y"),
+        (datetime.now() + timedelta(4)).strftime("%A, %B %d, %Y"),
+        (datetime.now() + timedelta(9)).strftime("%A, %B %d, %Y"),
+        (datetime.now() + timedelta(30)).strftime("%A, %B %d, %Y"),
+    ]
+
+    result = [
+        get_future_pretty_date(1),
+        get_future_pretty_date(4),
+        get_future_pretty_date(9),
+        get_future_pretty_date(30),
+    ]
+
+    assert result == expected_output, f"Expected {expected_output} but got {result}"
+
+
+def test_future_dd_mm_yyyy():
+    expected_output = [
+        (dt.datetime.now() + timedelta(1)).strftime("%d-%m-%Y"),
+        (dt.datetime.now() + timedelta(25)).strftime("%d-%m-%Y"),
+        (dt.datetime.now() + timedelta(13)).strftime("%d-%m-%Y"),
+        (dt.datetime.now() + timedelta(53)).strftime("%d-%m-%Y")
+    ]
+
+    result = [
+        future_dd_mm_yyyy(1),
+        future_dd_mm_yyyy(25),
+        future_dd_mm_yyyy(13),
+        future_dd_mm_yyyy(53),
+    ]
+
+    assert result == expected_output, f"Expected {expected_output} but got {result}"
+
+
+def test_future_mm_dd_yyyy():
+    expected_output = [
+        (dt.datetime.now() + timedelta(1)).strftime("%m-%d-%Y"),
+        (dt.datetime.now() + timedelta(25)).strftime("%m-%d-%Y"),
+        (dt.datetime.now() + timedelta(13)).strftime("%m-%d-%Y"),
+        (dt.datetime.now() + timedelta(53)).strftime("%m-%d-%Y")
+    ]
+
+    result = [
+        future_mm_dd_yyyy(1),
+        future_mm_dd_yyyy(25),
+        future_mm_dd_yyyy(13),
+        future_mm_dd_yyyy(53),
+    ]
+
+    assert result == expected_output, f"Expected {expected_output} but got {result}"
+
+
+def test_future_slash_dd_mm_yyyy():
+    expected_output = [
+        (dt.datetime.now() + timedelta(1)).strftime("%d/%m/%Y"),
+        (dt.datetime.now() + timedelta(25)).strftime("%d/%m/%Y"),
+        (dt.datetime.now() + timedelta(13)).strftime("%d/%m/%Y"),
+        (dt.datetime.now() + timedelta(53)).strftime("%d/%m/%Y")
+    ]
+
+    result = [
+        future_slash_dd_mm_yyyy(1),
+        future_slash_dd_mm_yyyy(25),
+        future_slash_dd_mm_yyyy(13),
+        future_slash_dd_mm_yyyy(53),
+    ]
+
+    assert result == expected_output, f"Expected {expected_output} but got {result}"
+
+
+def test_future_slash_mm_dd_yyyy():
+    expected_output = [
+        (dt.datetime.now() + timedelta(1)).strftime("%m/%d/%Y"),
+        (dt.datetime.now() + timedelta(25)).strftime("%m/%d/%Y"),
+        (dt.datetime.now() + timedelta(13)).strftime("%m/%d/%Y"),
+        (dt.datetime.now() + timedelta(53)).strftime("%m/%d/%Y")
+    ]
+
+    result = [
+        future_slash_mm_dd_yyyy(1),
+        future_slash_mm_dd_yyyy(25),
+        future_slash_mm_dd_yyyy(13),
+        future_slash_mm_dd_yyyy(53),
+    ]
+
+    assert result == expected_output, f"Expected {expected_output} but got {result}"
+
     assert result == expected_output, f"Expected {expected_output} but got {result}"
     assert result == expected_output, f"Expected {expected_output} but got {result}"

@@ -1,0 +1,135 @@
+name: Credit new contributors
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  credit-new-contributor:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.base.ref }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check if this is a brand-new contributor
+        id: newcheck
+        run: |
+          login="${{ github.event.pull_request.user.login }}"
+          exists=$(jq -r --arg login "$login" '.contributors[] | select(.login == $login) | .login' .all-contributorsrc)
+          if [ -n "$exists" ]; then
+            echo "is_new=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_new=true" >> "$GITHUB_OUTPUT"
+          fi
+          echo "login=$login" >> "$GITHUB_OUTPUT"
+
+      - name: Determine contribution types and update files
+        if: steps.newcheck.outputs.is_new == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          login="${{ steps.newcheck.outputs.login }}"
+          base="${{ github.event.pull_request.base.sha }}"
+          head="${{ github.event.pull_request.head.sha }}"
+
+          changed=$(git diff --name-only "$base" "$head")
+          added=$(git diff --name-only --diff-filter=A "$base" "$head")
+
+          types=()
+
+          if echo "$added" | grep -q '^py_simple_package/src/py_simple/easy_.*\.py$'; then
+            types+=("module-author" "code")
+          elif echo "$changed" | grep -q '^py_simple_package/src/py_simple/.*\.py$'; then
+            types+=("code")
+          fi
+
+          if echo "$changed" | grep -q '^tests/'; then
+            types+=("test")
+          fi
+
+          if echo "$changed" | grep -qE '^docs/|README\.md$'; then
+            types+=("documentation")
+          fi
+
+          if echo "$changed" | grep -qE '^\.github/|^pyproject\.toml$'; then
+            types+=("infra")
+          fi
+
+          if [ "${#types[@]}" -eq 0 ]; then
+            echo "No recognized contribution type for changed files — skipping."
+            exit 0
+          fi
+
+          type_list=$(IFS=,; echo "${types[*]}")
+          echo "Detected types for $login: $type_list"
+
+          name=$(gh api "users/$login" -q '.name // .login')
+
+          npx --yes all-contributors-cli add "$login" "$type_list"
+          npx --yes all-contributors-cli generate
+
+          declare -A GUILD_HEADING=(
+            ["module-author"]="🪄 The Module Magicians' Guild"
+            ["code"]="🔮 The Code Conjurers' Circle"
+            ["test"]="🛡️ The Test Sentinels' Order"
+            ["documentation"]="📜 The Lore Keepers' Circle"
+            ["infra"]="⚒️ The Dwarven Engineers' Guild"
+          )
+
+          for t in "${types[@]}"; do
+            heading="${GUILD_HEADING[$t]:-}"
+            [ -z "$heading" ] && continue
+
+            tile=$(printf '    <td align="center" valign="top" width="16.6%%">\n      <a href="https://github.com/%s">\n        <img src="https://github.com/%s.png" width="100px;" alt="%s"/><br />\n        <sub><b>%s</b></sub>\n      </a>\n    </td>' "$login" "$login" "$name" "$name")
+            awk -v heading="$heading" -v tile="$tile" '
+              BEGIN { in_section=0; inserted=0 }
+              {
+                if ($0 ~ "^## " heading) { in_section=1 }
+                else if (in_section && $0 ~ "^## ") { in_section=0 }
+                if (in_section && !inserted && $0 ~ "^</table>") {
+                  print "  <tr>"
+                  print tile
+                  print "  </tr>"
+                  inserted=1
+                }
+                print
+              }
+            ' CONTRIBUTORS.md > CONTRIBUTORS.md.tmp && mv CONTRIBUTORS.md.tmp CONTRIBUTORS.md
+          done
+
+      - name: Commit to a new branch and open a PR for review
+        if: steps.newcheck.outputs.is_new == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          login="${{ steps.newcheck.outputs.login }}"
+          branch="credit-contributor-${login}-${{ github.run_id }}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md .all-contributorsrc CONTRIBUTORS.md
+
+          if git diff --cached --quiet; then
+            echo "Nothing changed — skipping."
+            exit 0
+          fi
+
+          git checkout -b "$branch"
+          git commit -m "chore: credit @${login} as a new contributor"
+          git push origin "$branch"
+
+          gh pr create \
+            --title "chore: credit @${login} as a new contributor" \
+            --body "Automated update crediting @${login}'s first merged PR in the README contributors table and CONTRIBUTORS.md. Please review before merging." \
+            --base main \
+            --head "$branch"
