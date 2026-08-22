@@ -58,6 +58,13 @@ def open_db(db_filepath: str) -> tuple[sqlite3.Connection, sqlite3.Cursor]:
     except sqlite3.OperationalError as e:
         raise EasySqlError(f"\n\nERROR: {e}") from None
 
-
-def run_query(cursor: sqlite3.Cursor , query_type: str, params: tuple) -> tuple | None:
-    pass
+# TODO: foo per query: run_select, run_update, run_delete, etc
+def run_select(table_name: str, cursor: sqlite3.Cursor , to_select: str):
+    try:
+        conn, cursor = open_db(table_name)
+        res = cursor.execute(f"SELECT {to_select} FROM {table_name}")
+        return res.fetchall()
+    except sqlite3.OperationalError as e:
+        raise EasySqlError(f"\n\nERROR: {e}") from None
+    finally:
+        conn.close()
