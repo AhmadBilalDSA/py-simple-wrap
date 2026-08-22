@@ -57,3 +57,7 @@ def open_db(db_filepath: str) -> tuple[sqlite3.Connection, sqlite3.Cursor]:
         return conn, cursor
     except sqlite3.OperationalError as e:
         raise EasySqlError(f"\n\nERROR: {e}") from None
+
+
+def run_query(cursor: sqlite3.Cursor , query_type: str, params: tuple) -> tuple | None:
+    pass
