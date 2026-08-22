@@ -98,7 +98,7 @@ def is_valid_zipcode(zipcode: int) -> bool:
 
 
 def is_valid_url(url: str) -> bool:
-    """
+    r"""
     Returns true if url is valid.
 
     Arguments:

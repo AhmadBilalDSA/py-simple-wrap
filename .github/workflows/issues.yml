@@ -1,9 +1,10 @@
-name: Check for missing tests
+name: Check for missing files
 on:
   push:
     branches: [main]
     paths:
       - 'py_simple_package/src/py_simple/**'
+  workflow_dispatch:
 
 jobs:
   check-tests:
@@ -34,7 +35,11 @@ jobs:
       - name: Get changed files
         id: changed
         run: |
-          git diff --name-only ${{ github.event.before }} ${{ github.event.after }} > changed_files.txt
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            find py_simple_package/src/py_simple -maxdepth 1 -name '*.py' -printf '%p\n' > changed_files.txt
+          else
+            git diff --name-only ${{ github.event.before }} ${{ github.event.after }} > changed_files.txt
+          fi
           cat changed_files.txt
 
       - name: Check for missing tests
@@ -48,11 +53,11 @@ jobs:
                 [ "$base" = "__init__" ] && continue
                 short="${base#easy_}"
                 test_file="tests/test_${short}.py"
-                  needs_issue=false
+                needs_issue=false
                 if [ ! -f "$test_file" ]; then
                   needs_issue=true
                 else
-                  line_rate=$(grep -oP "filename=\"${file}\" line-rate=\"\K[0-9.]+" coverage.xml)
+                  line_rate=$(grep -oP "filename=\"${file}\" line-rate=\"\K[0-9.]+" coverage.xml || true)
                   if [ -n "$line_rate" ] && awk -v r="$line_rate" 'BEGIN{exit !(r < 1)}'; then
                     needs_issue=true
                   fi
@@ -61,8 +66,34 @@ jobs:
                   title="🧪 [Help Wanted] Implement unit tests for ${base}"
                   existing=$(gh issue list --state open --search "in:title \"$title\"" --json title -q '.[].title')
                   if [ -z "$existing" ]; then
-                    body=$(awk '/^---$/{c++; next} c>=2' .github/ISSUE_TEMPLATE/tests.md | sed "s/{{MODULE_NAME}}/${base}/g")
+                    body=$(awk '/^---$/{c++; next} c>=2' .github/ISSUE_TEMPLATE/tests_issue.md | sed "s/{{MODULE_NAME}}/${base}/g")
                     gh issue create --title "$title" --body "$body" --label "testing,good first issue"
+                  fi
+                fi
+
+                ref_file="docs/reference/${base}.md"
+                if [ ! -f "$ref_file" ]; then
+                  ref_title_raw=$(grep '^title:' .github/ISSUE_TEMPLATE/docs_referance_issue.md | sed 's/^title: *//')
+                  ref_title="${ref_title_raw//\{\{MODULE_NAME\}\}/$base}"
+                  ref_labels=$(grep '^labels:' .github/ISSUE_TEMPLATE/docs_referance_issue.md | sed 's/^labels: *//' | sed 's/, */,/g')
+
+                  existing_ref=$(gh issue list --state open --search "in:title \"$ref_title\"" --json title -q '.[].title')
+                  if [ -z "$existing_ref" ]; then
+                    ref_body=$(awk '/^---$/{c++; next} c>=2' .github/ISSUE_TEMPLATE/docs_referance_issue.md | sed "s/{{MODULE_NAME}}/${base}/g")
+                    gh issue create --title "$ref_title" --body "$ref_body" --label "$ref_labels"
+                  fi
+                fi
+
+                tutorial_file="docs/tutorial/${base}.md"
+                if [ ! -f "$tutorial_file" ]; then
+                  tut_title_raw=$(grep '^title:' .github/ISSUE_TEMPLATE/tutorial_issue.md | sed 's/^title: *//')
+                  tut_title="${tut_title_raw//\{\{MODULE_NAME\}\}/$base}"
+                  tut_labels=$(grep '^labels:' .github/ISSUE_TEMPLATE/tutorial_issue.md | sed 's/^labels: *//' | sed 's/, */,/g')
+
+                  existing_tut=$(gh issue list --state open --search "in:title \"$tut_title\"" --json title -q '.[].title')
+                  if [ -z "$existing_tut" ]; then
+                    tut_body=$(awk '/^---$/{c++; next} c>=2' .github/ISSUE_TEMPLATE/tutorial_issue.md | sed "s/{{MODULE_NAME}}/${base}/g")
+                    gh issue create --title "$tut_title" --body "$tut_body" --label "$tut_labels"
                   fi
                 fi
                 ;;

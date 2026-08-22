@@ -10,12 +10,14 @@ from py_simple_package.src.py_simple.easy_converter import (
     fluid_oz_to_ml,
     hh_mm_ss_to_seconds,
     inches_to_cm,
+    kph_to_mph,
     kg_to_lb,
     km_to_mile,
     lb_to_kg,
     meters_to_feet,
     miles_to_km,
     ml_to_fluid_oz,
+    mph_to_kph,
     seconds_to_hh_mm_ss,
     sq_feet_to_sq_meters,
     sq_meters_to_sq_feet,
@@ -172,3 +174,52 @@ def test_celsius_to_fahrenheit(celsius, fahrenheit):
 def test_fahrenheit_to_celsius(fahrenheit, celsius):
     """Known Fahrenheit reference points should convert correctly."""
     assert fahrenheit_to_celsius(fahrenheit) == celsius
+
+
+@pytest.mark.parametrize(
+    ("mph", "expected"),
+    [
+        (0, 0.0),
+        (1, 1.61),
+        (60, 96.56),
+        (-10, -16.09),
+    ],
+)
+def test_mph_to_kph(mph, expected):
+    """Miles per hour should convert to kilometres per hour."""
+    assert mph_to_kph(mph) == expected
+
+
+@pytest.mark.parametrize(
+    ("kph", "expected"),
+    [
+        (0, 0.0),
+        (1.60934, 1.0),
+        (96.56, 60.0),
+        (-10, -6.21),
+    ],
+)
+def test_kph_to_mph(kph, expected):
+    """Kilometres per hour should convert to miles per hour."""
+    assert kph_to_mph(kph) == expected
+
+
+@pytest.mark.parametrize(
+    ("seconds", "expected"),
+    [
+        (86400, "1 day, 0:00:00"),
+        (60, "0:01:00"),
+        (1, "0:00:01"),
+        (3600, "1:00:00"),
+    ],
+)
+def test_seconds_to_hh_mm_ss_large_values(seconds, expected):
+    """Larger second counts should format correctly."""
+    assert seconds_to_hh_mm_ss(seconds) == expected
+
+
+def test_hh_mm_ss_to_seconds_symmetry():
+    """Converting to seconds and back should produce the original value
+    for small non-negative inputs."""
+    assert hh_mm_ss_to_seconds(2, 30, 15) == 9015
+    assert seconds_to_hh_mm_ss(9015) == "2:30:15"
