@@ -22,6 +22,7 @@ class EasySqlError(Exception):
 
 
 def _check_if_valid(to_check: str) -> bool | None:
+    """Check that a table/column string is safe to interpolate into SQL."""
     forbidden = ['union', 'union all', 'select', 'join', 'insert',
                  'update', 'delete', 'drop', 'alter', 'create', 'truncate',
                  'replace', 'attach', 'detach', 'pragma', 'vacuum',
@@ -43,36 +44,6 @@ def _check_if_valid(to_check: str) -> bool | None:
 
 
 def open_db(db_filepath: str) -> tuple[sqlite3.Connection, sqlite3.Cursor]:
-    """
-    Opens a connection to an SQLite database file. Creates the file if it
-    doesn't exist yet; opens it as-is if it does.
-
-    Args:
-        db_filepath (str): Filepath to the database.
-
-    Returns:
-        connection (sqlite3.Connection): Open connection to the database.
-        cursor (sqlite3.Cursor): Cursor for executing SQL statements.
-
-    Raises:
-        EasySqlError: If the connection to the database fails.
-
-    Example:
-        === "The Py_simple Way"
-            ```python
-            from py_simple import open_db
-
-            connection, cursor = open_db('mydb.db')
-            ```
-
-        === "The Traditional Way"
-            ```python
-            import sqlite3
-
-            conn = sqlite3.connect('test.db')
-            cursor = conn.cursor()
-            ```
-    """
     try:
         conn = sqlite3.connect(db_filepath)
         cursor = conn.cursor()
@@ -83,6 +54,46 @@ def open_db(db_filepath: str) -> tuple[sqlite3.Connection, sqlite3.Cursor]:
 
 def run_select(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
                table_name: str, to_select: str):
+    """
+    Runs a SELECT query against a table and returns all matching rows.
+
+    Validates `table_name` and `to_select` first — only letters, numbers,
+    and underscores are allowed (or `*` for `to_select`) — to guard
+    against SQL injection before building the query string.
+
+    Args:
+        connection (sqlite3.Connection): Open connection to the database.
+        cursor (sqlite3.Cursor): Cursor for executing SQL statements.
+        table_name (str): Name of the table to select from.
+        to_select (str): Column name(s) to select, comma-separated, or
+            "*" for all columns.
+
+    Returns:
+        list[tuple]: All rows returned by the query.
+
+    Raises:
+        EasySqlError: If `table_name` or `to_select` contain anything
+            other than letters, numbers, underscores, or "*", or if the
+            query itself fails.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import open_db, run_select
+
+            connection, cursor = open_db('mydb.db')
+            rows = run_select(connection, cursor, 'users', 'name, email')
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import sqlite3
+
+            conn = sqlite3.connect('test.db')
+            cursor = conn.cursor()
+            rows = cursor.execute("SELECT name, email FROM users").fetchall()
+            ```
+    """
     if _check_if_valid(table_name) and _check_if_valid(to_select):
         try:
             res = cursor.execute(f"SELECT {to_select} FROM {table_name}")
