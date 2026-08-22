@@ -94,7 +94,17 @@ from .easy_math import (
 )
 
 from .easy_data_visualization import (
-    plot_data,
+    plot_data
+)
+from .easy_sql import (
+    open_db,
+)
+from .easy_random import (
+    roll_dice,
+    flip_coin,
+    pick_random_item,
+    shuffle_list,
+    random_int,
 )
 from .easy_sql import (
     open_db,
