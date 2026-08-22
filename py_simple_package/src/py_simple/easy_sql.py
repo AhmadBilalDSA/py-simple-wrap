@@ -81,7 +81,6 @@ def open_db(db_filepath: str) -> tuple[sqlite3.Connection, sqlite3.Cursor]:
         raise EasySqlError(f"\n\nERROR: {e}") from None
 
 
-# TODO: foo per query: run_select, run_update, run_delete, etc
 def run_select(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
                table_name: str, to_select: str):
     if _check_if_valid(table_name) and _check_if_valid(to_select):
