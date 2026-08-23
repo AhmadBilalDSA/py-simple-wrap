@@ -105,5 +105,8 @@ def run_select(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
                            f"contain:"
                            f"\n\t- Uppercase letters (A-Z)"
                            f"\n\t- Lowercase letters (a-z)"
-                           f"\n\t- Underscores"
-                           f" (_).") from None
+                           f"\n\t- Underscores  (_).") from None
+
+
+def run_insert():
+    pass
