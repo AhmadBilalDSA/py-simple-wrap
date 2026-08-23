@@ -209,5 +209,35 @@
       "dependabot[bot]",
       "allcontributors[bot]"
     ]
+  },
+  "weeklyChallenges": {
+    "enabled": false,
+    "pointsPerLineAdded": 0.5,
+    "challenges": [
+      {
+        "title": "New Challenge",
+        "description": "",
+        "active": true,
+        "files": [
+          {
+            "path": "py_simple_package/src/py_simple/easy_data_visualization.py",
+            "weight": 10
+          },
+          {
+            "path": "docs/reference/easy_data_visualization.md",
+            "weight": 2
+          },
+          {
+            "path": "docs/tutorial/easy_data_visualization.md",
+            "weight": 5
+          },
+          {
+            "path": "tests/test_data_visualization.py",
+            "weight": 8
+          }
+        ],
+        "issueBonuses": []
+      }
+    ]
   }
 }
