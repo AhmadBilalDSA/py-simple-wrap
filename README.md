@@ -10,7 +10,7 @@
  
 [![PyPI](https://img.shields.io/pypi/v/py-simple-wrap?style=flat-square&logo=pypi&logoColor=white&color=3775A9)](https://pypi.org/project/py-simple-wrap/)
 [![Tests](https://img.shields.io/github/actions/workflow/status/sara-czasak/py-simple-wrap/tests.yml?style=flat-square&logo=github&label=tests)](https://github.com/sara-czasak/py-simple-wrap/actions/workflows/tests.yml)
-[![Contributors](https://img.shields.io/badge/contributors-30-orange?style=flat-square)](CONTRIBUTORS.md)
+[![Contributors](https://img.shields.io/badge/contributors-31-orange?style=flat-square)](CONTRIBUTORS.md)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey?style=flat-square)](LICENSE.md)
  
 </div>
