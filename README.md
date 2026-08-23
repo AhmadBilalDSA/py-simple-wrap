@@ -24,6 +24,35 @@ py-simple-wrap is a beginner-friendly Python toolbox — simple, intuitive funct
 [//]: # ()
 [//]: # (![Star history chart]&#40;./assets/star-history.svg&#41;)
 
+
+ 
+<div align="center">
+
+## Documentation
+
+| <div style="width:350px">📦 **[Module reference](MODULES.md)**</div> | <div style="width:350px">🤝 **[Contributor hub](https://sara-czasak.github.io/py-simple-wrap/docs/contributor-hub/)**</div> | <div style="width:350px">🗺️ **[Contributors quest](https://sara-czasak.github.io/py-simple-wrap/quest/)**</div> |
+|:--------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------:|
+|                      20+ modules, one line each                      |                                               start here — templates included                                               |                                        play your way through contributing                                        |
+ 
+</div>
+
+<br>
+Legend:
+
+|                 |                      |                   |                        |                  |                     |
+|-----------------|----------------------|-------------------|------------------------|------------------|---------------------|
+| 🟦 Files & data | 🟩 Text & validation | 🟨 Numbers & math | 🟧 Time & control flow | 🟪 Web & visuals | 🟥 Fun & generators |
+
+| <div style="width:80px"></div>                                                                                              | <div style="width:80px"></div>                                                                                                 | <div style="width:80px"></div>                                                                                            | <div style="width:80px"></div>                                                                                       | <div style="width:80px"></div>                                                                                           | <div style="width:80px"></div>                                                                                          | <div style="width:80px"></div>                                                                                               | <div style="width:80px"></div>                                                                                              | <div style="width:80px"></div>                                                                                   | <div style="width:80px"></div>                                                                                                       |
+|:----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------|
+| <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_file_manager/" style="color:#4C8BF5">📂 Files</a> | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_date_formatter/" style="color:#E0692A">🕰️ Dates</a> | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_numbers/" style="color:#C98C1B">🔢 Numbers</a>  | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_lists/" style="color:#2FA84F">📋 Lists</a> | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_strings/" style="color:#2FA84F">🔤 Strings</a> | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_text/" style="color:#2FA84F">✂️ Text</a>      | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_converter/" style="color:#C98C1B">🔄 Converter</a> | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_validator/" style="color:#2FA84F">✅ Validator</a> | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_web/" style="color:#9B59D0">🌐 Web</a> | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_colors/" style="color:#9B59D0">🎨 Colors</a>               |
+| <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_flow/" style="color:#E0692A">🔄 Flow</a>          | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_json/" style="color:#4C8BF5">📄 JSON</a>             | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_regex/" style="color:#2FA84F">🔍 Regex</a>      | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_async/" style="color:#E0692A">⚡ Async</a>  | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_dict/" style="color:#4C8BF5">🔑 Dict</a>       | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_images/" style="color:#9B59D0">🖼️ Images</a> | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_math/" style="color:#C98C1B">🧮 Math</a>           | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_stats/" style="color:#C98C1B">📊 Stats</a>        | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_csv/" style="color:#4C8BF5">📑 CSV</a> | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_data_visualization/" style="color:#9B59D0">📈 Data viz</a> |
+| <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_game/" style="color:#E0507A">🎮 Game</a>          | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_generator/" style="color:#E0507A">🎲 Generator</a>   | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_archive/" style="color:#4C8BF5">🗜️ Archive</a> | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_sql/" style="color:#4C8BF5">❔ SQL</a>      | <a href="https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_random/" style="color:#E0507A">🔀 Random</a>   |                                                                                                                         |                                                                                                                              |                                                                                                                             |                                                                                                                  |                                                                                                                                      |
+
+
+
+<br>
+
 ```bash
 pip install py-simple-wrap
 ```
@@ -62,33 +91,6 @@ from py_simple import get_page_title
 print(get_page_title("https://github.com"))
 ```
  
-<br>
-
-## 📚 Documentation
- 
-<div align="center">
-
-| <div style="width:350px">📦 **[Module reference](MODULES.md)**</div> | <div style="width:350px">🤝 **[Contributor hub](https://sara-czasak.github.io/py-simple-wrap/docs/contributor-hub/)**</div> | <div style="width:350px">🗺️ **[Contributors quest](https://sara-czasak.github.io/py-simple-wrap/quest/)**</div> |
-|:--------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------:|
-|                      20+ modules, one line each                      |                                               start here — templates included                                               |                                        play your way through contributing                                        |
- 
-</div>
-<details>
-<summary><strong>23 modules at a glance</strong> (full detail in the module reference)</summary>
-<br>
-
-|              |             |            |
-|:-------------|:------------|:-----------|
-| 📂 Files     | 🕰️ Dates   | 🔢 Numbers |
-| 📋 Lists     | 🔤 Strings  | ✂️ Text    |
-| 🔄 Converter | ✅ Validator | 🌐 Web     |
-| 🎨 Colors    | 🔄 Flow     | 📄 JSON    |
-| 🔍 Regex     | ⚡ Async     | 🔑 Dict    |
-| 🖼️ Images   | 🧮 Math     | 📊 Stats   |
-| 📑 CSV       | 📈 Data viz | 🎮 Game    |
-| 🎲 Generator | 🗜️ Archive |            |
- 
-</details>
 <br>
 
 ## ⭐ If py-simple-wrap made something easier for you
