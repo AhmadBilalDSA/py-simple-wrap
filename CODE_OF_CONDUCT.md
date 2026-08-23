@@ -1,6 +1,6 @@
 <div align="center">
 
-[README](README.md) · [Quickstart](QUICKSTART.md) · [Modules](MODULES.md) · [Support](SUPPORT.md) · [Contributing](CONTRIBUTING.md) · [Contributors](CONTRIBUTORS.md) · [Changelog](CHANGELOG.md) · [Security](SECURITY.md) · [License](LICENSE.md)
+🏠[README](README.md) · ⚡[Quickstart](QUICKSTART.md) · 📦[Modules](MODULES.md) · 🆘[Support](SUPPORT.md) · 🚀[Contributing](CONTRIBUTING.md) · 🌟[Contributors](CONTRIBUTORS.md) · 📜[Changelog](CHANGELOG.md) · 🔒[Security](SECURITY.md) · ⚖️[License](LICENSE.md)
 
 </div>
 
@@ -47,22 +47,3 @@ This Code of Conduct is adapted from the [Contributor Covenant](https://www.cont
 ---
  
 Thanks for helping keep this a safe, encouraging place to learn. 🌈✨
-
-<div align="center">
-
-## **INDEX**
-
-| <div style="width:200px">File</div> | <div style="width:680px">What's in it</div>                         | <div style="width:150px">File</div>      |
-|:------------------------------------|:--------------------------------------------------------------------|:-----------------------------------------|
-| 📜 CHANGELOG                        | Every notable change, release by release.                           | [CHANGELOG.md](CHANGELOG.md)             |
-| 🚀 CONTRIBUTING                     | Step-by-step guide to making your first (or fiftieth) contribution. | [CONTRIBUTING.md](CONTRIBUTING.md)       |
-| 🌟 CONTRIBUTORS                     | Everyone who's helped build this, sorted into guilds.               | [CONTRIBUTORS.md](CONTRIBUTORS.md)       |
-| ⚖️ LICENSE                          | MIT license — what you're allowed to do with this code.             | [LICENSE.md](LICENSE.md)                 |
-| 📦 MODULES                          | Every module at a glance, grouped by what it removes.               | [MODULES.md](MODULES.md)                 | 
-| ⚡ QUICKSTART                        | Install and run your first few functions in under a minute.         | [QUICKSTART.md](QUICKSTART.md)           |
-| 🏠 README                           | The landing page — what py-simple-wrap is and why it exists.        | [README.md](README.md)                   |
-| 🔒 SECURITY                         | How to privately report a vulnerability.                            | [SECURITY.md](SECURITY.md)               |
-| 🆘 SUPPORT                          | Where to go when you're stuck or have a question.                   | [SUPPORT.md](SUPPORT.md)                 |
-
-</div>
-<br>

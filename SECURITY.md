@@ -1,6 +1,6 @@
 <div align="center">
 
-[README](README.md) · [Quickstart](QUICKSTART.md) · [Modules](MODULES.md) · [Support](SUPPORT.md) · [Contributing](CONTRIBUTING.md) · [Contributors](CONTRIBUTORS.md) · [Changelog](CHANGELOG.md) · [Code of Conduct](CODE_OF_CONDUCT.md) · [License](LICENSE.md)
+🏠[README](README.md) · ⚡[Quickstart](QUICKSTART.md) · 📦[Modules](MODULES.md) · 🆘[Support](SUPPORT.md) · 🚀[Contributing](CONTRIBUTING.md) · 🌟[Contributors](CONTRIBUTORS.md) · 📜[Changelog](CHANGELOG.md) · 🌱[Code of Conduct](CODE_OF_CONDUCT.md) · ⚖️[License](LICENSE.md)
 
 </div>
 
@@ -34,21 +34,3 @@ When reporting, please include:
 - If the vulnerability is confirmed, I'll work on a fix and aim to release a patched version as quickly as possible, then credit you in the release notes (unless you'd rather stay anonymous).
 - If it's declined (e.g. not reproducible, or determined not to be a security issue), I'll explain why.
 Since this is a solo-maintained, beginner-focused project, response times may occasionally be a little slower than a large project's SLA — thank you in advance for your patience, and for helping keep `Py_simple` safe for the people learning from it. 🌱
-<div align="center">
-
-## **INDEX**
-
-| <div style="width:200px">File</div> | <div style="width:680px">What's in it</div>                         | <div style="width:150px">File</div>      |
-|:------------------------------------|:--------------------------------------------------------------------|:-----------------------------------------|
-| 📜 CHANGELOG                        | Every notable change, release by release.                           | [CHANGELOG.md](CHANGELOG.md)             |
-| 🌱 CODE_OF_CONDUCT                  | The ground rules for a respectful, beginner-safe community.         | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) |
-| 🚀 CONTRIBUTING                     | Step-by-step guide to making your first (or fiftieth) contribution. | [CONTRIBUTING.md](CONTRIBUTING.md)       |
-| 🌟 CONTRIBUTORS                     | Everyone who's helped build this, sorted into guilds.               | [CONTRIBUTORS.md](CONTRIBUTORS.md)       |
-| ⚖️ LICENSE                          | MIT license — what you're allowed to do with this code.             | [LICENSE.md](LICENSE.md)                 |
-| 📦 MODULES                          | Every module at a glance, grouped by what it removes.               | [MODULES.md](MODULES.md)                 | 
-| ⚡ QUICKSTART                        | Install and run your first few functions in under a minute.         | [QUICKSTART.md](QUICKSTART.md)           |
-| 🏠 README                           | The landing page — what py-simple-wrap is and why it exists.        | [README.md](README.md)                   |
-| 🆘 SUPPORT                          | Where to go when you're stuck or have a question.                   | [SUPPORT.md](SUPPORT.md)                 |
-
-</div>
-<br>
