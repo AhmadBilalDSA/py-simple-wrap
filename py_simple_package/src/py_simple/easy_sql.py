@@ -114,5 +114,67 @@ def run_select(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
                            f"\n\t- Underscores  (_).") from None
 
 
-def run_insert():
-    pass
+def run_insert(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
+               to_insert: list, table_name: str, columns: list,
+               close_conn_after: bool = False):
+    """
+    Inserts a single row into a table.
+
+    Validates `table_name` and `columns` first — only letters, numbers,
+    and underscores are allowed — to guard against SQL injection before
+    building the query string. Values in `to_insert` are passed as
+    parameters, not interpolated into the query.
+
+    Args:
+        connection (sqlite3.Connection): Open connection to the database.
+        cursor (sqlite3.Cursor): Cursor for executing SQL statements.
+        to_insert (list): Values to insert, in the same order as `columns`.
+        table_name (str): Name of the table to insert into.
+        columns (list): Column names the values in `to_insert` map to.
+        close_conn_after (bool): If True, closes `connection` after the
+            insert runs. Defaults to False.
+
+    Raises:
+        EasySqlError: If `table_name` or `columns` contain anything
+            other than letters, numbers, or underscores, or if the
+            insert itself fails.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import open_db, run_insert
+
+            connection, cursor = open_db('mydb.db')
+            run_insert(connection, cursor, ['Ada', 'ada@example.com'],
+                       'users', ['name', 'email'])
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import sqlite3
+
+            conn = sqlite3.connect('test.db')
+            cursor = conn.cursor()
+            cursor.execute("INSERT INTO users (name, email) VALUES (?, ?)",
+                           ['Ada', 'ada@example.com'])
+            conn.commit()
+            ```
+    """
+    columns_str = ", ".join(columns)
+    if _check_if_valid(columns_str) and _check_if_valid(table_name):
+        try:
+            cursor.execute(f"INSERT INTO {table_name} ({columns_str}) "
+                           f"VALUES ({(len(to_insert) * '?, ').strip(', ')})",
+                           to_insert)
+            connection.commit()
+            if close_conn_after:
+                connection.close()
+        except (sqlite3.OperationalError, sqlite3.ProgrammingError,
+                sqlite3.DatabaseError) as e:
+            raise EasySqlError(f"\n\nERROR: {e}") from None
+    else:
+        raise EasySqlError(f"\n\nERROR: table_name, columns and to_insert "
+                           f"can only contain:"
+                           f"\n\t- Uppercase letters (A-Z)"
+                           f"\n\t- Lowercase letters (a-z)"
+                           f"\n\t- Underscores  (_).") from None
