@@ -53,7 +53,8 @@ def open_db(db_filepath: str) -> tuple[sqlite3.Connection, sqlite3.Cursor]:
 
 
 def run_select(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
-               table_name: str, to_select: str):
+               table_name: str, to_select: str,
+               close_conn_after: bool = False):
     """
     Runs a SELECT query against a table and returns all matching rows.
 
@@ -67,6 +68,8 @@ def run_select(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
         table_name (str): Name of the table to select from.
         to_select (str): Column name(s) to select, comma-separated, or
             "*" for all columns.
+        close_conn_after (bool): If True, closes `connection` after the
+            query runs. Defaults to False.
 
     Returns:
         list[tuple]: All rows returned by the query.
@@ -97,7 +100,10 @@ def run_select(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
     if _check_if_valid(table_name) and _check_if_valid(to_select):
         try:
             res = cursor.execute(f"SELECT {to_select} FROM {table_name}")
-            return res.fetchall()
+            rows = res.fetchall()
+            if close_conn_after:
+                connection.close()
+            return rows
         except (sqlite3.OperationalError, sqlite3.ProgrammingError) as e:
             raise EasySqlError(f"\n\nERROR: {e}") from None
     else:
