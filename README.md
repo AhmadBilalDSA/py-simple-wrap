@@ -18,6 +18,12 @@
 <br>
 py-simple-wrap is a beginner-friendly Python toolbox — simple, intuitive functions for common tasks, so you can build something fun before the syntax gets in the way.
  
+[//]: # (Removed until github star issue resolves)
+[//]: # (## Star History)
+
+[//]: # ()
+[//]: # (![Star history chart]&#40;./assets/star-history.svg&#41;)
+
 ```bash
 pip install py-simple-wrap
 ```
