@@ -211,7 +211,7 @@
     ]
   },
   "weeklyChallenges": {
-    "enabled": false,
+    "enabled": true,
     "pointsPerLineAdded": 0.5,
     "challenges": [
       {
