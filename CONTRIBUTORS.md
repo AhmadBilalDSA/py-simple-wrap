@@ -343,6 +343,12 @@ Every tile below is a real person who showed up for this project. 💛
         <sub><b>muraleegithub</b></sub>
       </a>
     </td>
+    <td align="center" valign="top" width="16.6%">
+      <a href="https://github.com/tasodoufu">
+        <img src="https://github.com/tasodoufu.png" width="100px;" alt="tasodoufu"/><br />
+        <sub><b>豆腐たそ</b></sub>
+      </a>
+    </td>
   </tr>
 </table>
 
