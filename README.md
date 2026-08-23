@@ -74,7 +74,7 @@ print(get_page_title("https://github.com"))
  
 </div>
 <details>
-<summary><strong>22 modules at a glance</strong> (full detail in the module reference)</summary>
+<summary><strong>23 modules at a glance</strong> (full detail in the module reference)</summary>
 <br>
 
 |              |             |            |
@@ -86,7 +86,7 @@ print(get_page_title("https://github.com"))
 | 🔍 Regex     | ⚡ Async     | 🔑 Dict    |
 | 🖼️ Images   | 🧮 Math     | 📊 Stats   |
 | 📑 CSV       | 📈 Data viz | 🎮 Game    |
-| 🎲 Generator |             |            |
+| 🎲 Generator | 🗜️ Archive |            |
  
 </details>
 <br>
