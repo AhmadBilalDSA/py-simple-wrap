@@ -1,3 +1,9 @@
+<div align="center">
+
+[README](README.md) · [Quickstart](QUICKSTART.md) · [Support](SUPPORT.md) · [Contributing](CONTRIBUTING.md) · [Contributors](CONTRIBUTORS.md) · [Changelog](CHANGELOG.md) · [Security](SECURITY.md) · [Code of Conduct](CODE_OF_CONDUCT.md) · [License](LICENSE.md)
+
+</div>
+
 # Module Reference
 
 20+ modules, grouped by what they help with. Each one removes a specific bit of boilerplate — the Docs link is the full function reference, Tutorial is a walkthrough with examples.
@@ -59,3 +65,23 @@
 ---
 
 Thinking about adding a new module? [CONTRIBUTING.md](CONTRIBUTING.md) covers what fits the "simple" philosophy and how to propose one.
+
+<div align="center">
+
+## **INDEX**
+
+| <div style="width:200px">File</div> | <div style="width:680px">What's in it</div>                         | <div style="width:150px">File</div>      |
+|:------------------------------------|:--------------------------------------------------------------------|:-----------------------------------------|
+| 📜 CHANGELOG                        | Every notable change, release by release.                           | [CHANGELOG.md](CHANGELOG.md)             |
+| 🌱 CODE_OF_CONDUCT                  | The ground rules for a respectful, beginner-safe community.         | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) |
+| 🚀 CONTRIBUTING                     | Step-by-step guide to making your first (or fiftieth) contribution. | [CONTRIBUTING.md](CONTRIBUTING.md)       |
+| 🌟 CONTRIBUTORS                     | Everyone who's helped build this, sorted into guilds.               | [CONTRIBUTORS.md](CONTRIBUTORS.md)       |
+| ⚖️ LICENSE                          | MIT license — what you're allowed to do with this code.             | [LICENSE.md](LICENSE.md)                 |
+| ⚡ QUICKSTART                        | Install and run your first few functions in under a minute.         | [QUICKSTART.md](QUICKSTART.md)           |
+| 🏠 README                           | The landing page — what py-simple-wrap is and why it exists.        | [README.md](README.md)                   |
+| 🔒 SECURITY                         | How to privately report a vulnerability.                            | [SECURITY.md](SECURITY.md)               |
+| 🆘 SUPPORT                          | Where to go when you're stuck or have a question.                   | [SUPPORT.md](SUPPORT.md)                 |
+
+</div>
+<br>
+<div align="center">
