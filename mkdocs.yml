@@ -58,6 +58,7 @@ nav:
             - Tutorial 1: tutorial/easy_numbers.md
             - Tutorial 2: tutorial/easy_numbers2.md
         - Easy Regex: tutorial/easy_regex.md
+        - Easy Random: tutorial/easy_random.md
         - Easy Stats: tutorial/easy_stats.md
         - Easy Validator: tutorial/easy_validator.md
   - How To:
