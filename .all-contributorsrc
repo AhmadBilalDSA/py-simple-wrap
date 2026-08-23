@@ -375,6 +375,15 @@
       "contributions": [
         "documentation"
       ]
+    },
+    {
+      "login": "Betelhem-Sefiw",
+      "name": "betty",
+      "avatar_url": "https://github.com/Betelhem-Sefiw.png",
+      "profile": "https://github.com/Betelhem-Sefiw",
+      "contributions": [
+        "test"
+      ]
     }
   ]
 }
