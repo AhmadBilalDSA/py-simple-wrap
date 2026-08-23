@@ -12,6 +12,7 @@
 | 🔑 Easy Dict                          | dictionary operations without the boilerplate                |         [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_dict/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_dict/)         |
 | 📋 Easy Lists                         | list helpers that keep your code short and readable          |        [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_lists/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_lists/)        |
 | 🗄️ Easy SQL                          | database queries without hand-writing SQL boilerplate        |                                           [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_sql/) ·  comming soon                                            |
+| 🗜️ Easy Archive                      | zip and unzip files/folders without the `zipfile` boilerplate | [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_archive/) · comming soon |
 
 ## Text & validation
 

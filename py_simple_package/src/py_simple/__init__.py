@@ -109,3 +109,11 @@ from .easy_random import (
 from .easy_sql import (
     open_db,
 )
+from .easy_archive import (
+    zip_folder,
+    zip_files,
+    unzip_file,
+    list_zip_contents,
+    add_to_zip,
+    is_zip_file,
+)
