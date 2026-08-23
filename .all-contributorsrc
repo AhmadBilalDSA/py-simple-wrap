@@ -1,5 +1,7 @@
 {
-  "files": [],
+  "files": [
+  "CONTRIBUTORS.md"
+  ],
   "imageSize": 80,
   "projectName": "py_simple",
   "projectOwner": "sara-czasak",
@@ -361,6 +363,15 @@
       "name": "muraleegithub",
       "avatar_url": "https://github.com/muraleegithub.png",
       "profile": "https://github.com/muraleegithub",
+      "contributions": [
+        "documentation"
+      ]
+    },
+    {
+      "login": "tasodoufu",
+      "name": "豆腐たそ",
+      "avatar_url": "https://github.com/tasodoufu.png",
+      "profile": "https://github.com/tasodoufu",
       "contributions": [
         "documentation"
       ]
