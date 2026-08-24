@@ -96,9 +96,6 @@ from .easy_math import (
 from .easy_data_visualization import (
     plot_data
 )
-from .easy_sql import (
-    open_db,
-)
 from .easy_random import (
     roll_dice,
     flip_coin,
@@ -107,7 +104,7 @@ from .easy_random import (
     random_int,
 )
 from .easy_sql import (
-    open_db,
+    open_db, run_insert, run_select,
 )
 from .easy_archive import (
     zip_folder,
