@@ -1,7 +1,7 @@
 ---
-name: 🧩 Suggest a project-based tutorial for py-simple-wrap
+name: 🧩 Create a project-based tutorial for py-simple-wrap
 about: Combine multiple py-simple-wrap modules into a fun mini-project tutorial
-title: 🧩 Suggest a project-based tutorial for py-simple-wrap
+title: 🧩 Create a project-based tutorial for py-simple-wrap
 labels: documentation, good first issue, help wanted, good-first-issue
 ---
 `py-simple-wrap` has tutorials for individual modules, but not many that show modules working together.
