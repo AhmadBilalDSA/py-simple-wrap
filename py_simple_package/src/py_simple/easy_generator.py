@@ -273,5 +273,9 @@ def generate_otp(length: int = 4, with_letters: bool = False) -> str:
                 otp += str(secrets.randbelow(10))
         return otp
     else:
-        raise EasyGeneratorError("\n\n\nERROR: OTP length must be at least 4") from None
+        raise EasyGeneratorError("\n\n\nERROR: OTP length must be at least "
+                                 "4") from None
 
+# TODO add config templates/boilerplate file generation with useful
+#  comments to guide user on config setup. Different use cases: config file
+#  for workflows, etc.)
