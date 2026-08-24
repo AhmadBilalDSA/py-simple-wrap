@@ -114,6 +114,27 @@ def run_select(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
                            f"\n\t- Underscores  (_).") from None
 
 
+def conditional_run_select(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
+               table_name: str, to_select: str, condition: str,
+               close_conn_after: bool = False):
+    if _check_if_valid(table_name) and _check_if_valid(to_select):
+        try:
+            res = cursor.execute(f"SELECT {to_select} FROM {table_name} WHERE {condition}")
+            rows = res.fetchall()
+            if close_conn_after:
+                connection.close()
+            return rows
+        except(sqlite3.OperationalError, sqlite3.ProgrammingError) as e:
+            raise EasySqlError(f"\n\nERROR: {e}") from None
+    else:
+        raise EasySqlError(
+            f"\n\nERROR: table_name and to_select can only "
+            f"contain:"
+            f"\n\t- Uppercase letters (A-Z)"
+            f"\n\t- Lowercase letters (a-z)"
+            f"\n\t- Underscores  (_).") from None
+
+
 def run_insert(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
                to_insert: list, table_name: str, columns: list,
                close_conn_after: bool = False):
@@ -178,3 +199,43 @@ def run_insert(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
                            f"\n\t- Uppercase letters (A-Z)"
                            f"\n\t- Lowercase letters (a-z)"
                            f"\n\t- Underscores  (_).") from None
+
+
+def run_delete(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
+               to_delete: str, table_name: str, condition: str,
+               close_conn_after: bool = False):
+    if _check_if_valid(table_name) and _check_if_valid(to_delete):
+        try:
+            cursor.execute(f"DELETE FROM {table_name} WHERE {condition}")
+            if close_conn_after:
+                connection.close()
+        except (sqlite3.OperationalError, sqlite3.ProgrammingError,
+                    sqlite3.DatabaseError) as e:
+            raise EasySqlError(f"\n\nERROR: {e}") from None
+    else:
+        raise EasySqlError(f"\n\nERROR: table_name and to_delete "
+                           f"can only contain:"
+                           f"\n\t- Uppercase letters (A-Z)"
+                           f"\n\t- Lowercase letters (a-z)"
+                           f"\n\t- Underscores  (_).") from None
+
+
+def empty_table(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
+                table_name: str,
+                close_conn_after: bool = False):
+    if _check_if_valid(table_name):
+        try:
+            cursor.execute(f"DELETE FROM {table_name}")
+            if close_conn_after:
+                connection.close()
+        except (sqlite3.OperationalError, sqlite3.ProgrammingError,
+                    sqlite3.DatabaseError) as e:
+            raise EasySqlError(f"\n\nERROR: {e}") from None
+    else:
+        raise EasySqlError(f"\n\nERROR: table_name "
+                           f"can only contain:"
+                           f"\n\t- Uppercase letters (A-Z)"
+                           f"\n\t- Lowercase letters (a-z)"
+                           f"\n\t- Underscores  (_).") from None
+
+
