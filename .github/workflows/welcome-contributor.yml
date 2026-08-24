@@ -1,9 +1,9 @@
 name: Welcome Contributor
-
 on:
   pull_request:
     types: [closed]
-
+permissions:
+  contents: read
 jobs:
   welcome:
     if: github.event.pull_request.merged == true
