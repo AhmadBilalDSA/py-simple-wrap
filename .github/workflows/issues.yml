@@ -57,7 +57,8 @@ jobs:
                 if [ ! -f "$test_file" ]; then
                   needs_issue=true
                 else
-                  line_rate=$(grep -oP "filename=\"${file}\" line-rate=\"\K[0-9.]+" coverage.xml || true)
+                  cov_path="${file#py_simple_package/}"
+                  line_rate=$(grep -oP "filename=\"${cov_path}\" line-rate=\"\K[0-9.]+" coverage.xml || true)
                   if [ -n "$line_rate" ] && awk -v r="$line_rate" 'BEGIN{exit !(r < 1)}'; then
                     needs_issue=true
                   fi
