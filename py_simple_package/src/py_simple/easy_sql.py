@@ -44,6 +44,35 @@ def _check_if_valid(to_check: str) -> bool | None:
 
 
 def open_db(db_filepath: str) -> tuple[sqlite3.Connection, sqlite3.Cursor]:
+    """
+    Opens a connection to a SQLite database file.
+
+    Args:
+        db_filepath (str): Path to the database file.
+
+    Returns:
+        tuple[sqlite3.Connection, sqlite3.Cursor]: The open connection
+            and a cursor for executing SQL statements.
+
+    Raises:
+        EasySqlError: If the connection cannot be established.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import open_db
+
+            connection, cursor = open_db('mydb.db')
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import sqlite3
+
+            conn = sqlite3.connect('mydb.db')
+            cursor = conn.cursor()
+            ```
+    """
     try:
         conn = sqlite3.connect(db_filepath)
         cursor = conn.cursor()
@@ -114,9 +143,55 @@ def run_select(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
                            f"\n\t- Underscores  (_).") from None
 
 
-def conditional_run_select(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
-               table_name: str, to_select: str, condition: str,
-               close_conn_after: bool = False):
+def conditional_run_select(connection: sqlite3.Connection,
+                           cursor: sqlite3.Cursor , table_name: str,
+                           to_select: str, condition: str,
+                            close_conn_after: bool = False):
+    """
+    Runs a SELECT query with a WHERE condition and returns matching rows.
+
+    Validates `table_name` and `to_select` first — only letters, numbers,
+    and underscores are allowed (or "*" for `to_select`) — to guard
+    against SQL injection before building the query string.
+
+    Args:
+        connection (sqlite3.Connection): Open connection to the database.
+        cursor (sqlite3.Cursor): Cursor for executing SQL statements.
+        table_name (str): Name of the table to select from.
+        to_select (str): Column name(s) to select, comma-separated, or
+            "*" for all columns.
+        condition (str): Raw SQL condition used in the WHERE clause.
+        close_conn_after (bool): If True, closes `connection` after the
+            query runs. Defaults to False.
+
+    Returns:
+        list[tuple]: All rows matching the condition.
+
+    Raises:
+        EasySqlError: If `table_name` or `to_select` contain anything
+            other than letters, numbers, underscores, or "*", or if the
+            query itself fails.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import open_db, conditional_run_select
+
+            connection, cursor = open_db('mydb.db')
+            rows = conditional_run_select(connection, cursor, 'users',
+                                           'name, email', "age > 18")
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import sqlite3
+
+            conn = sqlite3.connect('test.db')
+            cursor = conn.cursor()
+            rows = cursor.execute(
+                "SELECT name, email FROM users WHERE age > 18").fetchall()
+            ```
+    """
     if _check_if_valid(table_name) and _check_if_valid(to_select):
         try:
             res = cursor.execute(f"SELECT {to_select} FROM {table_name} WHERE {condition}")
@@ -204,6 +279,46 @@ def run_insert(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
 def run_delete(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
                to_delete: str, table_name: str, condition: str,
                close_conn_after: bool = False):
+    """
+    Deletes rows from a table matching a condition.
+
+    Validates `table_name` and `to_delete` first — only letters, numbers,
+    and underscores are allowed — to guard against SQL injection before
+    building the query string.
+
+    Args:
+        connection (sqlite3.Connection): Open connection to the database.
+        cursor (sqlite3.Cursor): Cursor for executing SQL statements.
+        to_delete (str): Column name(s) checked for validity (unused in
+            the query itself — see note below).
+        table_name (str): Name of the table to delete from.
+        condition (str): Raw SQL condition used in the WHERE clause.
+        close_conn_after (bool): If True, closes `connection` after the
+            delete runs. Defaults to False.
+
+    Raises:
+        EasySqlError: If `table_name` or `to_delete` contain anything
+            other than letters, numbers, or underscores, or if the
+            delete itself fails.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import open_db, run_delete
+
+            connection, cursor = open_db('mydb.db')
+            run_delete(connection, cursor, 'name', 'users', "name = 'Ada'")
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import sqlite3
+
+            conn = sqlite3.connect('test.db')
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM users WHERE name = 'Ada'")
+            ```
+    """
     if _check_if_valid(table_name) and _check_if_valid(to_delete):
         try:
             cursor.execute(f"DELETE FROM {table_name} WHERE {condition}")
@@ -220,9 +335,46 @@ def run_delete(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
                            f"\n\t- Underscores  (_).") from None
 
 
-def empty_table(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
+def delete_all_from_table(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
                 table_name: str,
                 close_conn_after: bool = False):
+    """
+    Deletes all rows from a table, leaving the table itself intact.
+
+    Validates `table_name` first — only letters, numbers, and
+    underscores are allowed — to guard against SQL injection before
+    building the query string.
+
+    Args:
+        connection (sqlite3.Connection): Open connection to the database.
+        cursor (sqlite3.Cursor): Cursor for executing SQL statements.
+        table_name (str): Name of the table to empty.
+        close_conn_after (bool): If True, closes `connection` after the
+            delete runs. Defaults to False.
+
+    Raises:
+        EasySqlError: If `table_name` contains anything other than
+            letters, numbers, or underscores, or if the delete itself
+            fails.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import open_db, delete_all_from_table
+
+            connection, cursor = open_db('mydb.db')
+            delete_all_from_table(connection, cursor, 'users')
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import sqlite3
+
+            conn = sqlite3.connect('test.db')
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM users")
+            ```
+    """
     if _check_if_valid(table_name):
         try:
             cursor.execute(f"DELETE FROM {table_name}")

@@ -104,7 +104,8 @@ from .easy_random import (
     random_int,
 )
 from .easy_sql import (
-    open_db, run_insert, run_select,
+    open_db, run_insert, run_select, conditional_run_select, run_delete,
+    remove_empty_table,
 )
 from .easy_archive import (
     zip_folder,
