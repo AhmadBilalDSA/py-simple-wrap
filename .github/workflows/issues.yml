@@ -47,6 +47,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           while IFS= read -r file <&3; do
+            echo "=== loop entered for: $file ==="
             case "$file" in
               py_simple_package/src/py_simple/*.py)
                 base=$(basename "$file" .py)
@@ -56,13 +57,16 @@ jobs:
                 needs_issue=false
                 if [ ! -f "$test_file" ]; then
                   needs_issue=true
+                  echo "  -> test file $test_file missing"
                 else
                   cov_path="${file#py_simple_package/}"
                   line_rate=$(grep -oP "filename=\"${cov_path}\" line-rate=\"\K[0-9.]+" coverage.xml || true)
+                  echo "  -> cov_path=$cov_path line_rate=$line_rate"
                   if [ -n "$line_rate" ] && awk -v r="$line_rate" 'BEGIN{exit !(r < 1)}'; then
                     needs_issue=true
                   fi
                 fi
+                echo "  -> needs_issue=$needs_issue"
                 if [ "$needs_issue" = true ]; then
                   title="🧪 [Help Wanted] Implement unit tests for ${base}"
                   existing=$(gh issue list --state open --search "in:title \"$title\"" --json title -q '.[].title')
@@ -97,6 +101,7 @@ jobs:
                     gh issue create --title "$tut_title" --body "$tut_body" --label "$tut_labels"
                   fi
                 fi
+                echo "=== finished: $file ==="
                 ;;
             esac
           done 3< changed_files.txt
