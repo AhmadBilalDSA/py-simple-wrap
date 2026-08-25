@@ -145,14 +145,15 @@ def run_select(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
 
 def conditional_run_select(connection: sqlite3.Connection,
                            cursor: sqlite3.Cursor , table_name: str,
-                           to_select: str, condition: str,
-                            close_conn_after: bool = False):
+                           to_select: str, condition: str, params: tuple = (),
+                           close_conn_after: bool = False,
+                           ):
     """
     Runs a SELECT query with a WHERE condition and returns matching rows.
 
     Validates `table_name` and `to_select` first — only letters, numbers,
-    and underscores are allowed (or "*" for `to_select`) — to guard
-    against SQL injection before building the query string.
+    and underscores are allowed — to guard against SQL injection
+    before building the query string.
 
     Args:
         connection (sqlite3.Connection): Open connection to the database.
@@ -160,7 +161,10 @@ def conditional_run_select(connection: sqlite3.Connection,
         table_name (str): Name of the table to select from.
         to_select (str): Column name(s) to select, comma-separated, or
             "*" for all columns.
-        condition (str): Raw SQL condition used in the WHERE clause.
+        condition (str): SQL condition with `?` placeholders for values
+            used in the WHERE clause.
+        params (tuple): Values to substitute into the `?` placeholders
+            in `condition`, in order. Defaults to an empty tuple.
         close_conn_after (bool): If True, closes `connection` after the
             query runs. Defaults to False.
 
@@ -179,7 +183,7 @@ def conditional_run_select(connection: sqlite3.Connection,
 
             connection, cursor = open_db('mydb.db')
             rows = conditional_run_select(connection, cursor, 'users',
-                                           'name, email', "age > 18")
+                                           'name, email', "age > ?", (18,))
             ```
 
         === "The Traditional Way"
@@ -189,17 +193,19 @@ def conditional_run_select(connection: sqlite3.Connection,
             conn = sqlite3.connect('test.db')
             cursor = conn.cursor()
             rows = cursor.execute(
-                "SELECT name, email FROM users WHERE age > 18").fetchall()
+                "SELECT name, email FROM users WHERE age > ?",
+                (18,)).fetchall()
             ```
     """
     if _check_if_valid(table_name) and _check_if_valid(to_select):
         try:
-            res = cursor.execute(f"SELECT {to_select} FROM {table_name} WHERE {condition}")
+            res = cursor.execute(f"SELECT {to_select} FROM {table_name}"
+                                 f" WHERE {condition}", params)
             rows = res.fetchall()
             if close_conn_after:
                 connection.close()
             return rows
-        except(sqlite3.OperationalError, sqlite3.ProgrammingError) as e:
+        except (sqlite3.OperationalError, sqlite3.ProgrammingError) as e:
             raise EasySqlError(f"\n\nERROR: {e}") from None
     else:
         raise EasySqlError(
@@ -276,30 +282,31 @@ def run_insert(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
                            f"\n\t- Underscores  (_).") from None
 
 
-def run_delete(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
-               to_delete: str, table_name: str, condition: str,
+def run_delete(connection: sqlite3.Connection, cursor: sqlite3.Cursor,
+               table_name: str, condition: str, params: tuple = (),
                close_conn_after: bool = False):
     """
     Deletes rows from a table matching a condition.
 
-    Validates `table_name` and `to_delete` first — only letters, numbers,
-    and underscores are allowed — to guard against SQL injection before
+    Validates `table_name` first — only letters, numbers, and
+    underscores are allowed — to guard against SQL injection before
     building the query string.
 
     Args:
         connection (sqlite3.Connection): Open connection to the database.
         cursor (sqlite3.Cursor): Cursor for executing SQL statements.
-        to_delete (str): Column name(s) checked for validity (unused in
-            the query itself — see note below).
         table_name (str): Name of the table to delete from.
-        condition (str): Raw SQL condition used in the WHERE clause.
+        condition (str): SQL condition with `?` placeholders for values
+            used in the WHERE clause.
+        params (tuple): Values to substitute into the `?` placeholders
+            in `condition`, in order. Defaults to an empty tuple.
         close_conn_after (bool): If True, closes `connection` after the
             delete runs. Defaults to False.
 
     Raises:
-        EasySqlError: If `table_name` or `to_delete` contain anything
-            other than letters, numbers, or underscores, or if the
-            delete itself fails.
+        EasySqlError: If `table_name` contains anything other than
+            letters, numbers, or underscores, or if the delete itself
+            fails.
 
     Example:
         === "The Py_simple Way"
@@ -307,7 +314,7 @@ def run_delete(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
             from py_simple import open_db, run_delete
 
             connection, cursor = open_db('mydb.db')
-            run_delete(connection, cursor, 'name', 'users', "name = 'Ada'")
+            run_delete(connection, cursor, 'users', "name = ?", ('Ada',))
             ```
 
         === "The Traditional Way"
@@ -316,19 +323,20 @@ def run_delete(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
 
             conn = sqlite3.connect('test.db')
             cursor = conn.cursor()
-            cursor.execute("DELETE FROM users WHERE name = 'Ada'")
+            cursor.execute("DELETE FROM users WHERE name = ?", ('Ada',))
             ```
     """
-    if _check_if_valid(table_name) and _check_if_valid(to_delete):
+    if _check_if_valid(table_name):
         try:
-            cursor.execute(f"DELETE FROM {table_name} WHERE {condition}")
+            cursor.execute(f"DELETE FROM {table_name} WHERE "
+                           f"{condition}", params)
             if close_conn_after:
                 connection.close()
         except (sqlite3.OperationalError, sqlite3.ProgrammingError,
                     sqlite3.DatabaseError) as e:
             raise EasySqlError(f"\n\nERROR: {e}") from None
     else:
-        raise EasySqlError(f"\n\nERROR: table_name and to_delete "
+        raise EasySqlError(f"\n\nERROR: table_name "
                            f"can only contain:"
                            f"\n\t- Uppercase letters (A-Z)"
                            f"\n\t- Lowercase letters (a-z)"
