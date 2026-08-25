@@ -46,7 +46,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          while IFS= read -r file; do
+          while IFS= read -r file <&3; do
             case "$file" in
               py_simple_package/src/py_simple/*.py)
                 base=$(basename "$file" .py)
@@ -99,4 +99,4 @@ jobs:
                 fi
                 ;;
             esac
-          done < changed_files.txt
+          done 3< changed_files.txt
