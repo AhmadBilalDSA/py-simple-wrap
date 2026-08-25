@@ -10,7 +10,7 @@ class EasySqlError(Exception):
     """
     Custom exception for py_simple SQL helpers.
 
-    Raised when a database operation fails — for example, when the
+    Raised when a database operation fails - for example, when the
     connection to the database file cannot be established.
 
     Args:
@@ -87,8 +87,8 @@ def run_select(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
     """
     Runs a SELECT query against a table and returns all matching rows.
 
-    Validates `table_name` and `to_select` first — only letters, numbers,
-    and underscores are allowed (or `*` for `to_select`) — to guard
+    Validates `table_name` and `to_select` first - only letters, numbers,
+    and underscores are allowed (or `*` for `to_select`) - to guard
     against SQL injection before building the query string.
 
     Args:
@@ -151,8 +151,8 @@ def conditional_run_select(connection: sqlite3.Connection,
     """
     Runs a SELECT query with a WHERE condition and returns matching rows.
 
-    Validates `table_name` and `to_select` first — only letters, numbers,
-    and underscores are allowed — to guard against SQL injection
+    Validates `table_name` and `to_select` first - only letters, numbers,
+    and underscores are allowed - to guard against SQL injection
     before building the query string.
 
     Args:
@@ -222,8 +222,8 @@ def run_insert(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
     """
     Inserts a single row into a table.
 
-    Validates `table_name` and `columns` first — only letters, numbers,
-    and underscores are allowed — to guard against SQL injection before
+    Validates `table_name` and `columns` first - only letters, numbers,
+    and underscores are allowed - to guard against SQL injection before
     building the query string. Values in `to_insert` are passed as
     parameters, not interpolated into the query.
 
@@ -288,8 +288,8 @@ def run_delete(connection: sqlite3.Connection, cursor: sqlite3.Cursor,
     """
     Deletes rows from a table matching a condition.
 
-    Validates `table_name` first — only letters, numbers, and
-    underscores are allowed — to guard against SQL injection before
+    Validates `table_name` first - only letters, numbers, and
+    underscores are allowed -to guard against SQL injection before
     building the query string.
 
     Args:
@@ -349,8 +349,8 @@ def delete_all_from_table(connection: sqlite3.Connection, cursor: sqlite3.Cursor
     """
     Deletes all rows from a table, leaving the table itself intact.
 
-    Validates `table_name` first — only letters, numbers, and
-    underscores are allowed — to guard against SQL injection before
+    Validates `table_name` first - only letters, numbers, and
+    underscores are allowed - to guard against SQL injection before
     building the query string.
 
     Args:
