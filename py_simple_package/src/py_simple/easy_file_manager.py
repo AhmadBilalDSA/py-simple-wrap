@@ -10,7 +10,6 @@ VALID_EXTENSIONS = ['txt', 'md', 'log', 'csv']
 
 
 class EasyFileManagerError(Exception):
-    """Exception raised for invalid extension"""
 
     def __init__(self, message):
         self.message = message

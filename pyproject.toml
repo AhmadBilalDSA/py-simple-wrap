@@ -62,6 +62,7 @@ docs = [
     "mkdocs-include-markdown-plugin",
     "mkdocstrings",
     "mkdocstrings-python",
+    "GitPython>=3.1.0",
 ]
 
 [tool.setuptools.packages.find]
