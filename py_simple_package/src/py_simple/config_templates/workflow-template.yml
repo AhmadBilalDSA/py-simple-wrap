@@ -2,9 +2,9 @@
 # REMEMBER TO FILL OUT on. OTHERWISE, THE WORKFLOW WILL NOT WORK.
 # IF LEFT UNFILLED, THE WORKFLOW NAME WILL DEFAULT TO THE WORKFLOW FILEPATH.
 
-# Put the name of your workflow here. It will be what GitHub
+# You can change the name of your workflow below. It will be what GitHub
 # actions display as the workflow name, so make sure it is descriptive
-name:
+name: [NAME]
 
 # When should the workflow run?
 # Examples:
