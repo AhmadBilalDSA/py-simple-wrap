@@ -94,12 +94,10 @@ class TestReadFileToList:
         make_blank_file("empty", "txt")
         assert read_file_to_list("empty.txt") == []
 
-    def test_read_non_existent_file(self, tmp_workdir, capsys):
-        """Should return empty list and print message for missing file."""
-        result = read_file_to_list("nonexistent.txt")
-        captured = capsys.readouterr()
-        assert "not found" in captured.out
-        assert result == []
+    def test_read_non_existent_file(self, tmp_workdir):
+        """Should raise EasyFileManagerError for missing file."""
+        with pytest.raises(EasyFileManagerError):
+            read_file_to_list("nonexistent.txt")
 
     def test_strips_whitespace(self, tmp_workdir):
         """Should strip whitespace from lines."""
