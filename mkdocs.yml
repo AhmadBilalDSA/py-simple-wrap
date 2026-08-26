@@ -56,12 +56,13 @@ nav:
             - Tutorial 1: tutorial/easy_numbers.md
             - Tutorial 2: tutorial/easy_numbers2.md
         - Easy Regex: tutorial/easy_regex.md
-        - Easy Random: tutorial/easy_random.md
         - Easy Stats: tutorial/easy_stats.md
         - Easy Strings: tutorial/easy_strings.md
         - Easy Text: tutorial/easy_text.md
         - Easy Validator: tutorial/easy_validator.md
         - Easy Web: tutorial/easy_web.md
+        - Project-Based Tutorials:
+            - Mystery Number Quest: tutorial/easy_random_game_project.md
   - How To:
       - Contributing: how-to/contributing.md
   - Contributor Hub:
@@ -70,10 +71,8 @@ nav:
       - Tutorial Template: contributor-hub/tutorial_template.md
       - Custom Exception Template: contributor-hub/error_template.md
   - Reference:
-      - Easy Archive: reference/easy_archive.md
       - Easy Async: reference/easy_async.md
       - Easy Colors: reference/easy_colors.md
-      - Easy Config: reference/easy_config.md
       - Easy Converter: reference/easy_converter.md
       - Easy CSV: reference/easy_csv.md
       - Easy Data Visualization: reference/easy_data_visualization.md
@@ -81,14 +80,12 @@ nav:
       - Easy Dict: reference/easy_dict.md
       - Easy File Manager: reference/easy_file_manager.md
       - Easy Flow: reference/easy_flow.md
-      - Easy Game: reference/easy_game.md
       - Easy Generator: reference/easy_generator.md
       - Easy Images: reference/easy_images.md
       - Easy Json: reference/easy_json.md
       - Easy Lists: reference/easy_lists.md
       - Easy Math: reference/easy_math.md
       - Easy Numbers: reference/easy_numbers.md
-      - Easy Random: reference/easy_random.md
       - Easy Regex: reference/easy_regex.md
       - Easy Stats: reference/easy_stats.md
       - Easy Strings: reference/easy_strings.md

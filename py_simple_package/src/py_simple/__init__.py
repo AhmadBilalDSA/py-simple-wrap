@@ -92,14 +92,12 @@ from .easy_generator import (
     generate_qr_code, generate_password, generate_otp, generate_api_key,
     generate_uuid,
 )
-
 from .easy_math import (
     get_least_common_multiple, factorial, fibonacci, prime_factorization,
     sum_of_digits, divisors,
 )
-
 from .easy_data_visualization import (
-    plot_data
+    plot_data,
 )
 from .easy_random import (
     roll_dice, flip_coin, pick_random_item, shuffle_list, random_int,
