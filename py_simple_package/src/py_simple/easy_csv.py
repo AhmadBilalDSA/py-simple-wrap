@@ -1,3 +1,8 @@
+"""
+easy_csv is built to simplify reading and writing CSV files.
+"""
+
+
 import csv
 import os.path
 from typing import Any

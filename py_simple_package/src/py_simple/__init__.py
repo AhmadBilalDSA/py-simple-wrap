@@ -1,3 +1,8 @@
+"""
+py_simple's public API — re-exports the functions from each easy_* module.
+"""
+
+
 from .easy_file_manager import (
     make_blank_file, is_file_there, add_a_line, read_file_to_list,
     remove_file, rename_file, list_files, copy_file,
