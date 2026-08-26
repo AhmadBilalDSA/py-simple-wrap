@@ -60,6 +60,8 @@ nav:
         - Easy Regex: tutorial/easy_regex.md
         - Easy Stats: tutorial/easy_stats.md
         - Easy Validator: tutorial/easy_validator.md
+        - Project-Based Tutorials:
+            - Mystery Number Quest: tutorial/easy_random_game_project.md
   - How To:
       - Contributing: how-to/contributing.md
   - Contributor Hub:
