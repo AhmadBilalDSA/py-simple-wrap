@@ -384,6 +384,15 @@
       "contributions": [
         "test"
       ]
+    },
+    {
+      "login": "i-am-paradox",
+      "name": "Paradox",
+      "avatar_url": "https://github.com/i-am-paradox.png",
+      "profile": "https://github.com/i-am-paradox",
+      "contributions": [
+        "documentation"
+      ]
     }
   ]
 }
