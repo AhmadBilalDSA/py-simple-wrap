@@ -79,4 +79,4 @@ filterwarnings = [
 include-package-data = true
 
 [tool.setuptools.package-data]
-"*" = ["docs/*.md"]
+"*" = ["docs/*.md", "config_templates/*.yml"]
