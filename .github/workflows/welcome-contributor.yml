@@ -1,0 +1,60 @@
+name: Welcome Contributor
+on:
+  pull_request_target:
+    types: [closed]
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  welcome:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Generate App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Post welcome comment
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ steps.app-token.outputs.token }}
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            const skipList = ['Star_Wasp7272', 'sara-czasak'];
+            const username = context.payload.pull_request.user.login;
+
+            if (skipList.includes(username)) {
+              console.log(`Skipping welcome message — ${username} is the repo owner.`);
+              return;
+            }
+
+            const association = context.payload.pull_request.author_association;
+            let folder;
+            if (association === 'FIRST_TIMER') {
+              folder = 'FIRST_EVER_MERGED_PR_CONTRIBUTORS';
+            } else if (association === 'FIRST_TIME_CONTRIBUTOR') {
+              folder = 'FIRST_TIME_PY_SIMPLE_CONTRIBUTORS';
+            } else {
+              folder = 'RETURNING_CONTRIBUTORS';
+            }
+
+            const dir = path.join('.github', 'WELCOME_TEMPLATES', folder);
+            const files = fs.readdirSync(dir);
+            const chosenFile = files[Math.floor(Math.random() * files.length)];
+            const raw = fs.readFileSync(path.join(dir, chosenFile), 'utf8');
+            const body = raw.replace(/\{\{username\}\}/g, username);
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body: body
+            });

@@ -1,3 +1,8 @@
+"""
+py_simple's public API — re-exports the functions from each easy_* module.
+"""
+
+
 from .easy_file_manager import (
     make_blank_file, is_file_there, add_a_line, read_file_to_list,
     remove_file, rename_file, list_files, copy_file,
@@ -94,9 +99,6 @@ from .easy_math import (
 from .easy_data_visualization import (
     plot_data,
 )
-from .easy_sql import (
-    open_db,
-)
 from .easy_random import (
     roll_dice,
     flip_coin,
@@ -105,5 +107,14 @@ from .easy_random import (
     random_int,
 )
 from .easy_sql import (
-    open_db,
+    open_db, run_insert, run_select, conditional_run_select, run_delete,
+    delete_all_from_table,
+)
+from .easy_archive import (
+    zip_folder,
+    zip_files,
+    unzip_file,
+    list_zip_contents,
+    add_to_zip,
+    is_zip_file,
 )

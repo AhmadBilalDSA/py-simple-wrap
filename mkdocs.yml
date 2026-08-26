@@ -41,8 +41,6 @@ nav:
         - Easy Date Formatter: tutorial/easy_date_formatter.md
         - Easy Dict: tutorial/easy_dict.md
         - Easy Flow: tutorial/easy_flow.md
-        - Easy Strings: tutorial/easy_strings.md
-        - Easy Web: tutorial/easy_web.md
         - Easy File Manager: tutorial/easy_file_manager.md
         - Easy Game: tutorial/easy_game.md
         - Easy Generator: tutorial/easy_generator.md
@@ -59,7 +57,10 @@ nav:
             - Tutorial 2: tutorial/easy_numbers2.md
         - Easy Regex: tutorial/easy_regex.md
         - Easy Stats: tutorial/easy_stats.md
+        - Easy Strings: tutorial/easy_strings.md
+        - Easy Text: tutorial/easy_text.md
         - Easy Validator: tutorial/easy_validator.md
+        - Easy Web: tutorial/easy_web.md
         - Project-Based Tutorials:
             - Mystery Number Quest: tutorial/easy_random_game_project.md
   - How To:
@@ -79,7 +80,6 @@ nav:
       - Easy Dict: reference/easy_dict.md
       - Easy File Manager: reference/easy_file_manager.md
       - Easy Flow: reference/easy_flow.md
-      - Easy Game: reference/easy_game.md
       - Easy Generator: reference/easy_generator.md
       - Easy Images: reference/easy_images.md
       - Easy Json: reference/easy_json.md

@@ -1,3 +1,9 @@
+<div align="center">
+
+🏠[README](README.md) · ⚡[Quickstart](QUICKSTART.md) · 📦[Modules](MODULES.md) · 🆘[Support](SUPPORT.md) · 🚀[Contributing](CONTRIBUTING.md) · 🌟[Contributors](CONTRIBUTORS.md) · 🔒[Security](SECURITY.md) · 🌱[Code of Conduct](CODE_OF_CONDUCT.md) · ⚖️[License](LICENSE.md)
+
+</div>
+
 # Changelog
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
@@ -130,3 +136,4 @@ combined into one entry here rather than guessing at a split.
 ### Changed
 - README formatting passes (headers, readability) ([@sara-czasak](https://github.com/sara-czasak))
 - Prepared files for test coverage ([@sara-czasak](https://github.com/sara-czasak))
+

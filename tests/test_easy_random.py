@@ -37,7 +37,8 @@ def test_shuffle_list():
     assert len(shuffled) == len(original)
     assert set(shuffled) == set(original)
     assert original == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
+    
+    assert shuffle_list([]) == []
 
 def test_random_int():
     for _ in range(50):

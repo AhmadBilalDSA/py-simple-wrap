@@ -1,17 +1,24 @@
+<div align="center">
+
+🏠[README](README.md) · ⚡[Quickstart](QUICKSTART.md) · 🆘[Support](SUPPORT.md) · 🚀[Contributing](CONTRIBUTING.md) · 🌟[Contributors](CONTRIBUTORS.md) · 📜[Changelog](CHANGELOG.md) · 🔒[Security](SECURITY.md) · 🌱[Code of Conduct](CODE_OF_CONDUCT.md) · ⚖️[License](LICENSE.md)
+
+</div>
+
 # Module Reference
 
 20+ modules, grouped by what they help with. Each one removes a specific bit of boilerplate — the Docs link is the full function reference, Tutorial is a walkthrough with examples.
 
 ## Files & data
 
-| <div style="width:200px">Module</div> | <div style="width:600px">What it removes</div>               |                                                                        <div style="width:150px">Links</div>                                                                        |
-|:--------------------------------------|:-------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| 📂 Easy File Manager                  | file operations without the `os` boilerplate                 | [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_file_manager/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_file_manager/) |
-| 📄 Easy JSON                          | JSON file handling without the boilerplate                   |         [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_json/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_json/)         |
-| 📑 Easy CSV                           | CSV reading and writing without the `csv` module boilerplate |          [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_csv/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_csv/)          |
-| 🔑 Easy Dict                          | dictionary operations without the boilerplate                |         [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_dict/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_dict/)         |
-| 📋 Easy Lists                         | list helpers that keep your code short and readable          |        [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_lists/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_lists/)        |
-| 🗄️ Easy SQL                          | database queries without hand-writing SQL boilerplate        |                                           [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_sql/) ·  comming soon                                            |
+| <div style="width:200px">Module</div> | <div style="width:600px">What it removes</div>                |                                                                        <div style="width:150px">Links</div>                                                                        |
+|:--------------------------------------|:--------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| 📂 Easy File Manager                  | file operations without the `os` boilerplate                  | [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_file_manager/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_file_manager/) |
+| 📄 Easy JSON                          | JSON file handling without the boilerplate                    |         [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_json/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_json/)         |
+| 📑 Easy CSV                           | CSV reading and writing without the `csv` module boilerplate  |          [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_csv/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_csv/)          |
+| 🔑 Easy Dict                          | dictionary operations without the boilerplate                 |         [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_dict/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_dict/)         |
+| 📋 Easy Lists                         | list helpers that keep your code short and readable           |        [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_lists/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_lists/)        |
+| 🗄️ Easy SQL                          | database queries without hand-writing SQL boilerplate         |                                           [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_sql/) ·  comming soon                                            |
+| 🗜️ Easy Archive                      | zip and unzip files/folders without the `zipfile` boilerplate |                                          [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_archive/) · comming soon                                          |
 
 ## Text & validation
 
