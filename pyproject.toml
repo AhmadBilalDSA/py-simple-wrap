@@ -43,6 +43,7 @@ dependencies = [
     "qrcode>=7.4.0",
     "pygame-ce>=2.5.0",
     "matplotlib>=3.0.0",
+    "GitPython>=3.1.0",
 ]
 
 [project.urls]
@@ -62,7 +63,6 @@ docs = [
     "mkdocs-include-markdown-plugin",
     "mkdocstrings",
     "mkdocstrings-python",
-    "GitPython>=3.1.0",
 ]
 
 [tool.setuptools.packages.find]

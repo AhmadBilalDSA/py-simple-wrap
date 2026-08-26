@@ -13,7 +13,7 @@ from py_simple_package.src.py_simple.easy_file_manager import (
     list_files,
     copy_file,
     VALID_EXTENSIONS,
-    InvalidExtension,
+    EasyFileManagerError,
 )
 
 
@@ -46,7 +46,7 @@ class TestMakeBlankFile:
 
     def test_invalid_extension_raises(self, tmp_workdir):
         """Should raise InvalidExtension for unsupported extension."""
-        with pytest.raises(InvalidExtension):
+        with pytest.raises(EasyFileManagerError):
             make_blank_file("test", "exe")
 
     @pytest.mark.parametrize("ext", VALID_EXTENSIONS)
@@ -82,7 +82,7 @@ class TestAddALine:
 
     def test_invalid_extension_raises(self, tmp_workdir):
         """Should raise for unsupported extension."""
-        with pytest.raises(InvalidExtension):
+        with pytest.raises(EasyFileManagerError):
             add_a_line("test.exe", "hello")
 
 
@@ -111,7 +111,7 @@ class TestReadFileToList:
 
     def test_invalid_extension_raises(self, tmp_workdir):
         """Should raise for unsupported extension."""
-        with pytest.raises(InvalidExtension):
+        with pytest.raises(EasyFileManagerError):
             read_file_to_list("test.jpg")
 
 
@@ -133,7 +133,7 @@ class TestRemoveFile:
 
     def test_invalid_extension_raises(self, tmp_workdir):
         """Should raise for unsupported extension."""
-        with pytest.raises(InvalidExtension):
+        with pytest.raises(EasyFileManagerError):
             remove_file("test.dll")
 
 
@@ -163,7 +163,7 @@ class TestRenameFile:
 
     def test_invalid_extension_raises(self, tmp_workdir):
         """Should raise for unsupported extension."""
-        with pytest.raises(InvalidExtension):
+        with pytest.raises(EasyFileManagerError):
             rename_file("test.txt", "test.bin")
 
 
@@ -198,7 +198,7 @@ class TestListFiles:
 
     def test_invalid_extension_filter_raises(self, tmp_workdir):
         """Should raise InvalidExtension for invalid filter."""
-        with pytest.raises(InvalidExtension):
+        with pytest.raises(EasyFileManagerError):
             list_files("xyz")
 
 
@@ -229,12 +229,12 @@ class TestCopyFile:
 
     def test_invalid_source_extension_raises(self, tmp_workdir):
         """Should raise if source has invalid extension."""
-        with pytest.raises(InvalidExtension):
+        with pytest.raises(EasyFileManagerError):
             copy_file("test.exe", "test.txt")
 
     def test_invalid_dest_extension_raises(self, tmp_workdir):
         """Should raise if destination has invalid extension."""
-        with pytest.raises(InvalidExtension):
+        with pytest.raises(EasyFileManagerError):
             copy_file("test.txt", "test.exe")
 
 

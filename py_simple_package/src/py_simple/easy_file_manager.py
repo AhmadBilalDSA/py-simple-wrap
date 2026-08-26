@@ -10,7 +10,11 @@ VALID_EXTENSIONS = ['txt', 'md', 'log', 'csv']
 
 
 class EasyFileManagerError(Exception):
-
+    """
+    Raised when a file operation cannot be completed.
+    Args:
+        message (str): Description of what went wrong.
+    """
     def __init__(self, message):
         self.message = message
         super().__init__(self.message)
