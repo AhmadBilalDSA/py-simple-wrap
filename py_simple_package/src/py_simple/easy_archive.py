@@ -8,11 +8,7 @@ import zipfile
 
 class EasyArchiveError(Exception):
     """
-    Raised when an archive path does not end in '.zip'.
-
-    This only covers the extension check — a path that ends in '.zip'
-    but is not a valid archive is not raised on; those functions return
-    None, [], or False instead.
+    Raised when an archive operation cannot be completed.
 
     Args:
         message (str): Description of what went wrong.
@@ -43,8 +39,7 @@ def zip_folder(folder_path: str, zip_name: str = None) -> str:
             Defaults to the folder's own name with '.zip' appended.
 
     Returns:
-        str: Path to the created zip file, or None if folder_path
-            does not exist.
+        str: Path to the created zip file.
 
     Example:
         === "The Py_simple Way"
@@ -70,8 +65,8 @@ def zip_folder(folder_path: str, zip_name: str = None) -> str:
             ```
     """
     if not os.path.isdir(folder_path):
-        print(f"Folder '{folder_path}' does not exist.")
-        return None
+        raise EasyArchiveError(f"\n\n\nERROR: Folder '{folder_path}' "
+                               f"does not exist.") from None
 
     if zip_name is None:
         folder_name = os.path.basename(os.path.abspath(folder_path)) or 'folder'
@@ -95,11 +90,9 @@ def zip_folder(folder_path: str, zip_name: str = None) -> str:
 def zip_files(file_paths: list, zip_name: str) -> str:
     """
     Zips a list of individual files into a single .zip archive.
-    Files that don't exist are skipped with a warning instead of
-    failing the whole operation. If two files share the same
-    filename (e.g. from different folders), the later one is
-    automatically renamed inside the archive instead of silently
-    overwriting the first.
+    If two files share the same filename (e.g. from different
+    folders), the later one is automatically renamed inside the
+    archive instead of silently overwriting the first.
 
     Args:
         file_paths (list): Paths of the files to include.
@@ -107,8 +100,7 @@ def zip_files(file_paths: list, zip_name: str) -> str:
             Must end in '.zip'.
 
     Returns:
-        str: Path to the created zip file, or None if none of the
-            given files exist.
+        str: Path to the created zip file.
 
     Example:
         === "The Py_simple Way"
@@ -134,12 +126,13 @@ def zip_files(file_paths: list, zip_name: str) -> str:
 
     existing = [p for p in file_paths if os.path.isfile(p)]
     missing = [p for p in file_paths if not os.path.isfile(p)]
-    for path in missing:
-        print(f"Skipping '{path}' — file does not exist.")
+    if missing:
+        raise EasyArchiveError(f"\n\n\nERROR: File '{missing[0]}' "
+                               f"does not exist.")
 
     if not existing:
-        print("No valid files to zip.")
-        return None
+        raise EasyArchiveError("\n\n\nERROR: No valid files to zip.") \
+            from None
 
     with zipfile.ZipFile(zip_name, 'w', zipfile.ZIP_DEFLATED) as zf:
         used_names = set()
@@ -175,9 +168,7 @@ def unzip_file(zip_path: str, destination: str = '.') -> str:
             current working directory.
 
     Returns:
-        str: The destination folder path, or None if zip_path does not
-            exist, is not a valid zip file, or destination already
-            exists as a regular file.
+        str: The destination folder path.
 
     Example:
         === "The Py_simple Way"
@@ -199,16 +190,17 @@ def unzip_file(zip_path: str, destination: str = '.') -> str:
             ```
     """
     if not os.path.isfile(zip_path):
-        print(f"Zip file '{zip_path}' does not exist.")
-        return None
+        raise EasyArchiveError(f"\n\n\nERROR: Zip file '{zip_path}' "
+                               f"does not exist.") from None
 
     if not zipfile.is_zipfile(zip_path):
-        print(f"'{zip_path}' is not a valid zip file.")
-        return None
+        raise EasyArchiveError(f"\n\n\nERROR: '{zip_path}' is not a valid"
+                               f" zip file.") from None
 
     if os.path.isfile(destination):
-        print(f"'{destination}' already exists as a file, not a folder.")
-        return None
+        raise EasyArchiveError(f"\n\n\nERROR: '{destination}' already "
+                               f"exists as a file, not a folder.")\
+            from None
 
     os.makedirs(destination, exist_ok=True)
     with zipfile.ZipFile(zip_path, 'r') as zf:
@@ -225,8 +217,7 @@ def list_zip_contents(zip_path: str) -> list:
         zip_path (str): Path to the .zip file to inspect.
 
     Returns:
-        list: Filenames stored in the archive, or an empty list if
-            zip_path does not exist or is not a valid zip file.
+        list: Filenames stored in the archive.
 
     Example:
         === "The Py_simple Way"
@@ -245,12 +236,12 @@ def list_zip_contents(zip_path: str) -> list:
             ```
     """
     if not os.path.isfile(zip_path):
-        print(f"Zip file '{zip_path}' does not exist.")
-        return []
+        raise EasyArchiveError(f"\n\n\nERROR: Zip file '{zip_path}' "
+                               f"does not exist.") from None
 
     if not zipfile.is_zipfile(zip_path):
-        print(f"'{zip_path}' is not a valid zip file.")
-        return []
+        raise EasyArchiveError(f"\n\n\nERROR: '{zip_path}' is not a "
+                               f"valid zip file.") from None
 
     with zipfile.ZipFile(zip_path, 'r') as zf:
         return zf.namelist()
@@ -265,9 +256,7 @@ def add_to_zip(zip_path: str, file_to_add: str) -> bool:
         file_to_add (str): Path of the file to add to the archive.
 
     Returns:
-        bool: True if the file was added, False if zip_path does not
-            exist or is not a valid zip file, or file_to_add does not
-            exist.
+        bool: True if the file was added.
 
     Example:
         === "The Py_simple Way"
@@ -286,16 +275,13 @@ def add_to_zip(zip_path: str, file_to_add: str) -> bool:
             ```
     """
     if not os.path.isfile(zip_path):
-        print(f"Zip file '{zip_path}' does not exist.")
-        return False
+        raise EasyArchiveError(f"\n\n\nERROR: Zip file '{zip_path}' does not exist.") from None
 
     if not zipfile.is_zipfile(zip_path):
-        print(f"'{zip_path}' is not a valid zip file.")
-        return False
+        raise EasyArchiveError(f"\n\n\nERROR: '{zip_path}' is not a valid zip file.") from None
 
     if not os.path.isfile(file_to_add):
-        print(f"File '{file_to_add}' does not exist.")
-        return False
+        raise EasyArchiveError(f"\n\n\nERROR: File '{file_to_add}' does not exist.") from None
 
     with zipfile.ZipFile(zip_path, 'a', zipfile.ZIP_DEFLATED) as zf:
         zf.write(file_to_add, os.path.basename(file_to_add))

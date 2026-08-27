@@ -60,9 +60,9 @@ def test_zip_folder_dot_default_name_uses_cwd_folder(tmp_path, monkeypatch):
     assert "sub/b.txt" in names
 
 
-def test_zip_folder_missing_folder_returns_none(tmp_path):
-    result = zip_folder(str(tmp_path / "does_not_exist"), str(tmp_path / "out.zip"))
-    assert result is None
+def test_zip_folder_missing_folder_raises(tmp_path):
+    with pytest.raises(EasyArchiveError):
+        zip_folder(str(tmp_path / "does_not_exist"), str(tmp_path / "out.zip"))
 
 
 def test_zip_folder_rejects_non_zip_extension(tmp_path):
@@ -71,24 +71,19 @@ def test_zip_folder_rejects_non_zip_extension(tmp_path):
         zip_folder(str(project), str(tmp_path / "project.tar"))
 
 
-def test_zip_files_zips_only_existing_files(tmp_path, capsys):
+def test_zip_files_missing_file_raises(tmp_path):
     file1 = tmp_path / "one.txt"
     file1.write_text("1", encoding="utf-8")
     missing = tmp_path / "missing.txt"
     zip_name = str(tmp_path / "out.zip")
 
-    result = zip_files([str(file1), str(missing)], zip_name)
-
-    assert result == zip_name
-    with zipfile.ZipFile(zip_name) as zf:
-        assert zf.namelist() == ["one.txt"]
-    captured = capsys.readouterr()
-    assert "missing.txt" in captured.out
+    with pytest.raises(EasyArchiveError):
+        zip_files([str(file1), str(missing)], zip_name)
 
 
-def test_zip_files_all_missing_returns_none(tmp_path):
-    result = zip_files([str(tmp_path / "ghost.txt")], str(tmp_path / "out.zip"))
-    assert result is None
+def test_zip_files_all_missing_raises(tmp_path):
+    with pytest.raises(EasyArchiveError):
+        zip_files([str(tmp_path / "ghost.txt")], str(tmp_path / "out.zip"))
 
 
 def test_zip_files_rejects_non_zip_extension(tmp_path):
@@ -111,17 +106,17 @@ def test_unzip_file_round_trip(tmp_path):
     assert (tmp_path / "restored" / "sub" / "b.txt").read_text(encoding="utf-8") == "world"
 
 
-def test_unzip_file_missing_zip_returns_none(tmp_path):
-    result = unzip_file(str(tmp_path / "nope.zip"), str(tmp_path / "out"))
-    assert result is None
+def test_unzip_file_missing_zip_raises(tmp_path):
+    with pytest.raises(EasyArchiveError):
+        unzip_file(str(tmp_path / "nope.zip"), str(tmp_path / "out"))
 
 
-def test_unzip_file_invalid_zip_returns_none(tmp_path):
+def test_unzip_file_invalid_zip_raises(tmp_path):
     fake_zip = tmp_path / "fake.zip"
     fake_zip.write_text("not actually a zip", encoding="utf-8")
 
-    result = unzip_file(str(fake_zip), str(tmp_path / "out"))
-    assert result is None
+    with pytest.raises(EasyArchiveError):
+        unzip_file(str(fake_zip), str(tmp_path / "out"))
 
 
 def test_list_zip_contents(tmp_path):
@@ -134,14 +129,16 @@ def test_list_zip_contents(tmp_path):
     assert set(contents) == {"a.txt", "sub/b.txt"}
 
 
-def test_list_zip_contents_missing_zip_returns_empty_list(tmp_path):
-    assert list_zip_contents(str(tmp_path / "nope.zip")) == []
+def test_list_zip_contents_missing_zip_raises(tmp_path):
+    with pytest.raises(EasyArchiveError):
+        list_zip_contents(str(tmp_path / "nope.zip"))
 
 
-def test_list_zip_contents_invalid_zip_returns_empty_list(tmp_path):
+def test_list_zip_contents_invalid_zip_raises(tmp_path):
     fake_zip = tmp_path / "fake.zip"
     fake_zip.write_text("nope", encoding="utf-8")
-    assert list_zip_contents(str(fake_zip)) == []
+    with pytest.raises(EasyArchiveError):
+        list_zip_contents(str(fake_zip))
 
 
 def test_add_to_zip_appends_file(tmp_path):
@@ -160,33 +157,32 @@ def test_add_to_zip_appends_file(tmp_path):
         assert set(zf.namelist()) == {"one.txt", "extra.txt"}
 
 
-def test_add_to_zip_missing_zip_returns_false(tmp_path):
+def test_add_to_zip_missing_zip_raises(tmp_path):
     extra = tmp_path / "extra.txt"
     extra.write_text("extra", encoding="utf-8")
-    result = add_to_zip(str(tmp_path / "nope.zip"), str(extra))
-    assert result is False
+    with pytest.raises(EasyArchiveError):
+        add_to_zip(str(tmp_path / "nope.zip"), str(extra))
 
 
-def test_add_to_zip_missing_file_returns_false(tmp_path):
+def test_add_to_zip_missing_file_raises(tmp_path):
     file1 = tmp_path / "one.txt"
     file1.write_text("1", encoding="utf-8")
     zip_name = str(tmp_path / "out.zip")
     zip_files([str(file1)], zip_name)
 
-    result = add_to_zip(zip_name, str(tmp_path / "ghost.txt"))
+    with pytest.raises(EasyArchiveError):
+        add_to_zip(zip_name, str(tmp_path / "ghost.txt"))
 
-    assert result is False
 
-
-def test_add_to_zip_invalid_zip_returns_false_without_corrupting(tmp_path):
+def test_add_to_zip_invalid_zip_raises_without_corrupting(tmp_path):
     fake_zip = tmp_path / "fake.zip"
     fake_zip.write_text("plain text, not a zip", encoding="utf-8")
     extra = tmp_path / "extra.txt"
     extra.write_text("extra", encoding="utf-8")
 
-    result = add_to_zip(str(fake_zip), str(extra))
+    with pytest.raises(EasyArchiveError):
+        add_to_zip(str(fake_zip), str(extra))
 
-    assert result is False
     assert fake_zip.read_text(encoding="utf-8") == "plain text, not a zip"
 
 
@@ -221,7 +217,7 @@ def test_zip_folder_does_not_include_itself_when_output_is_inside_folder(tmp_pat
     assert set(names) == {"a.txt", "sub/b.txt"}
 
 
-def test_unzip_file_destination_is_existing_file_returns_none(tmp_path):
+def test_unzip_file_destination_is_existing_file_raises(tmp_path):
     file1 = tmp_path / "one.txt"
     file1.write_text("1", encoding="utf-8")
     zip_name = str(tmp_path / "out.zip")
@@ -230,9 +226,8 @@ def test_unzip_file_destination_is_existing_file_returns_none(tmp_path):
     blocked_destination = tmp_path / "blocked"
     blocked_destination.write_text("i am a file, not a folder", encoding="utf-8")
 
-    result = unzip_file(zip_name, str(blocked_destination))
-
-    assert result is None
+    with pytest.raises(EasyArchiveError):
+        unzip_file(zip_name, str(blocked_destination))
 
 
 def test_zip_files_disambiguates_colliding_basenames(tmp_path, capsys):
