@@ -400,7 +400,8 @@
       "avatar_url": "https://github.com/anisayakmitra-in.png",
       "profile": "https://github.com/anisayakmitra-in",
       "contributions": [
-        "documentation"
+        "documentation",
+        "test"
       ]
     }
   ]
