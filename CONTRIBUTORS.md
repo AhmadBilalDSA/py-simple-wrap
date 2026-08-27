@@ -367,6 +367,12 @@ Every tile below is a real person who showed up for this project. 💛
         <sub><b>Paradox</b></sub>
       </a>
     </td>
+    <td align="center" valign="top" width="16.6%">
+      <a href="https://github.com/anisayakmitra-in">
+        <img src="https://github.com/anisayakmitra-in.png" width="100px;" alt="ANISAYAK MITRA"/><br />
+        <sub><b>ANISAYAK MITRA</b></sub>
+      </a>
+    </td>
   </tr>
 </table>
 
@@ -531,6 +537,7 @@ The Module Magicians. The Code Conjurers. The Test Sentinels. The Lore Keepers. 
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/tasodoufu"><img src="https://github.com/tasodoufu.png?s=80" width="80px;" alt="豆腐たそ"/><br /><sub><b>豆腐たそ</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=tasodoufu" title="Docs">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Betelhem-Sefiw"><img src="https://github.com/Betelhem-Sefiw.png?s=80" width="80px;" alt="betty"/><br /><sub><b>betty</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=Betelhem-Sefiw" title="Tests">🧪</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/i-am-paradox"><img src="https://github.com/i-am-paradox.png?s=80" width="80px;" alt="Paradox"/><br /><sub><b>Paradox</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=i-am-paradox" title="Docs">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/anisayakmitra-in"><img src="https://github.com/anisayakmitra-in.png?s=80" width="80px;" alt="ANISAYAK MITRA"/><br /><sub><b>ANISAYAK MITRA</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=anisayakmitra-in" title="Docs">📖</a></td>
     </tr>
   </tbody>
 </table>
