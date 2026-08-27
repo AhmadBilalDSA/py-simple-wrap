@@ -37,12 +37,11 @@ class TestMakeBlankFile:
         make_blank_file("test_file", "txt")
         assert is_file_there("test_file.txt")
 
-    def test_does_not_overwrite(self, tmp_workdir, capsys):
-        """Should warn instead of overwriting existing file."""
+    def test_does_not_overwrite(self, tmp_workdir):
+        """Should raise EasyFileManagerError instead of overwriting."""
         make_blank_file("test_file", "txt")
-        make_blank_file("test_file", "txt")
-        captured = capsys.readouterr()
-        assert "already exists" in captured.out
+        with pytest.raises(EasyFileManagerError):
+            make_blank_file("test_file", "txt")
 
     def test_invalid_extension_raises(self, tmp_workdir):
         """Should raise InvalidExtension for unsupported extension."""
@@ -123,11 +122,10 @@ class TestRemoveFile:
         remove_file("delete_me.txt")
         assert not is_file_there("delete_me.txt")
 
-    def test_remove_nonexistent(self, tmp_workdir, capsys):
-        """Should print message for non-existent file."""
-        remove_file("ghost.txt")
-        captured = capsys.readouterr()
-        assert "does not exist" in captured.out
+    def test_remove_nonexistent(self, tmp_workdir):
+        """Should raise for non-existent file."""
+        with pytest.raises(EasyFileManagerError):
+            remove_file("ghost.txt")
 
     def test_invalid_extension_raises(self, tmp_workdir):
         """Should raise for unsupported extension."""
@@ -145,19 +143,17 @@ class TestRenameFile:
         assert not is_file_there("original.txt")
         assert is_file_there("renamed.txt")
 
-    def test_rename_to_existing_name(self, tmp_workdir, capsys):
-        """Should warn if new name already exists."""
+    def test_rename_to_existing_name(self, tmp_workdir):
+        """Should raise if new name already exists."""
         make_blank_file("file_a", "txt")
         make_blank_file("file_b", "txt")
-        rename_file("file_a.txt", "file_b.txt")
-        captured = capsys.readouterr()
-        assert "already exists" in captured.out
+        with pytest.raises(EasyFileManagerError):
+            rename_file("file_a.txt", "file_b.txt")
 
-    def test_rename_nonexistent(self, tmp_workdir, capsys):
-        """Should warn if source file doesn't exist."""
-        rename_file("nope.txt", "yep.txt")
-        captured = capsys.readouterr()
-        assert "does not exist" in captured.out
+    def test_rename_nonexistent(self, tmp_workdir):
+        """Should raise if source file doesn't exist."""
+        with pytest.raises(EasyFileManagerError):
+            rename_file("nope.txt", "yep.txt")
 
     def test_invalid_extension_raises(self, tmp_workdir):
         """Should raise for unsupported extension."""
@@ -211,19 +207,17 @@ class TestCopyFile:
         assert is_file_there("dest.txt")
         assert read_file_to_list("dest.txt") == ["copied content"]
 
-    def test_copy_nonexistent_source(self, tmp_workdir, capsys):
-        """Should warn if source doesn't exist."""
-        copy_file("ghost.txt", "dest.txt")
-        captured = capsys.readouterr()
-        assert "does not exist" in captured.out
+    def test_copy_nonexistent_source(self, tmp_workdir):
+        """Should raise if source doesn't exist."""
+        with pytest.raises(EasyFileManagerError):
+            copy_file("ghost.txt", "dest.txt")
 
-    def test_copy_to_existing_destination(self, tmp_workdir, capsys):
-        """Should warn if destination already exists."""
+    def test_copy_to_existing_destination(self, tmp_workdir):
+        """Should raise if destination already exists."""
         make_blank_file("src", "txt")
         make_blank_file("dst", "txt")
-        copy_file("src.txt", "dst.txt")
-        captured = capsys.readouterr()
-        assert "already exists" in captured.out
+        with pytest.raises(EasyFileManagerError):
+            copy_file("src.txt", "dst.txt")
 
     def test_invalid_source_extension_raises(self, tmp_workdir):
         """Should raise if source has invalid extension."""
