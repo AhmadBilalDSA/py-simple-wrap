@@ -403,6 +403,15 @@
         "documentation",
         "test"
       ]
+    },
+    {
+      "login": "9anna-na",
+      "name": "9anna",
+      "avatar_url": "https://github.com/9anna-na.png",
+      "profile": "https://github.com/9anna-na",
+      "contributions": [
+        "documentation"
+      ]
     }
   ]
 }
