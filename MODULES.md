@@ -23,7 +23,7 @@
 
 ## Text & validation
 
-| <div style="width:200px">Module</div> | <div style="width:800px">What it removes</div>         |                                                                     <div style="width:150px">Links</div>                                                                     |
+| <div style="width:200px">Module</div> | <div style="width:1000px">What it removes</div>        |                                                                     <div style="width:150px">Links</div>                                                                     |
 |:--------------------------------------|:-------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | 🔤 Easy Strings                       | string operations that read like English               |   [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_strings/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_strings/)   |
 | ✂️ Easy Text                          | text formatting helpers that read like English         |      [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_text/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_text/)      |
