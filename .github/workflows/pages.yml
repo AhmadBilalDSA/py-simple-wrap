@@ -50,6 +50,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx contributor-quest generate --out site-build/quest
 
+      - name: Add Module Book
+        run: cp -r module-book site-build/modules
+
       - name: Add landing page
         run: cp landing/index.html site-build/index.html
 
