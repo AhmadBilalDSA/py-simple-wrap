@@ -23,7 +23,7 @@
 
 ## Text & validation
 
-| <div style="width:200px">Module</div> | <div style="width:600px">What it removes</div>         |                                                                     <div style="width:150px">Links</div>                                                                     |
+| <div style="width:200px">Module</div> | <div style="width:800px">What it removes</div>         |                                                                     <div style="width:150px">Links</div>                                                                     |
 |:--------------------------------------|:-------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | 🔤 Easy Strings                       | string operations that read like English               |   [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_strings/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_strings/)   |
 | ✂️ Easy Text                          | text formatting helpers that read like English         |      [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_text/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_text/)      |
@@ -32,7 +32,7 @@
 
 ## Numbers & math
 
-| <div style="width:200px">Module</div> | <div style="width:600px">What it removes</div>         |                                                                     <div style="width:150px">Links</div>                                                                     |
+| <div style="width:200px">Module</div> | <div style="width:800px">What it removes</div>         |                                                                     <div style="width:150px">Links</div>                                                                     |
 |:--------------------------------------|:-------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | 🔢 Easy Numbers                       | number checks and calculations without the mental math |   [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_numbers/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_numbers/)   |
 | 🧮 Easy Math                          | math helpers without re-deriving the formulas          |      [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_math/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_math/)      |
@@ -41,7 +41,7 @@
 
 ## Time & control flow
 
-| <div style="width:200px">Module</div> | <div style="width:600px">What it removes</div>                                |                                                                          <div style="width:150px">Links</div>                                                                          |
+| <div style="width:200px">Module</div> | <div style="width:800px">What it removes</div>                                |                                                                          <div style="width:150px">Links</div>                                                                          |
 |:--------------------------------------|:------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | 🕰️ Easy Date Formatter               | readable dates without memorizing strftime codes                              | [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_date_formatter/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_date_formatter/) |
 | 🔄 Easy Flow                          | running scripts, timing, and retries without the boilerplate                  |           [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_flow/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_flow/)           |
@@ -49,7 +49,7 @@
 
 ## Web & visuals
 
-| <div style="width:200px">Module</div> | <div style="width:600px">What it removes</div>                                |                                                                              <div style="width:150px">Links</div>                                                                              |
+| <div style="width:200px">Module</div> | <div style="width:800px">What it removes</div>                                |                                                                              <div style="width:150px">Links</div>                                                                              |
 |:--------------------------------------|:------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | 🌐 Easy Web                           | web scraping and checks without the requests/BS4 boilerplate                  |                [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_web/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_web/)                |
 | 🎨 Easy Colors                        | hex/RGB/HSL color conversions without memorizing the formulas                 |             [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_colors/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_colors/)             |
@@ -58,7 +58,7 @@
 
 ## Fun & generators
 
-| <div style="width:200px">Module</div> | <div style="width:600px">What it removes</div>                   |                                                                     <div style="width:150px">Links</div>                                                                     |
+| <div style="width:200px">Module</div> | <div style="width:800px">What it removes</div>                   |                                                                     <div style="width:150px">Links</div>                                                                     |
 |:--------------------------------------|:-----------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | 🎮 Easy Game                          | pygame setup without the boilerplate                             |      [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_game/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_game/)      |
 | 🎲 Easy Generator                     | passwords, QR codes, UUIDs, and API keys without the boilerplate | [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_generator/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_generator/) |
