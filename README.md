@@ -24,14 +24,6 @@
 <br>
 py-simple-wrap is a beginner-friendly Python toolbox — simple, intuitive functions for common tasks, so you can build something fun before the syntax gets in the way.
  
-[//]: # (Removed until github star issue resolves)
-[//]: # (## Star History)
-
-[//]: # ()
-[//]: # (![Star history chart]&#40;./assets/star-history.svg&#41;)
-
-
- 
 <div align="center">
 <br>
 
@@ -52,7 +44,9 @@ py-simple-wrap is a beginner-friendly Python toolbox — simple, intuitive funct
 
 ## Documentation
 
-| <div style="width:200px">📦 **[Module reference](MODULES.md)**</div>                                                           | <div style="width:200px">📃 **[Docs](https://sara-czasak.github.io/py-simple-wrap/docs/)**</div>                       | <div style="width:200px">🤝 **[Contributor hub](https://sara-czasak.github.io/py-simple-wrap/docs/contributor-hub/)**</div>                                                                                                 | <div style="width:200px">🗺️ **[Contributors quest](https://sara-czasak.github.io/py-simple-wrap/quest/)**</div>                                                                                                                                 |
+### [**HOME PAGE**](https://sara-czasak.github.io/py-simple-wrap/index)
+
+| <div style="width:200px">📦 **[Module reference](https://sara-czasak.github.io/py-simple-wrap/modules/)**</div>                | <div style="width:200px">📃 **[Docs](https://sara-czasak.github.io/py-simple-wrap/docs/)**</div>                       | <div style="width:200px">🤝 **[Contributor hub](https://sara-czasak.github.io/py-simple-wrap/docs/contributor-hub/)**</div>                                                                                                 | <div style="width:200px">🗺️ **[Contributors quest](https://sara-czasak.github.io/py-simple-wrap/quest/)**</div>                                                                                                                                 |
 |:-------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | More detailed overview of all modules, links to documentation and tutorials, in other words everything you need to get started | Here you will find everything you need! From references through module tutorials all the way to contributor tutorials! | templates for contributors. This project is meant to help everyone learn and grow, including beginner contributors. The goal is to try to help everyone succeed on there journey with py-simple-wrap and python as a whole. | This is a gamified hub for contributors. You can participate in challenges, earn achievements, join a guild (or two). Search through open issues faster and check your progress in the leaderboard. This is meant to make contributing more fun! |
  
