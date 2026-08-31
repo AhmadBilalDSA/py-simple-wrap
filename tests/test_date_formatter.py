@@ -6,7 +6,7 @@ import pytest
 import datetime as dt
 from py_simple_package.src.py_simple.easy_date_formatter import *
 
-<<<<<<< Updated upstream
+
 from py_simple_package.src.py_simple.easy_date_formatter import (
     get_pretty_date,
     get_past_pretty_date,
@@ -202,9 +202,6 @@ class TestUtilityFunctions:
         mock_datetime.now.return_value = dt.datetime(2026, 7, 20, 12, 34, 56)
         assert _get_future_date(7) == dt.datetime(2026, 7, 27, 12, 34, 56)
 
-=======
->>>>>>> Stashed changes
-
 def test_mm_dd_yyyy():
     # ARRANGE
     expected_output = dt.datetime.now().strftime("%m-%d-%Y")
@@ -337,7 +334,7 @@ def test_past_slash_mm_dd_yyyy():
         past_slash_mm_dd_yyyy(13),
         past_slash_mm_dd_yyyy(53),
     ]
-<<<<<<< Updated upstream
+
     assert result == expected_output, f"Expected {expected_output} but got {result}"
 
 
@@ -432,7 +429,5 @@ def test_future_slash_mm_dd_yyyy():
 
     assert result == expected_output, f"Expected {expected_output} but got {result}"
     assert result == expected_output, f"Expected {expected_output} but got {result}"
-=======
 
     assert result == expected_output, f"Expected {expected_output} but got {result}"
->>>>>>> Stashed changes
