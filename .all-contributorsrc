@@ -421,6 +421,16 @@
       "contributions": [
         "documentation"
       ]
+    },
+    {
+      "login": "Atharvs13",
+      "name": "Atharvs13m",
+      "avatar_url": "https://github.com/Atharvs13.png",
+      "profile": "https://github.com/Atharvs13",
+      "contributions": [
+        "test",
+        "code"
+      ]
     }
   ]
 }
