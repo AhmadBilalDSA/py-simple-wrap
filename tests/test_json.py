@@ -285,3 +285,21 @@ def test_get_nested_list():
     data = {"users": [{"name": "Alice"}, {"name": "Bob"}]}
     assert get_nested(data, "users.0.name") == "Alice"
     assert get_nested(data, "users.2.name", "n/a") == "n/a"
+
+
+def test_get_nested_non_collection_returns_default():
+    assert get_nested("not-json-data", "anything", "missing") == "missing"
+
+
+def test_get_nested_rejects_invalid_list_indexes():
+    data = {"users": [{"name": "Alice"}]}
+
+    assert get_nested(data, "users.first.name", "missing") == "missing"
+    assert get_nested(data, "users.-1.name", "missing") == "missing"
+    assert get_nested(data, "users.1.name", "missing") == "missing"
+
+
+def test_get_nested_stops_when_path_continues_past_scalar():
+    data = {"user": {"name": "Alice"}}
+
+    assert get_nested(data, "user.name.first", "missing") == "missing"
