@@ -101,7 +101,7 @@ Consider giving it a **star** — it helps other beginners find it. And if there
 ## 📢 Got 2 minutes? Help shape what's next
 
 Whether you've used one function or ten, your feedback decides what
-gets built next. **[Take the 2-minute survey →](https://docs.google.com/forms/d/e/1FAIpQLSd3P4QCW9s-4izQlklN6q7kDGMlrgYe1I19ae6lAee5Mjbs5A/viewform?usp=publish-editor)**
+gets built next. **[Take the 2-minute survey →](https://docs.google.com/forms/d/e/1FAIpQLSd3P4QCW9s-4izQlklN6q7kDGMlrgYe1I19ae6lAee5Mjbs5A/viewform?usp=header)**
 
 
 <div align="center">

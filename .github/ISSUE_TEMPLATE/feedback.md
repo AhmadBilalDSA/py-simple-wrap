@@ -10,7 +10,7 @@ you've used it as a package, browsed the docs, or opened a PR.
 **Got 2 minutes?** Fill out the short survey below — it's the fastest way
 to give feedback:
 
-👉 [py-simple-wrap feedback survey](https://docs.google.com/forms/d/e/1FAIpQLSd3P4QCW9s-4izQlklN6q7kDGMlrgYe1I19ae6lAee5Mjbs5A/viewform?usp=publish-editor)
+👉 [py-simple-wrap feedback survey](https://docs.google.com/forms/d/e/1FAIpQLSd3P4QCW9s-4izQlklN6q7kDGMlrgYe1I19ae6lAee5Mjbs5A/viewform?usp=header)
 
 **Prefer to just comment here?** A few prompts (answer whichever fit, skip the rest):
 - What made you try py-simple-wrap, or what almost stopped you?
