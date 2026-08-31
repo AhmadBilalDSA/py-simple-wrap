@@ -77,6 +77,7 @@ nav:
       - Tutorial Template: contributor-hub/tutorial_template.md
       - Custom Exception Template: contributor-hub/error_template.md
   - Reference:
+      - Easy AI: reference/easy_ai.md
       - Easy Archive: reference/easy_archive.md
       - Easy Async: reference/easy_async.md
       - Easy Colors: reference/easy_colors.md
