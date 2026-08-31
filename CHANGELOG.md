@@ -9,6 +9,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.4.1] - 2026-08-31
+### Added
+- Added a feedback-survey call to action to the landing page, matching the one already on the README ([@sara-czasak](https://github.com/sara-czasak))
+### Fixed
+- Fixed the feedback survey link on the README and the feedback issue template ([@sara-czasak](https://github.com/sara-czasak))
+
 ## [0.4.0] - 2026-08-31
 ### Added
 - Added `easy_archive` module (`zip_folder`, `zip_files`, `unzip_file`, `list_zip_contents`, `add_to_zip`, `is_zip_file`) for zipping/unzipping without hand-rolling `zipfile` boilerplate, with full test coverage and a tutorial ([@SemTiOne](https://github.com/SemTiOne), [@anisayakmitra-in](https://github.com/anisayakmitra-in))
