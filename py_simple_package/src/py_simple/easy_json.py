@@ -22,7 +22,38 @@ class EasyJsonError(Exception):
         self.message = message
         super().__init__(self.message)
 
+def get_nested(data, path, default=None):
+    """
+    Safely retrieve a value from nested JSON/dict/list using dot notation.
 
+    Args:
+        data (dict | list): Parsed JSON data.
+        path (str): Dot-separated path (e.g., "user.address.city" or "items.0.name").
+        default (Any): Value to return if path not found. Defaults to None.
+
+    Returns:
+        Any: Value at the path, or default.
+    """
+    if not isinstance(data, (dict, list)):
+        return default
+    parts = path.split(".")
+    current = data
+    for part in parts:
+        if isinstance(current, dict):
+            if part not in current:
+                return default
+            current = current[part]
+        elif isinstance(current, list):
+            try:
+                idx = int(part)
+            except ValueError:
+                return default
+            if not (0 <= idx < len(current)):
+                return default
+            current = current[idx]
+        else:
+            return default
+    return current
 def open_json(filepath: str) -> dict | None:
     """
     Opens a JSON file and returns its contents as a dictionary.
