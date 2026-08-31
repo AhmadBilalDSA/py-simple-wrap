@@ -412,6 +412,15 @@
       "contributions": [
         "documentation"
       ]
+    },
+    {
+      "login": "Ctrl-Yam",
+      "name": "Ctrl-Yam",
+      "avatar_url": "https://github.com/Ctrl-Yam.png",
+      "profile": "https://github.com/Ctrl-Yam",
+      "contributions": [
+        "documentation"
+      ]
     }
   ]
 }

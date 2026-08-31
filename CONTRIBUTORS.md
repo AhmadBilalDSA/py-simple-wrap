@@ -387,6 +387,12 @@ Every tile below is a real person who showed up for this project. 💛
         <sub><b>9anna</b></sub>
       </a>
     </td>
+    <td align="center" valign="top" width="8.6%">
+      <a href="https://github.com/Ctrl-Yam">
+        <img src="https://github.com/Ctrl-Yam.png" width="100px;" alt="Ctrl-Yam"/><br />
+        <sub><b>Ctrl-Yam</b></sub>
+      </a>
+    </td>
   </tr>
 </table>
 
@@ -555,6 +561,7 @@ The Module Magicians. The Code Conjurers. The Test Sentinels. The Lore Keepers. 
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/9anna-na"><img src="https://github.com/9anna-na.png?s=80" width="80px;" alt="9anna"/><br /><sub><b>9anna</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=9anna-na" title="Docs">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Ctrl-Yam"><img src="https://github.com/Ctrl-Yam.png?s=80" width="80px;" alt="Ctrl-Yam"/><br /><sub><b>Ctrl-Yam</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=Ctrl-Yam" title="Docs">📖</a></td>
     </tr>
   </tbody>
 </table>
