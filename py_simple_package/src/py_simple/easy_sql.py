@@ -450,5 +450,3 @@ def delete_all_from_table(connection: sqlite3.Connection, cursor: sqlite3.Cursor
                            f"\n\t- Uppercase letters (A-Z)"
                            f"\n\t- Lowercase letters (a-z)"
                            f"\n\t- Underscores  (_).") from None
-
-

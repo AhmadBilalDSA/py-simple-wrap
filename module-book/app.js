@@ -73,8 +73,8 @@ function modulesInCategory(categoryId) {
 const SCREENS = ["menu", "category", "module"];
 
 function currentRoute() {
-  const [screen, param] = location.hash.replace(/^#\/?/, "").split("/");
-  return { screen: SCREENS.includes(screen) ? screen : "menu", param };
+  const [screen, param, from] = location.hash.replace(/^#\/?/, "").split("/");
+  return { screen: SCREENS.includes(screen) ? screen : "menu", param, from };
 }
 
 function render(route) {
@@ -84,12 +84,15 @@ function render(route) {
   // A renderer returns false when it rejected the param and re-routed to the
   // menu; a hashchange is already queued, so don't move focus into a dead screen.
   if (route.screen === "category" && !renderCategory(route.param)) return;
-  if (route.screen === "module" && !renderModule(route.param)) return;
+  if (route.screen === "module" && !renderModule(route.param, route.from)) return;
   focusScreen(route.screen);
 }
 
-function navigate(screen, param) {
-  location.hash = param ? `/${screen}/${encodeURIComponent(param)}` : `/${screen}`;
+function navigate(screen, param, from) {
+  const parts = [screen];
+  if (param) parts.push(encodeURIComponent(param));
+  if (from) parts.push(encodeURIComponent(from));
+  location.hash = `/${parts.join("/")}`;
 }
 
 // Move focus to the top of whatever screen just appeared, so keyboard and
@@ -107,7 +110,7 @@ window.addEventListener("hashchange", () => render(currentRoute()));
 document.addEventListener("click", (e) => {
   const target = e.target.closest("[data-route]");
   if (target && !target.classList.contains("menu__item")) {
-    navigate(target.dataset.route, target.dataset.param);
+    navigate(target.dataset.route, target.dataset.param, target.dataset.from);
   }
 });
 
@@ -172,9 +175,9 @@ function setupMenu() {
 
 // ---- Category screen ----
 
-function moduleRowHtml(module) {
+function moduleRowHtml(module, categoryId) {
   return `
-    <button class="module-list__item" type="button" data-route="module" data-param="${escapeAttr(module.id)}">
+    <button class="module-list__item" type="button" data-route="module" data-param="${escapeAttr(module.id)}" data-from="${escapeAttr(categoryId)}">
       <span class="module-name">${escapeHtml(module.icon)} ${escapeHtml(module.name)}</span>
       <span class="module-summary">${escapeHtml(module.summary)}</span>
     </button>
@@ -198,7 +201,7 @@ function renderCategory(categoryId) {
 
   const modules = modulesInCategory(category.id);
   listEl.innerHTML = modules.length
-    ? modules.map(moduleRowHtml).join("")
+    ? modules.map((m) => moduleRowHtml(m, category.id)).join("")
     : '<p class="module-summary">This chapter is empty for now.</p>';
   return true;
 }
@@ -227,7 +230,7 @@ function linkButtonHtml(link) {
   `;
 }
 
-function renderModule(moduleId) {
+function renderModule(moduleId, fromCategoryId) {
   const content = document.getElementById("module-content");
   const backBtn = document.getElementById("module-back");
   const module = findModule(moduleId);
@@ -238,8 +241,10 @@ function renderModule(moduleId) {
     return false;
   }
 
-  // The back link points at the chapter this module came from.
-  const parent = findCategory(module.category);
+  // The back link points at whichever chapter the visitor actually came
+  // from (e.g. "All modules"), falling back to the module's own chapter
+  // for a direct/bookmarked link that never went through a category screen.
+  const parent = findCategory(fromCategoryId) ?? findCategory(module.category);
   backBtn.dataset.route = parent ? "category" : "menu";
   if (parent) {
     backBtn.dataset.param = parent.id;

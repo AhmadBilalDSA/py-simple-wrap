@@ -4,9 +4,7 @@
  * Assigned to a global instead of loaded as JSON on purpose: the book opens
  * straight from the filesystem (file://), where fetch() is blocked.
  *
- * Categories and summaries follow MODULES.md. easy_random has no MODULES.md
- * row yet, so its category, icon, and summary were written to match the
- * house voice and are flagged for review.
+ * Categories and summaries follow MODULES.md.
  */
 
 window.BOOK_DATA = {
@@ -148,12 +146,9 @@ window.BOOK_DATA = {
       name: "Easy SQL",
       icon: "🗄️",
       category: "files-data",
-      summary: "database queries without hand-writing SQL boilerplate",
+      summary: "open a SQLite connection without the boilerplate (query/write helpers are experimental — not yet part of the public API)",
       useCases: [
-        "Open a SQLite database and get straight to querying it",
-        "Pull every row out of a table without writing a SELECT statement",
-        "Add a new record from your Python variables",
-        "Delete the rows that match a condition, safely"
+        "Open a SQLite database and get a connection and cursor in one call"
       ],
       links: [
         { label: "Docs", icon: "📘", url: "https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_sql/" },
@@ -522,9 +517,9 @@ window.BOOK_DATA = {
     {
       id: "easy_random",
       name: "Easy Random",
-      icon: "🎰",
+      icon: "🔀",
       category: "fun-generators",
-      summary: "dice rolls, coin flips, and shuffles without the random module boilerplate",
+      summary: "dice, coin flips, and shuffles without wiring up the random module",
       useCases: [
         "Roll a six-sided die for a board game you're building",
         "Flip a coin to settle a tie between two options",

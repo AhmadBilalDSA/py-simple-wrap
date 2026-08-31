@@ -10,16 +10,16 @@
 
 ## Files & data
 
-| Module               | What it removes                                                                      |                                                                                       Links                                                                                        |
-|:---------------------|:-------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| 📂 Easy File Manager | file operations without the `os` boilerplate                                         | [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_file_manager/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_file_manager/) |
-| 📄 Easy JSON         | JSON file handling without the boilerplate                                           |         [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_json/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_json/)         |
-| 📑 Easy CSV          | CSV reading and writing without the `csv` module boilerplate                         |          [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_csv/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_csv/)          |
-| 🔑 Easy Dict         | dictionary operations without the boilerplate                                        |         [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_dict/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_dict/)         |
-| 📋 Easy Lists        | list helpers that keep your code short and readable                                  |        [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_lists/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_lists/)        |
-| 🗄️ Easy SQL         | database queries without hand-writing SQL boilerplate                                |         [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_sql/) ·  [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_sql/)          |
-| 🗜️ Easy Archive     | zip and unzip files/folders without the `zipfile` boilerplate                        |      [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_archive/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_archive/)      |
-| ⚙️ Easy Config       | config file templates with guiding comments, so you don't have to look up the syntax |       [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_config/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_config/)       |
+| Module               | What it removes                                                                                                          |                                                                                       Links                                                                                        |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| 📂 Easy File Manager | file operations without the `os` boilerplate                                                                             | [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_file_manager/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_file_manager/) |
+| 📄 Easy JSON         | JSON file handling without the boilerplate                                                                               |         [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_json/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_json/)         |
+| 📑 Easy CSV          | CSV reading and writing without the `csv` module boilerplate                                                             |          [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_csv/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_csv/)          |
+| 🔑 Easy Dict         | dictionary operations without the boilerplate                                                                            |         [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_dict/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_dict/)         |
+| 📋 Easy Lists        | list helpers that keep your code short and readable                                                                      |        [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_lists/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_lists/)        |
+| 🗄️ Easy SQL         | open a SQLite connection without the boilerplate (query/write helpers are experimental — not yet part of the public API) |         [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_sql/) ·  [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_sql/)          |
+| 🗜️ Easy Archive     | zip and unzip files/folders without the `zipfile` boilerplate                                                            |      [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_archive/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_archive/)      |
+| ⚙️ Easy Config       | config file templates with guiding comments, so you don't have to look up the syntax                                     |       [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_config/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_config/)       |
 
 ## Text & validation
 
@@ -58,10 +58,12 @@
 
 ## Fun & generators
 
-| Module            | What it removes                                                  |                                                                                    Links                                                                                     |
-|:------------------|:-----------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| 🎮 Easy Game      | pygame setup without the boilerplate                             |      [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_game/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_game/)      |
-| 🎲 Easy Generator | passwords, QR codes, UUIDs, and API keys without the boilerplate | [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_generator/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_generator/) |
+| Module            | What it removes                                                      |                                                                                    Links                                                                                     |
+|:------------------|:---------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| 🎮 Easy Game      | pygame setup without the boilerplate                                 |      [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_game/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_game/)      |
+| 🎲 Easy Generator | passwords, QR codes, UUIDs, and API keys without the boilerplate     | [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_generator/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_generator/) |
+| 🔀 Easy Random    | dice, coin flips, and shuffles without wiring up the `random` module |    [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_random/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_random/)    |
+
 
 ---
 
