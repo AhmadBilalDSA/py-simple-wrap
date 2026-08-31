@@ -33,6 +33,7 @@ nav:
   - Tutorial:
       - Module Tutorials:
         - Quickstart: tutorial/quickstart.md
+        - Easy AI: tutorial/easy_ai.md
         - Easy Async: tutorial/easy_async.md
         - Easy Archive: tutorial/easy_archive.md
         - Easy Colors: tutorial/easy_colors.md
