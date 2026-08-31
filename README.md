@@ -40,7 +40,7 @@ py-simple-wrap is a beginner-friendly Python toolbox — simple, intuitive funct
 
 |                  |                      |                   |                        |                  |                     |       |
 |------------------|----------------------|-------------------|------------------------|------------------|---------------------|-------|
-| >🟦 Files & data | 🟩 Text & validation | 🟨 Numbers & math | 🟧 Time & control flow | 🟪 Web & visuals | 🟥 Fun & generators | 🟫 AI |
+| 🟦 Files & data | 🟩 Text & validation | 🟨 Numbers & math | 🟧 Time & control flow | 🟪 Web & visuals | 🟥 Fun & generators | 🟫 AI |
 
 ## Documentation
 
