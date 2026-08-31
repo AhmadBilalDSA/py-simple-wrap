@@ -22,6 +22,7 @@ class EasyJsonError(Exception):
         self.message = message
         super().__init__(self.message)
 
+
 def get_nested(data, path, default=None):
     """
     Safely retrieve a value from nested JSON/dict/list using dot notation.
@@ -54,6 +55,8 @@ def get_nested(data, path, default=None):
         else:
             return default
     return current
+
+
 def open_json(filepath: str) -> dict | None:
     """
     Opens a JSON file and returns its contents as a dictionary.
