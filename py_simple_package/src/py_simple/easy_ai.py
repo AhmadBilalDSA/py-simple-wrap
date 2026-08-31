@@ -1,5 +1,9 @@
 # ⚠️️ WORK IN PROGRESS NOT IN PUBLIC API ⚠️
 
+"""
+easy_ai wraps common LangChain functionality to make it easier to use.
+"""
+
 
 def get_model(provider, model_name, api_key=None, base_url=None, timeout=30):
     """
