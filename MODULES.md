@@ -64,6 +64,14 @@
 | 🎲 Easy Generator | passwords, QR codes, UUIDs, and API keys without the boilerplate     | [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_generator/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_generator/) |
 | 🔀 Easy Random    | dice, coin flips, and shuffles without wiring up the `random` module |    [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_random/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_random/)    |
 
+## AI
+
+| Module     | What it removes                                                                             |                                                                             Links                                                                              |
+|:-----------|:--------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| 🤖 Easy AI | connect to LLM providers without the SDK setup boilerplate (not part of the public API yet) | [Docs](https://sara-czasak.github.io/py-simple-wrap/docs/reference/easy_ai/) · [Tutorial](https://sara-czasak.github.io/py-simple-wrap/docs/tutorial/easy_ai/) |
+
+
+
 
 ---
 
