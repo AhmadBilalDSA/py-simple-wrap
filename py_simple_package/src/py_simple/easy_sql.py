@@ -4,6 +4,14 @@ Beginner friendly helpers for handling databases.
 
 import sqlite3
 import re
+import warnings
+
+
+class ExperimentalWarning(UserWarning):
+    """
+    Raised when calling a py_simple function that isn't yet covered
+    by tests.
+    """
 
 
 class EasySqlError(Exception):
@@ -87,6 +95,9 @@ def run_select(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
     """
     Runs a SELECT query against a table and returns all matching rows.
 
+    **Status:** 🚧 Experimental — not yet covered by tests; behavior may
+    change without notice.
+
     Validates `table_name` and `to_select` first - only letters, numbers,
     and underscores are allowed (or `*` for `to_select`) - to guard
     against SQL injection before building the query string.
@@ -126,6 +137,12 @@ def run_select(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
             rows = cursor.execute("SELECT name, email FROM users").fetchall()
             ```
     """
+    warnings.warn("\n\n‼️WARNING‼️\n🚧 Experimental - not yet "
+                  "covered by tests; behavior "
+                  "may change without notice.\n\n",
+                  category=ExperimentalWarning,
+                  stacklevel=2)
+
     if _check_if_valid(table_name) and _check_if_valid(to_select):
         try:
             res = cursor.execute(f"SELECT {to_select} FROM {table_name}")
@@ -150,6 +167,9 @@ def conditional_run_select(connection: sqlite3.Connection,
                            ):
     """
     Runs a SELECT query with a WHERE condition and returns matching rows.
+
+    **Status:** 🚧 Experimental - not yet covered by tests; behavior may
+    change without notice.
 
     Validates `table_name` and `to_select` first - only letters, numbers,
     and underscores are allowed - to guard against SQL injection
@@ -197,6 +217,12 @@ def conditional_run_select(connection: sqlite3.Connection,
                 (18,)).fetchall()
             ```
     """
+    warnings.warn("\n\n‼️WARNING‼️\n🚧 Experimental - not yet "
+                  "covered by tests; behavior "
+                  "may change without notice.\n\n",
+                  category=ExperimentalWarning,
+                  stacklevel=2)
+
     if _check_if_valid(table_name) and _check_if_valid(to_select):
         try:
             res = cursor.execute(f"SELECT {to_select} FROM {table_name}"
@@ -221,6 +247,9 @@ def run_insert(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
                close_conn_after: bool = False):
     """
     Inserts a single row into a table.
+
+    **Status:** 🚧 Experimental - not yet covered by tests; behavior may
+    change without notice.
 
     Validates `table_name` and `columns` first - only letters, numbers,
     and underscores are allowed - to guard against SQL injection before
@@ -262,6 +291,12 @@ def run_insert(connection: sqlite3.Connection, cursor: sqlite3.Cursor ,
             conn.commit()
             ```
     """
+    warnings.warn("\n\n‼️WARNING‼️\n🚧 Experimental - not yet "
+                  "covered by tests; behavior "
+                  "may change without notice.\n\n",
+                  category=ExperimentalWarning,
+                  stacklevel=2)
+
     columns_str = ", ".join(columns)
     if _check_if_valid(columns_str) and _check_if_valid(table_name):
         try:
@@ -287,6 +322,9 @@ def run_delete(connection: sqlite3.Connection, cursor: sqlite3.Cursor,
                close_conn_after: bool = False):
     """
     Deletes rows from a table matching a condition.
+
+    **Status:** 🚧 Experimental - not yet covered by tests; behavior may
+    change without notice.
 
     Validates `table_name` first - only letters, numbers, and
     underscores are allowed -to guard against SQL injection before
@@ -326,6 +364,12 @@ def run_delete(connection: sqlite3.Connection, cursor: sqlite3.Cursor,
             cursor.execute("DELETE FROM users WHERE name = ?", ('Ada',))
             ```
     """
+    warnings.warn("\n\n‼️WARNING‼️\n🚧 Experimental - not yet "
+                  "covered by tests; behavior "
+                  "may change without notice.\n\n",
+                  category=ExperimentalWarning,
+                  stacklevel=2)
+
     if _check_if_valid(table_name):
         try:
             cursor.execute(f"DELETE FROM {table_name} WHERE "
@@ -348,6 +392,9 @@ def delete_all_from_table(connection: sqlite3.Connection, cursor: sqlite3.Cursor
                 close_conn_after: bool = False):
     """
     Deletes all rows from a table, leaving the table itself intact.
+
+    **Status:** 🚧 Experimental - not yet covered by tests; behavior may
+    change without notice.
 
     Validates `table_name` first - only letters, numbers, and
     underscores are allowed - to guard against SQL injection before
@@ -383,6 +430,12 @@ def delete_all_from_table(connection: sqlite3.Connection, cursor: sqlite3.Cursor
             cursor.execute("DELETE FROM users")
             ```
     """
+    warnings.warn("\n\n‼️WARNING‼️\n🚧 Experimental - not yet "
+                  "covered by tests; behavior "
+                  "may change without notice.\n\n",
+                  category=ExperimentalWarning,
+                  stacklevel=2)
+
     if _check_if_valid(table_name):
         try:
             cursor.execute(f"DELETE FROM {table_name}")
