@@ -6,6 +6,7 @@ easy_ai wraps common LangChain functionality to make it easier to use.
 
 
 from langchain_core.language_models import BaseChatModel
+from langchain_core.messages import HumanMessage, AIMessage
 from pydantic import SecretStr
 from typing import Any
 
@@ -29,10 +30,10 @@ def _is_exit_command(text: str) -> bool:
         text (str): The raw text the user typed.
 
     Returns:
-        True if `text` matches "exit", "quit", or "stop"
+        True if `text` matches "exit", "quit", "stop", or "bye"
         (case-insensitive), False otherwise.
     """
-    return text.lower() in ("exit", "quit", "stop")
+    return text.lower() in ("exit", "quit", "stop", "bye")
 
 
 def get_model(provider: str, model_name: str, api_key: str=None,
@@ -125,7 +126,7 @@ def get_model(provider: str, model_name: str, api_key: str=None,
                           f"is not supported yet!")
 
 
-def ask_ai(ai_model: BaseChatModel, question: str) -> (
+def ask_ai(ai_model: BaseChatModel, question: str | list) -> (
         str | list[str | dict[Any, Any]]):
     """
     Sends a question to a LangChain chat model and returns the
@@ -135,7 +136,12 @@ def ask_ai(ai_model: BaseChatModel, question: str) -> (
     Args:
         ai_model (BaseChatModel): A LangChain chat model instance,
             such as one returned by `get_model()`.
-        question (str): The question or prompt to send to the model.
+        question (str | list): Either a single question as plain
+            text, or a list of LangChain message objects
+            (HumanMessage/AIMessage) representing the conversation
+            so far. Pass a list to give the model memory of prior
+            turns; the caller is responsible for building and
+            updating that list.
 
     Returns:
         The model's response content. Usually a plain string, but
@@ -172,14 +178,19 @@ def ask_ai(ai_model: BaseChatModel, question: str) -> (
 def ai_chat(ai_model: BaseChatModel) -> None:
     """
     Runs an interactive chat loop in the terminal against a LangChain
-    chat model, without you having to write the input/print loop or
-    exit handling yourself.
+    chat model, without you having to write the input/print loop,
+    exit handling, or conversation memory yourself.
 
     Prompts for input with "You: ", prints each reply prefixed with
-    "AI: ", and keeps going until the user types "exit", "quit", or
-    "stop". Errors from `ask_ai()` are caught and
-    printed instead of raising, so a single bad call doesn't end the
-    session.
+    "AI: ", and keeps going until the user types "exit", "quit", "stop",
+    or "bye" (at which point it prints a goodbye message and returns).
+    Each turn is appended to an internal history list of HumanMessage/
+    AIMessage objects, and the full history is sent to the model on
+    every call, so the model has memory of the whole conversation for
+    as long as the loop runs. The history is local to this call and is
+    not preserved once the loop exits. Errors from `ask_ai()` are
+    caught and printed instead of raising, so a single bad call
+    doesn't end the session.
 
     Args:
         ai_model (BaseChatModel): A LangChain chat model instance,
@@ -200,22 +211,33 @@ def ai_chat(ai_model: BaseChatModel) -> None:
         === "The Traditional Way"
             ```python
             from langchain_anthropic import ChatAnthropic
+            from langchain_core.messages import HumanMessage, AIMessage
 
             model = ChatAnthropic(model_name="claude-sonnet-4-6")
 
+            history = []
             while True:
                 user_input = input("You: ")
-                if user_input.lower() in ("exit", "quit", "stop"):
+                if user_input.lower() in ("exit", "quit", "stop", "bye"):
+                    print("AI: Talk to you later!")
                     break
-                print(f"AI: {model.invoke(user_input).content}")
+                history.append(HumanMessage(content=user_input))
+                response = model.invoke(history).content
+                history.append(AIMessage(content=response))
+                print(f"AI: {response}")
             ```
     """
-
+    history = []
     while True:
         try:
             user_input = input("You: ")
             if _is_exit_command(user_input):
+                print("AI: Talk to you later!")
                 break
-            print(f"AI: {ask_ai(ai_model, user_input)}")
+            history.append(HumanMessage(content=user_input))
+            response = ask_ai(ai_model, history)
+            history.append(AIMessage(content=response))
+            print(f"AI: {response}")
+
         except Exception as e:
             print(f"AI: {e}")
