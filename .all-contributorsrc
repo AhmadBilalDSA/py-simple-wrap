@@ -440,6 +440,17 @@
       "contributions": [
         "test"
       ]
+    },
+    {
+      "login": "ohnsh",
+      "name": "John Sherrell",
+      "avatar_url": "https://github.com/ohnsh.png",
+      "profile": "https://github.com/ohnsh",
+      "contributions": [
+        "test",
+        "documentation",
+        "code"
+      ]
     }
   ]
 }

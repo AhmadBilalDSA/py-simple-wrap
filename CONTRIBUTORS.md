@@ -313,6 +313,12 @@ Every tile below is a real person who showed up for this project. 💛
         <sub><b>M Ahmed</b></sub>
       </a>
     </td>
+    <td align="center" valign="top" width="8.6%">
+      <a href="https://github.com/ohnsh">
+        <img src="https://github.com/ohnsh.png" width="100px;" alt="ohnsh"/><br />
+        <sub><b>John Sherrell</b></sub>
+      </a>
+    </td>
   </tr>
 </table>
 
@@ -409,6 +415,12 @@ Every tile below is a real person who showed up for this project. 💛
       <a href="https://github.com/Ctrl-Yam">
         <img src="https://github.com/Ctrl-Yam.png" width="100px;" alt="Ctrl-Yam"/><br />
         <sub><b>Ctrl-Yam</b></sub>
+      </a>
+    </td>
+    <td align="center" valign="top" width="8.6%">
+      <a href="https://github.com/ohnsh">
+        <img src="https://github.com/ohnsh.png" width="100px;" alt="ohnsh"/><br />
+        <sub><b>John Sherrell</b></sub>
       </a>
     </td>
   </tr>
@@ -582,6 +594,7 @@ The Module Magicians. The Code Conjurers. The Test Sentinels. The Lore Keepers. 
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Ctrl-Yam"><img src="https://github.com/Ctrl-Yam.png?s=80" width="80px;" alt="Ctrl-Yam"/><br /><sub><b>Ctrl-Yam</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=Ctrl-Yam" title="Docs">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Atharvs13"><img src="https://github.com/Atharvs13.png?s=80" width="80px;" alt="Atharvs13m"/><br /><sub><b>Atharvs13m</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=Atharvs13" title="Tests">🧪</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=Atharvs13" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/mah1104ahm"><img src="https://github.com/mah1104ahm.png?s=80" width="80px;" alt="M Ahmed"/><br /><sub><b>M Ahmed</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=mah1104ahm" title="Tests">🧪</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ohnsh"><img src="https://github.com/ohnsh.png?s=80" width="80px;" alt="John Sherrell"/><br /><sub><b>John Sherrell</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=ohnsh" title="Tests">🧪</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=ohnsh" title="Docs">📖</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=ohnsh" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
