@@ -307,6 +307,12 @@ Every tile below is a real person who showed up for this project. 💛
         <sub><b>Atharvs13</b></sub>
       </a>
     </td>
+    <td align="center" valign="top" width="8.6%">
+      <a href="https://github.com/mah1104ahm">
+        <img src="https://github.com/mah1104ahm.png" width="100px;" alt="M Ahmed"/><br />
+        <sub><b>M Ahmed</b></sub>
+      </a>
+    </td>
   </tr>
 </table>
 
@@ -575,6 +581,7 @@ The Module Magicians. The Code Conjurers. The Test Sentinels. The Lore Keepers. 
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/9anna-na"><img src="https://github.com/9anna-na.png?s=80" width="80px;" alt="9anna"/><br /><sub><b>9anna</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=9anna-na" title="Docs">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Ctrl-Yam"><img src="https://github.com/Ctrl-Yam.png?s=80" width="80px;" alt="Ctrl-Yam"/><br /><sub><b>Ctrl-Yam</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=Ctrl-Yam" title="Docs">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Atharvs13"><img src="https://github.com/Atharvs13.png?s=80" width="80px;" alt="Atharvs13m"/><br /><sub><b>Atharvs13m</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=Atharvs13" title="Tests">🧪</a> <a href="https://github.com/sara-czasak/py_simple/commits?author=Atharvs13" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/mah1104ahm"><img src="https://github.com/mah1104ahm.png?s=80" width="80px;" alt="M Ahmed"/><br /><sub><b>M Ahmed</b></sub></a><br /><a href="https://github.com/sara-czasak/py_simple/commits?author=mah1104ahm" title="Tests">🧪</a></td>
     </tr>
   </tbody>
 </table>
