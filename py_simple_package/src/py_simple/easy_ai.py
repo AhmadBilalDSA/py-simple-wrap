@@ -5,7 +5,24 @@ easy_ai wraps common LangChain functionality to make it easier to use.
 """
 
 
-def get_model(provider, model_name, api_key=None, base_url=None, timeout=30):
+from langchain_core.language_models import BaseChatModel
+from pydantic import SecretStr
+from typing import Any
+
+
+class EasyAIError(Exception):
+    """
+    Raised when a call to an AI model or provider cannot be completed.
+    Args:
+        message (str): Description of what went wrong.
+    """
+    def __init__(self, message):
+        self.message = message
+        super().__init__(self.message)
+
+
+def get_model(provider: str, model_name: str, api_key: str=None,
+              base_url: str=None, timeout: int=30) -> BaseChatModel:
     """
     Returns a LangChain chat model instance for the given provider,
     without you having to remember each provider's import path and
@@ -30,7 +47,7 @@ def get_model(provider, model_name, api_key=None, base_url=None, timeout=30):
         provider.
 
     Raises:
-        ValueError: If `provider` isn't one of the supported providers.
+        EasyAIError: If `provider` isn't one of the supported providers.
 
     Example:
         === "The Py_simple Way"
@@ -38,7 +55,6 @@ def get_model(provider, model_name, api_key=None, base_url=None, timeout=30):
             from py_simple import get_model
 
             model = get_model("anthropic", "claude-sonnet-4-6")
-            response = model.invoke("Hello!")
             ```
 
         === "The Traditional Way"
@@ -50,7 +66,6 @@ def get_model(provider, model_name, api_key=None, base_url=None, timeout=30):
                 timeout=30,
                 stop=None
             )
-            response = model.invoke("Hello!")
             ```
     """
 
@@ -58,30 +73,83 @@ def get_model(provider, model_name, api_key=None, base_url=None, timeout=30):
 
     if provider == "openai":
         from langchain_openai import ChatOpenAI
-        return ChatOpenAI(model=model_name, api_key=api_key,
+        model = ChatOpenAI(model=model_name, api_key=api_key,
                           base_url=base_url)
+        return model
 
     elif provider == "ollama":
         from langchain_ollama import ChatOllama
         url = base_url if base_url else "http://localhost:11434"
-        return ChatOllama(model=model_name, base_url=url)
+        model = ChatOllama(model=model_name, base_url=url)
+        return model
 
     elif provider == "anthropic":
         from langchain_anthropic import ChatAnthropic
-        return ChatAnthropic(
+        api_key = SecretStr(api_key) if api_key is not None else None
+        model = ChatAnthropic(
             model_name=model_name,
+            api_key=api_key,
             timeout=timeout,
             stop=None
         )
+        return model
 
     elif provider == "google":
         from langchain_google_genai import ChatGoogleGenerativeAI
-        return ChatGoogleGenerativeAI(model=model_name,
+        model = ChatGoogleGenerativeAI(model=model_name,
                                       google_api_key=api_key)
+        return model
 
     elif provider == "mistral":
         from langchain_mistralai import ChatMistralAI
-        return ChatMistralAI(api_key=api_key)
+        model = ChatMistralAI(api_key=api_key,
+                              model_name=model_name)
+        return model
 
     else:
-        raise ValueError(f"Provider '{provider}' is not supported yet!")
+        raise EasyAIError(f"\n\n\nERROR: Provider '{provider}' "
+                          f"is not supported yet!")
+
+
+def ask_ai(ai_model: BaseChatModel, question: str) -> (
+        str | list[str | dict[Any, Any]]):
+    """
+    Sends a question to a LangChain chat model and returns the
+    content of the response, without you having to reach into the
+    returned message object yourself.
+
+    Args:
+        ai_model (BaseChatModel): A LangChain chat model instance,
+            such as one returned by `get_model()`.
+        question (str): The question or prompt to send to the model.
+
+    Returns:
+        The model's response content. Usually a plain string, but
+        some providers may return a list of content blocks instead.
+
+    Raises:
+        EasyAIError: If the underlying call to the model fails for
+            any reason (e.g. invalid API key, network error, timeout).
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import get_model, ask_ai
+
+            model = get_model("anthropic", "claude-sonnet-4-6")
+            answer = ask_ai(model, "hi")
+            ```
+
+        === "The Traditional Way"
+            ```python
+            from langchain_anthropic import ChatAnthropic
+
+            model = ChatAnthropic(model_name="claude-sonnet-4-6")
+            answer = model.invoke("hi").content
+            ```
+    """
+    try:
+        message = ai_model.invoke(question).content
+        return message
+    except Exception as e:
+        raise EasyAIError(f"\n\n\nERROR: {e}") from None
