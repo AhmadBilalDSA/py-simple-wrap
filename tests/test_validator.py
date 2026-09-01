@@ -5,7 +5,8 @@ from py_simple_package.src.py_simple.easy_validator import (
     is_valid_username,
     is_valid_zipcode,
     is_valid_url,
-    is_password_secure)
+    is_password_secure,
+    is_valid_creditcard)
 
 class TestEasyValidator:
 
@@ -85,3 +86,24 @@ class TestEasyValidator:
 
     def test_password_validation(self, password, expected):
         assert is_password_secure(password) is expected
+
+    @pytest.mark.parametrize(
+        "card_num, expected",
+        [
+            ("4242-4242-4242-4242", True), # visa
+            ("5555-5555-5555-4444", True), # mastercard
+            ("3782 8224 6310 005", True),  # american_express
+            ("6011 1111 1111 1117", True), # discover
+            ("4242-4242-4242-0242", False), # visa (one digit changed)
+            ("5555-5555-6555-4444", False), # mastercard (one digit changed)
+            ("3782 8224 6310 004", False),  # amex (one digit changed)
+            ("6011 1111 1011 1117", False), # discover (one digit changed)
+            ("012345678901", False),        # too short
+            ("01234567890123456789", False), # too long
+            ("ab12 cd34 ef56 gh78", False), # non-numeric
+            ("5200_8282_8282_8210", False), # invalid separator
+        ]
+    )
+
+    def test_creditcard_validation(self, card_num, expected):
+        assert is_valid_creditcard(card_num) is expected
