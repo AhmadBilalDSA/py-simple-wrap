@@ -29,7 +29,8 @@ from .easy_numbers import (
 )
 from .easy_validator import (
     is_valid_email, is_valid_username, is_valid_zipcode, is_valid_url,
-    is_password_secure, is_valid_creditcard
+    is_password_secure, is_valid_creditcard,is_valid_phone_number
+)
 )
 from .easy_web import (
     get_page_content, is_page_up, get_link_list, get_page_title,
@@ -111,8 +112,4 @@ from .easy_archive import (
 )
 from .easy_config import (
     gh_workflow_config,
-)
-from .easy_validator import (
-    is_valid_email, is_valid_username, is_valid_zipcode, is_valid_url,
-    is_password_secure, is_valid_creditcard, is_valid_phone_number
 )
