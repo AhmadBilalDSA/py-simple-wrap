@@ -87,6 +87,8 @@ class TestEasyValidator:
     def test_password_validation(self, password, expected):
         assert is_password_secure(password) is expected
 
+    # Valid test numbers provided by Stripe
+    # https://docs.stripe.com/testing?testing-method=card-numbers#cards
     @pytest.mark.parametrize(
         "card_num, expected",
         [
