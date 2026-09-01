@@ -241,3 +241,32 @@ def ai_chat(ai_model: BaseChatModel) -> None:
 
         except Exception as e:
             print(f"AI: {e}")
+
+
+
+# ⚠️️ WORK IN PROGRESS ⚠️
+# This class will eventually take the complexity of setting up an agent
+# with LangChain and turning it into something simple.
+
+class EasyAgent:
+    def __init__(self, prompt_path: str, toolbox: list = None,
+                 history: list = None):
+        self.toolbox = toolbox
+        self.history = history
+
+        self.master_prompt = None
+        self.init_prompt(prompt_path)
+
+
+    def init_prompt(self, path):
+        if path.split(".")[-1].lower() == "txt":
+            try:
+                with open(path, 'r', encoding='utf-8') as f:
+                    prompt = f.read().rstrip()
+                self.master_prompt = prompt
+            except (FileNotFoundError, PermissionError, UnicodeDecodeError) as e:
+                raise EasyAIError(f"\n\n\nERROR: {e}") from None
+        else:
+            raise EasyAIError(f"\n\n\nERROR: {path} not supported. "
+                              f"Only `.txt` files are supported.") \
+                from None
