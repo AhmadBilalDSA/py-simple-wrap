@@ -243,6 +243,46 @@ def ai_chat(ai_model: BaseChatModel) -> None:
             print(f"AI: {e}")
 
 
+def summarize_text(ai_model: BaseChatModel, text: str) -> str:
+    """
+    Sends a request to summarize the provided text using the given
+    LangChain chat model, without you having to format messages manually.
+
+    Args:
+        ai_model (BaseChatModel): A LangChain chat model instance,
+            such as one returned by `get_model()`.
+        text (str): The raw text string to be summarized.
+
+    Returns:
+        str: A concise summary of the input text.
+
+    Raises:
+        EasyAIError: If the underlying model call fails.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import get_model, summarize_text
+
+            model = get_model("anthropic", "claude-sonnet-4-6")
+            summary = summarize_text(model, "Long article text here...")
+            ```
+
+        === "The Traditional Way"
+            ```python
+            from langchain_anthropic import ChatAnthropic
+            from langchain_core.messages import HumanMessage
+
+            model = ChatAnthropic(model_name="claude-sonnet-4-6")
+            summary = model.invoke([HumanMessage(content="Please summarize:\n\nLong article text here...")]).content
+            ```
+    """
+    try:
+        prompt = f"Please summarize:\n\n{text}"
+        return ask_ai(ai_model, prompt)
+    except Exception as e:
+        raise EasyAIError(f"\n\n\nERROR: {e}") from None
+
 
 # ⚠️️ WORK IN PROGRESS ⚠️
 # This class will eventually take the complexity of setting up an agent
@@ -256,7 +296,6 @@ class EasyAgent:
 
         self.master_prompt = None
         self.init_prompt(prompt_path)
-
 
     def init_prompt(self, path):
         if path.split(".")[-1].lower() == "txt":
