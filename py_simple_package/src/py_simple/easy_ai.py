@@ -21,6 +21,20 @@ class EasyAIError(Exception):
         super().__init__(self.message)
 
 
+def _is_exit_command(text: str) -> bool:
+    """
+    Checks whether a piece of user input should end the chat loop.
+
+    Args:
+        text (str): The raw text the user typed.
+
+    Returns:
+        True if `text` matches "exit", "quit", or "stop"
+        (case-insensitive), False otherwise.
+    """
+    return text.lower() in ("exit", "quit", "stop")
+
+
 def get_model(provider: str, model_name: str, api_key: str=None,
               base_url: str=None, timeout: int=30) -> BaseChatModel:
     """
@@ -153,3 +167,55 @@ def ask_ai(ai_model: BaseChatModel, question: str) -> (
         return message
     except Exception as e:
         raise EasyAIError(f"\n\n\nERROR: {e}") from None
+
+
+def ai_chat(ai_model: BaseChatModel) -> None:
+    """
+    Runs an interactive chat loop in the terminal against a LangChain
+    chat model, without you having to write the input/print loop or
+    exit handling yourself.
+
+    Prompts for input with "You: ", prints each reply prefixed with
+    "AI: ", and keeps going until the user types "exit", "quit", or
+    "stop". Errors from `ask_ai()` are caught and
+    printed instead of raising, so a single bad call doesn't end the
+    session.
+
+    Args:
+        ai_model (BaseChatModel): A LangChain chat model instance,
+            such as one returned by `get_model()`.
+
+    Returns:
+        None. Runs until the user exits the loop.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import get_model, ai_chat
+
+            model = get_model("anthropic", "claude-sonnet-4-6")
+            ai_chat(model)
+            ```
+
+        === "The Traditional Way"
+            ```python
+            from langchain_anthropic import ChatAnthropic
+
+            model = ChatAnthropic(model_name="claude-sonnet-4-6")
+
+            while True:
+                user_input = input("You: ")
+                if user_input.lower() in ("exit", "quit", "stop"):
+                    break
+                print(f"AI: {model.invoke(user_input).content}")
+            ```
+    """
+
+    while True:
+        try:
+            user_input = input("You: ")
+            if _is_exit_command(user_input):
+                break
+            print(f"AI: {ask_ai(ai_model, user_input)}")
+        except Exception as e:
+            print(f"AI: {e}")
