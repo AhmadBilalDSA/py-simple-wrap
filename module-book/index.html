@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Big Book of Modules</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="book">
+    <div class="book__spine" aria-hidden="true"></div>
+
+    <div class="book__page">
+      <header class="book-header">
+        <h1 class="book-title">The Big Book of Modules</h1>
+      </header>
+
+      <!-- Screen 1: the main menu (cover page). Filled in by app.js. -->
+      <section id="screen-menu" class="screen" aria-live="polite">
+        <p id="menu-intro" class="module-summary"></p>
+        <nav class="menu" id="menu-nav" aria-label="Module categories"></nav>
+      </section>
+
+      <!-- Screen 2: one category's module list. -->
+      <section id="screen-category" class="screen" hidden>
+        <button class="back-link" type="button" data-route="menu">&larr; Back to the Contents</button>
+        <h2 id="category-title" class="screen-heading" tabindex="-1"></h2>
+        <p id="category-blurb" class="module-summary"></p>
+        <div id="category-list" class="module-list"></div>
+      </section>
+
+      <!-- Screen 3: a single module's page. -->
+      <section id="screen-module" class="screen" hidden>
+        <button id="module-back" class="back-link" type="button" data-route="menu">&larr; Back to the Contents</button>
+        <div id="module-content"></div>
+      </section>
+
+      <footer class="book-footer">
+        <span id="book-count"></span>
+        <span class="book-footer__ai-note">&middot; The Big Book of Modules was built heavily with AI assistance.</span>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Data first (it assigns window.BOOK_DATA), then the app that reads it. -->
+  <script src="data/modules.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

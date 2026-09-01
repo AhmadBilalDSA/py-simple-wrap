@@ -1,6 +1,6 @@
 {
   "files": [
-    "README.md"
+  "CONTRIBUTORS.md"
   ],
   "imageSize": 80,
   "projectName": "py_simple",
@@ -338,6 +338,118 @@
       "profile": "https://github.com/qiaobochi040726-source",
       "contributions": [
         "test"
+      ]
+    },
+    {
+      "login": "VidyavathiGK",
+      "name": "Vidyavathi GK",
+      "avatar_url": "https://github.com/VidyavathiGK.png",
+      "profile": "https://github.com/VidyavathiGK",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "aditya226-sharma",
+      "name": "Aditya Sharma",
+      "avatar_url": "https://github.com/aditya226-sharma.png",
+      "profile": "https://github.com/aditya226-sharma",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "muraleegithub",
+      "name": "muraleegithub",
+      "avatar_url": "https://github.com/muraleegithub.png",
+      "profile": "https://github.com/muraleegithub",
+      "contributions": [
+        "documentation"
+      ]
+    },
+    {
+      "login": "tasodoufu",
+      "name": "豆腐たそ",
+      "avatar_url": "https://github.com/tasodoufu.png",
+      "profile": "https://github.com/tasodoufu",
+      "contributions": [
+        "documentation"
+      ]
+    },
+    {
+      "login": "Betelhem-Sefiw",
+      "name": "betty",
+      "avatar_url": "https://github.com/Betelhem-Sefiw.png",
+      "profile": "https://github.com/Betelhem-Sefiw",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "i-am-paradox",
+      "name": "Paradox",
+      "avatar_url": "https://github.com/i-am-paradox.png",
+      "profile": "https://github.com/i-am-paradox",
+      "contributions": [
+        "documentation"
+      ]
+    },
+    {
+      "login": "anisayakmitra-in",
+      "name": "ANISAYAK MITRA",
+      "avatar_url": "https://github.com/anisayakmitra-in.png",
+      "profile": "https://github.com/anisayakmitra-in",
+      "contributions": [
+        "documentation",
+        "test"
+      ]
+    },
+    {
+      "login": "9anna-na",
+      "name": "9anna",
+      "avatar_url": "https://github.com/9anna-na.png",
+      "profile": "https://github.com/9anna-na",
+      "contributions": [
+        "documentation"
+      ]
+    },
+    {
+      "login": "Ctrl-Yam",
+      "name": "Ctrl-Yam",
+      "avatar_url": "https://github.com/Ctrl-Yam.png",
+      "profile": "https://github.com/Ctrl-Yam",
+      "contributions": [
+        "documentation"
+      ]
+    },
+    {
+      "login": "Atharvs13",
+      "name": "Atharvs13m",
+      "avatar_url": "https://github.com/Atharvs13.png",
+      "profile": "https://github.com/Atharvs13",
+      "contributions": [
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "mah1104ahm",
+      "name": "M Ahmed",
+      "avatar_url": "https://github.com/mah1104ahm.png",
+      "profile": "https://github.com/mah1104ahm",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "ohnsh",
+      "name": "John Sherrell",
+      "avatar_url": "https://github.com/ohnsh.png",
+      "profile": "https://github.com/ohnsh",
+      "contributions": [
+        "test",
+        "documentation",
+        "code"
       ]
     }
   ]

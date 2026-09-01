@@ -1,3 +1,9 @@
+"""
+easy_regex is built to simplify pulling common patterns (emails, URLs,
+numbers) out of text without writing your own regex.
+"""
+
+
 import re
 
 

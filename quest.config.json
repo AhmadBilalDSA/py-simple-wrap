@@ -209,5 +209,35 @@
       "dependabot[bot]",
       "allcontributors[bot]"
     ]
+  },
+  "weeklyChallenges": {
+    "enabled": true,
+    "pointsPerLineAdded": 0.5,
+    "challenges": [
+      {
+        "title": "🧙 Beyond the Five Charts",
+        "description": "plot_data() is the whole module — one spell that conjures histograms, bar charts, pies, lines, and scatters depending on what data you feed it. That's a solid foundation, but a lone spell doesn't make a spellbook. This quest is open-ended: expand the module however calls to you — new chart types, new options on plot_data() (saving to a file, custom titles/colors), sharper tests around its type-inference logic, or a deeper tutorial page showing off what it can already do. Any of it moves the needle; all of it makes this guild's chapter feel less like a single page.",
+        "active": true,
+        "files": [
+          {
+            "path": "py_simple_package/src/py_simple/easy_data_visualization.py",
+            "weight": 10
+          },
+          {
+            "path": "docs/reference/easy_data_visualization.md",
+            "weight": 2
+          },
+          {
+            "path": "docs/tutorial/easy_data_visualization.md",
+            "weight": 5
+          },
+          {
+            "path": "tests/test_data_visualization.py",
+            "weight": 8
+          }
+        ],
+        "issueBonuses": []
+      }
+    ]
   }
 }

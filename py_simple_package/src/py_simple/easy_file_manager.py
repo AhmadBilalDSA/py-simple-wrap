@@ -9,9 +9,12 @@ import shutil
 VALID_EXTENSIONS = ['txt', 'md', 'log', 'csv']
 
 
-class InvalidExtension(Exception):
-    """Exception raised for invalid extension"""
-
+class EasyFileManagerError(Exception):
+    """
+    Raised when a file operation cannot be completed.
+    Args:
+        message (str): Description of what went wrong.
+    """
     def __init__(self, message):
         self.message = message
         super().__init__(self.message)
@@ -58,7 +61,7 @@ def is_file_there(filename: str) -> bool:
 def make_blank_file(filename: str, file_extension: str):
     """
     Creates a blank file in current working directory.
-    If file already exists, nothing is done.
+        Raises EasyFileManagerError if the file already exists.
 
     Args:
         filename (str): The name of the file to be created.
@@ -86,13 +89,13 @@ def make_blank_file(filename: str, file_extension: str):
     if _is_valid_extension(file_extension.lower()):
         file = f"{filename}.{file_extension.lower()}"
         if is_file_there(file):
-            print(f"File {file} already exists in current working directory.")
-        else:
-            with open(file, 'w', encoding='utf-8'):
-                pass
+            raise EasyFileManagerError(f"\n\n\nERROR: File {file} already"
+                                       f" exists in current working directory.")
+        with open(file, 'w', encoding='utf-8'):
+            pass
     else:
-        raise InvalidExtension(
-            f"\n'{file_extension}' is not a valid extension.\n"
+        raise EasyFileManagerError(
+            f"\n\n\n'ERROR: '{file_extension} is not a valid extension.\n"
             f"Please enter a valid extension and try again.\n"
             f"\nVALID EXTENSIONS: {VALID_EXTENSIONS}"
         )
@@ -125,8 +128,8 @@ def add_a_line(filename: str, line: str):
         with open(filename, 'a', encoding='utf-8') as f:
             f.write(line + '\n')
     else:
-        raise InvalidExtension(
-            f"\n'{ext}' is not a valid extension.\n"
+        raise EasyFileManagerError(
+            f"\n\n\n'{ext}' is not a valid extension.\n"
             f"Please enter a valid extension and try again.\n"
             f"\nVALID EXTENSIONS: {VALID_EXTENSIONS}"
         )
@@ -164,12 +167,12 @@ def read_file_to_list(filename: str) -> list:
         try:
             with open(filename, 'r', encoding='utf-8') as f:
                 return [line.strip() for line in f.readlines()]
-        except FileNotFoundError:
-            print(f"\nFile '{filename}' not found.")
-            return []
+        except FileNotFoundError as e:
+            raise EasyFileManagerError(f"\n\n\nERROR: {e}") \
+                from None
     else:
-        raise InvalidExtension(
-            f"\n'{ext}' is not a valid extension.\n"
+        raise EasyFileManagerError(
+            f"\n\n\nERROR: '{ext}' is not a valid extension.\n"
             f"Please enter a valid extension and try again.\n"
             f"\nVALID EXTENSIONS: {VALID_EXTENSIONS}"
         )
@@ -204,10 +207,11 @@ def remove_file(filename: str):
         if is_file_there(filename):
             os.remove(filename)
         else:
-            print(f"File {filename} does not exist!")
+            raise EasyFileManagerError(f"\n\n\nERROR: File {filename} "
+                                       f"does not exist!")
     else:
-        raise InvalidExtension(
-            f"\n'{ext}' is not a valid extension.\n"
+        raise EasyFileManagerError(
+            f"\n\n\nERROR: '{ext}' is not a valid extension.\n"
             f"Please enter a valid extension and try again.\n"
             f"\nVALID EXTENSIONS: {VALID_EXTENSIONS}"
         )
@@ -245,12 +249,17 @@ def rename_file(old_name: str, new_name: str):
             if not is_file_there(new_name):
                 os.rename(old_name, new_name)
             else:
-                print(f"File '{new_name}' already exists in current working directory.")
+                raise EasyFileManagerError(f"\n\n\nERROR: File '{new_name}'"
+                                           f" already exists in current "
+                                           f"working directory.")
         else:
-            print(f"File {old_name} does not exist in current working directory.")
+            raise EasyFileManagerError(f"\n\n\nERROR: File {old_name} does "
+                                       f"not exist in current working "
+                  f"directory.")
     else:
-        raise InvalidExtension(
-            f"\n'{ext_old}' or '{ext_new}' is not a valid extension.\n"
+        raise EasyFileManagerError(
+            f"\n\n\nERROR: '{ext_old}' or '{ext_new}' is not a valid "
+            f"extension.\n"
             f"Please enter a valid extension and try again.\n"
             f"\nVALID EXTENSIONS: {VALID_EXTENSIONS}"
         )
@@ -284,14 +293,15 @@ def list_files(extension: str = None) -> list:
             valid_extensions = ["txt", "md", "log", "csv"]
             matches = [
                 f for f in os.listdir(".")
-                if os.path.isfile(f) and f.split(".")[-1].lower() in valid_extensions
+                if os.path.isfile(f) and f.split(".")[-1].lower()
+                in valid_extensions
             ]
             matches.sort()
             ```
     """
     if extension is not None and not _is_valid_extension(extension.lower()):
-        raise InvalidExtension(
-            f"\n'{extension}' is not a valid extension.\n"
+        raise EasyFileManagerError(
+            f"\n\n\nERROR:'{extension}' is not a valid extension.\n"
             f"\nVALID EXTENSIONS: {VALID_EXTENSIONS}"
         )
 
@@ -334,19 +344,19 @@ def copy_file(source: str, destination: str):
     ext_src = _get_extension(source)
     ext_dst = _get_extension(destination)
     if not _is_valid_extension(ext_src):
-        raise InvalidExtension(
-            f"\n'{ext_src}' is not a valid extension.\n"
+        raise EasyFileManagerError(
+            f"\n\n\nERROR: '{ext_src}' is not a valid extension.\n"
             f"\nVALID EXTENSIONS: {VALID_EXTENSIONS}"
         )
     if not _is_valid_extension(ext_dst):
-        raise InvalidExtension(
-            f"\n'{ext_dst}' is not a valid extension.\n"
+        raise EasyFileManagerError(
+            f"\n\n\nERROR: '{ext_dst}' is not a valid extension.\n"
             f"\nVALID EXTENSIONS: {VALID_EXTENSIONS}"
         )
     if not is_file_there(source):
-        print(f"File '{source}' does not exist.")
-        return
+        raise EasyFileManagerError(f"\n\n\nERROR: File '{source}' does "
+                                   f"not exist.")
     if is_file_there(destination):
-        print(f"File '{destination}' already exists — not overwriting.")
-        return
+        raise EasyFileManagerError(f"\n\n\nERROR: File '{destination}' "
+                                   f"already exists — not overwriting.")
     shutil.copy2(source, destination)

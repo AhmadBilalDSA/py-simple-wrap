@@ -1,3 +1,8 @@
+"""
+py_simple's public API — re-exports the functions from each easy_* module.
+"""
+
+
 from .easy_file_manager import (
     make_blank_file, is_file_there, add_a_line, read_file_to_list,
     remove_file, rename_file, list_files, copy_file,
@@ -24,12 +29,12 @@ from .easy_numbers import (
 )
 from .easy_validator import (
     is_valid_email, is_valid_username, is_valid_zipcode, is_valid_url,
-    is_password_secure,
+    is_password_secure, is_valid_creditcard
 )
 from .easy_web import (
     get_page_content, is_page_up, get_link_list, get_page_title,
     count_links, count_tags, get_tag_list, print_allowed_tags,
-    get_all_headers, get_meta_description
+    get_all_headers, get_meta_description,
 )
 from .easy_strings import (
     is_palindrome, remove_extra_spaces, to_kebab_case, to_snake_case,
@@ -44,7 +49,7 @@ from .easy_colors import (
     random_hex_color, is_light_color, hex_to_rgba, contrast_ratio,
 )
 from .easy_flow import (
-    run_py_file, run_py_file_safe, time_function_call, time_it, retry
+    run_py_file, run_py_file_safe, time_function_call, time_it, retry,
 )
 from .easy_regex import (
     extract_urls, extract_numbers, extract_number_sequences,
@@ -64,7 +69,8 @@ from .easy_text import (
     word_frequency,
 )
 from .easy_csv import (
-    filter_csv_rows, get_csv_columns, read_csv_to_list, write_csv_from_list
+    filter_csv_rows, get_csv_columns, read_csv_to_list,
+    write_csv_from_list,
 )
 from .easy_dict import (
     merge_dicts, lists_to_dict, invert_dict, get_nested_value,
@@ -80,18 +86,29 @@ from .easy_images import (
 from .easy_game import (
     basic_game_setup, check_if_quit, get_mouse_position,
     is_left_mouse_button_clicked, is_middle_mouse_button_clicked,
-    is_right_mouse_button_clicked
+    is_right_mouse_button_clicked,
 )
 from .easy_generator import (
     generate_qr_code, generate_password, generate_otp, generate_api_key,
-    generate_uuid
+    generate_uuid,
 )
-
 from .easy_math import (
     get_least_common_multiple, factorial, fibonacci, prime_factorization,
     sum_of_digits, divisors,
 )
-
 from .easy_data_visualization import (
-    plot_data
+    plot_data,
+)
+from .easy_random import (
+    roll_dice, flip_coin, pick_random_item, shuffle_list, random_int,
+)
+from .easy_sql import (
+    open_db,
+)
+from .easy_archive import (
+    zip_folder, zip_files, unzip_file, list_zip_contents, add_to_zip,
+    is_zip_file,
+)
+from .easy_config import (
+    gh_workflow_config,
 )

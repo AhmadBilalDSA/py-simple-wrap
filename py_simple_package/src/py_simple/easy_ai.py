@@ -89,7 +89,7 @@ def get_model(provider: str, model_name: str, api_key: str=None,
     if provider == "openai":
         from langchain_openai import ChatOpenAI
         model = ChatOpenAI(model=model_name, api_key=api_key,
-                         base_url=base_url)
+                          base_url=base_url)
         return model
 
     elif provider == "ollama":
@@ -112,13 +112,13 @@ def get_model(provider: str, model_name: str, api_key: str=None,
     elif provider == "google":
         from langchain_google_genai import ChatGoogleGenerativeAI
         model = ChatGoogleGenerativeAI(model=model_name,
-                                     google_api_key=api_key)
+                                      google_api_key=api_key)
         return model
 
     elif provider == "mistral":
         from langchain_mistralai import ChatMistralAI
         model = ChatMistralAI(api_key=api_key,
-                            model_name=model_name)
+                              model_name=model_name)
         return model
 
     else:
@@ -282,3 +282,30 @@ def summarize_text(ai_model: BaseChatModel, text: str) -> str:
         return ask_ai(ai_model, prompt)
     except Exception as e:
         raise EasyAIError(f"\n\n\nERROR: {e}") from None
+
+
+# ⚠️️ WORK IN PROGRESS ⚠️
+# This class will eventually take the complexity of setting up an agent
+# with LangChain and turning it into something simple.
+
+class EasyAgent:
+    def __init__(self, prompt_path: str, toolbox: list = None,
+                 history: list = None):
+        self.toolbox = toolbox
+        self.history = history
+
+        self.master_prompt = None
+        self.init_prompt(prompt_path)
+
+    def init_prompt(self, path):
+        if path.split(".")[-1].lower() == "txt":
+            try:
+                with open(path, 'r', encoding='utf-8') as f:
+                    prompt = f.read().rstrip()
+                self.master_prompt = prompt
+            except (FileNotFoundError, PermissionError, UnicodeDecodeError) as e:
+                raise EasyAIError(f"\n\n\nERROR: {e}") from None
+        else:
+            raise EasyAIError(f"\n\n\nERROR: {path} not supported. "
+                              f"Only `.txt` files are supported.") \
+                from None

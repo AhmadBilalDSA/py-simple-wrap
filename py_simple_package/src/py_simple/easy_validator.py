@@ -98,7 +98,7 @@ def is_valid_zipcode(zipcode: int) -> bool:
 
 
 def is_valid_url(url: str) -> bool:
-    """
+    r"""
     Returns true if url is valid.
 
     Arguments:
@@ -247,3 +247,68 @@ def is_password_secure(password: str) -> bool:
             return False
     else:
         return False
+
+
+def is_valid_creditcard(card_num: str):
+    r"""
+    Returns true if the credit card number is valid according to the Luhn algorithm. (https://en.wikipedia.org/wiki/Luhn_algorithm)
+
+    Arguments:
+        card_num (str): The credit card number. Valid strings are 13 to 19 digits long, with optional dashes or spaces.
+
+    Returns:
+        bool: True if the credit card number is valid, False otherwise.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import is_valid_creditcard
+
+            result = is_valid_creditcard("4242-4242-4242-4242")  # -> True
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import re
+
+            card_num = card_num.replace("-", "").replace(" ", "")
+            pattern = r"[0-9]{13,19}"
+
+            if not re.fullmatch(pattern, card_num):
+                return False
+
+            digits = [int(digit) for digit in card_num]
+            reversed_digits = reversed(digits)
+
+            sum = 0
+            for index, digit in enumerate(reversed_digits):
+                if index % 2 == 0:
+                    # every other digit, starting with the last
+                    sum += digit
+                else:
+                    doubled = 2 * digit
+                    sum += doubled if doubled < 10 else doubled - 9
+
+            return sum % 10 == 0
+            ```
+    """
+
+    card_num = card_num.replace("-", "").replace(" ", "")
+    pattern = r"[0-9]{13,19}"
+
+    if not re.fullmatch(pattern, card_num):
+        return False
+
+    digits = [int(digit) for digit in card_num]
+    reversed_digits = reversed(digits)
+
+    sum = 0
+    for index, digit in enumerate(reversed_digits):
+        if index % 2 == 0:
+            # every other digit, starting with the last
+            sum += digit
+        else:
+            doubled = 2 * digit
+            sum += doubled if doubled < 10 else doubled - 9
+
+    return sum % 10 == 0

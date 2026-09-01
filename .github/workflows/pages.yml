@@ -36,7 +36,7 @@ jobs:
         run: mkdocs build -d site-build/docs
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 20
 
@@ -50,11 +50,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx contributor-quest generate --out site-build/quest
 
+      - name: Add Module Book
+        run: cp -r module-book site-build/modules
+
       - name: Add landing page
         run: cp landing/index.html site-build/index.html
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: site-build
 

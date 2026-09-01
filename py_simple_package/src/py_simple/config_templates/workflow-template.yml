@@ -1,0 +1,40 @@
+# IMPORTANT:
+# REMEMBER TO FILL OUT on. OTHERWISE, THE WORKFLOW WILL NOT WORK.
+# IF LEFT UNFILLED, THE WORKFLOW NAME WILL DEFAULT TO THE WORKFLOW FILEPATH.
+
+# You can change the name of your workflow below. It will be what GitHub
+# actions display as the workflow name, so make sure it is descriptive
+name: [NAME]
+
+# When should the workflow run?
+# Examples:
+#  push:
+#    branches: [main]
+#  pull_request:
+#    branches: [main]
+#  workflow_dispatch:
+
+on:
+
+# Permissions are optional. Uncomment the relevant parts if you want to add permissions:
+
+#permissions:
+#  contents: read
+#  issues: read
+#  pages: write
+#  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      # name is the name of the step the workflow performs.
+      # Make it easy to understand as this is what you will see when the GitHub action runs.
+      - name:
+        # IMPORTANT:
+        # REMEMBER TO FILL OUT run. OTHERWISE, THE WORKFLOW WILL NOT WORK.
+        # run is the step to be performed.
+        run:

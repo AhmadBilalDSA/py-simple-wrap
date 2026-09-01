@@ -1,0 +1,95 @@
+name: Maintain issue pools
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+
+jobs:
+  top-up-new-module-issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Top up open "new module" issues to 5
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title=$(grep '^title:' .github/ISSUE_TEMPLATE/new_module_issue.md | sed 's/^title: *//')
+          labels=$(grep '^labels:' .github/ISSUE_TEMPLATE/new_module_issue.md | sed 's/^labels: *//' | sed 's/, */,/g')
+          body=$(awk '/^---$/{c++; next} c>=2' .github/ISSUE_TEMPLATE/new_module_issue.md)
+
+          open_count=$(gh issue list --state open --search "in:title \"$title\"" --json title -q '.[].title' | wc -l)
+          echo "Currently open: $open_count"
+
+          missing=$((5 - open_count))
+          if [ "$missing" -lt 0 ]; then
+            missing=0
+          fi
+          echo "Creating $missing new issue(s)"
+
+          for i in $(seq 1 "$missing"); do
+            gh issue create --title "$title" --body "$body" --label "$labels"
+          done
+
+  top-up-project-tutorial-issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Top up open "project tutorial" issues to 3
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title=$(grep '^title:' .github/ISSUE_TEMPLATE/project_tutorial_issue.md | sed 's/^title: *//')
+          labels=$(grep '^labels:' .github/ISSUE_TEMPLATE/project_tutorial_issue.md | sed 's/^labels: *//' | sed 's/, */,/g')
+          body=$(awk '/^---$/{c++; next} c>=2' .github/ISSUE_TEMPLATE/project_tutorial_issue.md)
+
+          open_count=$(gh issue list --state open --search "in:title \"$title\"" --json title -q '.[].title' | wc -l)
+          echo "Currently open: $open_count"
+
+          missing=$((3 - open_count))
+          if [ "$missing" -lt 0 ]; then
+            missing=0
+          fi
+          echo "Creating $missing new issue(s)"
+
+          for i in $(seq 1 "$missing"); do
+            gh issue create --title "$title" --body "$body" --label "$labels"
+          done
+
+  top-up-expand-module-issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Open "expand module" issues for modules with fewer than 10 functions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          labels=$(grep '^labels:' .github/ISSUE_TEMPLATE/expand_module_issue.md | sed 's/^labels: *//' | sed 's/, */,/g')
+
+          for file in py_simple_package/src/py_simple/*.py; do
+            base=$(basename "$file" .py)
+            [ "$base" = "__init__" ] && continue
+
+            count=$(grep -c '^def ' "$file")
+            echo "$base: $count functions"
+
+            if [ "$count" -lt 10 ]; then
+              title_raw=$(grep '^title:' .github/ISSUE_TEMPLATE/expand_module_issue.md | sed 's/^title: *//')
+              title="${title_raw//\{\{MODULE_NAME\}\}/$base}"
+              existing=$(gh issue list --state open --search "in:title \"$title\"" --json title -q '.[].title')
+              if [ -z "$existing" ]; then
+                body=$(awk '/^---$/{c++; next} c>=2' .github/ISSUE_TEMPLATE/expand_module_issue.md | sed "s/{{MODULE_NAME}}/${base}/g")
+                gh issue create --title "$title" --body "$body" --label "$labels"
+              fi
+            fi
+          done
+

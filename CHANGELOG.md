@@ -1,7 +1,56 @@
+<div align="center">
+
+🏠[README](README.md) · ⚡[Quickstart](QUICKSTART.md) · 📦[Modules](MODULES.md) · 🆘[Support](SUPPORT.md) · 🚀[Contributing](CONTRIBUTING.md) · 🌟[Contributors](CONTRIBUTORS.md) · 🔒[Security](SECURITY.md) · 🌱[Code of Conduct](CODE_OF_CONDUCT.md) · ⚖️[License](LICENSE.md)
+
+</div>
+
 # Changelog
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
+
+## [0.4.1] - 2026-08-31
+### Added
+- Added a feedback-survey call to action to the landing page, matching the one already on the README ([@sara-czasak](https://github.com/sara-czasak))
+### Fixed
+- Fixed the feedback survey link on the README and the feedback issue template ([@sara-czasak](https://github.com/sara-czasak))
+
+## [0.4.0] - 2026-08-31
+### Added
+- Added `easy_archive` module (`zip_folder`, `zip_files`, `unzip_file`, `list_zip_contents`, `add_to_zip`, `is_zip_file`) for zipping/unzipping without hand-rolling `zipfile` boilerplate, with full test coverage and a tutorial ([@SemTiOne](https://github.com/SemTiOne), [@anisayakmitra-in](https://github.com/anisayakmitra-in))
+- Added `easy_random` module (`roll_dice`, `flip_coin`, `pick_random_item`, `shuffle_list`, `random_int`) for common random choices, with full test coverage, a reference page, and a tutorial ([@VidyavathiGK](https://github.com/VidyavathiGK), [@Betelhem-Sefiw](https://github.com/Betelhem-Sefiw), [@SemTiOne](https://github.com/SemTiOne), [@tasodoufu](https://github.com/tasodoufu))
+- Added `easy_config` module (`gh_workflow_config`) for scaffolding GitHub Actions workflow files from a template, with full test coverage and docs ([@sara-czasak](https://github.com/sara-czasak), [@anisayakmitra-in](https://github.com/anisayakmitra-in), [@i-am-paradox](https://github.com/i-am-paradox))
+- Expanded `easy_sql` with `run_insert`, `run_select`, `conditional_run_select`, `run_delete`, and `delete_all_from_table`, plus an internal SQL-injection guard shared by all of them ([@sara-czasak](https://github.com/sara-czasak), [@VidyavathiGK](https://github.com/VidyavathiGK))
+- Added a project-based tutorial combining `easy_random` and `easy_game`, a signup-validation tutorial for `easy_validator`, and tutorials for `easy_regex` and `easy_sql` (travel wishlist) ([@VidyavathiGK](https://github.com/VidyavathiGK), [@anisayakmitra-in](https://github.com/anisayakmitra-in), [@9anna-na](https://github.com/9anna-na))
+- Added a module book/landing page linked from the README ([@sara-czasak](https://github.com/sara-czasak))
+- Added a feedback issue template with a survey link, and linked it from the README ([@sara-czasak](https://github.com/sara-czasak))
+### Changed
+- The five new `easy_sql` query/write functions are not yet part of the public API (`from py_simple import ...`) — only `open_db` is exported. They're still reachable via `from py_simple.easy_sql import ...` directly, but each now raises an `ExperimentalWarning` on call and is marked "Experimental" in its docstring, since none of them have test coverage yet ([@sara-czasak](https://github.com/sara-czasak))
+- Standardized error handling in `easy_file_manager`: `InvalidExtension` is now `EasyFileManagerError`, and `make_blank_file` now raises `EasyFileManagerError` if the file already exists instead of silently printing and doing nothing (**breaking change** for anyone catching `InvalidExtension` by name) ([@sara-czasak](https://github.com/sara-czasak))
+- Standardized error handling in `easy_archive` to match the rest of the package's exception style ([@sara-czasak](https://github.com/sara-czasak))
+- Updated `MODULES.md` and the README's module menu to include `easy_archive`, `easy_config`, and `easy_random`
+### Fixed
+- Fixed a bug in `easy_file_manager` and a matching exception-name mismatch in its tests ([@sara-czasak](https://github.com/sara-czasak))
+
+
+## [0.3.5] - 2026-08-21
+### Added
+- Added a tutorial page for `easy_text` ([@gaoharimran29-glitch](https://github.com/gaoharimran29-glitch))
+- Added "What happened" and "Why use these helpers" sections to the `easy_lists` tutorial ([@VidyavathiGK](https://github.com/VidyavathiGK))
+- Added a Codecov coverage badge to the README and expanded `tests.yml` to report coverage ([@sara-czasak](https://github.com/sara-czasak))
+- Added test coverage for `easy_json`, `easy_validator`, `easy_numbers`, `easy_flow`, `easy_csv`, `easy_colors`, `easy_web`, `easy_converter`, and `easy_date_formatter` ([@Osheun](https://github.com/Osheun), [@matteogristina](https://github.com/matteogristina), [@qiaobochi040726-source](https://github.com/qiaobochi040726-source), [@aditya226-sharma](https://github.com/aditya226-sharma))
+- Added an `easy_sql` module (SQLite connection helpers via `open_db`) to the public API, with initial tests ([@sara-czasak](https://github.com/sara-czasak), [@VidyavathiGK](https://github.com/VidyavathiGK))
+- Added `MODULES.md`, a standalone module-reference page, moving detailed module-by-module content out of the README ([@sara-czasak](https://github.com/sara-czasak))
+- Added `.github/workflows/issues.yml`, which automatically opens issues for modules missing tests, test coverage, reference docs, or tutorials ([@sara-czasak](https://github.com/sara-czasak))
+- Added `.github/workflows/new_module_issues.yml`, which maintains a running pool of 5 open "want to add a module?" issues on a weekly schedule ([@sara-czasak](https://github.com/sara-czasak))
+- Added `.github/workflows/contributors.yml`, which automatically credits first-time contributors in the README and `CONTRIBUTORS.md` via an auto-opened PR ([@sara-czasak](https://github.com/sara-czasak))
+### Changed
+- Redesigned `README.md`, trimming it substantially and moving detailed module content out to the new `MODULES.md` ([@sara-czasak](https://github.com/sara-czasak))
+- Reworked `publish.yml` to trigger automatically when `pyproject.toml`'s version number changes, and to automatically create the matching git tag and GitHub Release after a successful PyPI publish ([@sara-czasak](https://github.com/sara-czasak))
+- Standardized test file naming under `tests/` (e.g. `test_dicts.py` → `test_dict.py`, `test_easy_game.py` → `test_game.py`) ([@sara-czasak](https://github.com/sara-czasak))
+- Simplified `CONTRIBUTORS.md`'s guild tiles by removing the per-person blurbs, so new entries can be added automatically ([@sara-czasak](https://github.com/sara-czasak))
+### Fixed
+- Fixed unresolved git merge-conflict markers accidentally committed into `tests/test_date_formatter.py`, which broke test collection for the entire suite on every Python version ([@sara-czasak](https://github.com/sara-czasak))
 
 ## [0.3.4] - 2026-08-17
 ### Added
@@ -112,100 +161,3 @@ combined into one entry here rather than guessing at a split.
 - README formatting passes (headers, readability) ([@sara-czasak](https://github.com/sara-czasak))
 - Prepared files for test coverage ([@sara-czasak](https://github.com/sara-czasak))
 
-<details>
-<summary>Day-by-day breakdown</summary>
-
-#### 2026-08-14 – 2026-08-16
-**📦 Released v0.3.0 (PYPI)**
-- Continued quest-system development: achievement tracking, badge fixes, guild-name fixes, and several bug-fix passes across the generator script and site ([@sara-czasak](https://github.com/sara-czasak))
-- Replaced `pygame` with `pygame-ce` for Python 3.14 support; added 3.13/3.14 classifiers and CI matrix entries ([@jbsilva](https://github.com/jbsilva))
-- Added jbsilva as a contributor ([@sara-czasak](https://github.com/sara-czasak))
-- Optimized quest scripts/site and updated the `contributor-quest` dependency lockfile ([@sara-czasak](https://github.com/sara-czasak))
-
-#### 2026-08-12
-- Added `easy_numbers2.md`, `easy_math2.md`, `easy_json2.md` tutorial files; fixed a typo in the Easy Json tutorial path ([@sara-czasak](https://github.com/sara-czasak))
-- Added easy_math tutorial (killmeheaven — not currently listed in `.all-contributorsrc`)
-- Added easy_json tutorial (Boyeong24 — not currently listed in `.all-contributorsrc`)
-- Added E4x7k as a contributor ([@sara-czasak](https://github.com/sara-czasak))
-- Docs edit to `mkdocs.yml` ([@sara-czasak](https://github.com/sara-czasak))
-
-#### 2026-08-11
-- Started a contributor "quest" gamification system: workflow, generator script, guilds/badges/XP libraries, and a companion site ([@sara-czasak](https://github.com/sara-czasak))
-- Added tutorials for `easy_validator`, `easy_regex`, `easy_numbers`, `easy_math`, `easy_lists`, `easy_json`, `easy_images` ([@Onion0121](https://github.com/Onion0121))
-- Added `easy_stats` and `easy_numbers` tutorials ([@Venkat4real](https://github.com/Venkat4real))
-- Added `.github/scripts/update_contributors.py` and an update-contributors workflow, with follow-up bug fixes ([@sara-czasak](https://github.com/sara-czasak))
-- Restructured CONTRIBUTORS.md and added a contributor round table ([@sara-czasak](https://github.com/sara-czasak))
-- Added Venkat4real as a contributor ([@sara-czasak](https://github.com/sara-czasak))
-- Added permissions to the pylint/tests CI workflows ([@sara-czasak](https://github.com/sara-czasak))
-- Several README/`.all-contributorsrc` fixes ([@sara-czasak](https://github.com/sara-czasak))
-
-#### 2026-08-10
-- Added tutorials for `easy_generator`, `easy_game`, `easy_file_manager`, `easy_dict`, `easy_date_formatter`, `easy_data_visualization`, `easy_csv`; alphabetized the tutorials/references list ([@Onion0121](https://github.com/Onion0121), [@sara-czasak](https://github.com/sara-czasak))
-- Added tests for `easy_game` helpers ([@averyquinnhq](https://github.com/averyquinnhq))
-- Added all suggested charts to `easy_data_visualization` ([@joaoprbrasil](https://github.com/joaoprbrasil))
-- Compressed the emoji key into a dropdown menu in README, fixed emoji menu rendering, and added a module-author badge/key ([@sara-czasak](https://github.com/sara-czasak))
-- Added João Pedro Brasil and thomsonl as contributors ([@sara-czasak](https://github.com/sara-czasak))
-- Started CHANGELOG.md and labeled PyPI releases in it ([@sara-czasak](https://github.com/sara-czasak))
-
-#### 2026-08-04 – 2026-08-09
-**📦 Released v0.2.0 (PYPI)**
-- Added JSON flattening function and tests (`is_nested_json`, `flatten_json`) to `easy_json` ([@sara-czasak](https://github.com/sara-czasak), [@atiqur-rahman-pro](https://github.com/atiqur-rahman-pro))
-- Added `easy_regex` module; tests added ([@sara-czasak](https://github.com/sara-czasak), [@Mlandvo](https://github.com/Mlandvo), [@gaoharimran29-glitch](https://github.com/gaoharimran29-glitch))
-- Added `easy_lists` (11 helpers) and `easy_text` (10 helpers) modules, with tests and docs ([@ghostfix-pm](https://github.com/ghostfix-pm))
-- Added `easy_csv` module with CSV helpers ([@qotique](https://github.com/qotique))
-- Added `easy_colors` functions: `random_hex_color`/`is_light_color` ([@smirnov-danil](https://github.com/smirnov-danil)), `rgb_to_hsl`/`hsl_to_rgb` ([@SemTiOne](https://github.com/SemTiOne)), `hex_to_rgba`/`contrast_ratio` ([@gaoharimran29-glitch](https://github.com/gaoharimran29-glitch))
-- Added `run_py_file_safe`, `time_it`, and `retry` to `easy_flow` ([@AureSerua](https://github.com/AureSerua)); added tests ([@thomsonl](https://github.com/thomsonl))
-- Added `easy_images` module ([@vjymisal0](https://github.com/vjymisal0))
-- Started `easy_game` module, added `check_if_quit` and mouse-press detection ([@sara-czasak](https://github.com/sara-czasak))
-- Added `easy_dict`, `easy_math`, and `easy_stats` modules ([@SemTiOne](https://github.com/SemTiOne))
-- Added `easy_generator` module and 3 new helper functions ([@sara-czasak](https://github.com/sara-czasak))
-- Added initial `easy_data_visualization` module and did a modularization pass ([@joaoprbrasil](https://github.com/joaoprbrasil))
-- Renamed `prime_factors` → `prime_factorization` (and its tests) ([@sara-czasak](https://github.com/sara-czasak))
-- Added tutorials for `easy_flow`, `easy_async`, `easy_colors`, `easy_converter`, `easy_web` ([@Onion0121](https://github.com/Onion0121))
-- Added async test scaffolding ([@AashiSrivastava411](https://github.com/AashiSrivastava411))
-- Multiple bug-fixing passes across `easy_generator` and other modules ([@sara-czasak](https://github.com/sara-czasak))
-
-#### 2026-08-01 – 2026-08-03
-- Added `count_words` function to `easy_strings` (Killbill584 — not currently listed in `.all-contributorsrc`)
-- Added unit tests for `easy_strings` (`is_alphanumeric`, `count_words`, fixes #42) ([@atiqur-rahman-pro](https://github.com/atiqur-rahman-pro))
-- Added `easy_colors` module for hex/RGB handling (#40) ([@HeaTTap](https://github.com/HeaTTap))
-- Added `easy_json` module: `open_json`, `save_json_data`, `pretty_json`; tests added ([@sara-czasak](https://github.com/sara-czasak), [@atiqur-rahman-pro](https://github.com/atiqur-rahman-pro), [@matheusfrta](https://github.com/matheusfrta))
-- Added `get_all_headers`, `get_meta_description`, custom exception to `easy_web`; tests added ([@sara-czasak](https://github.com/sara-czasak), [@atiqur-rahman-pro](https://github.com/atiqur-rahman-pro))
-- Added `count_tags`, `get_tag_list`, `print_allowed_tags` to `easy_web`; README polish ([@ghostfix-pm](https://github.com/ghostfix-pm))
-- Added `round_to_nearest`, `greatest_common_divisor`, `clamp` helpers; tests added ([@gaoharimran29-glitch](https://github.com/gaoharimran29-glitch), [@ghostfix-pm](https://github.com/ghostfix-pm))
-- Started `easy_flow` module ([@sara-czasak](https://github.com/sara-czasak))
-- Added `easy_strings` tutorial ([@Onion0121](https://github.com/Onion0121))
-- Revised Code of Conduct and SECURITY.md for clarity ([@sara-czasak](https://github.com/sara-czasak))
-- README overhaul: badges, consistency fixes, all-contributors bot setup ([@sara-czasak](https://github.com/sara-czasak))
-
-#### 2026-07-31
-**📦 Released v0.1.1, v0.1.2, v0.1.3, v0.1.4 (PYPI)**
-- Added unit tests for `easy_web` module (closes #15) ([@HeaTTap](https://github.com/HeaTTap))
-- Added `get_page_title` and other new functions to `easy_web`, added unit test workflow ([@sara-czasak](https://github.com/sara-czasak))
-- Refactored docs, started building the docs page, added GitHub Pages deployment workflow ([@sara-czasak](https://github.com/sara-czasak))
-- Docstring/docs improvements and typo fixes across modules ([@sara-czasak](https://github.com/sara-czasak))
-- Various bug fixes and mkdocs config fixes ([@sara-czasak](https://github.com/sara-czasak))
-
-#### 2026-07-23 – 2026-07-30
-**📦 Released v0.1.0 (PYPI)**
-- Started and expanded `easy_numbers` module (is_prime, percentage_of, fixed negative-number prime bug); tests added ([@sara-czasak](https://github.com/sara-czasak), [@jagjitkaur0000](https://github.com/jagjitkaur0000))
-- Added fluid oz/ml conversions and other features to `easy_converter`; tests added ([@sara-czasak](https://github.com/sara-czasak), [@averyquinnhq](https://github.com/averyquinnhq))
-- Started and expanded `easy_validator` module; tests added ([@sara-czasak](https://github.com/sara-czasak), [@gaoharimran29-glitch](https://github.com/gaoharimran29-glitch))
-- Added `easy_strings` module ([@shivams786](https://github.com/shivams786))
-- Added speed converters to `easy_converter` (closes #17) ([@sol4nki](https://github.com/sol4nki))
-- Started `easy_web` module, added docstrings and request timeout ([@sara-czasak](https://github.com/sara-czasak))
-- pyproject.toml expansion, comprehensive tests, and new utility functions ([@ghostfix-pm](https://github.com/ghostfix-pm))
-- Enhanced Pylint CI workflow, added `.pylintrc` ([@sara-czasak](https://github.com/sara-czasak))
-- Various README/CONTRIBUTORS.md updates ([@sara-czasak](https://github.com/sara-czasak))
-
-#### 2026-07-21 – 2026-07-22
-**📦 Initial version (v0.0.1) PYPI**
-- Project scaffolding: initial commit, README, LICENSE, CONTRIBUTING.md, pyproject.toml ([@sara-czasak](https://github.com/sara-czasak))
-- Added `easy_file_manager` functionality: read-to-list, remove file, rename file ([@sara-czasak](https://github.com/sara-czasak))
-- Added `easy_date_formatter` module, made helper functions private ([@sara-czasak](https://github.com/sara-czasak))
-- README formatting passes (headers, readability) ([@sara-czasak](https://github.com/sara-czasak))
-- Prepared files for test coverage ([@sara-czasak](https://github.com/sara-czasak))
-
-</details>
-
-<br>
