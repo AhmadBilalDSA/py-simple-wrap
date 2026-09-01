@@ -6,7 +6,8 @@ from py_simple_package.src.py_simple.easy_validator import (
     is_valid_zipcode,
     is_valid_url,
     is_password_secure,
-    is_valid_creditcard)
+    is_valid_creditcard,
+    is_valid_phone_number)
 
 class TestEasyValidator:
 
