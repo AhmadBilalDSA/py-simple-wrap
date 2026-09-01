@@ -110,3 +110,25 @@ class TestEasyValidator:
 
     def test_creditcard_validation(self, card_num, expected):
         assert is_valid_creditcard(card_num) is expected
+
+    @pytest.mark.parametrize(
+        "phone_number, expected",
+        [
+            ("1234567890", True),
+            ("123-456-7890", True),
+            ("(123) 456-7890", True),
+            ("123.456.7890", True),
+            ("123 456 7890", True),
+            ("+1 123-456-7890", True),
+            ("+11234567890", True),
+            ("12345", False),
+            ("123-456-78901", False),
+            ("abc-456-7890", False),
+            ("", False),
+            ("123-45-6789", False),
+            ("+1234567890", False),
+        ],
+    )
+
+    def test_phone_number_validation(self, phone_number, expected):
+        assert is_valid_phone_number(phone_number) is expected
