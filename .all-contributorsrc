@@ -451,6 +451,16 @@
         "documentation",
         "code"
       ]
+    },
+    {
+      "login": "dave123981",
+      "name": "David King",
+      "avatar_url": "https://github.com/dave123981.png",
+      "profile": "https://github.com/dave123981",
+      "contributions": [
+        "test",
+        "code"
+      ]
     }
   ]
 }
