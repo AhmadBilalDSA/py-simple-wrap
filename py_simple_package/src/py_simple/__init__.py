@@ -42,7 +42,7 @@ from .easy_strings import (
 )
 from .easy_json import (
     open_json, save_json_data, pretty_json, update_json, is_json_file,
-    is_nested_json, flatten_json,
+    get_json_keys, is_nested_json, flatten_json,
 )
 from .easy_colors import (
     hex_to_rgb, rgb_to_hex, is_valid_hex, rgb_to_hsl, hsl_to_rgb,
