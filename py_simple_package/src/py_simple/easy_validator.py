@@ -312,3 +312,38 @@ def is_valid_creditcard(card_num: str):
             sum += doubled if doubled < 10 else doubled - 9
 
     return sum % 10 == 0
+
+
+def is_valid_phone_number(phone_number: str) -> bool:
+    r"""
+    Returns true if the phone number is a valid US-style phone number.
+
+    Accepts an optional leading "+1" country code, an optional area code
+    in parentheses, and digit groups separated by spaces, dashes, or dots
+    (or no separator at all).
+
+    Args:
+        phone_number (str): The phone number to validate.
+
+    Returns:
+        bool: True if the phone number is valid, False otherwise.
+
+    Example:
+        === "The Py_simple Way"
+```python
+            from py_simple import is_valid_phone_number
+
+            result = is_valid_phone_number("(123) 456-7890")  # -> True
+```
+
+        === "The Traditional Way"
+```python
+            import re
+
+            pattern = r'^(\+1[\s.-]?)?(\(\d{3}\)|\d{3})[\s.-]?\d{3}[\s.-]?\d{4}$'
+            result = bool(re.fullmatch(pattern, "(123) 456-7890"))
+```
+    """
+    pattern = r'^(\+1[\s.-]?)?(\(\d{3}\)|\d{3})[\s.-]?\d{3}[\s.-]?\d{4}$'
+    return bool(re.fullmatch(pattern, phone_number))
+
