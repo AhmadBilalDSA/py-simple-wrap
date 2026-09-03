@@ -103,7 +103,7 @@ from .easy_random import (
     roll_dice, flip_coin, pick_random_item, shuffle_list, random_int,
 )
 from .easy_sql import (
-    open_db,
+    open_db,run_update,
 )
 from .easy_archive import (
     zip_folder, zip_files, unzip_file, list_zip_contents, add_to_zip,
