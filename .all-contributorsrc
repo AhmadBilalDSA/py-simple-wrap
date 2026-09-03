@@ -461,6 +461,16 @@
         "test",
         "code"
       ]
+    },
+    {
+      "login": "Steve99bs",
+      "name": "Tinko Stratiev",
+      "avatar_url": "https://github.com/Steve99bs.png",
+      "profile": "https://github.com/Steve99bs",
+      "contributions": [
+        "test",
+        "code"
+      ]
     }
   ]
 }
