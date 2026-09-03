@@ -471,6 +471,16 @@
         "test",
         "code"
       ]
+    },
+    {
+      "login": "Gambit-Checkmate",
+      "name": "Checkmate",
+      "avatar_url": "https://github.com/Gambit-Checkmate.png",
+      "profile": "https://github.com/Gambit-Checkmate",
+      "contributions": [
+        "test",
+        "code"
+      ]
     }
   ]
 }
