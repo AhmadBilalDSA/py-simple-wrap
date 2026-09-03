@@ -78,7 +78,7 @@ from .easy_dict import (
     count_values, most_common_value,
 )
 from .easy_stats import (
-    median, mode, data_range, variance, standard_deviation, percentile,
+    median, mode, data_range, variance, standard_deviation, percentile, z_score, interquartile_range
 )
 from .easy_images import (
     resize_image, convert_image, rotate_image, get_image_info,
