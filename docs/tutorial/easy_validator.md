@@ -190,6 +190,33 @@ print(is_password_secure("password"))
 # False
 ```
 
+## Validating credit card numbers
+
+`is_valid_creditcard()` checks that a credit card number meets some basic requirements (which doesn't necessarily mean that it's a real credit card number).
+
+A valid credit card number is 13 to 19 digits long with optional dashes or spaces for formatting. Additionally, numbers meeting those requirements are checked against the [Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm), a type of checksum designed to detect errors when relaying or transcribing credit card numbers.
+
+For example:
+
+```python
+from py_simple import is_valid_creditcard
+
+# Valid test numbers provided by Stripe
+# https://docs.stripe.com/testing?testing-method=card-numbers#cards
+visa = "4242-4242-4242-4242"
+visa_error = "4242-4242-4242-4241" # last digit changed!
+
+print(is_valid_creditcard(visa))
+print(is_valid_creditcard(visa_error))
+```
+
+Output:
+
+```text
+True
+False
+```
+
 ## Why use these helpers?
 
 Instead of repeatedly writing regular expressions, character counters, and validation conditions, you can simply use:
@@ -200,6 +227,7 @@ is_valid_username(username)
 is_valid_zipcode(zipcode)
 is_valid_url(url)
 is_password_secure(password)
+is_valid_creditcard(card_num)
 ```
 
 These helpers keep common validation tasks simple, readable, and beginner-friendly while handling the underlying regular expressions and validation logic for you.

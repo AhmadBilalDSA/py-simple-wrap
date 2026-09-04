@@ -10,6 +10,7 @@ from py_simple.easy_sql import (
     run_delete,
     run_insert,
     run_select,
+    run_update,
 )
 
 
@@ -586,6 +587,103 @@ class TestCheckIfValid:
         assert _check_if_valid(["name"]) is False
 
 
+class TestRunUpdate:
+    """Tests for run_update function."""
+
+    def setup_method(self):
+        """Create a fresh in-memory database with test data before each test."""
+        self.conn, self.cursor = open_db(":memory:")
+        self.cursor.execute(
+            "CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT, age INTEGER)"
+        )
+        self.cursor.executemany(
+            "INSERT INTO users (name, age) VALUES (?, ?)",
+            [("Ada", 25), ("Grace", 40)],
+        )
+        self.conn.commit()
+
+    def teardown_method(self):
+        """Close the connection after each test."""
+        self.conn.close()
+
+    def test_run_update_changes_matching_row(self):
+        """Test that run_update only changes the row matching the condition."""
+        run_update(self.conn, self.cursor, "users", {"age": 30}, "name = ?", ("Ada",))
+
+        self.cursor.execute("SELECT age FROM users WHERE name = ?", ("Ada",))
+        assert self.cursor.fetchone()[0] == 30
+
+        # Grace's row should be untouched
+        self.cursor.execute("SELECT age FROM users WHERE name = ?", ("Grace",))
+        assert self.cursor.fetchone()[0] == 40
+
+    def test_run_update_multiple_columns(self):
+        """Test that run_update can set more than one column at once."""
+        run_update(
+            self.conn,
+            self.cursor,
+            "users",
+            {"name": "Ada Lovelace", "age": 36},
+            "name = ?",
+            ("Ada",),
+        )
+
+        self.cursor.execute("SELECT name, age FROM users WHERE age = 36")
+        row = self.cursor.fetchone()
+        assert row == ("Ada Lovelace", 36)
+
+    def test_run_update_invalid_table_name_raises(self):
+        """Test that an unsafe table_name raises EasySqlError instead of running."""
+        with pytest.raises(EasySqlError):
+            run_update(
+                self.conn,
+                self.cursor,
+                "users; DROP TABLE users;",
+                {"age": 99},
+                "name = ?",
+                ("Ada",),
+            )
+
+    def test_run_update_invalid_column_name_raises(self):
+        """Test that an unsafe column name in updates raises EasySqlError."""
+        with pytest.raises(EasySqlError):
+            run_update(
+                self.conn,
+                self.cursor,
+                "users",
+                {"age; DROP TABLE users;": 99},
+                "name = ?",
+                ("Ada",),
+            )
+
+    def test_run_update_bad_condition_raises(self):
+        """Test that a condition referencing a non-existent column surfaces as EasySqlError."""
+        with pytest.raises(EasySqlError):
+            run_update(
+                self.conn,
+                self.cursor,
+                "users",
+                {"age": 99},
+                "not_a_real_column = ?",
+                ("Ada",),
+            )
+
+    def test_run_update_closes_connection_when_requested(self):
+        """Test that close_conn_after=True closes the connection after updating."""
+        run_update(
+            self.conn,
+            self.cursor,
+            "users",
+            {"age": 50},
+            "name = ?",
+            ("Ada",),
+            close_conn_after=True,
+        )
+
+        with pytest.raises(sqlite3.ProgrammingError):
+            self.conn.execute("SELECT 1")
+
+
 class TestIntegration:
     """Integration tests combining multiple operations."""
 
@@ -629,6 +727,20 @@ class TestIntegration:
         )
         assert len(rows) == 1
         assert rows[0][0] == "Alice"
+
+        # Update
+        run_update(
+            self.conn,
+            self.cursor,
+            "users",
+            {"age": 31},
+            "name = ?",
+            ("Alice",),
+        )
+        rows = conditional_run_select(
+            self.conn, self.cursor, "users", "name, age", "age > ?", (28,)
+        )
+        assert rows[0][1] == 31
 
         # Delete
         run_delete(self.conn, self.cursor, "users", "name = ?", ("Alice",))

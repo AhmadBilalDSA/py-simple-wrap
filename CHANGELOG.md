@@ -9,6 +9,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.4.1] - 2026-08-31
+### Added
+- Added a feedback-survey call to action to the landing page, matching the one already on the README ([@sara-czasak](https://github.com/sara-czasak))
+### Fixed
+- Fixed the feedback survey link on the README and the feedback issue template ([@sara-czasak](https://github.com/sara-czasak))
+
+## [0.4.0] - 2026-08-31
+### Added
+- Added `easy_archive` module (`zip_folder`, `zip_files`, `unzip_file`, `list_zip_contents`, `add_to_zip`, `is_zip_file`) for zipping/unzipping without hand-rolling `zipfile` boilerplate, with full test coverage and a tutorial ([@SemTiOne](https://github.com/SemTiOne), [@anisayakmitra-in](https://github.com/anisayakmitra-in))
+- Added `easy_random` module (`roll_dice`, `flip_coin`, `pick_random_item`, `shuffle_list`, `random_int`) for common random choices, with full test coverage, a reference page, and a tutorial ([@VidyavathiGK](https://github.com/VidyavathiGK), [@Betelhem-Sefiw](https://github.com/Betelhem-Sefiw), [@SemTiOne](https://github.com/SemTiOne), [@tasodoufu](https://github.com/tasodoufu))
+- Added `easy_config` module (`gh_workflow_config`) for scaffolding GitHub Actions workflow files from a template, with full test coverage and docs ([@sara-czasak](https://github.com/sara-czasak), [@anisayakmitra-in](https://github.com/anisayakmitra-in), [@i-am-paradox](https://github.com/i-am-paradox))
+- Expanded `easy_sql` with `run_insert`, `run_select`, `conditional_run_select`, `run_delete`, and `delete_all_from_table`, plus an internal SQL-injection guard shared by all of them ([@sara-czasak](https://github.com/sara-czasak), [@VidyavathiGK](https://github.com/VidyavathiGK))
+- Added a project-based tutorial combining `easy_random` and `easy_game`, a signup-validation tutorial for `easy_validator`, and tutorials for `easy_regex` and `easy_sql` (travel wishlist) ([@VidyavathiGK](https://github.com/VidyavathiGK), [@anisayakmitra-in](https://github.com/anisayakmitra-in), [@9anna-na](https://github.com/9anna-na))
+- Added a module book/landing page linked from the README ([@sara-czasak](https://github.com/sara-czasak))
+- Added a feedback issue template with a survey link, and linked it from the README ([@sara-czasak](https://github.com/sara-czasak))
+### Changed
+- The five new `easy_sql` query/write functions are not yet part of the public API (`from py_simple import ...`) — only `open_db` is exported. They're still reachable via `from py_simple.easy_sql import ...` directly, but each now raises an `ExperimentalWarning` on call and is marked "Experimental" in its docstring, since none of them have test coverage yet ([@sara-czasak](https://github.com/sara-czasak))
+- Standardized error handling in `easy_file_manager`: `InvalidExtension` is now `EasyFileManagerError`, and `make_blank_file` now raises `EasyFileManagerError` if the file already exists instead of silently printing and doing nothing (**breaking change** for anyone catching `InvalidExtension` by name) ([@sara-czasak](https://github.com/sara-czasak))
+- Standardized error handling in `easy_archive` to match the rest of the package's exception style ([@sara-czasak](https://github.com/sara-czasak))
+- Updated `MODULES.md` and the README's module menu to include `easy_archive`, `easy_config`, and `easy_random`
+### Fixed
+- Fixed a bug in `easy_file_manager` and a matching exception-name mismatch in its tests ([@sara-czasak](https://github.com/sara-czasak))
+
+
 ## [0.3.5] - 2026-08-21
 ### Added
 - Added a tutorial page for `easy_text` ([@gaoharimran29-glitch](https://github.com/gaoharimran29-glitch))

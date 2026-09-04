@@ -4,12 +4,14 @@ import pytest
 from py_simple_package.src.py_simple.easy_json import (
     EasyJsonError,
     flatten_json,
+    get_json_keys,
     is_json_file,
     is_nested_json,
     open_json,
     pretty_json,
     save_json_data,
     update_json,
+    get_nested,
 )
 
 
@@ -274,3 +276,55 @@ class TestEasyJson:
 
     def test_is_json_file_directory_is_not_a_file(self, tmp_path):
         assert is_json_file(str(tmp_path)) is False
+
+    def test_get_json_keys_with_dict(self):
+        data = {"name": "Sara", "active": True}
+
+        assert get_json_keys(data=data) == ["name", "active"]
+
+    def test_get_json_keys_with_filepath(self, tmp_path):
+        json_file = tmp_path / "sample.json"
+        json_file.write_text('{"name": "Sara", "role": "Maintainer"}',
+                             encoding="utf-8")
+
+        assert get_json_keys(filepath=str(json_file)) == ["name", "role"]
+
+    def test_get_json_keys_requires_one_input(self):
+        with pytest.raises(EasyJsonError) as exc_info:
+            get_json_keys()
+
+        assert "Either data or filepath" in str(exc_info.value)
+
+    def test_get_json_keys_rejects_non_dictionary_data(self):
+        with pytest.raises(EasyJsonError) as exc_info:
+            get_json_keys(data=["name", "role"])
+
+        assert "must be a dictionary" in str(exc_info.value)
+
+def test_get_nested_dict():
+    data = {"a": {"b": {"c": 42}}}
+    assert get_nested(data, "a.b.c") == 42
+    assert get_nested(data, "a.x.y", "missing") == "missing"
+
+def test_get_nested_list():
+    data = {"users": [{"name": "Alice"}, {"name": "Bob"}]}
+    assert get_nested(data, "users.0.name") == "Alice"
+    assert get_nested(data, "users.2.name", "n/a") == "n/a"
+
+
+def test_get_nested_non_collection_returns_default():
+    assert get_nested("not-json-data", "anything", "missing") == "missing"
+
+
+def test_get_nested_rejects_invalid_list_indexes():
+    data = {"users": [{"name": "Alice"}]}
+
+    assert get_nested(data, "users.first.name", "missing") == "missing"
+    assert get_nested(data, "users.-1.name", "missing") == "missing"
+    assert get_nested(data, "users.1.name", "missing") == "missing"
+
+
+def test_get_nested_stops_when_path_continues_past_scalar():
+    data = {"user": {"name": "Alice"}}
+
+    assert get_nested(data, "user.name.first", "missing") == "missing"

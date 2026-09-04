@@ -23,6 +23,40 @@ class EasyJsonError(Exception):
         super().__init__(self.message)
 
 
+def get_nested(data, path, default=None):
+    """
+    Safely retrieve a value from nested JSON/dict/list using dot notation.
+
+    Args:
+        data (dict | list): Parsed JSON data.
+        path (str): Dot-separated path (e.g., "user.address.city" or "items.0.name").
+        default (Any): Value to return if path not found. Defaults to None.
+
+    Returns:
+        Any: Value at the path, or default.
+    """
+    if not isinstance(data, (dict, list)):
+        return default
+    parts = path.split(".")
+    current = data
+    for part in parts:
+        if isinstance(current, dict):
+            if part not in current:
+                return default
+            current = current[part]
+        elif isinstance(current, list):
+            try:
+                idx = int(part)
+            except ValueError:
+                return default
+            if not (0 <= idx < len(current)):
+                return default
+            current = current[idx]
+        else:
+            return default
+    return current
+
+
 def open_json(filepath: str) -> dict | None:
     """
     Opens a JSON file and returns its contents as a dictionary.
@@ -219,6 +253,55 @@ def is_json_file(filepath: str) -> bool:
             return False
     else:
         return False
+
+
+def get_json_keys(data: dict = None, filepath: str = None) -> list[str]:
+    """
+    Returns the top-level keys in a dictionary or JSON file.
+
+    Provide exactly one of ``data`` or ``filepath``. This is useful when
+    you want to quickly see what information a JSON object contains before
+    reading a specific value.
+
+    Args:
+        data (dict): A dictionary whose keys should be returned.
+        filepath (str): Path to a JSON file whose top-level keys should be
+            returned.
+
+    Returns:
+        list[str]: The dictionary's top-level keys, in their original order.
+
+    Raises:
+        EasyJsonError: If neither or both of ``data``/``filepath`` are
+            provided, or if the JSON data is not a dictionary.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple.easy_json import get_json_keys
+
+            get_json_keys(data={"name": "Sara", "active": True})
+            # -> ["name", "active"]
+            ```
+
+        === "The Traditional Way"
+            ```python
+            data = {"name": "Sara", "active": True}
+            keys = list(data.keys())
+            ```
+    """
+    if data is None and filepath is None:
+        raise EasyJsonError("\n\n\nERROR: Either data or filepath "
+                            "must be provided.") from None
+    if data is not None and filepath is not None:
+        raise EasyJsonError("\n\n\nERROR: Please provide data OR "
+                            "filepath.") from None
+
+    json_data = open_json(filepath) if filepath is not None else data
+    if not isinstance(json_data, dict):
+        raise EasyJsonError("\n\n\nERROR: JSON data must be a dictionary.")
+
+    return list(json_data.keys())
 
 
 def is_nested_json(data: dict = None, filepath: str = None) -> bool | None:

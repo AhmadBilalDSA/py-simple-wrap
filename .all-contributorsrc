@@ -412,6 +412,75 @@
       "contributions": [
         "documentation"
       ]
+    },
+    {
+      "login": "Ctrl-Yam",
+      "name": "Ctrl-Yam",
+      "avatar_url": "https://github.com/Ctrl-Yam.png",
+      "profile": "https://github.com/Ctrl-Yam",
+      "contributions": [
+        "documentation"
+      ]
+    },
+    {
+      "login": "Atharvs13",
+      "name": "Atharvs13m",
+      "avatar_url": "https://github.com/Atharvs13.png",
+      "profile": "https://github.com/Atharvs13",
+      "contributions": [
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "mah1104ahm",
+      "name": "M Ahmed",
+      "avatar_url": "https://github.com/mah1104ahm.png",
+      "profile": "https://github.com/mah1104ahm",
+      "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "ohnsh",
+      "name": "John Sherrell",
+      "avatar_url": "https://github.com/ohnsh.png",
+      "profile": "https://github.com/ohnsh",
+      "contributions": [
+        "test",
+        "documentation",
+        "code"
+      ]
+    },
+    {
+      "login": "dave123981",
+      "name": "David King",
+      "avatar_url": "https://github.com/dave123981.png",
+      "profile": "https://github.com/dave123981",
+      "contributions": [
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "Steve99bs",
+      "name": "Tinko Stratiev",
+      "avatar_url": "https://github.com/Steve99bs.png",
+      "profile": "https://github.com/Steve99bs",
+      "contributions": [
+        "test",
+        "code"
+      ]
+    },
+    {
+      "login": "Gambit-Checkmate",
+      "name": "Checkmate",
+      "avatar_url": "https://github.com/Gambit-Checkmate.png",
+      "profile": "https://github.com/Gambit-Checkmate",
+      "contributions": [
+        "test",
+        "code"
+      ]
     }
   ]
 }

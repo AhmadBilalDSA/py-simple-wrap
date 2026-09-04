@@ -4,6 +4,14 @@ Beginner friendly helpers for handling databases.
 
 import re
 import sqlite3
+import warnings
+
+
+class ExperimentalWarning(UserWarning):
+    """
+    Raised when calling a py_simple function that isn't yet covered
+    by tests.
+    """
 
 
 class EasySqlError(Exception):
@@ -111,6 +119,9 @@ def run_select(
     """
     Runs a SELECT query against a table and returns all matching rows.
 
+    **Status:** 🚧 Experimental — not yet covered by tests; behavior may
+    change without notice.
+
     Validates `table_name` and `to_select` first - only letters, numbers,
     and underscores are allowed (or `*` for `to_select`) - to guard
     against SQL injection before building the query string.
@@ -150,6 +161,14 @@ def run_select(
             rows = cursor.execute("SELECT name, email FROM users").fetchall()
             ```
     """
+    warnings.warn(
+        "\n\n‼️WARNING‼️\n🚧 Experimental - not yet "
+        "covered by tests; behavior "
+        "may change without notice.\n\n",
+        category=ExperimentalWarning,
+        stacklevel=2,
+    )
+
     if _check_if_valid(table_name) and _check_if_valid(to_select):
         try:
             res = cursor.execute(f"SELECT {to_select} FROM {table_name}")
@@ -180,6 +199,9 @@ def conditional_run_select(
 ):
     """
     Runs a SELECT query with a WHERE condition and returns matching rows.
+
+    **Status:** 🚧 Experimental - not yet covered by tests; behavior may
+    change without notice.
 
     Validates `table_name` and `to_select` first - only letters, numbers,
     and underscores are allowed - to guard against SQL injection
@@ -227,6 +249,14 @@ def conditional_run_select(
                 (18,)).fetchall()
             ```
     """
+    warnings.warn(
+        "\n\n‼️WARNING‼️\n🚧 Experimental - not yet "
+        "covered by tests; behavior "
+        "may change without notice.\n\n",
+        category=ExperimentalWarning,
+        stacklevel=2,
+    )
+
     if _check_if_valid(table_name) and _check_if_valid(to_select):
         try:
             res = cursor.execute(
@@ -258,6 +288,9 @@ def run_insert(
 ):
     """
     Inserts a single row into a table.
+
+    **Status:** 🚧 Experimental - not yet covered by tests; behavior may
+    change without notice.
 
     Validates `table_name` and `columns` first - only letters, numbers,
     and underscores are allowed - to guard against SQL injection before
@@ -299,6 +332,14 @@ def run_insert(
             conn.commit()
             ```
     """
+    warnings.warn(
+        "\n\n‼️WARNING‼️\n🚧 Experimental - not yet "
+        "covered by tests; behavior "
+        "may change without notice.\n\n",
+        category=ExperimentalWarning,
+        stacklevel=2,
+    )
+
     columns_str = ", ".join(columns)
     if _check_if_valid(columns_str) and _check_if_valid(table_name):
         try:
@@ -336,6 +377,9 @@ def run_delete(
 ):
     """
     Deletes rows from a table matching a condition.
+
+    **Status:** 🚧 Experimental - not yet covered by tests; behavior may
+    change without notice.
 
     Validates `table_name` first - only letters, numbers, and
     underscores are allowed -to guard against SQL injection before
@@ -375,6 +419,14 @@ def run_delete(
             cursor.execute("DELETE FROM users WHERE name = ?", ('Ada',))
             ```
     """
+    warnings.warn(
+        "\n\n‼️WARNING‼️\n🚧 Experimental - not yet "
+        "covered by tests; behavior "
+        "may change without notice.\n\n",
+        category=ExperimentalWarning,
+        stacklevel=2,
+    )
+
     if _check_if_valid(table_name):
         try:
             cursor.execute(f"DELETE FROM {table_name} WHERE {condition}", params)
@@ -404,6 +456,9 @@ def delete_all_from_table(
 ):
     """
     Deletes all rows from a table, leaving the table itself intact.
+
+    **Status:** 🚧 Experimental - not yet covered by tests; behavior may
+    change without notice.
 
     Validates `table_name` first - only letters, numbers, and
     underscores are allowed - to guard against SQL injection before
@@ -439,6 +494,14 @@ def delete_all_from_table(
             cursor.execute("DELETE FROM users")
             ```
     """
+    warnings.warn(
+        "\n\n‼️WARNING‼️\n🚧 Experimental - not yet "
+        "covered by tests; behavior "
+        "may change without notice.\n\n",
+        category=ExperimentalWarning,
+        stacklevel=2,
+    )
+
     if _check_if_valid(table_name):
         try:
             cursor.execute(f"DELETE FROM {table_name}")
@@ -454,6 +517,102 @@ def delete_all_from_table(
         raise EasySqlError(
             "\n\nERROR: table_name "
             "can only contain:"
+            "\n\t- Uppercase letters (A-Z)"
+            "\n\t- Lowercase letters (a-z)"
+            "\n\t- Underscores  (_)."
+        ) from None
+
+
+def run_update(
+    connection: sqlite3.Connection,
+    cursor: sqlite3.Cursor,
+    table_name: str,
+    updates: dict,
+    condition: str,
+    params: tuple = (),
+    close_conn_after: bool = False,
+):
+    """
+    Updates rows in a table matching a condition.
+
+    **Status:** 🚧 Experimental - not yet covered by tests; behavior may
+    change without notice.
+
+    Validates `table_name` and the keys of `updates` first - only
+    letters, numbers, and underscores are allowed - to guard against
+    SQL injection before building the query string. Values in `updates`
+    and `params` are passed as parameters, not interpolated into the
+    query.
+
+    Args:
+        connection (sqlite3.Connection): Open connection to the database.
+        cursor (sqlite3.Cursor): Cursor for executing SQL statements.
+        table_name (str): Name of the table to update.
+        updates (dict): Column names mapped to their new values, e.g.
+            {"age": 30, "city": "Boston"}.
+        condition (str): SQL condition with `?` placeholders for values
+            used in the WHERE clause.
+        params (tuple): Values to substitute into the `?` placeholders
+            in `condition`, in order. Defaults to an empty tuple.
+        close_conn_after (bool): If True, closes `connection` after the
+            update runs. Defaults to False.
+
+    Raises:
+        EasySqlError: If `table_name` or any key in `updates` contains
+            anything other than letters, numbers, or underscores, or if
+            the update itself fails.
+
+    Example:
+        === "The Py_simple Way"
+            ```python
+            from py_simple import open_db, run_update
+
+            connection, cursor = open_db('mydb.db')
+            run_update(connection, cursor, 'users',
+                       {"age": 30, "city": "Boston"}, "name = ?", ('Ada',))
+            ```
+
+        === "The Traditional Way"
+            ```python
+            import sqlite3
+
+            conn = sqlite3.connect('test.db')
+            cursor = conn.cursor()
+            cursor.execute(
+                "UPDATE users SET age = ?, city = ? WHERE name = ?",
+                (30, "Boston", 'Ada'))
+            conn.commit()
+            ```
+    """
+    warnings.warn(
+        "\n\n‼️WARNING‼️\n🚧 Experimental - not yet "
+        "covered by tests; behavior "
+        "may change without notice.\n\n",
+        category=ExperimentalWarning,
+        stacklevel=2,
+    )
+
+    columns_str = ", ".join(updates.keys())
+    if _check_if_valid(columns_str) and _check_if_valid(table_name):
+        try:
+            set_clause = ", ".join(f"{col} = ?" for col in updates)
+            cursor.execute(
+                f"UPDATE {table_name} SET {set_clause} WHERE {condition}",
+                (*updates.values(), *params),
+            )
+            connection.commit()
+            if close_conn_after:
+                connection.close()
+        except (
+            sqlite3.OperationalError,
+            sqlite3.ProgrammingError,
+            sqlite3.DatabaseError,
+        ) as e:
+            raise EasySqlError(f"\n\nERROR: {e}") from None
+    else:
+        raise EasySqlError(
+            "\n\nERROR: table_name and updates keys can "
+            "only contain:"
             "\n\t- Uppercase letters (A-Z)"
             "\n\t- Lowercase letters (a-z)"
             "\n\t- Underscores  (_)."
